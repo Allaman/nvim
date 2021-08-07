@@ -1,0 +1,2 @@
+setlocal spell
+setlocal wrap
