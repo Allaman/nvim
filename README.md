@@ -2,7 +2,7 @@
 
 ![](./screen.png)
 
-This is my Lua based NeoVim (>0.5) configuration. Goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
+This is my first Lua based NeoVim (>0.5) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
 As I am not familiar with Lua I tried to accomplish the migration with very basic and minimal use of its language features and make it just work and not make it beautiful 😃
 
@@ -10,13 +10,7 @@ As I am not familiar with Lua I tried to accomplish the migration with very basi
 
 ```sh
 .
-├── ftplugin
-│   ├── go.lua
-│   ├── json.lua
-│   ├── make.lua
-│   ├── markdown.vim
-│   ├── tf.lua
-│   └── yaml.lua
+├── ftplugin/  # file specific settings
 ├── init.lua # lists all other Lua files to be sourced
 ├── lua
 │   ├── autocmd.lua # vim autocommands
