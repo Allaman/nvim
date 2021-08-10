@@ -198,6 +198,12 @@ return require('packer').startup(function()
 
   use 'sotte/presenting.vim'
 
+  -- https://github.com/folke/trouble.nvim
+  use {
+  "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons"
+  }
+
 
   -- brauch ich????
   -- https://github.com/glepnir/lspsaga.nvim

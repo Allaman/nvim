@@ -39,6 +39,7 @@ sudo npm i -g bash-language-server &&\
   sudo npm i -g dockerfile-language-server-nodejs &&\
   sudo npm i -g yaml-language-server &&\
 go get golang.org/x/tools/gopls
+  https://github.com/hashicorp/terraform-ls
 ]]
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
