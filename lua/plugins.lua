@@ -189,23 +189,29 @@ return require('packer').startup(function()
 
   -- https://github.com/blackCauldron7/surround.nvim
   use {
-  "blackCauldron7/surround.nvim",
-  config = function()
-    vim.g.surround_mappings_style = "surround"
-    require'surround'.setup {}
-  end
+    "blackCauldron7/surround.nvim",
+    config = function()
+      vim.g.surround_mappings_style = "surround"
+      require'surround'.setup {}
+    end
   }
 
+  -- https://github.com/sotte/presenting.vim
   use 'sotte/presenting.vim'
 
   -- https://github.com/folke/trouble.nvim
   use {
-  "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons"
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons"
   }
 
+  -- https://github.com/folke/todo-comments.nvim
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim"
+  }
 
-  -- brauch ich????
+  -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
   -- use 'glepnir/lspsaga.nvim'
 end)

@@ -4,6 +4,7 @@ map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", {silent = t
 map("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>", {silent = true, noremap = true})
 map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
 map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
+map("n", "<leader>xt", "<cmd>TodoTrouble<cr>", {silent = true, noremap = true})
 map("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
 require("trouble").setup {
     position = "bottom", -- position of the list can be: bottom, top, left, right
@@ -38,7 +39,7 @@ require("trouble").setup {
     auto_open = false, -- automatically open the list when you have diagnostics
     auto_close = false, -- automatically close the list when you have no diagnostics
     auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
-    auto_fold = false, -- automatically fold a file trouble list at creation
+    auto_fold = true, -- automatically fold a file trouble list at creation
     signs = {
         -- icons / text used for a diagnostic
         error = "",
