@@ -26,7 +26,13 @@ telescope.setup{
       i = {
         -- Close on first esc instead of gonig to normal mode
         ["<esc>"] = actions.close,
-      }
+        ["<C-w>"] = actions.send_selected_to_qflist,
+        ["<C-q>"] = actions.send_to_qflist,
+      },
+      n = {
+        ["<C-w>"] = actions.send_selected_to_qflist,
+        ["<C-q>"] = actions.send_to_qflist,
+      },
     },
     prompt_prefix = " ",
     selection_caret = " ",
