@@ -1,13 +1,18 @@
 local map = vim.api.nvim_set_keymap
+
+local actions = require('telescope.actions')
+local telescope = require('telescope')
+
+telescope.load_extension('projects')
+
 map('n', '<C-p>', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>", options)
 map('n', '<Leader>fr', '<cmd>Telescope oldfiles<cr>', options) -- last opened files
 map('n', '<Leader>rg', '<cmd>Telescope live_grep<cr>', options) -- search for a string in current working directory
 map('n', '<Leader>b', '<cmd>Telescope buffers<cr>', options) -- list buffers
 map('n', '<Leader>/', '<cmd>Telescope grep_string<cr>', options) -- search string under cursor in working directory
-map('n', '<Leader>t', '<cmd>Telescope<cr>', options) -- search string under cursor in working directory
+map('n', '<Leader>t', '<cmd>Telescope<cr>', options) -- search pickers
+map('n', '<Leader>tp', "<cmd>Telescope projects<cr>", options) --
 
-local actions = require('telescope.actions')
-local telescope = require('telescope')
 
 telescope.setup{
   defaults = {

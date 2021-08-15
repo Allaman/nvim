@@ -210,7 +210,10 @@ return require('packer').startup(function()
   }
 
   -- https://github.com/ahmedkhalf/project.nvim
+  use "ahmedkhalf/project.nvim"
+
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
   -- use 'glepnir/lspsaga.nvim'
 end)
+
