@@ -14,9 +14,14 @@ local g = vim.g
 -- g.material_hide_eob = true
 -- -- Load the colorscheme
 -- require('material').set()
+
+-- tokyonight theme
 g.tokyonight_style = "night"
 g.tokyonight_dark_sidebar = false
 vim.cmd[[colorscheme tokyonight]]
+
+-- nord theme
+require('nord').set()
 
 g.neoformat_run_all_formatters = 0
 

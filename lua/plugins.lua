@@ -23,15 +23,13 @@ return require('packer').startup(function()
   use 'famiu/nvim-reload'
 
   -- https://github.com/marko-cerovac/material.nvim
-  -- use {
-  --   'marko-cerovac/material.nvim',
-  --   disable = O.theme.material.active,
-  -- }
+  use 'marko-cerovac/material.nvim'
 
   -- https://github.com/folke/tokyonight.nvim
-  use {
-    'folke/tokyonight.nvim'
-  }
+  use 'folke/tokyonight.nvim'
+
+  -- https://github.com/shaunsingh/nord.nvim
+  use 'shaunsingh/nord.nvim'
 
   -- https://github.com/b3nj5m1n/kommentary
   use 'b3nj5m1n/kommentary'
@@ -211,8 +209,8 @@ return require('packer').startup(function()
     requires = "nvim-lua/plenary.nvim"
   }
 
+  -- https://github.com/ahmedkhalf/project.nvim
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
   -- use 'glepnir/lspsaga.nvim'
 end)
-
