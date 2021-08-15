@@ -38,13 +38,14 @@ https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 sudo npm i -g bash-language-server &&\
   sudo npm i -g dockerfile-language-server-nodejs &&\
   sudo npm i -g yaml-language-server &&\
+  sudo npm i -g typescript typescript-language-server &&\
 go get golang.org/x/tools/gopls
   https://github.com/hashicorp/terraform-ls
 ]]
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "gopls", "bashls", "dockerls", "terraformls", "yamlls"}
+local servers = { "gopls", "bashls", "dockerls", "terraformls", "tsserver", "yamlls"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
