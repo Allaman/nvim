@@ -47,5 +47,11 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", options)
 map("x", "<A-j>", ":m '>+1<CR>gv-gv", options)
 map("x", "<A-k>", ":m '<-2<CR>gv-gv", options)
 
--- bufdelete Mappings
+-- bufdelete mappings
 map("n", "<Leader>x", ":Bdelete<CR>", options)
+
+-- starlite mappings
+map("n", "*", "<cmd>lua require'starlite'.star()<CR>", options)
+map("n", "g*", "<cmd>lua require'starlite'.g_star()<CR>", options)
+map("n", "#", "<cmd>lua require'starlite'.hash()<CR>", options)
+map("n", "g#", "<cmd>lua require'starlite'.g_hash()<CR>", options)

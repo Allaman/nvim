@@ -28,8 +28,8 @@ return require('packer').startup(function()
   -- https://github.com/folke/tokyonight.nvim
   use 'folke/tokyonight.nvim'
 
-  -- https://github.com/shaunsingh/nord.nvim
-  use 'shaunsingh/nord.nvim'
+  -- https://github.com/EdenEast/nightfox.nvim
+  use 'EdenEast/nightfox.nvim'
 
   -- https://github.com/b3nj5m1n/kommentary
   use 'b3nj5m1n/kommentary'
@@ -211,6 +211,12 @@ return require('packer').startup(function()
 
   -- https://github.com/ahmedkhalf/project.nvim
   use "ahmedkhalf/project.nvim"
+
+  -- https://github.com/f-person/git-blame.nvim
+  use 'f-person/git-blame.nvim'
+
+  -- https://github.com/ironhouzi/starlite-nvim
+  use 'ironhouzi/starlite-nvim'
 
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim

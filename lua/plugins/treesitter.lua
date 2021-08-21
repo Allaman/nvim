@@ -1,5 +1,3 @@
-vim.api.nvim_command('set foldmethod=expr')
-vim.api.nvim_command('set foldexpr=nvim_treesitter#foldexpr()')
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "bash", "cmake", "dockerfile", "go", "hcl", "html", "java", "javascript", "json", "latex", "ledger", "lua", "python", "toml", "yaml"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { }, -- List of parsers to ignore installing

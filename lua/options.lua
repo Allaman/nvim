@@ -6,6 +6,7 @@ local execute = vim.api.nvim_command
 
 vim.cmd "filetype indent plugin on"
 vim.cmd "set inccommand=split"
+o.guicursor="n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
 o.updatetime = 300 -- faster completion
 o.timeoutlen =  400 -- time to wait for a mapped sequence to complete (in milliseconds)
 o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
@@ -38,11 +39,13 @@ o.scrolloff = 3 -- Minimal number of screen lines to keep above and below the cu
 o.sidescrolloff = 5 -- The minimal number of columns to scroll horizontally
 o.hlsearch = true -- highlight all matches on previous search pattern
 o.ignorecase = true -- ignore case in search patterns
-o.foldenable = false -- disable folding
+o.foldenable = false -- disable folding; enable with zi
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
 -- o.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 o.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣"
 o.shortmess = o.shortmess + 'c' -- prevent "pattern not found" messages
-vim.wo.colorcolumn = "99999"
+wo.colorcolumn = "99999"
 o.wildmode = "full"
 o.grepprg = "rg --hidden --vimgrep --smart-case --"
 o.completeopt = { 'menuone', 'noselect', 'noinsert' } -- A comma separated list of options for Insert mode completion

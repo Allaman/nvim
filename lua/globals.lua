@@ -16,12 +16,13 @@ local g = vim.g
 -- require('material').set()
 
 -- tokyonight theme
-g.tokyonight_style = "night"
-g.tokyonight_dark_sidebar = false
-vim.cmd[[colorscheme tokyonight]]
+-- g.tokyonight_style = "night"
+-- g.tokyonight_dark_sidebar = false
+-- vim.cmd[[colorscheme tokyonight]]
 
--- nord theme
-require('nord').set()
+-- nightfox theme
+g.nightfox_style = "nightfox"
+require('nightfox').set()
 
 g.neoformat_run_all_formatters = 0
 
