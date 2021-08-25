@@ -1,5 +1,5 @@
 local map = vim.api.nvim_set_keymap
-map("n", "<Leader>#", ":SymbolsOutline<CR>", { noremap = true, silent = true })
+map("n", "<Leader>sy", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
     show_guides = true,

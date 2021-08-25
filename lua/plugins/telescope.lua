@@ -1,22 +1,11 @@
-local map = vim.api.nvim_set_keymap
-
 local actions = require('telescope.actions')
 local telescope = require('telescope')
 
 telescope.load_extension('projects')
 
-map('n', '<C-p>', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>", options)
-map('n', '<Leader>fr', '<cmd>Telescope oldfiles<cr>', options) -- last opened files
-map('n', '<Leader>rg', '<cmd>Telescope live_grep<cr>', options) -- search for a string in current working directory
-map('n', '<Leader>b', '<cmd>Telescope buffers<cr>', options) -- list buffers
-map('n', '<Leader>/', '<cmd>Telescope grep_string<cr>', options) -- search string under cursor in working directory
-map('n', '<Leader>t', '<cmd>Telescope<cr>', options) -- search pickers
-map('n', '<Leader>tp', "<cmd>Telescope projects<cr>", options) --
-
-
 telescope.setup{
   defaults = {
-    file_ignore_patterns = {"node_modules", "%.jpg"},
+    file_ignore_patterns = {"node_modules", "%.jpg", "%.png"},
     vimgrep_arguments = {
       'rg',
       '--follow',
@@ -31,7 +20,7 @@ telescope.setup{
       i = {
         -- Close on first esc instead of gonig to normal mode
         ["<esc>"] = actions.close,
-        ["<C-w>"] = actions.send_selected_to_qflist,
+        ["<A-q>"] = actions.send_selected_to_qflist,
         ["<C-q>"] = actions.send_to_qflist,
         ["<s-tab>"] = actions.toggle_selection + actions.move_selection_next,
         ["<tab>"] = actions.toggle_selection + actions.move_selection_previous,
@@ -39,7 +28,7 @@ telescope.setup{
       n = {
         ["<s-tab>"] = actions.toggle_selection + actions.move_selection_next,
         ["<tab>"] = actions.toggle_selection + actions.move_selection_previous,
-        ["<C-w>"] = actions.send_selected_to_qflist,
+        ["<A-q>"] = actions.send_selected_to_qflist,
         ["<C-q>"] = actions.send_to_qflist,
       },
     },
@@ -58,7 +47,6 @@ telescope.setup{
       vertical = { mirror = false },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = {},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     -- path_display = true, -- strange behaviour not showing the files in result window
     winblend = 0,

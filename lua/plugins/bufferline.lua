@@ -1,12 +1,7 @@
-local map = vim.api.nvim_set_keymap
-map("n", "<Leader>bp", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
-map("n", "<Leader>bn", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
-map("n", "<Leader>bj", ":BufferLinePick<CR>", { noremap = true, silent = true })
 require('bufferline').setup {
   options = {
     numbers = "buffer_id",
     number_style = { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
-    mappings = true,
     close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
     right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"

@@ -1,6 +1,5 @@
 local map = vim.api.nvim_set_keymap
 map("i", "<C-Space>", "compe#complete()", { noremap = true, silent = true, expr = true })
--- map("i", "<CR>", "compe#confirm('<CR>')", { noremap = true, silent = true, expr = true })
 map("i", "<CR>", "compe#confirm(luaeval(\"require 'nvim-autopairs'.autopairs_cr()\"))", { noremap = true, silent = true, expr = true })
 
 require('compe').setup {
@@ -39,7 +38,6 @@ require('compe').setup {
     -- ultisnips = {kind = "  "},
     treesitter = {kind = "  "},
     emoji = { kind = " ﲃ  (Emoji)", filetypes = { "markdown", "text" } },
-    -- for emoji press : (idk if that in compe tho)
   },
 }
 
@@ -81,7 +79,8 @@ _G.s_tab_complete = function()
   end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+local map = vim.api.nvim_set_keymap
+map("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
+map("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
+map("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+map("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })

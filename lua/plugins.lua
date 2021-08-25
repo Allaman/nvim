@@ -19,9 +19,6 @@ return require('packer').startup(function()
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
-  -- https://github.com/famiu/nvim-reload
-  use 'famiu/nvim-reload'
-
   -- https://github.com/marko-cerovac/material.nvim
   use 'marko-cerovac/material.nvim'
 
@@ -115,6 +112,7 @@ return require('packer').startup(function()
   use 'junegunn/fzf'
 
   -- https://github.com/akinsho/nvim-bufferline.lua
+
   use {
     'akinsho/nvim-bufferline.lua',
     requires = 'kyazdani42/nvim-web-devicons'
@@ -218,6 +216,12 @@ return require('packer').startup(function()
 
   -- https://github.com/ironhouzi/starlite-nvim
   use 'ironhouzi/starlite-nvim'
+
+  -- https://github.com/folke/which-key.nvim
+  use "folke/which-key.nvim"
+
+  -- https://github.com/junegunn/vim-easy-align
+  use 'junegunn/vim-easy-align'
 
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
