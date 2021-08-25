@@ -2,7 +2,6 @@ local o = vim.opt
 local wo = vim.wo
 local bo = vim.bo
 local fn = vim.fn
-local execute = vim.api.nvim_command
 
 vim.cmd "filetype indent plugin on"
 vim.cmd "set inccommand=split"
@@ -63,4 +62,30 @@ o.wildignore = [[
 *.swp,.lock,.DS_Store,._*
 */tmp/*,*.so,*.swp,*.zip,**/node_modules/**,**/target/**,**.terraform/**"
 ]]
+
+local g = vim.g
+
+-- Material theme
+-- g.material_style = 'deep ocean'
+-- g.material_style = 'darker'
+-- g.material_italic_comments = true
+-- g.material_italic_keywords = true
+-- g.material_italic_functions = true
+-- g.material_italic_variables = false
+-- g.material_contrast = true
+-- g.material_borders = false
+-- g.material_disable_background = false
+-- g.material_contrast = false
+-- g.material_hide_eob = true
+-- -- Load the colorscheme
+-- require('material').set()
+
+-- tokyonight theme
+-- g.tokyonight_style = "night"
+-- g.tokyonight_dark_sidebar = false
+-- vim.cmd[[colorscheme tokyonight]]
+
+-- nightfox theme
+g.nightfox_style = "nightfox"
+require('nightfox').set()
 
