@@ -46,10 +46,10 @@ return require('packer').startup(function()
     requires = { 'nvim-lua/plenary.nvim' }
   }
 
-  -- https://github.com/glepnir/galaxyline.nvim
+  -- https://github.com/hoob3rt/lualine.nvim
   use {
-    'glepnir/galaxyline.nvim',
-      branch = 'main'
+  'hoob3rt/lualine.nvim',
+  requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   -- https://github.com/norcalli/nvim-colorizer.lua
