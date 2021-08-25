@@ -1,0 +1,12 @@
+{
+  "gwa": {
+    "prefix": "gwa",
+    "body": ":warning: ${1:some-warning}",
+    "description": "Gitlab Warning paragraph"
+  },
+  "link": {
+    "prefix": "link",
+    "body": "[${1}](${2})",
+    "description": "markdown link"
+  }
+}

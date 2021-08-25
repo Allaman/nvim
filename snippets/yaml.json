@@ -1,0 +1,192 @@
+{
+  "rc": {
+    "prefix": "rc",
+    "body": "# WARNING, use Deployments -- ReplicationController is being replaced.\napiVersion: v1\nkind: ReplicationController\nmetadata:\n\tname: ${1:some-controller}\n\tnamespace: ${2:default}\nspec:\n\treplicas: 1\n\ttemplate:\n\t\tmetadata:\n\t\t\tlabels:\n\t\t\t\tapp: $1\n\t\t\t\ttier: $3\n\t\tspec:\n\t\t\tcontainers:\n\t\t\t- name: ${4:name}\n\t\t\t\timage: ${5:nginx}\n\t\t\t\timagePullPolicy: Always\n\t\t\t\tresources:\n\t\t\t\t\trequests:\n\t\t\t\t\t\tcpu: 100m\n\t\t\t\t\t\tmemory: 200Mi\n\t\t\t\tports:\n\t\t\t\t- containerPort: 8080",
+    "description": "Replication Controller"
+  },
+  "dep": {
+    "prefix": "dep",
+    "body": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n\tname: ${1:some-controller}\n\tnamespace: ${2:default}\nspec:\n\treplicas: 1\n\tselector:\n\t\tmatchLabels:\n\t\t\t$3\n\ttemplate:\n\t\tmetadata:\n\t\t\tlabels:\n\t\t\t\t${3:app: $1}\n\t\tspec:\n\t\t\tcontainers:\n\t\t\t- name: ${4:name}\n\t\t\t\timage: ${5:nginx}\n\t\t\t\timagePullPolicy: Always\n\t\t\t\tresources:\n\t\t\t\t\trequests:\n\t\t\t\t\t\tcpu: 100m\n\t\t\t\t\t\tmemory: 200Mi\n\t\t\t\tports:\n\t\t\t\t- containerPort: 8080",
+    "description": "Deployment"
+  },
+  "svc": {
+    "prefix": "svc",
+    "body": "apiVersion: v1\nkind: Service\nmetadata:\n\tname: ${1:frontend}\n\tnamespace: ${2:default}\n\tlabels:\n\t\tapp: ${3:someApp}\n\t\ttier: ${4:frontend}\nspec:\n\tports:\n\t- port: ${5:80}\n\tselector:\n\t\tapp: $3\n\t\ttier: $4",
+    "description": "Service"
+  },
+  "depsvc": {
+    "prefix": "depsvc",
+    "body": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n\tname: ${1:some-controller}\n\tnamespace: ${2:default}\nspec:\n\treplicas: 1\n\tselector:\n\t\tmatchLabels:\n\t\t\t$3\n\ttemplate:\n\t\tmetadata:\n\t\t\tlabels:\n\t\t\t\t${3:app: $1}\n\t\tspec:\n\t\t\tcontainers:\n\t\t\t- name: ${4:name}\n\t\t\t\timage: ${5:nginx}\n\t\t\t\timagePullPolicy: Always\n\t\t\t\tresources:\n\t\t\t\t\trequests:\n\t\t\t\t\t\tcpu: 100m\n\t\t\t\t\t\tmemory: 200Mi\n\t\t\t\tports:\n\t\t\t\t- containerPort: ${6:8080}\n---\napiVersion: v1\nkind: Service\nmetadata:\n\tname: $1\n\tnamespace: $2\nspec:\n\tports:\n\t- port: ${7:80}\n\t\ttargetPort: $6\n\tselector:\n\t\t$3",
+    "description": "Deployment and service"
+  },
+  "depsvcing": {
+    "prefix": "depsvcing",
+    "body": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n\tname: ${1:some-controller}\n\tnamespace: ${2:default}\nspec:\n\treplicas: 1\n\tselector:\n\t\tmatchLabels:\n\t\t\t$3\n\ttemplate:\n\t\tmetadata:\n\t\t\tlabels:\n\t\t\t\t${3:app: $1}\n\t\tspec:\n\t\t\tcontainers:\n\t\t\t- name: ${4:name}\n\t\t\t\timage: ${5:nginx}\n\t\t\t\timagePullPolicy: Always\n\t\t\t\tresources:\n\t\t\t\t\trequests:\n\t\t\t\t\t\tcpu: 100m\n\t\t\t\t\t\tmemory: 200Mi\n\t\t\t\tports:\n\t\t\t\t- containerPort: ${6:8080}\n---\napiVersion: v1\nkind: Service\nmetadata:\n\tname: $1\n\tnamespace: $2\nspec:\n\tports:\n\t- port: ${7:80}\n\t\ttargetPort: $6\n\tselector:\n\t\t$3\n---\napiVersion: extensions/v1beta1\nkind: Ingress\nmetadata:\n\tname: $1\n\tnamespace: $2\nspec:\n\t${10:tls:\n\t- secretName: ${9:$8.tls}\n\t\thosts:\n\t\t- $8\n\t}rules:\n\t- host: ${8:host}\n\t\thttp:\n\t\t\tpaths:\n\t\t\t- path: ${11:/}\n\t\t\t\tbackend:\n\t\t\t\t\tserviceName: $1\n\t\t\t\t\tservicePort: $7",
+    "description": "Deployment, service, and ingress"
+  },
+  "pv": {
+    "prefix": "pv",
+    "body": "apiVersion: v1\nkind: PersistentVolume\nmetadata:\n\tname: ${1:name}\n\tlabels:\n\t\tapp: ${2:app}\n\t\ttier: ${3:tier}\nspec:\n\tcapacity:\n\t\tstorage: ${4:20Gi}\n\taccessModes:\n\t\t- ${5:ReadWriteMany}\n\tnfs:\n\t\tserver: ${6:NameOrIP}\n\t\tpath: ${7:\"/share/path/on/server\"}",
+    "description": "PersistentVolume"
+  },
+  "pvc": {
+    "prefix": "pvc",
+    "body": "apiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n\tname: ${1:name}\n\tlabels:\n\t\t# insert any desired labels to identify your claim\n\t\tapp: ${2:app}\n\t\ttier: ${3:tier}\nspec:\n\t${4:storageClassName: ${5:standard}}\n\taccessModes:\n\t\t- ${6:ReadWriteOnce}\n\tresources:\n\t\trequests:\n\t\t\t# The amount of the volume's storage to request\n\t\t\tstorage: ${7:20Gi}",
+    "description": "PersistentVolumeClaim"
+  },
+  "ing": {
+    "prefix": "ing",
+    "body": "apiVersion: extensions/v1beta1\nkind: Ingress\nmetadata:\n\tname: ${1:name}\n\tnamespace: ${2:default}\nspec:\n\t${5:tls:\n\t- secretName: ${4:$3.tls}\n\t\thosts:\n\t\t- $3\n\t}rules:\n\t- host: ${3:host.tld}\n\t\thttp:\n\t\t\tpaths:\n\t\t\t- path: ${7:/}\n\t\t\t\tbackend:\n\t\t\t\t\tserviceName: ${8:service}\n\t\t\t\t\tservicePort: ${9:portNumberOrName}",
+    "description": "Ingress"
+  },
+  "ns": {
+    "prefix": "ns",
+    "body": "apiVersion: v1\nkind: Namespace\nmetadata:\n\tname: ${1:name}",
+    "description": "Namespace"
+  },
+  "sa": {
+    "prefix": "sa",
+    "body": "apiVersion: v1\nkind: ServiceAccount\nmetadata:\n\tname: ${1:name}",
+    "description": "ServiceAccount"
+  },
+  "ingtls": {
+    "prefix": "ingtls",
+    "body": "tls:\n- secretName: ${2:$1.tls}\n\thosts:\n\t- ${1:host}",
+    "description": "Ingress TLS section"
+  },
+  "cfg": {
+    "prefix": "cfg",
+    "body": "apiVersion: v1\nkind: ConfigMap\nmetadata:\n\tname: ${1:name}\ndata:\n\t${2:key}: ${3:value}",
+    "description": "ConfigMap"
+  },
+  "sec": {
+    "prefix": "sec",
+    "body": "apiVersion: v1\nkind: Secret\nmetadata:\n  name: ${1:secret-name}\ntype: ${2:Opaque}\ndata:\n  ${3:key}: ${4:value}",
+    "description": "Secret"
+  },
+  "env": {
+    "prefix": "env",
+    "body": "- name: ${1:VAR_NAME}\n  value: ${2:value}",
+    "description": "Environment template"
+  },
+  "secref": {
+    "prefix": "secref",
+    "body": "valueFrom:\n\tsecretKeyRef:\n\t\tname: ${1:secret-name}\n\t\tkey: ${2:key-name}",
+    "description": "env SecretRef"
+  },
+  "pvol": {
+    "prefix": "pvol",
+    "body": "- name: ${1:name}\n\t${2:source}:\n\t\tname:",
+    "description": "Pod Volume Object"
+  },
+  "job": {
+    "prefix": "job",
+    "body": "apiVersion: batch/v1\nkind: Job\nmetadata:\n\tname: ${1:jobname}\n\tlabels:\n\t\t${2:sometag: somevalue}\nspec:\n\ttemplate:\n\t\tmetadata:\n\t\t\tname: $1\n\t\tspec:\n\t\t\tcontainers:\n\t\t\t- name: ${3:containerName}\n\t\t\t\timage: ${4: image}\n\t\t\t\timagePullPolicy: Always\n\t\t\t\tcommand:\n\t\t\t\t- ${5:\"override\"\n\t\t\t\t- \"--the\"\n\t\t\t\t- \"entrypoint\"}\n\t\t\trestartPolicy: OnFailure",
+    "description": "Kubernetes Job"
+  },
+  "cron": {
+    "prefix": "cron",
+    "body": "apiVersion: batch/v2alpha1\nkind: CronJob\nmetadata:\n\tname: ${1:name}\nspec:\n\tschedule: \"${2:*/1} * * * *\"\n\tjobTemplate:\n\t\tspec:\n\t\t\ttemplate:\n\t\t\t\tspec:\n\t\t\t\t\tcontainers:\n\t\t\t\t\t- name: $1\n\t\t\t\t\t\timage: ${3: image}\n\t\t\t\t\t\targs: ${4:\n\t\t\t\t\t\t- /bin/sh\n\t\t\t\t\t\t- -c\n\t\t\t\t\t\t- date; echo Hello from the Kubernetes cluster}\n\t\t\t\t\trestartPolicy: OnFailure",
+    "description": "Kubernetes Cronjob"
+  },
+  "skr": {
+    "prefix": "skr",
+    "body": "valueFrom:\n\tsecretKeyRef:\n\t\tname: ${1:secret}\n\t\tkey: ${2:key}",
+    "description": "SecretKeyRef"
+  },
+  "cert": {
+    "prefix": "cert",
+    "body": "apiVersion: certmanager.k8s.io/v1alpha1\nkind: Certificate\nmetadata:\n\tname: ${1:name}\n\tnamespace: ${2:namespace}\nspec:\n\tsecretName: ${4:$3.tls}\n\tdnsNames:\n\t- ${3:some.domain.com}\n\tacme:\n\t\tconfig:\n\t\t- dns01:\n\t\t\t\tprovider: ${4:prod}\n\t\t\tdomains: [ $3 ]\n\tissuerRef:\n\t\tname: ${5:letsencrypt}\n\t\tkind: ClusterIssuer",
+    "description": "cert-manager certificate"
+  },
+  "netp": {
+    "prefix": "netp",
+    "body": "kind: NetworkPolicy\napiVersion: extensions/v1beta1\nmetadata:\n\tnamespace: ${1:default}\n\tname: ${2:policyname}\n\tspec:\n\t${4:podSelector:\n\t\t\tmatchLabels:\n\t\t\t\t${3:{}}\n}\tingress:\n\t\t\t- {}",
+    "description": "NetworkPolicy"
+  },
+  "probe": {
+    "prefix": "probe",
+    "body": "livenessProbe: &probe\n\tinitialDelaySeconds: ${1:10}\n\thttpGet:\n\t\tport: ${2:8080}\n\t\tpath: ${3:/}\nreadinessProbe: *probe $0",
+    "description": "Liveness/Readiness Probes"
+  },
+  "ss": {
+    "prefix": "ss",
+    "body": "apiVersion: v1\nkind: Service\nmetadata:\n\tname: ${1:myservice}\nspec:\n\tports:\n\t- port: $5\n\t\tname: $6\n\tclusterIP: None\n\tselector:\n\t\t$2\n---\napiVersion: apps/v1\nkind: StatefulSet\nmetadata:\n\tname: ${1:mystatefulset}\nspec:\n\tselector:\n\t\tmatchLabels:\n\t\t\t$2\n\tserviceName: \"nginx\"\n\treplicas: 3 # by default is 1\n\ttemplate:\n\t\tmetadata:\n\t\t\tlabels:\n\t\t\t\t${2:app: $1}\n\t\tspec:\n\t\t\t# terminationGracePeriodSeconds: 10\n\t\t\tcontainers:\n\t\t\t- name: ${3:$1}\n\t\t\t\timage: ${4:$1}\n\t\t\t\tports:\n\t\t\t\t- containerPort: ${5:80}\n\t\t\t\t\tname: ${6:web}\n\t\t\t\tvolumeMounts:\n\t\t\t\t- name: ${7:volume}\n\t\t\t\t\tmountPath: ${8:/var/lib/mydata}\n\tvolumeClaimTemplates:\n\t- metadata:\n\t\t\tname: $7\n\t\tspec:\n\t\t\taccessModes: [ \"ReadWriteOnce\" ]\n\t\t\tstorageClassName: \"${9:standard}\"\n\t\t\tresources:\n\t\t\t\trequests:\n\t\t\t\t\tstorage: ${10:1G}",
+    "description": "StatefulSet"
+  },
+  "res": {
+    "prefix": "res",
+    "body": "resources:\n\trequests:\n\t\tcpu: ${1:100m}\n\t\tmemory: ${2:200Mi}\n\t${5:limits:\n\t\tcpu: ${3:$1}\n\t\tmemory: ${4:$2}}$0",
+    "description": "Resources"
+  },
+  "init": {
+    "prefix": "init",
+    "body": "initContainers:\n- name: ${1:myinit}\n\timage: ${2:busybox}\n\tcommand: [${3:rm, -rf,  $5/lost+found}]\n\t${6:volumeMounts:\n\t- name: ${4:data}\n\t\tmountPath: ${5:/data}}$0",
+    "description": "Init Container"
+  },
+  "strat": {
+    "prefix": "strat",
+    "body": "strategy:\n\ttype: ${1:RollingUpdate|Recreate}\n\trollingUpdate:\n\t\tmaxSurge: ${2:1}\n\t\tmaxUnavailable: ${3:1}$0",
+    "description": "Deployment Strategy"
+  },
+  "atls": {
+    "prefix": "atls",
+    "body": "annotations:\n\tkubernetes.io/tls-acme: \"true\"",
+    "description": "tls-acme annotations"
+  },
+  "vtls": {
+    "prefix": "vtls",
+    "body": "annotations:\n\tkubernetes.io/tls-vault: \"true\"",
+    "description": "tls-vault annotations"
+  },
+  "cmtls": {
+    "prefix": "cmtls",
+    "body": "${2:annotations:\n\t}certmanager.k8s.io/cluster-issuer: ${1:lets-encrypt}",
+    "description": "cert-manager tls annotations"
+  },
+  "edns": {
+    "prefix": "edns",
+    "body": "annotations:\n\texternal-dns.alpha.kubernetes.io/hostname: ${1:myname.mydomain.com}",
+    "description": "external dns"
+  },
+  "role": {
+    "prefix": "role",
+    "body": "kind: ${1:Cluster}Role\napiVersion: rbac.authorization.k8s.io/v1\nmetadata:\n\t${2:namespace: ${3:default}\n\t}name: ${4:configmap-updater}\nrules:\n- apiGroups: [\"${5:}\"]\n\tresources: [\"${6:configmaps}\"]\n\tresourceNames: [\"${7:my-configmap}\"]\n\tverbs: [${8:\"update\", \"get\"}]",
+    "description": "Role"
+  },
+  "rb": {
+    "prefix": "rb",
+    "body": "# This role binding allows \"jane\" to read pods in the \"default\" namespace.\nkind: ${1:Cluster}RoleBinding\napiVersion: rbac.authorization.k8s.io/v1\nmetadata:\n\tname: ${2:read-pods}\n\t${3:namespace: ${4:pods}\n}subjects:\n- kind: ${5:User|ServiceAccount|Group}\n\tname: ${6:jane} # Name is case sensitive\n\tapiGroup: rbac.authorization.k8s.io\nroleRef:\n\tkind: ${7:Cluster}Role #this must be Role or ClusterRole\n\tname: ${8:pod-reader} # this must match the name of the Role or ClusterRole you wish to bind to\n\tapiGroup: rbac.authorization.k8s.io",
+    "description": "RoleBinding"
+  },
+  "rbac": {
+    "prefix": "rbac",
+    "body": "kind: ${1:Cluster}Role\napiVersion: rbac.authorization.k8s.io/v1\nmetadata:\n\t${2:namespace: ${3:default}\n\t}name: ${4:configmap-updater}\nrules:\n- apiGroups: [\"${5:}\"]\n\tresources: [\"${6:configmaps}\"]\n\tresourceNames: [\"${7:my-configmap}\"]\n\tverbs: [${8:\"update\", \"get\"}]\n---\n# This role binding allows \"jane\" to read pods in the \"default\" namespace.\nkind: ${9:Cluster}RoleBinding\napiVersion: rbac.authorization.k8s.io/v1\nmetadata:\n\tname: $4\n\t$2\nsubjects:\n- kind: ${10:User|ServiceAccount|Group}\n\tname: ${11:jane} # Name is case sensitive\n\tapiGroup: rbac.authorization.k8s.io\nroleRef:\n\tkind: $1Role #this must be Role or ClusterRole\n\tname: $4 # this must match the name of the Role or ClusterRole you wish to bind to\n\tapiGroup: rbac.authorization.k8s.io",
+    "description": "Role and Binding"
+  },
+  "hpa": {
+    "prefix": "hpa",
+    "body": "apiVersion: autoscaling/v2beta1\nkind: HorizontalPodAutoscaler\nmetadata:\n  name: ${1:hpa-name}\n  namespace: ${2:default}\nspec:\n  scaleTargetRef:\n    apiVersion: apps/v1\n    kind: Deployment\n    name: ${3:deployment-name}\n  minReplicas: 1\n  maxReplicas: 10\n  metrics:\n  - type: Resource\n    resource:\n      name: cpu\n      targetAverageUtilization: 10\n  - type: Resource\n    resource:\n    name: memory\n      targetAverageValue: 1000Mi",
+    "description": "Horizontal Pod Autoscaler"
+  },
+  "pvolm": {
+    "prefix": "pvolm",
+    "body": "\tvolumeMounts:\n\t- name: ${1:volume}\n\t\tmountPath: ${2:/etc/mount/path}\n\t\t${3:subPath: ${4: key}}\nvolumes:\n- name: $1\n\t${5:configMap}:\n\t\t${6:name}: ${7:someName}",
+    "description": "Volume Mount and spec"
+  },
+  "volm": {
+    "prefix": "volm",
+    "body": "- name: ${1:volume}\n\tmountPath: ${2:/etc/mount/path}\n\t${3:subPath: ${4: key}}\n$0",
+    "description": "Volume Mount"
+  },
+  "prom": {
+    "prefix": "prom",
+    "body": "annotations:\n\tprometheus.io/scrape: \"true\"\n\tprometheus.io/endpoint: \"${1:/metrics}\"\n\tprometheus.io/port: \"${2:8080}\"",
+    "description": "Prometheus annotations"
+  },
+  "aff": {
+    "prefix": "aff",
+    "body": "pod${1:Anti}Affinity:\n\t${2:preferred|required}DuringSchedulingIgnoredDuringExecution:\n\t- weight: 100\n\t\tpodAffinityTerm:\n\t\t\tlabelSelector:\n\t\t\t\tmatchExpressions:\n\t\t\t\t- key: ${3:app}\n\t\t\t\t\toperator: In\n\t\t\t\t\tvalues:\n\t\t\t\t\t- ${4:appname}\n\t\t\ttopologyKey: ${5:kubernetes.io/hostname}",
+    "description": "Affinitiy/Anti-Affinity"
+  }
+}

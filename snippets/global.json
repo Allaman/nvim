@@ -1,0 +1,12 @@
+{
+  "gmail": {
+    "prefix": "gmail",
+    "body": "michaeljohannpeter@gmail.com",
+    "description": "Gmail address"
+  },
+  "rootknecht": {
+    "prefix": "rootknecht",
+    "body": "allaman@rootknecht.net",
+    "description": "rootknecht mail address"
+  }
+}

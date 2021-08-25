@@ -78,6 +78,7 @@ return require('packer').startup(function()
 
   -- https://github.com/hrsh7th/vim-vsnip
   use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
   -- https://github.com/rafamadriz/friendly-snippets
   use 'rafamadriz/friendly-snippets'
 
@@ -222,4 +223,3 @@ return require('packer').startup(function()
   -- https://github.com/glepnir/lspsaga.nvim
   -- use 'glepnir/lspsaga.nvim'
 end)
-
