@@ -96,7 +96,8 @@ wk.register({
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    t = "Open Gitui",
+    t = "Open Gitui", -- comand in toggleterm.lua
+    n = { "<cmd>Neogit<cr>", "Open Neogit"},
     u = {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
       "Undo Stage Hunk",
