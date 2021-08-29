@@ -45,7 +45,7 @@ go get golang.org/x/tools/gopls
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "gopls", "bashls", "dockerls", "terraformls", "tsserver", "yamlls"}
+local servers = { "gopls", "bashls", "dockerls", "terraformls", "tsserver", "texlab", "yamlls"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -54,6 +54,29 @@ for _, lsp in ipairs(servers) do
       yaml = { format = { singleQuote = true } },
       -- yaml = { format = { singleQuote = true }, schemas = { kubernetes = "/*.yaml" } },
       redhat = { telemetry = enabled },
+      texlab = {
+        auxDirectory = ".",
+        bibtexFormatter = "texlab",
+        build = {
+          args = { "--keep-intermediates", "--keep-logs", "--synctex", "%f" },
+          executable = "tectonic",
+          forwardSearchAfter = false,
+          onSave = false
+        },
+        chktex = {
+          onEdit = false,
+          onOpenAndSave = false
+        },
+        diagnosticsDelay = 300,
+        formatterLineLength = 80,
+        forwardSearch = {
+          args = {}
+        },
+        latexFormatter = "latexindent",
+        latexindent = {
+          modifyLineBreaks = false
+        }
+      },
     },
     flags = {
       debounce_text_changes = 150,
