@@ -6,7 +6,7 @@ This is my first Lua based NeoVim (>0.5) configuration. My goal was to achieve t
 
 ## Motivation
 
-There is a number of great NeoVim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent to much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs my needs especially because the code is quite sophisticated.
+There is a number of great NeoVim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs my needs especially because the code is quite sophisticated.
 
 So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish the following:
 
@@ -37,3 +37,13 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 - [Doom-nvim](https://github.com/NTBBloodbath/doom-nvim)
 - [spf13-vim](https://github.com/spf13/spf13-vim)
 - [Janus](https://github.com/carlhuda/janus)
+
+## Requirements for certain plugins
+
+See [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration
+
+- Language server for the builtin LSP:
+  - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server`
+  - `go get golang.org/x/tools/gopls`
+  - [terraform-ls](https://github.com/hashicorp/terraform-ls)
+- For checking grammar [LanguageTool](https://dev.languagetool.org/http-server) and its [Server](https://languagetool.org/download/LanguageTool-stable.zip) (requires Java >8 itself)
