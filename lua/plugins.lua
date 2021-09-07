@@ -223,6 +223,9 @@ return require('packer').startup(function()
   -- https://github.com/junegunn/vim-easy-align
   use 'junegunn/vim-easy-align'
 
+  -- https://github.com/rhysd/vim-grammarous
+  use 'rhysd/vim-grammarous'
+
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
   -- use 'glepnir/lspsaga.nvim'
