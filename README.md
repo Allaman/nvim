@@ -46,4 +46,5 @@ See [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) 
   - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server`
   - `go get golang.org/x/tools/gopls`
   - [terraform-ls](https://github.com/hashicorp/terraform-ls)
+  - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
 - For checking grammar [LanguageTool](https://dev.languagetool.org/http-server) and its [Server](https://languagetool.org/download/LanguageTool-stable.zip) (requires Java >8 itself)
