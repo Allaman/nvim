@@ -1,3 +1,4 @@
+require('Navigator').setup()
 local map = vim.api.nvim_set_keymap
 -- tmux navigation
 map('n', "<C-h>", "<cmd>lua require('Navigator').left()<CR>", options)
