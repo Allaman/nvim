@@ -4,5 +4,3 @@ require("project_nvim").setup {
   -- detection_methods = { "lsp", "pattern" },
   detection_methods = { "pattern" },
 }
-g.nvim_tree_update_cwd = 1
-g.nvim_tree_respect_buf_cwd = 1
