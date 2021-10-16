@@ -1,4 +1,5 @@
 local neogit = require('neogit')
+neogit.config.use_magit_keybindings()
 
 neogit.setup {
 disable_signs = false,
@@ -19,13 +20,13 @@ disable_signs = false,
     -- modify status buffer mappings
     status = {
       -- Adds a mapping with "B" as key that does the "BranchPopup" command
-      ["B"] = "BranchPopup",
-      ["C"] = "CommitPopup",
-      ["P"] = "PullPopup",
-      ["S"] = "Stage",
-      ["D"] = "Discard",
+      -- ["B"] = "BranchPopup",
+      -- ["C"] = "CommitPopup",
+      -- ["P"] = "PullPopup",
+      -- ["S"] = "Stage",
+      -- ["D"] = "Discard",
       -- Removes the default mapping of "s"
-      ["s"] = "",
+      -- ["s"] = "",
     }
   }
 }
