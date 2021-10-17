@@ -35,6 +35,9 @@ map("n", "<Right>", ":vertical resize -1<CR>", options)
 map("n", "<Up>", ":resize -1<CR>", options)
 map("n", "<Down>", ":resize +1<CR>", options)
 
+-- Autocorrect spelling from previous error
+map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u", options)
+
 -- Move selected line / block of text in visual mode
 vim.api.nvim_set_keymap("x", "K", ":move '<-2<CR>gv-gv", options)
 vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv-gv", options)
@@ -192,5 +195,13 @@ wk.register({
     n = {"<Plug>(grammarous-move-to-next-error)", "Move cursor to the next error" },
     p = {"<Plug>(grammarous-move-to-previous-error)", "Move cursor to the previous error" },
     d = {"<Plug>(grammarous-disable-rule)", "Disable the grammar rule under the cursor" },
+  },
+  z = {
+    name = "Spelling",
+    n = { "]s", "Next" },
+    p = { "[s", "Previous" },
+    a = { "zg", "Add word" },
+    f = { "1z=", "Use 1. correction" },
+    l = { "z=", "List corrections" },
   }
 }, { prefix = "<leader>", mode = "n", noremap = true, silent = true })
