@@ -226,6 +226,8 @@ return require('packer').startup(function()
   -- https://github.com/rhysd/vim-grammarous
   use 'rhysd/vim-grammarous'
 
+  -- https://github.com/RRethy/vim-illuminate
+  use 'RRethy/vim-illuminate'
   -- https://github.com/ptzz/lf.vim
   -- https://github.com/voldikss/vim-floaterm
   use {
