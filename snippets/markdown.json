@@ -6,7 +6,37 @@
   },
   "link": {
     "prefix": "link",
-    "body": "[${1}](${2})",
+    "body": ["[${1}](${2}) ${0}"],
     "description": "markdown link"
   }
+  "header 1": {
+    "prefix": "h1",
+    "body": ["# ${0}"],
+    "description": "Add header level 1"
+  },
+  "header 2": {
+    "prefix": "h2",
+    "body": ["## ${0}"],
+    "description": "Add header level 2"
+  },
+  "header 3": {
+    "prefix": "h3",
+    "body": ["### ${0}"],
+    "description": "Add header level 3"
+  },
+  "header 4": {
+    "prefix": "h4",
+    "body": ["#### ${0}"],
+    "description": "Add header level 4"
+  },
+  "header 5": {
+    "prefix": "h5",
+    "body": ["##### ${0}"],
+    "description": "Add header level 5"
+  },
+  "header 6": {
+    "prefix": "h6",
+    "body": ["###### ${0}"],
+    "description": "Add header level 6"
+  },
 }
