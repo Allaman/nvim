@@ -67,7 +67,6 @@ wk.register({
     name = "Buffers",
     p = { "<cmd>BufferLineMovePrev<cr>", "Move buffer prev"},
     n = { "<cmd>BufferLineMoveNext<cr>", "Move buffer next"},
-    j = { "<cmd>BufferPick<cr>", "jump to buffer" },
     b = { "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>", "Find buffer" },
     x = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     l = { "<cmd>BufferLineCloseLeft<cr>", "close all buffers to the left" },
