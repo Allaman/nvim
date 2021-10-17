@@ -83,15 +83,7 @@ return require('packer').startup(function()
   use 'sbdchd/neoformat'
 
   -- https://github.com/phaazon/hop.nvim
-  use {
-  'phaazon/hop.nvim',
-  as = 'hop',
-  config = function()
-    require'hop'.setup {
-        keys = 'etovxqpdygfblzhckisuran'
-      }
-  end
-  }
+  use 'phaazon/hop.nvim'
 
   -- https://github.com/sindrets/diffview.nvim
   -- https://github.com/TimUntersberger/neogit
@@ -221,6 +213,7 @@ return require('packer').startup(function()
   use "folke/which-key.nvim"
 
   -- https://github.com/junegunn/vim-easy-align
+  -- no lua alternative
   use 'junegunn/vim-easy-align'
 
   -- https://github.com/rhysd/vim-grammarous
@@ -228,13 +221,19 @@ return require('packer').startup(function()
 
   -- https://github.com/RRethy/vim-illuminate
   use 'RRethy/vim-illuminate'
+
   -- https://github.com/ptzz/lf.vim
   -- https://github.com/voldikss/vim-floaterm
   use {
     "ptzz/lf.vim",
     requires = "voldikss/vim-floaterm"
   }
+
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
   -- use 'glepnir/lspsaga.nvim'
+  -- Too intrusive (fFtT, sS zZ, xX ...)
+  -- https://github.com/ggandor/lightspeed.nvim
+  -- use 'ggandor/lightspeed.nvim'
+
 end)
