@@ -1,10 +1,10 @@
 local map = vim.api.nvim_set_keymap
+options = { noremap = true, silent = true }
 
 -- map the leader key
-vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", options)
 vim.g.mapleader = " " -- 'vim.g' sets global variables
 
-options = { noremap = true, silent = true }
 -- center search results
 map('n', 'n', 'nzz', options)
 map('n', 'N', 'Nzz', options)
@@ -58,28 +58,24 @@ local wk = require("which-key")
 
 wk.register({
   ga = {"<Plug>(EasyAlign)", "Align", mode="x"},
+
 })
 
 -- Register all leader based mappings
 wk.register({
-  p = { "<cmd>NvimTreeToggle<cr>", "Toogle Tree"},
   b = {
     name = "Buffers",
     p = { "<cmd>BufferLineMovePrev<cr>", "Move buffer prev"},
     n = { "<cmd>BufferLineMoveNext<cr>", "Move buffer next"},
     j = { "<cmd>BufferPick<cr>", "jump to buffer" },
-    f = { "<cmd>Telescope buffers<cr>", "Find buffer" },
-    e = {
-      "<cmd>BufferCloseAllButCurrent<cr>",
-      "close all but current buffer",
-    },
+    b = { "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>", "Find buffer" },
     x = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-    h = { "<cmd>BufferLineCloseLeft<cr>", "close all buffers to the left" },
-    l = {
+    l = { "<cmd>BufferLineCloseLeft<cr>", "close all buffers to the left" },
+    r = {
       "<cmd>BufferLineCloseRight<cr>",
       "close all BufferLines to the right",
     },
-    D = {
+    d = {
       "<cmd>BufferLineSortByDirectory<cr>",
       "sort BufferLines automatically by directory",
     },
@@ -87,6 +83,15 @@ wk.register({
       "<cmd>BufferLineSortByExtension<cr>",
       "sort BufferLines automatically by extension",
     },
+  },
+  f = {
+    name = "Files",
+    s = { "<cmd>w<cr>", "Save Buffer" },
+    f = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>", "Find File" },
+    l = { "<cmd>Lf<cr>", "Open LF" },
+    p = { "<cmd>NvimTreeToggle<cr>", "Toogle Tree"},
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    T = { "<cmd>NvimTreeFindFile<CR>", "Find in Tree" },
   },
   g = {
     name = "Git",
@@ -102,7 +107,7 @@ wk.register({
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
       "Undo Stage Hunk",
     },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+    g = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     B = { "<cmd>GitBlameToggle<cr>", "Toogle Blame" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
@@ -113,9 +118,9 @@ wk.register({
   },
   j = {
     name = "jump",
+    c = {"<cmd>lua require'hop'.hint_char2()<cr>", "2 Chars"},
+    l = {"<cmd>lua require'hop'.hint_lines()<cr>", "Lines"},
     w = {"<cmd>lua require'hop'.hint_words()<cr>", "Words"},
-    c = {"<cmd>lua require'hop'.hint_char2()<cr>", "Chars"},
-    l = {"<cmd>lua require'hop'.hint_lines()<cr>"},
   },
   l = {
       name = "LSP",
@@ -147,21 +152,18 @@ wk.register({
         "Workspace Symbols",
       },
     },
+  m = {
+    name = "Misc",
+    t = {"<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm"},
+  },
   s = {
     name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    f = { "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>", "Find File" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    l = {
-      f = "Open LF"
-    },
     y = "Symbols",
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     t = { "<cmd>Telescope live_grep<cr>", "Text" },
-    T = { "<cmd>NvimTreeFindFile<CR>", "Find in Tree" },
     s = { "<cmd>Telescope grep_string<cr>", "Text under cursor" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
