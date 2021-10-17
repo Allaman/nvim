@@ -155,12 +155,12 @@ wk.register({
   m = {
     name = "Misc",
     t = {"<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm"},
+    s = {"<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline"},
   },
   s = {
     name = "Search",
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    y = "Symbols",
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     t = { "<cmd>Telescope live_grep<cr>", "Text" },
