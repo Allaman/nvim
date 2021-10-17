@@ -2,7 +2,7 @@
 require('user')
 -- Plugin management via Packer
 require('plugins')
--- Global keyboard mappings
+-- Global keyboard and which-key mappings
 require('mappings')
 -- Vim options
 require('options')
@@ -10,6 +10,7 @@ require('options')
 require('autocmd')
 -- Plugin configurations
 require('plugins/autopairs')
+require('plugins/comment')
 require('plugins/bufferline')
 require('plugins/colorizer')
 require('plugins/compe')
@@ -20,7 +21,6 @@ require('plugins/neoformat')
 require('plugins/neogit')
 require('plugins/git-blame')
 require('plugins/gitsigns')
-require('plugins/kommentary')
 require('plugins/navigator')
 require('plugins/nvim-tree')
 require('plugins/project')
