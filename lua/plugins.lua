@@ -226,6 +226,12 @@ return require('packer').startup(function()
   -- https://github.com/rhysd/vim-grammarous
   use 'rhysd/vim-grammarous'
 
+  -- https://github.com/ptzz/lf.vim
+  -- https://github.com/voldikss/vim-floaterm
+  use {
+    "ptzz/lf.vim",
+    requires = "voldikss/vim-floaterm"
+  }
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
   -- use 'glepnir/lspsaga.nvim'

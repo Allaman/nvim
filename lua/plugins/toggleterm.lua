@@ -39,10 +39,5 @@ local lazygit = Terminal:new({ cmd = "gitui", direction = "float", hidden = true
 function _lazygit_toggle()
   lazygit:toggle()
 end
-local lf = Terminal:new({ cmd = "lf", direction = "float", hidden = true })
-function _lf_toggle()
-  lf:toggle()
-end
 vim.api.nvim_set_keymap("n", "<leader>gt", "<cmd>lua _lazygit_toggle()<CR>i", {noremap = true, silent = true}) -- start lazygit
-vim.api.nvim_set_keymap("n", "<leader>fl", "<cmd>lua _lf_toggle()<CR>i", {noremap = true, silent = true}) -- start lf
 vim.api.nvim_set_keymap("t", "<ESC>", '<C-\\><C-n>', {noremap = true, silent = true}) -- back to normal mode in Terminal
