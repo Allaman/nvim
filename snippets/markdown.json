@@ -8,7 +8,7 @@
     "prefix": "link",
     "body": ["[${1}](${2}) ${0}"],
     "description": "markdown link"
-  }
+  },
   "header 1": {
     "prefix": "h1",
     "body": ["# ${0}"],
@@ -38,5 +38,5 @@
     "prefix": "h6",
     "body": ["###### ${0}"],
     "description": "Add header level 6"
-  },
+  }
 }
