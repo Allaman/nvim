@@ -68,16 +68,17 @@ wk.register({
 wk.register({
   b = {
     name = "Buffers",
+    b = { "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>", "Find buffer" },
+    d = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+    f = { "<cmd>BufferLinePick<cr>", "Pick buffer"},
+    l = { "<cmd>BufferLineCloseLeft<cr>", "close all buffers to the left" },
     p = { "<cmd>BufferLineMovePrev<cr>", "Move buffer prev"},
     n = { "<cmd>BufferLineMoveNext<cr>", "Move buffer next"},
-    b = { "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>", "Find buffer" },
-    x = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-    l = { "<cmd>BufferLineCloseLeft<cr>", "close all buffers to the left" },
     r = {
       "<cmd>BufferLineCloseRight<cr>",
       "close all BufferLines to the right",
     },
-    d = {
+    x = {
       "<cmd>BufferLineSortByDirectory<cr>",
       "sort BufferLines automatically by directory",
     },
