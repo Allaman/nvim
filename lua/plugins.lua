@@ -46,9 +46,9 @@ return require('packer').startup(function()
     requires = { 'nvim-lua/plenary.nvim' }
   }
 
-  -- https://github.com/hoob3rt/lualine.nvim
+  -- https://github.com/nvim-lualine/lualine.nvim
   use {
-  'hoob3rt/lualine.nvim',
+  'nvim-lualine/lualine.nvim',
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
