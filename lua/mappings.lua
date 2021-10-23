@@ -185,6 +185,14 @@ wk.register({
     t = {"<cmd>TodoTrouble<cr>", "Todos"},
     r = {"<cmd>Trouble lsp_references<cr>", "LSP References"},
   },
+  w = {
+    q = {"<cmd>:q<cr>", "Close"},
+    s = {"<cmd>:split<cr>", "Horizontal Split"},
+    t = {"<c-w>t", "Move to new tab"},
+    ['='] = {"<c-w>=", "Equally size"},
+    v = {"<cmd>:vsplit<cr>", "Verstical Split"},
+    w = {"<c-w>x", "Swap"},
+  },
   x = {
     name = "LanguageTool",
     c = {"<cmd>GrammarousCheck<cr>", "Grammar check" },
