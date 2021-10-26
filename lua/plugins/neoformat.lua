@@ -1,6 +1,6 @@
 local g = vim.g
 
-g.neoformat_try_formatprg = 1
+g.neoformat_try_formatprg = 0
 g.neoformat_verbose = 0
 g.neoformat_run_all_formatters = 0
 g.neoformat_enabled_python = { "autopep8", "yapf", "docformatter" }
@@ -13,7 +13,7 @@ vim.api.nvim_exec(
   [[
     augroup fmt
       autocmd!
-      autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+      autocmd BufWritePre * undojoin | Neoformat
     augroup END
   ]],
   false
