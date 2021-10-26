@@ -86,25 +86,50 @@ local g = vim.g
 -- vim.cmd[[colorscheme tokyonight]]
 
 -- nightfox theme
-local nightfox = require('nightfox')
--- This function set the configuration of nightfox. If a value is not passed in the setup function
--- it will be taken from the default configuration above
-nightfox.setup({
-  fox = "nightfox", -- change the colorscheme to use nordfox
-  styles = {
-    comments = "italic", -- change style of comments to be italic
-    keywords = "bold", -- change style of keywords to be bold
-    functions = "italic,bold" -- styles can be a comma separated list
-  },
-  colors = {
-    red = "#FF000", -- Override the red color for MAX POWER
-    bg_alt = "#000000",
-  },
-  hlgroups = {
-    TSPunctDelimiter = { fg = "${red}" }, -- Override a highlight group with the color red
-    LspCodeLens = { bg = "#000000", style = "italic" },
-  }
+-- local nightfox = require('nightfox')
+-- nightfox.setup({
+--   fox = "nightfox", -- change the colorscheme to use nightfox
+--   styles = {
+--     comments = "italic", -- change style of comments to be italic
+--     keywords = "bold", -- change style of keywords to be bold
+--     functions = "italic,bold" -- styles can be a comma separated list
+--   },
+--   colors = {
+--     red = "#FF000", -- Override the red color for MAX POWER
+--     bg_alt = "#000000",
+--   },
+--   hlgroups = {
+--     TSPunctDelimiter = { fg = "${red}" }, -- Override a highlight group with the color red
+--     LspCodeLens = { bg = "#000000", style = "italic" },
+--   }
+-- })
+-- nightfox.load()
+
+require('doom-one').setup({
+    cursor_coloring = false,
+    terminal_colors = false,
+    italic_comments = false,
+    enable_treesitter = true,
+    transparent_background = false,
+    pumblend = {
+        enable = true,
+        transparency_amount = 20,
+    },
+    plugins_integrations = {
+        neorg = false,
+        barbar = false,
+        bufferline = true,
+        gitgutter = false,
+        gitsigns = true,
+        telescope = true,
+        neogit = true,
+        nvim_tree = true,
+        dashboard = true,
+        startify = true,
+        whichkey = true,
+        indent_blankline = true,
+        vim_illuminate = true,
+        lspsaga = false,
+    },
 })
--- Load the configuration set above and apply the colorscheme
-nightfox.load()
 

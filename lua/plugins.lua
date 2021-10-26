@@ -28,6 +28,10 @@ return require('packer').startup(function()
   -- https://github.com/EdenEast/nightfox.nvim
   use 'EdenEast/nightfox.nvim'
 
+  -- https://github.com/NTBBloodbath/doom-one.nvim
+  use 'NTBBloodbath/doom-one.nvim'
+
+
   -- https://github.com/numToStr/Comment.nvim
   use 'numToStr/Comment.nvim'
 
@@ -228,6 +232,7 @@ return require('packer').startup(function()
     "ptzz/lf.vim",
     requires = "voldikss/vim-floaterm"
   }
+
 
   -- TODO: ????
   -- https://github.com/glepnir/lspsaga.nvim
