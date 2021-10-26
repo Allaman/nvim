@@ -1,7 +1,6 @@
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'nightfox',
     component_separators = {'', ''},
     section_separators = {'', ''},
     disabled_filetypes = {}
@@ -16,7 +15,6 @@ require'lualine'.setup {
       "fileformat",
       "filetype"
     },
-    -- lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
@@ -29,5 +27,5 @@ require'lualine'.setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {}
+  extensions = {'nvim-tree', 'toggleterm', 'quickfix'}
 }
