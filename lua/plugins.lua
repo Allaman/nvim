@@ -55,6 +55,8 @@ return require('packer').startup(function()
   'nvim-lualine/lualine.nvim',
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+    -- https://github.com/mhartington/formatter.nvim
+    use 'mhartington/formatter.nvim'
 
   -- https://github.com/norcalli/nvim-colorizer.lua
   use 'norcalli/nvim-colorizer.lua'
@@ -83,8 +85,6 @@ return require('packer').startup(function()
   -- https://github.com/rafamadriz/friendly-snippets
   use 'rafamadriz/friendly-snippets'
 
-  -- https://github.com/sbdchd/neoformat
-  use 'sbdchd/neoformat'
 
   -- https://github.com/phaazon/hop.nvim
   use 'phaazon/hop.nvim'
