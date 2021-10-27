@@ -41,8 +41,32 @@ for _, lsp in ipairs(servers) do
     on_attach = on_attach,
     settings = {
       gopls = { analyses = { unusedparams = false }, staticcheck = true },
-      yaml = { format = { singleQuote = true } },
+      -- yaml = { format = { singleQuote = true } },
       -- yaml = { format = { singleQuote = true }, schemas = { kubernetes = "/*.yaml" } },
+      -- yaml = {
+      --   hover = true,
+      --   completion = true,
+      --   validate = true,
+      --   schemaStore = {
+      --     enable = true,
+      --     url = "https://www.schemastore.org/api/json/catalog.json",
+      --   },
+      --   schemas = {
+      --     kubernetes = {
+      --       "daemon.{yml,yaml}",
+      --       "manager.{yml,yaml}",
+      --       "restapi.{yml,yaml}",
+      --       "role.{yml,yaml}",
+      --       "role_binding.{yml,yaml}",
+      --       "*onfigma*.{yml,yaml}",
+      --       "*ngres*.{yml,yaml}",
+      --       "*ecre*.{yml,yaml}",
+      --       "*eployment*.{yml,yaml}",
+      --       "*ervic*.{yml,yaml}",
+      --       "kubectl-edit*.yaml",
+      --     },
+      --   },
+      -- },
       redhat = { telemetry = enabled },
       texlab = {
         auxDirectory = ".",
@@ -83,6 +107,7 @@ for _, lsp in ipairs(servers) do
     }
   })
 end
+
 local sumneko_root_path = os.getenv("HOME") .. ".cache/lua-language-server"
 local sumneko_binary = "/usr/bin/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {
@@ -111,3 +136,24 @@ require'lspconfig'.sumneko_lua.setup {
     },
     on_attach = on_attach_common
 }
+-- alternative to formatter but yamlfix is not working and I need this for respecting yamllint config
+-- but yamlfix is messing up ansible files ... 😠
+-- require('lspconfig')['efm'].setup{
+--   filetypes = { 'json', 'yaml','lua' },
+--   init_options = {documentFormatting = true, codeAction = false},
+--   settings = {
+--     rootMarkers = {".git/"},
+--     languages = {
+--       lua = {
+--         {formatCommand = "lua-format -i", formatStdin = true}
+--       },
+--       yaml = {
+--         {formatCommand = "yamlfix -", formatStdin = true}
+--       },
+--       json = {
+--         {formatCommand = "prettier", formatStdin = true}
+--       }
+--     }
+--   }
+-- }
+
