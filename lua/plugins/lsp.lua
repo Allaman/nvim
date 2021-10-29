@@ -45,56 +45,92 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls", "tsserver", "texlab", "yamlls"}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+local servers = {
+    "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls",
+    "tsserver", "texlab", "yamlls", "jsonls"
+}
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    settings = {
-      gopls = { analyses = { unusedparams = false }, staticcheck = true },
-      -- yaml = { format = { singleQuote = true } },
-      -- yaml = { format = { singleQuote = true }, schemas = { kubernetes = "/*.yaml" } },
-      -- yaml = {
-      --   hover = true,
-      --   completion = true,
-      --   validate = true,
-      --   schemaStore = {
-      --     enable = true,
-      --     url = "https://www.schemastore.org/api/json/catalog.json",
-      --   },
-      --   schemas = {
-      --     kubernetes = {
-      --       "daemon.{yml,yaml}",
-      --       "manager.{yml,yaml}",
-      --       "restapi.{yml,yaml}",
-      --       "role.{yml,yaml}",
-      --       "role_binding.{yml,yaml}",
-      --       "*onfigma*.{yml,yaml}",
-      --       "*ngres*.{yml,yaml}",
-      --       "*ecre*.{yml,yaml}",
-      --       "*eployment*.{yml,yaml}",
-      --       "*ervic*.{yml,yaml}",
-      --       "kubectl-edit*.yaml",
-      --     },
-      --   },
-      -- },
-      redhat = { telemetry = enabled },
-      texlab = {
-        auxDirectory = ".",
-        bibtexFormatter = "texlab",
-        build = {
-          args = { "--keep-intermediates", "--keep-logs", "--synctex", "%f" },
-          executable = "tectonic",
-          forwardSearchAfter = false,
-          onSave = false
-        },
-        chktex = {
-          onEdit = false,
-          onOpenAndSave = false
-        },
-        diagnosticsDelay = 300,
-        formatterLineLength = 80,
-        forwardSearch = {
-          args = {}
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+            gopls = {analyses = {unusedparams = false}, staticcheck = true},
+            json = {
+                format = {enabled = false},
+                schemas = {
+                    {
+                        description = "ESLint config",
+                        fileMatch = {".eslintrc.json", ".eslintrc"},
+                        url = "http://json.schemastore.org/eslintrc"
+                    }, {
+                        description = "Package config",
+                        fileMatch = {"package.json"},
+                        url = "https://json.schemastore.org/package"
+                    }, {
+                        description = "Packer config",
+                        fileMatch = {"packer.json"},
+                        url = "https://json.schemastore.org/packer"
+                    }, {
+                        description = "Renovate config",
+                        fileMatch = {
+                            "renovate.json", "renovate.json5",
+                            ".github/renovate.json", ".github/renovate.json5",
+                            ".renovaterc", ".renovaterc.json"
+                        },
+                        url = "https://docs.renovatebot.com/renovate-schema"
+                    }, {
+                        description = "OpenApi config",
+                        fileMatch = {"*api*.json"},
+                        url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"
+                    }
+                }
+            },
+            redhat = {telemetry = {enabled = false}},
+            texlab = {
+                auxDirectory = ".",
+                bibtexFormatter = "texlab",
+                build = {
+                    args = {
+                        "--keep-intermediates", "--keep-logs", "--synctex", "%f"
+                    },
+                    executable = "tectonic",
+                    forwardSearchAfter = false,
+                    onSave = false
+                },
+                chktex = {onEdit = false, onOpenAndSave = false},
+                diagnosticsDelay = 300,
+                formatterLineLength = 80,
+                forwardSearch = {args = {}},
+                latexFormatter = "latexindent",
+                latexindent = {modifyLineBreaks = false}
+            },
+            yaml = {
+                schemaStore = {
+                    enable = true,
+                    url = "https://www.schemastore.org/api/json/catalog.json"
+                },
+                schemas = {
+                    ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+                    ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                    ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                    ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+                    ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+                    ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
+                    ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+                    ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+                    ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.{yml,yaml}",
+                    kubernetes = "/*.yaml"
+                },
+                format = {enabled = false},
+                validate = false, -- TODO: conflicts between Kubernetes resources and kustomization.yaml
+                completion = true,
+                hover = true
+            }
         },
         flags = {debounce_text_changes = 150}
     }
