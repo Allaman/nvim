@@ -19,7 +19,8 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 
 - Package management via [Packer](https://github.com/wbthomason/packer.nvim)
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
-- Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim)
+- Mnemonic keyboard mappings (no more than three keystrokes) inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim)
+- Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - Asynchronous auto formatting via [Formatter.nvim](https://github.com/mhartington/formatter.nvim)
@@ -31,6 +32,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Easy Tmux navigation with your homerow via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
+- Schema integration via LSPs like package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
 - and much more...
 
 ## Structure
@@ -66,7 +68,7 @@ There are some tools that are required in order to use some functions.
   - [luarocks](https://github.com/luarocks/luarocks) and `luarocks install --server=https://luarocks.org/dev luaformatter`
   - [black](https://github.com/psf/black)
 - Language servers for the builtin LSP(See [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
-  - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server`
+  - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
   - `go get golang.org/x/tools/gopls`
   - [terraform-ls](https://github.com/hashicorp/terraform-ls)
   - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
