@@ -1,19 +1,18 @@
 local o = vim.opt
 local wo = vim.wo
-local bo = vim.bo
 local fn = vim.fn
 
 vim.cmd "filetype indent plugin on"
 vim.cmd "set inccommand=split"
-o.guicursor="n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
+o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
 o.updatetime = 300 -- faster completion
-o.timeoutlen =  400 -- time to wait for a mapped sequence to complete (in milliseconds)
+o.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in milliseconds)
 o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
 o.backup = false -- creates a backup file
 o.swapfile = true -- enable/disable swap file creation
-o.dir = fn.stdpath('data')..'/swp' -- swap file directory
+o.dir = fn.stdpath('data') .. '/swp' -- swap file directory
 o.undofile = true -- enable/disable undo file creation
-o.undodir = fn.stdpath('data')..'/undodir' -- set undo directory
+o.undodir = fn.stdpath('data') .. '/undodir' -- set undo directory
 o.history = 500 -- Use the 'history' option to set the number of lines from command mode that are remembered.
 o.hidden = true -- required to keep multiple buffers and open multiple buffers
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
@@ -47,7 +46,7 @@ o.shortmess = o.shortmess + 'c' -- prevent "pattern not found" messages
 wo.colorcolumn = "99999"
 o.wildmode = "full"
 o.grepprg = "rg --hidden --vimgrep --smart-case --"
-o.completeopt = { 'menuone', 'noselect', 'noinsert' } -- A comma separated list of options for Insert mode completion
+o.completeopt = {'menu', 'menuone', 'noselect', 'noinsert'} -- A comma separated list of options for Insert mode completion
 o.wildignorecase = true -- When set case is ignored when completing file names and directories
 o.wildignore = [[
 .git,.hg,.svn
@@ -63,9 +62,8 @@ o.wildignore = [[
 */tmp/*,*.so,*.swp,*.zip,**/node_modules/**,**/target/**,**.terraform/**"
 ]]
 
-local g = vim.g
-
 -- Material theme
+-- local g = vim.g
 -- g.material_style = 'deep ocean'
 -- g.material_style = 'darker'
 -- g.material_italic_comments = true
@@ -111,10 +109,7 @@ require('doom-one').setup({
     italic_comments = false,
     enable_treesitter = true,
     transparent_background = false,
-    pumblend = {
-        enable = true,
-        transparency_amount = 20,
-    },
+    pumblend = {enable = true, transparency_amount = 20},
     plugins_integrations = {
         neorg = false,
         barbar = false,
@@ -129,10 +124,9 @@ require('doom-one').setup({
         whichkey = true,
         indent_blankline = true,
         vim_illuminate = true,
-        lspsaga = false,
-    },
+        lspsaga = false
+    }
 })
-
 vim.cmd("hi HopNextKey guifg=#009999")
 vim.cmd("hi HopNextKey1 guifg=#009999")
 vim.cmd("hi HopNextKey2 guifg=#009999")
