@@ -9,11 +9,11 @@ require("options")
 -- Vim autocommands/autogroups
 require("autocmd")
 -- Plugin configurations
-require('plugins/compe')
 require("plugins/autopairs")
 require("plugins/comment")
 require("plugins/bufferline")
 require("plugins/colorizer")
+require("plugins/cmp")
 require("plugins/diffview")
 require("plugins/formatter")
 require("plugins/lf")

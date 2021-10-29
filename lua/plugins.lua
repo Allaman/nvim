@@ -67,13 +67,25 @@ return require("packer").startup(function(use)
     use "nvim-treesitter/nvim-treesitter-textobjects"
 
     -- https://github.com/tjdevries/astronauta.nvim
+    use "tjdevries/astronauta.nvim"
 
-    -- https://github.com/hrsh7th/nvim-compe
-    use 'hrsh7th/nvim-compe'
+    -- https://github.com/hrsh7th/nvim-cmp
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
+    use "hrsh7th/cmp-vsnip"
+    use "f3fora/cmp-spell"
+    use "hrsh7th/cmp-calc"
+    use "hrsh7th/cmp-emoji"
+
+    -- https://github.com/onsails/lspkind-nvim
+    use "onsails/lspkind-nvim"
 
     -- https://github.com/hrsh7th/vim-vsnip
-    use 'hrsh7th/vim-vsnip-integ'
     use "hrsh7th/vim-vsnip"
+
     -- https://github.com/rafamadriz/friendly-snippets
     use "rafamadriz/friendly-snippets"
 
