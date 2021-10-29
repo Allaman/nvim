@@ -6,8 +6,9 @@ vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", options)
 vim.g.mapleader = " "
 
 -- center search results
-map('n', 'n', 'nzz', options)
-map('n', 'N', 'Nzz', options)
+map("n", "n", "nzz", options)
+map("n", "N", "Nzz", options)
+
 -- Deal with visual line wraps
 map("n", "k", "v:count == 0 ? 'gk' : 'k'",
     {noremap = true, expr = true, silent = true})
@@ -19,7 +20,7 @@ map("v", "<", "<gv", options)
 map("v", ">", ">gv", options)
 
 -- paste over currently selected text without yanking it
-map('v', 'p', '"_dP', options)
+map("v", "p", "\"_dP", options)
 
 -- Tab switch buffer
 map("n", "<TAB>", ":bnext<CR>", options)
@@ -41,8 +42,8 @@ map("n", "<Down>", ":resize +1<CR>", options)
 map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u", options)
 
 -- Move selected line / block of text in visual mode
-vim.api.nvim_set_keymap("x", "K", ":move '<-2<CR>gv-gv", options)
-vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv-gv", options)
+map("x", "K", ":move '<-2<CR>gv-gv", options)
+map("x", "J", ":move '>+1<CR>gv-gv", options)
 
 -- starlite mappings
 map("n", "*", "<cmd>lua require'starlite'.star()<CR>", options)
@@ -52,11 +53,12 @@ map("n", "g#", "<cmd>lua require'starlite'.g_hash()<CR>", options)
 
 local wk = require("which-key")
 
+-- register non leader based mappings
 wk.register({ga = {"<Plug>(EasyAlign)", "Align", mode = "x"}})
 
 -- Register all leader based mappings
 wk.register({
-    ['<Tab>'] = {"<cmd>e#<cr>", "Switch to previously opened buffer"},
+    ["<Tab>"] = {"<cmd>e#<cr>", "Switch to previously opened buffer"},
     b = {
         name = "Buffers",
         b = {
@@ -184,7 +186,7 @@ wk.register({
         q = {"<cmd>:q<cr>", "Close"},
         s = {"<cmd>:split<cr>", "Horizontal Split"},
         t = {"<c-w>t", "Move to new tab"},
-        ['='] = {"<c-w>=", "Equally size"},
+        ["="] = {"<c-w>=", "Equally size"},
         v = {"<cmd>:vsplit<cr>", "Verstical Split"},
         w = {"<c-w>x", "Swap"}
     },
