@@ -82,7 +82,7 @@ return require("packer").startup(function(use)
     use {"mhartington/formatter.nvim", config = get_config("formatter")}
 
     -- https://github.com/phaazon/hop.nvim
-    use {"phaazon/hop.nvim"}
+    use {"phaazon/hop.nvim", config = require"hop".setup()}
 
     -- https://github.com/sindrets/diffview.nvim
     -- https://github.com/TimUntersberger/neogit
