@@ -6,7 +6,7 @@ local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 -- returns the require for use in `config` parameter of packer's use
 -- expects the name of the config file
 function get_config(name)
-    return string.format("require(\"plugins/%s\")", name)
+    return string.format("require(\"config/%s\")", name)
 end
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -89,10 +89,10 @@ return require("packer").startup(function(use)
     use {
         "TimUntersberger/neogit",
         requires = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim"},
-        config = [[require("plugins/neogit","plugins/diffview")]]
+        config = [[require("config/neogit","config/diffview")]] -- TODO: enhance get_config function
     }
     -- https://github.com/f-person/git-blame.nvim
-    use {"f-person/git-blame.nvim", config = [[require("plugins/git-blame")]]}
+    use {"f-person/git-blame.nvim", config = get_config("git-blame")}
     -- https://github.com/lewis6991/gitsigns.nvim
     use {
         "lewis6991/gitsigns.nvim",
@@ -131,7 +131,7 @@ return require("packer").startup(function(use)
     use {
         "lukas-reineke/indent-blankline.nvim",
         branch = lua,
-        -- config = [[require("plugins/indent")]] TODO: I did not get to work an external config
+        -- config = [[require("config/indent")]] TODO: I did not get to work an external config
         setup = function()
             vim.g.indent_blankline_char = "│"
             vim.g.indent_blankline_show_first_indent_level = true
