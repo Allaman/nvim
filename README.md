@@ -37,19 +37,19 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 
 ## Structure
 
-In `init.lua` each file to be loaded is defined.
+Each plugin is to be installed is defined in `plugins.lua` and each plugin has its own configuration (if applicable) in `lua/config` which is loaded by packer.
 
-```sh
+```
 .
 ├── ftplugin/         # file specific settings
-├── init.lua          # Lua files to be sourced
+├── init.lua          # main entry point
 ├── lua
 │   ├── autocmd.lua   # vim autocommands
+│   ├── config/       # each plugin configuration is in its own file
 │   ├── mappings.lua  # main keymaps defintions
-│   ├── options.lua   # general settings
-│   ├── plugins/      # each plugin configuration is in its own file
-│   ├── plugins.lua   # define plugins to be managed via Packer
-│   └── user.lua      # TODO
+│   ├── options.lua   # non plugin related (vim) options
+│   └── plugins.lua   # define plugins to be managed via Packer
+├── plugins           # packer_compiled
 ├── snippets          # snippets for vsnip
 └── spell             # my spell files linked from another repo
 ```
