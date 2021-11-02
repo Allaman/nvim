@@ -37,7 +37,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 
 ## Structure
 
-Each plugin is to be installed is defined in `plugins.lua` and each plugin has its own configuration (if applicable) in `lua/config` which is loaded by packer.
+Each plugin to be installed is defined in `plugins.lua` and each plugin has its own configuration file (if necessary) in `lua/config` which is loaded by packer.
 
 ```
 .
@@ -67,7 +67,7 @@ There are some tools that are required in order to use some functions.
   - [terraform fmt](https://www.terraform.io/docs/cli/commands/fmt.html)
   - [luarocks](https://github.com/luarocks/luarocks) and `luarocks install --server=https://luarocks.org/dev luaformatter`
   - [black](https://github.com/psf/black)
-- Language servers for the builtin LSP(See [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
+- Language servers for the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
   - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
   - `go get golang.org/x/tools/gopls`
   - [terraform-ls](https://github.com/hashicorp/terraform-ls)
