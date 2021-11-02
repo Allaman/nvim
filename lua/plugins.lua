@@ -3,6 +3,12 @@ local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
+-- returns the require for use in `config` parameter of packer's use
+-- expects the name of the config file
+function get_config(name)
+    return string.format("require(\"plugins/%s\")", name)
+end
+
 if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
         "git", "clone", "https://github.com/wbthomason/packer.nvim",
@@ -18,116 +24,114 @@ return require("packer").startup(function(use)
     -- https://github.com/nvim-telescope/telescope.nvim
     use {
         "nvim-telescope/telescope.nvim",
-        requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
+        requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
+        config = get_config("telescope")
     }
 
-    -- https://github.com/marko-cerovac/material.nvim
-    use "marko-cerovac/material.nvim"
-
-    -- https://github.com/folke/tokyonight.nvim
-    use "folke/tokyonight.nvim"
-
-    -- https://github.com/EdenEast/nightfox.nvim
-    use "EdenEast/nightfox.nvim"
-
-    -- https://github.com/NTBBloodbath/doom-one.nvim
-    use "NTBBloodbath/doom-one.nvim"
-
-    -- https://github.com/numToStr/Comment.nvim
-    use "numToStr/Comment.nvim"
-
     -- https://github.com/kyazdani42/nvim-tree.lua
-    use "kyazdani42/nvim-tree.lua"
+    use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
 
     -- https://github.com/numToStr/Navigator.nvim
-    use "numToStr/Navigator.nvim"
-
-    -- https://github.com/kyazdani42/nvim-web-devicons
-    use "kyazdani42/nvim-web-devicons"
-
-    -- https://github.com/lewis6991/gitsigns.nvim
-    use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
+    use {"numToStr/Navigator.nvim", config = get_config("navigator")}
 
     -- https://github.com/nvim-lualine/lualine.nvim
     use {
         "nvim-lualine/lualine.nvim",
+        config = get_config("lualine"),
         requires = {"kyazdani42/nvim-web-devicons", opt = true}
     }
 
     -- https://github.com/norcalli/nvim-colorizer.lua
-    use "norcalli/nvim-colorizer.lua"
+    use {"norcalli/nvim-colorizer.lua", config = get_config("colorizer")}
+
+    -- https://github.com/numToStr/Comment.nvim
+    use {"numToStr/Comment.nvim", config = get_config("comment")}
 
     -- https://github.com/windwp/nvim-autopairs
-    use "windwp/nvim-autopairs"
+    use {"windwp/nvim-autopairs", config = get_config("autopairs")}
 
     -- https://github.com/nvim-treesitter/nvim-treesitter
-    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        config = get_config("treesitter"),
+        run = ":TSUpdate"
+    }
 
     -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     use "nvim-treesitter/nvim-treesitter-textobjects"
 
-
     -- https://github.com/hrsh7th/nvim-cmp
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-path"
-    use "hrsh7th/cmp-cmdline"
-    use "hrsh7th/cmp-vsnip"
-    use "f3fora/cmp-spell"
-    use "hrsh7th/cmp-calc"
-    use "hrsh7th/cmp-emoji"
-
-    -- https://github.com/onsails/lspkind-nvim
-    use "onsails/lspkind-nvim"
+    use {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"},
+            {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-cmdline"},
+            {"hrsh7th/cmp-vsnip"},
+            {"f3fora/cmp-spell", {"hrsh7th/cmp-calc"}, {"hrsh7th/cmp-emoji"}}
+        },
+        config = get_config("cmp")
+    }
 
     -- https://github.com/hrsh7th/vim-vsnip
-    use "hrsh7th/vim-vsnip"
+    use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
 
     -- https://github.com/rafamadriz/friendly-snippets
-    use "rafamadriz/friendly-snippets"
+    use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 
     -- https://github.com/mhartington/formatter.nvim
-    use "mhartington/formatter.nvim"
+    use {"mhartington/formatter.nvim", config = get_config("formatter")}
 
     -- https://github.com/phaazon/hop.nvim
-    use "phaazon/hop.nvim"
+    use {"phaazon/hop.nvim"}
 
     -- https://github.com/sindrets/diffview.nvim
     -- https://github.com/TimUntersberger/neogit
     use {
         "TimUntersberger/neogit",
-        requires = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim"}
+        requires = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim"},
+        config = [[require("plugins/neogit","plugins/diffview")]]
+    }
+    -- https://github.com/f-person/git-blame.nvim
+    use {"f-person/git-blame.nvim", config = [[require("plugins/git-blame")]]}
+    -- https://github.com/lewis6991/gitsigns.nvim
+    use {
+        "lewis6991/gitsigns.nvim",
+        requires = {"nvim-lua/plenary.nvim"},
+        config = get_config("gitsigns")
     }
 
     -- https://github.com/p00f/nvim-ts-rainbow
     use "p00f/nvim-ts-rainbow"
 
     -- https://github.com/kevinhwang91/nvim-bqf
-    use "kevinhwang91/nvim-bqf"
-    -- only used for bqf filter view
-    use "junegunn/fzf"
+    -- fzf only used for bqf filter view
+    use {"kevinhwang91/nvim-bqf", requires = {{"junegunn/fzf"}}}
 
     -- https://github.com/akinsho/nvim-bufferline.lua
-
     use {
         "akinsho/nvim-bufferline.lua",
-        requires = "kyazdani42/nvim-web-devicons"
+        requires = "kyazdani42/nvim-web-devicons",
+        config = get_config("bufferline")
     }
 
     -- https://github.com/famiu/bufdelete.nvim
     use "famiu/bufdelete.nvim"
 
     -- https://github.com/neovim/nvim-lspconfig
-    use "neovim/nvim-lspconfig"
+    use {"neovim/nvim-lspconfig", config = get_config("lsp")}
+    -- https://github.com/ray-x/lsp_signature.nvim
+    use {"ray-x/lsp_signature.nvim", requires = {{"neovim/nvim-lspconfig"}}}
+    -- https://github.com/onsails/lspkind-nvim
+    use {"onsails/lspkind-nvim", requires = {{"famiu/bufdelete.nvim"}}}
 
     -- https://github.com/simrat39/symbols-outline.nvim
-    use "simrat39/symbols-outline.nvim"
+    use {"simrat39/symbols-outline.nvim", config = get_config("symbols")}
 
     -- https://github.com/lukas-reineke/indent-blankline.nvim
     use {
         "lukas-reineke/indent-blankline.nvim",
         branch = lua,
+        -- config = [[require("plugins/indent")]] TODO: I did not get to work an external config
         setup = function()
             vim.g.indent_blankline_char = "│"
             vim.g.indent_blankline_show_first_indent_level = true
@@ -149,11 +153,8 @@ return require("packer").startup(function(use)
         end
     }
 
-    -- https://github.com/ray-x/lsp_signature.nvim
-    use "ray-x/lsp_signature.nvim"
-
     -- https://github.com/akinsho/nvim-toggleterm.lua
-    use "akinsho/nvim-toggleterm.lua"
+    use {"akinsho/nvim-toggleterm.lua", config = get_config("toggleterm")}
 
     -- https://github.com/blackCauldron7/surround.nvim
     use {
@@ -168,22 +169,27 @@ return require("packer").startup(function(use)
     use "sotte/presenting.vim"
 
     -- https://github.com/folke/trouble.nvim
-    use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = get_config("trouble")
+    }
 
     -- https://github.com/folke/todo-comments.nvim
-    use {"folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim"}
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = get_config("todo")
+    }
 
     -- https://github.com/ahmedkhalf/project.nvim
-    use "ahmedkhalf/project.nvim"
-
-    -- https://github.com/f-person/git-blame.nvim
-    use "f-person/git-blame.nvim"
+    use {"ahmedkhalf/project.nvim", config = get_config("project")}
 
     -- https://github.com/ironhouzi/starlite-nvim
     use "ironhouzi/starlite-nvim"
 
     -- https://github.com/folke/which-key.nvim
-    use "folke/which-key.nvim"
+    use {"folke/which-key.nvim", config = get_config("which")}
 
     -- https://github.com/junegunn/vim-easy-align
     -- no lua alternative
@@ -197,7 +203,23 @@ return require("packer").startup(function(use)
 
     -- https://github.com/ptzz/lf.vim
     -- https://github.com/voldikss/vim-floaterm
-    use {"ptzz/lf.vim", requires = "voldikss/vim-floaterm"}
+    use {
+        "ptzz/lf.vim",
+        requires = "voldikss/vim-floaterm",
+        config = get_config("lf")
+    }
+
+    -- https://github.com/marko-cerovac/material.nvim
+    use "marko-cerovac/material.nvim"
+
+    -- https://github.com/folke/tokyonight.nvim
+    use "folke/tokyonight.nvim"
+
+    -- https://github.com/EdenEast/nightfox.nvim
+    use "EdenEast/nightfox.nvim"
+
+    -- https://github.com/NTBBloodbath/doom-one.nvim
+    use "NTBBloodbath/doom-one.nvim"
 
     -- TODO: ????
     -- https://github.com/glepnir/lspsaga.nvim
