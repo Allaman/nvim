@@ -66,8 +66,6 @@ return require("packer").startup(function(use)
     -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     use "nvim-treesitter/nvim-treesitter-textobjects"
 
-    -- https://github.com/tjdevries/astronauta.nvim
-    use "tjdevries/astronauta.nvim"
 
     -- https://github.com/hrsh7th/nvim-cmp
     use "hrsh7th/nvim-cmp"
