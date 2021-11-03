@@ -10,9 +10,9 @@ o.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in millise
 o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
 o.backup = false -- creates a backup file
 o.swapfile = true -- enable/disable swap file creation
-o.dir = fn.stdpath('data') .. '/swp' -- swap file directory
+o.dir = fn.stdpath("data") .. "/swp" -- swap file directory
 o.undofile = true -- enable/disable undo file creation
-o.undodir = fn.stdpath('data') .. '/undodir' -- set undo directory
+o.undodir = fn.stdpath("data") .. "/undodir" -- set undo directory
 o.history = 500 -- Use the 'history' option to set the number of lines from command mode that are remembered.
 o.hidden = true -- required to keep multiple buffers and open multiple buffers
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
@@ -42,11 +42,12 @@ o.foldmethod = "expr"
 o.foldexpr = "nvim_treesitter#foldexpr()"
 -- o.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 o.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣"
-o.shortmess = o.shortmess + 'c' -- prevent "pattern not found" messages
+o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
 wo.colorcolumn = "99999"
 o.wildmode = "full"
+o.lazyredraw = true -- do not redraw screen while running macros
 o.grepprg = "rg --hidden --vimgrep --smart-case --"
-o.completeopt = {'menu', 'menuone', 'noselect', 'noinsert'} -- A comma separated list of options for Insert mode completion
+o.completeopt = {"menu", "menuone", "noselect", "noinsert"} -- A comma separated list of options for Insert mode completion
 o.wildignorecase = true -- When set case is ignored when completing file names and directories
 o.wildignore = [[
 .git,.hg,.svn
@@ -103,7 +104,7 @@ o.wildignore = [[
 -- })
 -- nightfox.load()
 
-require('doom-one').setup({
+require("doom-one").setup({
     cursor_coloring = false,
     terminal_colors = false,
     italic_comments = false,
