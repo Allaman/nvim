@@ -85,7 +85,10 @@ wk.register({
     f = {
         name = "Files",
         s = {"<cmd>w<cr>", "Save Buffer"},
-        f = {"<cmd> Telescope find_files<cr>", "Find file"},
+        f = {
+            "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'fd', '--hidden', '--type', 'file', '--follow'}})<cr>",
+            "Find File"
+        },
         l = {"<cmd>Lf<cr>", "Open LF"},
         p = {"<cmd>NvimTreeToggle<cr>", "Toogle Tree"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
