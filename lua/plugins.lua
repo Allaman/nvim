@@ -146,12 +146,6 @@ return require("packer").startup(function(use)
         config = get_config("lf")
     }
 
-    use "marko-cerovac/material.nvim"
-
-    use "folke/tokyonight.nvim"
-
-    use "EdenEast/nightfox.nvim"
-
     use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
 
     -- TODO: ????
