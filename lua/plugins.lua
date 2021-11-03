@@ -219,7 +219,7 @@ return require("packer").startup(function(use)
     use "EdenEast/nightfox.nvim"
 
     -- https://github.com/NTBBloodbath/doom-one.nvim
-    use "NTBBloodbath/doom-one.nvim"
+    use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
 
     -- TODO: ????
     -- https://github.com/glepnir/lspsaga.nvim
