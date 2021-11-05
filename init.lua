@@ -6,3 +6,7 @@ require("mappings")
 require("options")
 -- Vim autocommands/autogroups
 require("autocmd")
+-- Cache packer_compiled via impatient.nvim
+require("packer_compiled")
+-- Enable LuaCacheProfile
+require"impatient".enable_profile()
