@@ -75,7 +75,7 @@ use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 
 use {"mhartington/formatter.nvim", config = get_config("formatter")}
 
-use {"phaazon/hop.nvim", config = require"hop".setup()}
+use {"phaazon/hop.nvim", branch = "v1", config = get_config("hop")}
 
 use {
     "TimUntersberger/neogit",
