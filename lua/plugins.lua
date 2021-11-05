@@ -77,12 +77,17 @@ use {"mhartington/formatter.nvim", config = get_config("formatter")}
 
 use {"phaazon/hop.nvim", branch = "v1", config = get_config("hop")}
 
+-- requirement for Neogit
+use {"sindrets/diffview.nvim", config = get_config("diffview")}
+
 use {
     "TimUntersberger/neogit",
-    requires = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim"},
-    config = [[require("config/neogit","config/diffview")]] -- TODO: enhance get_config function
+    requires = {"nvim-lua/plenary.nvim"},
+    config = get_config("neogit")
 }
+
 use {"f-person/git-blame.nvim", config = get_config("git-blame")}
+
 use {
     "lewis6991/gitsigns.nvim",
     requires = {"nvim-lua/plenary.nvim"},
@@ -102,7 +107,9 @@ use {
 use "famiu/bufdelete.nvim"
 
 use {"neovim/nvim-lspconfig", config = get_config("lsp")}
+
 use {"ray-x/lsp_signature.nvim", requires = {{"neovim/nvim-lspconfig"}}}
+
 use {"onsails/lspkind-nvim", requires = {{"famiu/bufdelete.nvim"}}}
 
 use {"simrat39/symbols-outline.nvim", config = get_config("symbols")}
