@@ -7,7 +7,7 @@ augroup FormatAutogroup
 augroup END
 ]], true)
 
-require('formatter').setup({
+require("formatter").setup({
     filetype = {
         lua = {
             function()
@@ -17,7 +17,7 @@ require('formatter').setup({
                         "-i", "--no-keep-simple-function-one-line",
                         "--no-break-after-operator", "--break-after-table-lb",
                         "--no-break-before-functioncall-rp",
-                        '--no-chop-down-parameter',
+                        "--no-chop-down-parameter",
                         "--single-quote-to-double-quote",
                         "--no-keep-simple-control-block-one-line",
                         "--no-keep-simple-function-one-line",
@@ -67,7 +67,7 @@ require('formatter').setup({
                 return {exe = "black", args = {"-"}, stdin = true}
             end
         },
-        terraform = {
+        tf = {
             function()
                 return {exe = "terraform", args = {"fmt", "-"}, stdin = true}
             end
