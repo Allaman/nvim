@@ -169,10 +169,6 @@ use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
 
 use {"tweekmonster/startuptime.vim"}
 
-use {"lewis6991/impatient.nvim"}
-
-use {"nathom/filetype.nvim"}
-
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
