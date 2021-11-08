@@ -32,6 +32,8 @@ use "wbthomason/packer.nvim"
 
 use {
     "nvim-telescope/telescope.nvim",
+    cmd = {"Telescope"},
+    keys = {"<leader>ff"},
     requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
     config = get_config("telescope")
 }
@@ -43,12 +45,22 @@ use {"numToStr/Navigator.nvim", config = get_config("navigator")}
 use {
     "nvim-lualine/lualine.nvim",
     config = get_config("lualine"),
+    event = "VimEnter",
     requires = {"kyazdani42/nvim-web-devicons", opt = true}
 }
 
-use {"norcalli/nvim-colorizer.lua", config = get_config("colorizer")}
+use {
+    "norcalli/nvim-colorizer.lua",
+    event = "BufReadPre",
+    config = get_config("colorizer")
+}
 
-use {"numToStr/Comment.nvim", config = get_config("comment")}
+use {
+    "numToStr/Comment.nvim",
+    opt = true,
+    keys = {"gc", "gcc"},
+    config = get_config("comment")
+}
 
 use {"windwp/nvim-autopairs", config = get_config("autopairs")}
 
@@ -76,14 +88,27 @@ use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 
 use {"mhartington/formatter.nvim", config = get_config("formatter")}
 
-use {"phaazon/hop.nvim", branch = "v1", config = get_config("hop")}
+use {
+    "phaazon/hop.nvim",
+    branch = "v1",
+    keys = {"<leader>j"},
+    config = get_config("hop")
+}
 
 -- requirement for Neogit
-use {"sindrets/diffview.nvim", config = get_config("diffview")}
+use {
+    "sindrets/diffview.nvim",
+    cmd = {
+        "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles",
+        "DiffviewFocusFiles"
+    },
+    config = get_config("diffview")
+}
 
 use {
     "TimUntersberger/neogit",
     requires = {"nvim-lua/plenary.nvim"},
+    cmd = "Neogit",
     config = get_config("neogit")
 }
 
@@ -92,6 +117,7 @@ use {"f-person/git-blame.nvim", config = get_config("git-blame")}
 use {
     "lewis6991/gitsigns.nvim",
     requires = {"nvim-lua/plenary.nvim"},
+    event = "BufReadPre",
     config = get_config("gitsigns")
 }
 
@@ -102,6 +128,7 @@ use {"kevinhwang91/nvim-bqf", requires = {{"junegunn/fzf"}}}
 use {
     "akinsho/nvim-bufferline.lua",
     requires = "kyazdani42/nvim-web-devicons",
+    event = "BufReadPre",
     config = get_config("bufferline")
 }
 
@@ -113,14 +140,23 @@ use {"ray-x/lsp_signature.nvim", requires = {{"neovim/nvim-lspconfig"}}}
 
 use {"onsails/lspkind-nvim", requires = {{"famiu/bufdelete.nvim"}}}
 
-use {"simrat39/symbols-outline.nvim", config = get_config("symbols")}
+use {
+    "simrat39/symbols-outline.nvim",
+    cmd = {"SymbolsOutline"},
+    config = get_config("symbols")
+}
 
 use {
     "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
     config = [[require("config/indent-blankline")]]
 }
 
-use {"akinsho/nvim-toggleterm.lua", config = get_config("toggleterm")}
+use {
+    "akinsho/nvim-toggleterm.lua",
+    keys = {"<C-y>", "<leader>fl"},
+    config = get_config("toggleterm")
+}
 
 use {
     "blackCauldron7/surround.nvim",
@@ -135,12 +171,15 @@ use "sotte/presenting.vim"
 use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
+    cmd = {"TroubleToggle", "Trouble"},
     config = get_config("trouble")
 }
 
 use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
+    cmd = {"TodoTrouble", "TodoTelescope"},
+    event = "BufReadPost",
     config = get_config("todo")
 }
 
@@ -148,23 +187,28 @@ use {"ahmedkhalf/project.nvim", config = get_config("project")}
 
 use "ironhouzi/starlite-nvim"
 
-use {"folke/which-key.nvim", config = get_config("which")}
+use {"folke/which-key.nvim", keys = {"<leader>"}, config = get_config("which")}
 
 use "junegunn/vim-easy-align" -- no lua alternative
 
 use "rhysd/vim-grammarous"
 
-use "RRethy/vim-illuminate"
+use {"RRethy/vim-illuminate", event = "CursorHold"}
 
 use {
     "ptzz/lf.vim",
     requires = "voldikss/vim-floaterm",
+    cmd = "<leader>fl",
     config = get_config("lf")
 }
 
 use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
 
-use {"karb94/neoscroll.nvim", config = get_config("neoscroll")}
+use {
+    "karb94/neoscroll.nvim",
+    keys = {"<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-e>", "zt", "zz", "zb"},
+    config = get_config("neoscroll")
+}
 
 use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
 
