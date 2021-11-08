@@ -21,7 +21,8 @@ end
 -- initialize and configure packer
 local packer = require("packer")
 packer.init {
-    compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
+    enable = true, -- enable profiling via :PackerCompile profile=true
+    threshold = 0 -- the amount in ms that a plugins load time must be over for it to be included in the profile
 }
 local use = packer.use
 packer.reset()
