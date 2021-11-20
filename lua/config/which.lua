@@ -186,7 +186,8 @@ wk.register({
     m = {
         name = "Misc",
         t = {"<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm"},
-        s = {"<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline"}
+        s = {"<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline"},
+        z = {"<cmd>ZenMode<cr>", "Toggle ZenMode"}
     },
     s = {
         name = "Search",

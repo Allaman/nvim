@@ -211,7 +211,9 @@ use {
 }
 
 use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
+use {"folke/zen-mode.nvim", cmd = "ZenMode", config = get_config("zen-mode")}
 
+use {"folke/twilight.nvim", config = get_config("twilight")}
 use {"tweekmonster/startuptime.vim"}
 
 -- TODO: ????
