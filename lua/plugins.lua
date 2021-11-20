@@ -32,8 +32,6 @@ use "wbthomason/packer.nvim"
 
 use {
     "nvim-telescope/telescope.nvim",
-    cmd = {"Telescope"},
-    keys = {"<leader>ff"},
     requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
     config = get_config("telescope")
 }
@@ -84,14 +82,22 @@ use {
 
 use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
 
-use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
+use {
+    "rafamadriz/friendly-snippets",
+    module = "vim-vsnip",
+    requires = {{"hrsh7th/vim-vsnip"}}
+}
 
-use {"mhartington/formatter.nvim", config = get_config("formatter")}
+use {
+    "mhartington/formatter.nvim",
+    event = "BufWritePre",
+    config = get_config("formatter")
+}
 
 use {
     "phaazon/hop.nvim",
     branch = "v1",
-    keys = {"<leader>j"},
+    event = "BufReadPre",
     config = get_config("hop")
 }
 
@@ -123,7 +129,10 @@ use {
 
 use "p00f/nvim-ts-rainbow"
 
-use {"kevinhwang91/nvim-bqf", requires = {{"junegunn/fzf"}}}
+use {
+    "kevinhwang91/nvim-bqf",
+    requires = {{"junegunn/fzf", module = "nvim-bqf"}}
+}
 
 use {
     "akinsho/nvim-bufferline.lua",
@@ -154,7 +163,7 @@ use {
 
 use {
     "akinsho/nvim-toggleterm.lua",
-    keys = {"<C-y>", "<leader>fl"},
+    keys = {"<C-y>", "<leader>fl", "<leader>gt"},
     config = get_config("toggleterm")
 }
 
@@ -187,11 +196,11 @@ use {"ahmedkhalf/project.nvim", config = get_config("project")}
 
 use "ironhouzi/starlite-nvim"
 
-use {"folke/which-key.nvim", keys = {"<leader>"}, config = get_config("which")}
+use {"folke/which-key.nvim", event = "VimEnter", config = get_config("which")}
 
 use "junegunn/vim-easy-align" -- no lua alternative
 
-use "rhysd/vim-grammarous"
+use {"rhysd/vim-grammarous", cmd = "GrammarousCheck"}
 
 use {"RRethy/vim-illuminate", event = "CursorHold"}
 
@@ -210,10 +219,19 @@ use {
     config = get_config("neoscroll")
 }
 
-use {"ThePrimeagen/harpoon", requires = {"nvim-lua/plenary.nvim"}}
+use {
+    "ThePrimeagen/harpoon",
+    keys = {
+        "<leader>ha", "<leader>hu", "<leader>h1", "<leader>h1", "<leader>h3",
+        "<leader>h4"
+    },
+    requires = {"nvim-lua/plenary.nvim"}
+}
+
 use {"folke/zen-mode.nvim", cmd = "ZenMode", config = get_config("zen-mode")}
 
 use {"folke/twilight.nvim", config = get_config("twilight")}
+
 use {"tweekmonster/startuptime.vim"}
 
 -- TODO: ????
