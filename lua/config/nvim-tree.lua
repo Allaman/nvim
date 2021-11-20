@@ -90,7 +90,7 @@ require("nvim-tree").setup {
             custom_only = true,
             -- list of mappings to set on the tree manually
             list = {
-                {key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("tabnew")},
+                {key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit")},
                 {key = {"<2-RightMouse>", "<C-]>"}, cb = tree_cb("cd")},
                 {key = "<C-v>", cb = tree_cb("vsplit")},
                 {key = "<C-x>", cb = tree_cb("split")},
