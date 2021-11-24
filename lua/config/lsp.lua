@@ -113,6 +113,7 @@ for _, lsp in ipairs(servers) do
                     url = "https://www.schemastore.org/api/json/catalog.json"
                 },
                 schemas = {
+                    kubernetes = "/*.yaml",
                     ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
                     ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
                     ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
@@ -124,7 +125,7 @@ for _, lsp in ipairs(servers) do
                     ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
                     ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
                     ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.{yml,yaml}",
-                    kubernetes = "/*.yaml"
+                    ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}"
                 },
                 format = {enabled = false},
                 validate = false, -- TODO: conflicts between Kubernetes resources and kustomization.yaml
