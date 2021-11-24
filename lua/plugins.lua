@@ -207,7 +207,6 @@ use {"RRethy/vim-illuminate", event = "CursorHold"}
 use {
     "ptzz/lf.vim",
     requires = "voldikss/vim-floaterm",
-    cmd = "<leader>fl",
     config = get_config("lf")
 }
 
