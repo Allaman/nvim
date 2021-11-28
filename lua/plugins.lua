@@ -233,6 +233,8 @@ use {"folke/twilight.nvim", config = get_config("twilight")}
 
 use {"tweekmonster/startuptime.vim"}
 
+use {"xiyaowong/nvim-transparent", config = get_config("transparent")}
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
