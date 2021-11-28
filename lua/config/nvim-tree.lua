@@ -1,6 +1,5 @@
 local g = vim.g
 
-g.nvim_tree_gitignore = 1 -- 0 by default
 g.nvim_tree_indent_markers = 1 -- 0 by default, this option shows indent markers when folders are open
 g.nvim_tree_git_hl = 1 -- 0 by default, will enable file highlight for git attributes (can be used without the icons).
 g.nvim_tree_highlight_opened_files = 1 -- 0 by default, will enable folder and file icon highlight for opened files/directories.
@@ -58,6 +57,7 @@ require("nvim-tree").setup {
         enabled = true,
         icon = {hint = "", info = "", warning = "", error = ""}
     },
+    git = {ignore = true},
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
         -- enables the feature
@@ -77,7 +77,12 @@ require("nvim-tree").setup {
         args = {}
     },
 
+    trash = {cmd = "trash-put"},
+
     view = {
+        -- show line numbers in tree disabled
+        number = false,
+        relativenumber = false,
         -- width of the window, can be either a number (columns) or a string in `%`
         width = 30,
         -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
