@@ -82,11 +82,7 @@ use {
 
 use {"hrsh7th/vim-vsnip", config = get_config("vsnip")}
 
-use {
-    "rafamadriz/friendly-snippets",
-    module = "vim-vsnip",
-    requires = {{"hrsh7th/vim-vsnip"}}
-}
+use {"rafamadriz/friendly-snippets", requires = {{"hrsh7th/vim-vsnip"}}}
 
 use {
     "mhartington/formatter.nvim",
