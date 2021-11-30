@@ -14,7 +14,6 @@ o.dir = fn.stdpath("data") .. "/swp" -- swap file directory
 o.undofile = true -- enable/disable undo file creation
 o.undodir = fn.stdpath("data") .. "/undodir" -- set undo directory
 o.history = 500 -- Use the 'history' option to set the number of lines from command mode that are remembered.
-o.hidden = true -- required to keep multiple buffers and open multiple buffers
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 o.fileencoding = "utf-8" -- the encoding written to a file
 o.conceallevel = 0 -- so that `` is visible in markdown files

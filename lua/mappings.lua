@@ -25,9 +25,6 @@ map("v", "p", "\"_dP", default_options)
 map("n", "<TAB>", ":bnext<CR>", default_options)
 map("n", "<S-TAB>", ":bprevious<CR>", default_options)
 
--- Change behaviour of Y similar to C and D
-map("n", "Y", "y$", default_options)
-
 -- Cancel search highlighting with ESC
 map("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
 
