@@ -1,3 +1,4 @@
+plugin/
 packer_compiled.lua
 .envrc
 spell/
