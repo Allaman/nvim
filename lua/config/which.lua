@@ -173,9 +173,9 @@ wk.register({
         -- f = { "<cmd>silent FormatWrite<cr>", "Format" },
         f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
         i = {"<cmd>LspInfo<cr>", "Info"},
-        j = {"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", "Next Diagnostic"},
-        k = {"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic"},
-        q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix"},
+        j = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic"},
+        k = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic"},
+        q = {"<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix"},
         r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
         s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
         S = {
