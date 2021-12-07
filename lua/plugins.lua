@@ -130,6 +130,7 @@ use {
     requires = {{"junegunn/fzf", module = "nvim-bqf"}}
 }
 
+use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 use {
     "akinsho/nvim-bufferline.lua",
     requires = "kyazdani42/nvim-web-devicons",
@@ -231,6 +232,7 @@ use {"tweekmonster/startuptime.vim"}
 
 use {"xiyaowong/nvim-transparent", config = get_config("transparent")}
 
+use {"jvgrootveld/telescope-zoxide"}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

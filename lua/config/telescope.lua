@@ -5,6 +5,8 @@ local telescope = require("telescope")
 
 telescope.load_extension("projects")
 
+telescope.load_extension("fzf")
+telescope.load_extension("zoxide")
 
 telescope.setup {
     defaults = {
