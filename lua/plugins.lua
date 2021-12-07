@@ -90,13 +90,6 @@ use {
     config = get_config("formatter")
 }
 
-use {
-    "phaazon/hop.nvim",
-    branch = "v1",
-    event = "BufReadPre",
-    config = get_config("hop")
-}
-
 -- requirement for Neogit
 use {
     "sindrets/diffview.nvim",
@@ -232,6 +225,7 @@ use {"tweekmonster/startuptime.vim"}
 
 use {"xiyaowong/nvim-transparent", config = get_config("transparent")}
 
+use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
 use {"jvgrootveld/telescope-zoxide"}
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
