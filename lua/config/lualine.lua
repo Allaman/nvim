@@ -12,8 +12,8 @@ require"lualine".setup {
             {"filename", file_status = true, path = 1, shorting_target = 40} -- show relativ path
         },
         lualine_x = {
-            {"diagnostics", sources = {"nvim_lsp"}}, "encoding", "fileformat",
-            "filetype"
+            {"diagnostics", sources = {"nvim_diagnostic"}}, "encoding",
+            "fileformat", "filetype"
         },
         lualine_y = {"progress"},
         lualine_z = {"location"}
