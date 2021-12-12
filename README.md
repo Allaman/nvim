@@ -18,7 +18,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 ## Features
 
 - Package management via [Packer](https://github.com/wbthomason/packer.nvim)
-- Lazy-loading selected plugins for startup in under 60ms 🚀
+- Startup in under 60ms 🚀
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Mnemonic keyboard mappings (no more than three keystrokes) inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim)
 - Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -32,7 +32,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 - Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
-- Easy Tmux navigation with your homerow via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
+- Easy Tmux navigation with your home row via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
 - Schema integration via LSPs like package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
 - and much more...
 
@@ -54,6 +54,12 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 ├── snippets          # snippets for vsnip
 └── spell             # my spell files linked from another repo
 ```
+
+## Remove plugins
+
+Basically, you can remove unwanted plugins by just removing the appropriate line in `./lua/plugins.lua` and, if applicable, delete its configuration file in `./lua/config/`.
+
+ℹ️ Keep in mind that some plugins are configured to work in conjunction with other plugins. For instance, autopairs is configured in `./lua/config/treesitter.lua`. For now there is no logic implemented that cross-checks such dependencies.
 
 ## Requirements
 
