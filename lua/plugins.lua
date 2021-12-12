@@ -227,6 +227,7 @@ use {"xiyaowong/nvim-transparent", config = get_config("transparent")}
 
 use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
 use {"jvgrootveld/telescope-zoxide"}
+use("crispgm/telescope-heading.nvim")
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

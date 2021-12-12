@@ -194,6 +194,7 @@ wk.register({
         name = "Search",
         c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
         h = {"<cmd>Telescope help_tags<cr>", "Find Help"},
+        H = {"<cmd>Telescope heading<cr>", "Find Header"},
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
         R = {"<cmd>Telescope registers<cr>", "Registers"},
         t = {"<cmd>Telescope live_grep<cr>", "Text"},
