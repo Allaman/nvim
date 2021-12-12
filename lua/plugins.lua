@@ -124,6 +124,7 @@ use {
 }
 
 use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+
 use {
     "akinsho/nvim-bufferline.lua",
     requires = "kyazdani42/nvim-web-devicons",
@@ -225,9 +226,21 @@ use {"tweekmonster/startuptime.vim"}
 
 use {"xiyaowong/nvim-transparent", config = get_config("transparent")}
 
+use {
+    "iamcco/markdown-preview.nvim",
+    run = function()
+        vim.fn["mkdp#util#install"]()
+    end,
+    ft = {"markdown"},
+    config = get_config("markdown-preview")
+}
+
 use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
+
 use {"jvgrootveld/telescope-zoxide"}
+
 use("crispgm/telescope-heading.nvim")
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
