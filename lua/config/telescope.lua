@@ -1,5 +1,4 @@
 local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
 local custom_actions = {}
 local telescope = require("telescope")
 
