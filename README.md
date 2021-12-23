@@ -4,6 +4,10 @@
 
 This is my first Lua based NeoVim (>0.5) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
+💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my MacBook!
+
+Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MacBook is configured.
+
 ## Motivation
 
 There is a number of great NeoVim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
@@ -63,23 +67,30 @@ Basically, you can remove unwanted plugins by just removing the appropriate line
 
 ## Requirements
 
-There are some tools that are required in order to use some functions.
+There are some tools that are required in order to use some features/plugins:
 
-- Searching:
-  - [ripgrep](https://github.com/BurntSushi/ripgrep)
-  - [fd](https://github.com/sharkdp/fd)
-- Autoformatting:
-  - [prettier](https://prettier.io/)
-  - [gofmt](https://pkg.go.dev/cmd/gofmt)
-  - [terraform fmt](https://www.terraform.io/docs/cli/commands/fmt.html)
-  - [luarocks](https://github.com/luarocks/luarocks) and `luarocks install --server=https://luarocks.org/dev luaformatter`
-  - [black](https://github.com/psf/black)
-- Language servers for the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
-  - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
-  - `go get golang.org/x/tools/gopls`
-  - [terraform-ls](https://github.com/hashicorp/terraform-ls)
-  - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
-  - [lua-language-server](https://github.com/sumneko/lua-language-server)
+### Tools
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd)
+
+### Autoformatting
+
+- [prettier](https://prettier.io/)
+- [gofmt](https://pkg.go.dev/cmd/gofmt)
+- [terraform fmt](https://www.terraform.io/docs/cli/commands/fmt.html)
+- [luarocks](https://github.com/luarocks/luarocks) and `luarocks install --server=https://luarocks.org/dev luaformatter`
+- [black](https://github.com/psf/black)
+
+### Language Servers
+
+For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
+
+- `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
+- `go get golang.org/x/tools/gopls`
+- [terraform-ls](https://github.com/hashicorp/terraform-ls)
+- [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
+- [lua-language-server](https://github.com/sumneko/lua-language-server)
 - For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-grammarous) Java 8+ is required
 
 ## Inspiration
