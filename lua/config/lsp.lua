@@ -7,7 +7,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local servers = {
     "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls",
-    "tsserver", "texlab", "yamlls", "jsonls"
+    "sumneko_lua", "tsserver", "texlab", "yamlls", "jsonls"
 }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
@@ -43,6 +43,32 @@ for _, lsp in ipairs(servers) do
                         url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"
                     }
                 }
+            },
+            Lua = {
+                cmd = {"lua-language-server"},
+                filetypes = {"lua"},
+                runtime = {
+                    version = "LuaJIT",
+                    path = vim.split(package.path, ";")
+                },
+                completion = {enable = true, callSnippet = "Both"},
+                diagnostics = {
+                    enable = true,
+                    globals = {"vim", "describe"},
+                    disable = {"lowercase-global"}
+                },
+                workspace = {
+                    library = {
+                        vim.api.nvim_get_runtime_file("", true),
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                        [vim.fn.expand("/usr/share/awesome/lib")] = true
+                    },
+                    -- adjust these two values if your performance is not optimal
+                    maxPreload = 2000,
+                    preloadFileSize = 1000
+                },
+                telemetry = {enable = false}
             },
             redhat = {telemetry = {enabled = false}},
             texlab = {
@@ -103,35 +129,40 @@ for _, lsp in ipairs(servers) do
     })
 end
 
-local sumneko_root_path = os.getenv("HOME") .. ".cache/lua-language-server"
-local sumneko_binary = "/usr/bin/lua-language-server"
-require"lspconfig".sumneko_lua.setup {
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-            completion = {enable = true, callSnippet = "Both"},
-            diagnostics = {
-                enable = true,
-                globals = {"vim", "describe"},
-                disable = {"lowercase-global"}
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-                    [vim.fn.expand("/usr/share/awesome/lib")] = true
-                },
-                -- adjust these two values if your performance is not optimal
-                maxPreload = 2000,
-                preloadFileSize = 1000
-            },
-            telemetry = {enable = false}
-        }
-    }
-}
+-- local sumneko_binary
+-- if jit.os == "OSX" then
+--     sumneko_binary = "/opt/homebrew/bin/lua-language-server"
+-- elseif jit.os == "LINUX" then
+--     sumneko_binary = "/usr/bin/lua-language-server"
+-- end
+-- local sumneko_root_path = os.getenv("HOME") .. ".cache/lua-language-server"
+-- require"lspconfig".sumneko_lua.setup {
+--     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     settings = {
+--         Lua = {
+--             runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
+--             completion = {enable = true, callSnippet = "Both"},
+--             diagnostics = {
+--                 enable = true,
+--                 globals = {"vim", "describe"},
+--                 disable = {"lowercase-global"}
+--             },
+--             workspace = {
+--                 library = {
+--                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+--                     [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+--                     [vim.fn.expand("/usr/share/awesome/lib")] = true
+--                 },
+--                 -- adjust these two values if your performance is not optimal
+--                 maxPreload = 2000,
+--                 preloadFileSize = 1000
+--             },
+--             telemetry = {enable = false}
+--         }
+--     }
+-- }
 -- alternative to formatter but yamlfix is not working and I need this for respecting yamllint config
 -- but yamlfix is messing up ansible files ... 😠
 -- require('lspconfig')['efm'].setup{
