@@ -189,7 +189,7 @@ wk.register({
         d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition"},
         e = {"<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics"},
         f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
-        i = {"<cmd><cr>", "Connected Language Servers"},
+        i = {"<cmd>LspInfo<cr>", "Connected Language Servers"},
         k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
         l = {
             "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
