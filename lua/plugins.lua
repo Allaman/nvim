@@ -239,11 +239,8 @@ use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
 
 use {"jvgrootveld/telescope-zoxide"}
 
-use("crispgm/telescope-heading.nvim")
+use {"crispgm/telescope-heading.nvim"}
 
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
--- Too intrusive (fFtT, sS zZ, xX ...)
--- https://github.com/ggandor/lightspeed.nvim
--- use 'ggandor/lightspeed.nvim'
