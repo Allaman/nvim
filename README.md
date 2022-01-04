@@ -4,7 +4,7 @@
 
 This is my first Lua based NeoVim (>0.5) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
-💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my MacBook!
+💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS!
 
 Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MacBook is configured.
 
@@ -38,6 +38,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Easy Tmux navigation with your home row via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
 - Schema integration via LSPs like package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
+- YAML navigation via [yaml.nvim](https://github.com/cuducos/yaml.nvim); useful for your hundreds of lines of Kubernetes manifests 😉
 - and much more...
 
 ## Structure
