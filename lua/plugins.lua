@@ -241,6 +241,8 @@ use {"jvgrootveld/telescope-zoxide"}
 
 use {"crispgm/telescope-heading.nvim"}
 
+use {"cuducos/yaml.nvim", ft = {"yaml"}}
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

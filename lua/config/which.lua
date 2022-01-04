@@ -274,6 +274,14 @@ wk.register({
             "Disable the grammar rule under the cursor"
         }
     },
+    y = {
+        name = "YAML",
+        s = {"<cmd>YAMLView<cr>", "Show Path"},
+        q = {"<cmd>YAMLQuickfix<cr>", "Generate quickfix list"},
+        t = {"<cmd>YAMLTelescope<cr>", "Open Telescope"},
+        k = {"<cmd>YAMLYankKey<cr>", "Yank key"},
+        v = {"<cmd>YAMLYankValue<cr>", "Yank value"}
+    },
     z = {
         name = "Spelling",
         n = {"]s", "Next"},
