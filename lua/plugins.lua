@@ -243,6 +243,12 @@ use {"crispgm/telescope-heading.nvim"}
 
 use {"cuducos/yaml.nvim", ft = {"yaml"}}
 
+use {
+    "VonHeikemen/fine-cmdline.nvim",
+    requires = {"MunifTanjim/nui.nvim"},
+    config = get_config("fine-cmdline")
+}
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
