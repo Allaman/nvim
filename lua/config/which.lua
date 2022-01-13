@@ -218,6 +218,7 @@ wk.register({
         R = {"<cmd>Telescope registers<cr>", "Registers"},
         t = {"<cmd>Telescope live_grep<cr>", "Text"},
         s = {"<cmd>Telescope grep_string<cr>", "Text under cursor"},
+        S = {"<cmd>Telescope symbols<cr>", "Search symbols"},
         k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
         C = {"<cmd>Telescope commands<cr>", "Commands"},
         p = {"<cmd>Telescope projects<cr>", "Projects"},

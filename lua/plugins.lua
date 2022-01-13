@@ -75,7 +75,7 @@ use {
     requires = {
         {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"},
         {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-vsnip"},
-        {"f3fora/cmp-spell", {"hrsh7th/cmp-calc"}, {"hrsh7th/cmp-emoji"}}
+        {"f3fora/cmp-spell", {"hrsh7th/cmp-calc"}}
     },
     config = get_config("cmp")
 }
@@ -248,6 +248,8 @@ use {
     requires = {"MunifTanjim/nui.nvim"},
     config = get_config("fine-cmdline")
 }
+
+use {"nvim-telescope/telescope-symbols.nvim"}
 
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
