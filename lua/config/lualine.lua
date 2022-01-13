@@ -7,9 +7,15 @@ require"lualine".setup {
     },
     sections = {
         lualine_a = {"mode"},
-        lualine_b = {"branch", "diff"},
+        lualine_b = {{"b:gitsigns_head", icon = ""}, "diff"},
         lualine_c = {
-            {"filename", file_status = true, path = 1, shorting_target = 40} -- show relativ path
+            {
+                "filename",
+                file_status = true,
+                path = 1, -- show relativ path
+                shorting_target = 40,
+                symbols = {modified = "[]", readonly = " "}
+            }
         },
         lualine_x = {
             {"diagnostics", sources = {"nvim_diagnostic"}}, "encoding",
