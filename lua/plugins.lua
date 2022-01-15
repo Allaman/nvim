@@ -40,6 +40,7 @@ use {"jvgrootveld/telescope-zoxide"}
 use {"crispgm/telescope-heading.nvim"}
 use {"nvim-telescope/telescope-symbols.nvim"}
 use {"nvim-telescope/telescope-file-browser.nvim"}
+
 use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
 
 use {"numToStr/Navigator.nvim", config = get_config("navigator")}
@@ -249,7 +250,7 @@ use {
     config = get_config("fine-cmdline")
 }
 
-use {"nvim-telescope/telescope-symbols.nvim"}
+use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
 
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
