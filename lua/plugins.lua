@@ -36,6 +36,10 @@ use {
     config = get_config("telescope")
 }
 
+use {"jvgrootveld/telescope-zoxide"}
+use {"crispgm/telescope-heading.nvim"}
+use {"nvim-telescope/telescope-symbols.nvim"}
+use {"nvim-telescope/telescope-file-browser.nvim"}
 use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
 
 use {"numToStr/Navigator.nvim", config = get_config("navigator")}
@@ -236,10 +240,6 @@ use {
 }
 
 use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
-
-use {"jvgrootveld/telescope-zoxide"}
-
-use {"crispgm/telescope-heading.nvim"}
 
 use {"cuducos/yaml.nvim", ft = {"yaml"}}
 
