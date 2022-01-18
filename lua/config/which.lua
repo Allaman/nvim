@@ -155,12 +155,6 @@ wk.register({
             "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Open File 4"
         }
     },
-    j = {
-        name = "jump",
-        c = {"<cmd>lua require'hop'.hint_char2()<cr>", "2 Chars"},
-        l = {"<cmd>lua require'hop'.hint_lines()<cr>", "Lines"},
-        w = {"<cmd>lua require'hop'.hint_words()<cr>", "Words"}
-    },
     l = {
         name = "LSP",
         A = {
