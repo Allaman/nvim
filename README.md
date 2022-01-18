@@ -6,40 +6,52 @@ This is my first Lua based NeoVim (>0.5) configuration. My goal was to achieve t
 
 💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS!
 
-Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MacBook is configured.
+Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MacBook is configured. The Tmux configuration you can see in the image is [here](https://github.com/Allaman/dotfiles/blob/master/tmux.conf) (as well as my other dotfiles).
 
 ## Motivation
 
 There is a number of great NeoVim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
 
-So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish the following:
+So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish the following principles:
 
-1. At least feature parity with my mentioned old vimrc
-2. Migrate to Lua based alternative plugins
-3. Keep the config as simple as possible knowing that this would possibly impact the code quality
-4. Just make it work and not make it beautiful 😃
+## Principles
+
+1. At least feature parity with my mentioned old vimrc (my lua config is superior almost since day one (or two 😉)).
+2. Migrate to Lua based alternative plugins.
+3. Keep the config as simple as possible knowing that this would possibly impact the code quality.
+4. Modular and meaningful directory structure and file naming.
+5. Just make it work and not make it beautiful 😃. Of course, NeoVim itself must look beautiful but my Focus is not on beautiful code or utilizing all Lua features.
 
 ## Features
 
-- Package management via [Packer](https://github.com/wbthomason/packer.nvim)
-- Startup in under 60ms 🚀
-- [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
-- Mnemonic keyboard mappings (no more than three keystrokes) inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim)
-- Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
-- Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- Asynchronous auto formatting via [Formatter.nvim](https://github.com/mhartington/formatter.nvim)
-- Git via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim), and [gitui](https://github.com/extrawurst/gitui)
-- File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
-- Awesome status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
-- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
-- Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-- [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim)
+### General ⚙️
+
+- Package management and plugin configuration via [Packer](https://github.com/wbthomason/packer.nvim)
+- Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
+- Minimal yet awesome status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
+- Startup in under 60ms 🚀
+
+### Navigation 🧭
+
+- [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
+- Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+- Informative sidebar via [sidebar.nvim](https://github.com/sidebar-nvim/sidebar.nvim)
 - Easy Tmux navigation with your home row via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
-- Schema integration via LSPs like package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
+- Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+- [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
+
+### Coding 🖥️
+
+- Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
+- Asynchronous auto formatting via [Formatter.nvim](https://github.com/mhartington/formatter.nvim)
+- Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
+- Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim), and [gitui](https://github.com/extrawurst/gitui)
+- Schema integration via LSPs for Kubernetes, package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
 - YAML navigation via [yaml.nvim](https://github.com/cuducos/yaml.nvim); useful for your hundreds of lines of Kubernetes manifests 😉
-- and much more...
 
 ## Structure
 
@@ -59,6 +71,37 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 ├── snippets          # snippets for vsnip
 └── spell             # my spell files linked from another repo
 ```
+
+## Useful non leader bindings
+
+| Mode | key           | binding                                  |
+| ---- | ------------- | ---------------------------------------- |
+| n    | space         | Leader key                               |
+| v    | ga            | Easyalign                                |
+| v/n  | gcc           | Toggle line comment                      |
+| n    | ↑ ↓ ⟶ ⟵       | Resize panes                             |
+| i    | <c-l>         | Move out of closing bracket              |
+| n    | <c-h\|j\|k\|l | change pane focus (including Tmux panes) |
+
+## Top level leader key bindings
+
+See `./lua/config/which.lua` for details.
+
+| key | cluster                                                |
+| --- | ------------------------------------------------------ |
+| b   | Buffer management                                      |
+| c   | Language specific actions (only in Go, e.g. run tests) |
+| f   | File management                                        |
+| g   | Git actions                                            |
+| h   | Harpoon integration                                    |
+| l   | LSP integration                                        |
+| m   | Misc stuff                                             |
+| s   | Searching                                              |
+| t   | Trouble integration                                    |
+| w   | Window management                                      |
+| x   | Languagetool integration                               |
+| y   | YAML integration (only in YAML files)                  |
+| z   | Spell bindings                                         |
 
 ## Remove plugins
 
@@ -88,7 +131,7 @@ There are some tools that are required in order to use some features/plugins:
 For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
 
 - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
-- `go get golang.org/x/tools/gopls`
+- `go get golang.org/x/tools/gopls` (optional `golangci-lint`, `gomodifytags`, `gorename`)
 - [terraform-ls](https://github.com/hashicorp/terraform-ls)
 - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
 - [lua-language-server](https://github.com/sumneko/lua-language-server)
