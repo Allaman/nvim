@@ -224,11 +224,8 @@ wk.register({
     },
     t = {
         name = "Trouble",
-        w = {
-            "<cmd>Trouble lsp_workspace_diagnostics<cr>",
-            "Workspace Diagnostics"
-        },
-        d = {"<cmd>Trouble lsp_document_diagnostics<cr>", "Document Diagnostic"},
+        w = {"<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics"},
+        d = {"<cmd>Trouble document_diagnostics<cr>", "Document Diagnostic"},
         l = {"<cmd>Trouble loclist<cr>", "Loclist"},
         q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
         t = {"<cmd>TodoTrouble<cr>", "Todos"},
