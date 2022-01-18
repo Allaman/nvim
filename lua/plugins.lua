@@ -231,15 +231,6 @@ use {"tweekmonster/startuptime.vim"}
 
 use {"xiyaowong/nvim-transparent", config = get_config("transparent")}
 
-use {
-    "iamcco/markdown-preview.nvim",
-    run = function()
-        vim.fn["mkdp#util#install"]()
-    end,
-    ft = {"markdown"},
-    config = get_config("markdown-preview")
-}
-
 use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
 
 use {"cuducos/yaml.nvim", ft = {"yaml"}}
