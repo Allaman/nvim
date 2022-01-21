@@ -20,7 +20,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 2. Migrate to Lua based alternative plugins.
 3. Keep the config as simple as possible knowing that this would possibly impact the code quality.
 4. Modular and meaningful directory structure and file naming.
-5. Just make it work and not make it beautiful 😃. Of course, NeoVim itself must look beautiful but my Focus is not on beautiful code or utilizing all Lua features.
+5. Just make it work and not make it beautiful 😃. Of course, NeoVim itself must look beautiful but my Focus is not on beautiful code or on utilizing all Lua features.
 
 ## Features
 
@@ -59,7 +59,8 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 
 ```
 .
-├── ftplugin/         # file specific settings
+├── after
+│   └── ftplugin      # file specific settings
 ├── init.lua          # main entry point
 ├── lua
 │   ├── autocmd.lua   # vim autocommands
@@ -67,7 +68,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 │   ├── mappings.lua  # Vim keymaps defintions -> config/which.lua for more
 │   ├── options.lua   # non plugin related (vim) options
 │   └── plugins.lua   # define plugins to be managed via Packer
-├── plugins           # packer_compiled
+├── plugin            # packer_compiled
 ├── snippets          # snippets for vsnip
 └── spell             # my spell files linked from another repo
 ```
