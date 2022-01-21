@@ -82,20 +82,20 @@ wk.register({
         },
         d = {"<cmd>Bdelete!<CR>", "Close Buffer"},
         f = {"<cmd>BufferLinePick<cr>", "Pick buffer"},
-        l = {"<cmd>BufferLineCloseLeft<cr>", "close all buffers to the left"},
+        l = {"<cmd>BufferLineCloseLeft<cr>", "Close all buffers to the left"},
         p = {"<cmd>BufferLineMovePrev<cr>", "Move buffer prev"},
         n = {"<cmd>BufferLineMoveNext<cr>", "Move buffer next"},
         r = {
             "<cmd>BufferLineCloseRight<cr>",
-            "close all BufferLines to the right"
+            "Close all BufferLines to the right"
         },
         x = {
             "<cmd>BufferLineSortByDirectory<cr>",
-            "sort BufferLines automatically by directory"
+            "Sort BufferLines automatically by directory"
         },
         L = {
             "<cmd>BufferLineSortByExtension<cr>",
-            "sort BufferLines automatically by extension"
+            "Sort BufferLines automatically by extension"
         }
     },
     f = {
