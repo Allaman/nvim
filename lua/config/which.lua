@@ -80,6 +80,10 @@ wk.register({
             "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>",
             "Find buffer"
         },
+        a = {
+            "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>",
+            "Close all but the current buffer"
+        },
         d = {"<cmd>Bdelete!<CR>", "Close Buffer"},
         f = {"<cmd>BufferLinePick<cr>", "Pick buffer"},
         l = {"<cmd>BufferLineCloseLeft<cr>", "Close all buffers to the left"},
