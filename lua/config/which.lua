@@ -206,7 +206,7 @@ wk.register({
     },
     s = {
         name = "Search",
-        c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
+        C = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
         h = {"<cmd>Telescope help_tags<cr>", "Find Help"},
         H = {"<cmd>Telescope heading<cr>", "Find Header"},
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
@@ -215,7 +215,7 @@ wk.register({
         s = {"<cmd>Telescope grep_string<cr>", "Text under cursor"},
         S = {"<cmd>Telescope symbols<cr>", "Search symbols"},
         k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
-        C = {"<cmd>Telescope commands<cr>", "Commands"},
+        c = {"<cmd>Telescope commands<cr>", "Commands"},
         p = {"<cmd>Telescope projects<cr>", "Projects"},
         P = {
             "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
