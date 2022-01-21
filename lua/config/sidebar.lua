@@ -10,8 +10,12 @@ require("sidebar-nvim").setup({
     sections = {
         "git", "symbols", "todos", "diagnostics", "buffers", "containers"
     },
-    buffers = {icon = ""},
-    files = {icon = "", show_hidden = false},
+    buffers = {icon = "", ignored_buffers = {"NvimTree", "SidebarNvim_*"}},
+    files = {
+        icon = "",
+        show_hidden = false,
+        ignored_paths = {"%.git$", "node_modules$"}
+    },
     symbols = {icon = "ƒ"},
     containers = {
         icon = "",
