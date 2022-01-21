@@ -1,9 +1,8 @@
-local map = vim.api.nvim_set_keymap
 vim.g.symbols_outline = {
     highlight_hovered_item = true,
     show_guides = true,
     auto_preview = true,
-    position = 'right',
+    position = "right",
     show_numbers = false,
     show_relative_numbers = false,
     show_symbol_details = true,
@@ -13,7 +12,7 @@ vim.g.symbols_outline = {
         focus_location = "o",
         hover_symbol = "<C-space>",
         rename_symbol = "r",
-        code_actions = "a",
+        code_actions = "a"
     },
-    lsp_blacklist = {},
+    lsp_blacklist = {}
 }
