@@ -245,6 +245,7 @@ use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
 
 use {"ray-x/go.nvim", config = get_config("go")}
 
+use({"themercorp/themer.lua", config = get_config("themer")})
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
