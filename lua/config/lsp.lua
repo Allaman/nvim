@@ -1,7 +1,5 @@
 local nvim_lsp = require("lspconfig")
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
@@ -9,6 +7,7 @@ local servers = {
     "gopls", "bashls", "jedi_language_server", "dockerls", "terraformls",
     "sumneko_lua", "tsserver", "texlab", "yamlls", "jsonls"
 }
+-- Use a loop to conveniently call 'setup' on multiple servers
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
@@ -128,24 +127,3 @@ for _, lsp in ipairs(servers) do
         }
     })
 end
-
--- alternative to formatter but yamlfix is not working and I need this for respecting yamllint config
--- but yamlfix is messing up ansible files ... 😠
--- require('lspconfig')['efm'].setup{
---   filetypes = { 'json', 'yaml','lua' },
---   init_options = {documentFormatting = true, codeAction = false},
---   settings = {
---     rootMarkers = {".git/"},
---     languages = {
---       lua = {
---         {formatCommand = "lua-format -i", formatStdin = true}
---       },
---       yaml = {
---         {formatCommand = "yamlfix -", formatStdin = true}
---       },
---       json = {
---         {formatCommand = "prettier", formatStdin = true}
---       }
---     }
---   }
--- }
