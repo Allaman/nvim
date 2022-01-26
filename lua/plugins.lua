@@ -245,7 +245,10 @@ use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
 
 use {"ray-x/go.nvim", config = get_config("go")}
 
+use {"LudoPinelli/comment-box.nvim", config = get_config("comment-box")}
+
 use {"rcarriga/nvim-notify", config = get_config("notify")}
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'
