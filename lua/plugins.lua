@@ -216,11 +216,8 @@ use {
 
 use {
     "ThePrimeagen/harpoon",
-    keys = {
-        "<leader>ha", "<leader>hu", "<leader>h1", "<leader>h1", "<leader>h3",
-        "<leader>h4"
-    },
-    requires = {"nvim-lua/plenary.nvim"}
+    requires = {"nvim-lua/plenary.nvim"},
+    config = get_config("harpoon")
 }
 
 use {"folke/zen-mode.nvim", cmd = "ZenMode", config = get_config("zen-mode")}
