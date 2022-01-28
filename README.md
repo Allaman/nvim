@@ -2,7 +2,7 @@
 
 ![](./screen.png)
 
-This is my first Lua based NeoVim (>0.5) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
+This is my first Lua based NeoVim (>0.6) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
 💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS!
 
@@ -28,8 +28,9 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 
 - Package management and plugin configuration via [Packer](https://github.com/wbthomason/packer.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
-- Minimal yet awesome status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+- Minimal yet fully featured status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
+- Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Startup in under 60ms 🚀
 
 ### Navigation 🧭
@@ -83,6 +84,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | n    | ↑ ↓ ⟶ ⟵       | Resize panes                             |
 | i    | <c-l>         | Move out of closing bracket              |
 | n    | <c-h\|j\|k\|l | change pane focus (including Tmux panes) |
+| n    | <leader>space | switch to previously opened buffer       |
 
 ## Top level leader key bindings
 
