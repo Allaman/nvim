@@ -31,7 +31,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 - Minimal yet fully featured status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
-- Startup in under 60ms 🚀
+- Fast startup 🚀
 
 ### Navigation 🧭
 
@@ -82,7 +82,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | v    | ga            | Easyalign                                |
 | v/n  | gcc           | Toggle line comment                      |
 | n    | ↑ ↓ ⟶ ⟵       | Resize panes                             |
-| i    | <c-l>         | Move out of closing bracket              |
+| i    | \<c-l\>       | Move out of closing bracket              |
 | n    | <c-h\|j\|k\|l | change pane focus (including Tmux panes) |
 | n    | <leader>space | switch to previously opened buffer       |
 
