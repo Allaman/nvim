@@ -192,7 +192,7 @@ use {"ahmedkhalf/project.nvim", config = get_config("project")}
 
 use "ironhouzi/starlite-nvim"
 
-use {"folke/which-key.nvim", event = "VimEnter", config = get_config("which")}
+use {"folke/which-key.nvim", config = get_config("which")}
 
 use "junegunn/vim-easy-align" -- no lua alternative
 
