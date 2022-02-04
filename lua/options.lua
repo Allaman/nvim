@@ -2,7 +2,6 @@ local o = vim.opt
 local wo = vim.wo
 local fn = vim.fn
 
-vim.cmd "filetype indent plugin on"
 vim.cmd "set inccommand=split"
 o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
 o.updatetime = 300 -- faster completion
