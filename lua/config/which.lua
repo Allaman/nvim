@@ -69,7 +69,16 @@ local wk = require("which-key")
 default_options = {noremap = true, silent = true}
 
 -- register non leader based mappings
-wk.register({ga = {"<Plug>(EasyAlign)", "Align", mode = "x"}})
+wk.register({
+    ga = {"<Plug>(EasyAlign)", "Align", mode = "x"},
+    sa = "Add surrounding",
+    sd = "Delete surrounding",
+    sh = "Highlight surrounding",
+    sr = "Replace surrounding",
+    sF = "Find left surrounding",
+    sf = "Replace right surrounding",
+    sn = "# of lines to search for surrounding"
+})
 
 -- Register all leader based mappings
 wk.register({

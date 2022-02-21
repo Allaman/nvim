@@ -58,13 +58,6 @@ use {
     config = get_config("colorizer")
 }
 
-use {
-    "numToStr/Comment.nvim",
-    opt = true,
-    keys = {"gc", "gcc"},
-    config = get_config("comment")
-}
-
 use {"windwp/nvim-autopairs", config = get_config("autopairs")}
 
 use {
@@ -163,14 +156,6 @@ use {
     config = get_config("toggleterm")
 }
 
-use {
-    "blackCauldron7/surround.nvim",
-    config = function()
-        vim.g.surround_mappings_style = "surround"
-        require"surround".setup {}
-    end
-}
-
 use "sotte/presenting.vim"
 
 use {
@@ -238,12 +223,13 @@ use {
     config = get_config("fine-cmdline")
 }
 
-
 use {"ray-x/go.nvim", config = get_config("go")}
 
 use {"LudoPinelli/comment-box.nvim", config = get_config("comment-box")}
 
 use {"rcarriga/nvim-notify", config = get_config("notify")}
+
+use {"echasnovski/mini.nvim", branch = "stable", config = get_config("mini")}
 
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim

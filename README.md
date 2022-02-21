@@ -75,15 +75,19 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 
 ## Useful non leader bindings
 
-| Mode | key              | binding                                  |
-| ---- | ---------------- | ---------------------------------------- |
-| n    | space            | Leader key                               |
-| v    | ga               | Easyalign                                |
-| v/n  | gcc              | Toggle line comment                      |
-| n    | ⬆ ⬇ ⬅ ➡          | Resize panes                             |
-| i    | \<c-l\>          | Move out of closing bracket              |
-| n    | \<c-h\|j\|k\|l\> | change pane focus (including Tmux panes) |
-| n    | \<leader\>space  | switch to previously opened buffer       |
+| Mode | key              | binding                                              |
+| ---- | ---------------- | ---------------------------------------------------- |
+| n    | space            | Leader key                                           |
+| v    | ga               | Easyalign                                            |
+| n    | gcc              | Toggle line comment                                  |
+| n/v  | gc               | Toggle line comment (works with movements like gcip) |
+| n    | ⬆ ⬇ ⬅ ➡          | Resize panes                                         |
+| i    | \<c-l\>          | Move out of closing bracket                          |
+| n    | \<c-h\|j\|k\|l\> | change pane focus (including Tmux panes)             |
+| n    | \<leader\>space  | switch to previously opened buffer                   |
+| v    | sa               | Add surrounding                                      |
+| n    | sd               | Delete surrounding                                   |
+| n    | sr               | Replace surrounding                                  |
 
 ## Top level leader key bindings
 
