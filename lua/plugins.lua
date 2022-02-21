@@ -238,7 +238,6 @@ use {
     config = get_config("fine-cmdline")
 }
 
-use {"sidebar-nvim/sidebar.nvim", config = get_config("sidebar")}
 
 use {"ray-x/go.nvim", config = get_config("go")}
 

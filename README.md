@@ -38,7 +38,6 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
-- Informative sidebar via [sidebar.nvim](https://github.com/sidebar-nvim/sidebar.nvim)
 - Easy Tmux navigation with your home row via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
 - Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
