@@ -7,7 +7,7 @@ require("bufferline").setup {
         right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
         left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
         middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
-        indicator_icon = "▎",
+        indicator_icon = " ",
         buffer_close_icon = "",
         modified_icon = "●",
         close_icon = "",
@@ -17,8 +17,9 @@ require("bufferline").setup {
         max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
         tab_size = 18,
         diagnostics = "nvim_lsp",
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-            return "(" .. count .. ")"
+        diagnostics_indicator = function(count, level)
+            local icon = level:match("error") and " " or " "
+            return " " .. icon .. count
         end,
         -- NOTE: this will be called a lot so don't do any heavy processing here
         custom_filter = function(buf_number)
@@ -40,8 +41,9 @@ require("bufferline").setup {
         offsets = {
             {
                 filetype = "NvimTree",
-                text = "File Explorer",
-                text_align = "center",
+                text = " File Explorer",
+                highlight = "Directory",
+                text_align = "left",
                 padding = 1
             }
         },
