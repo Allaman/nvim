@@ -43,7 +43,11 @@ use {"nvim-telescope/telescope-file-browser.nvim"}
 
 use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
 
-use {"numToStr/Navigator.nvim", config = get_config("navigator")}
+use {
+    "numToStr/Navigator.nvim",
+    commit = "6bfcf7d", -- https://github.com/numToStr/Navigator.nvim/commit/2499fef348852750f3c11e7f8ab596231c36b16a
+    config = get_config("navigator")
+}
 
 use {
     "nvim-lualine/lualine.nvim",
