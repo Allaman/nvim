@@ -12,3 +12,7 @@ vim.api.nvim_exec([[
     au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   augroup END
   ]], false)
+
+vim.api.nvim_exec([[
+ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+]], false)
