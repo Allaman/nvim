@@ -156,8 +156,6 @@ use {
     config = get_config("toggleterm")
 }
 
-use "sotte/presenting.vim"
-
 use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
