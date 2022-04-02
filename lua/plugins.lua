@@ -217,12 +217,6 @@ use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
 
 use {"cuducos/yaml.nvim", ft = {"yaml"}}
 
-use {
-    "VonHeikemen/fine-cmdline.nvim",
-    requires = {"MunifTanjim/nui.nvim"},
-    config = get_config("fine-cmdline")
-}
-
 use {"ray-x/go.nvim", config = get_config("go")}
 
 use {"LudoPinelli/comment-box.nvim", config = get_config("comment-box")}
