@@ -6,8 +6,6 @@ expr_options = {noremap = true, expr = true, silent = true}
 map("n", "<Space>", "<NOP>", default_options)
 vim.g.mapleader = " "
 
--- remap :
-map("n", "<C-P>", "<cmd>FineCmdline<CR>", {noremap = true})
 -- center search results
 map("n", "n", "nzz", default_options)
 map("n", "N", "Nzz", default_options)
