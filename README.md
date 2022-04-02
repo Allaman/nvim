@@ -1,8 +1,8 @@
-# My NeoVim Configuration
+# My Neovim Configuration
 
 ![](./screen.png)
 
-This is my first Lua based NeoVim (>=0.6) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
+This is my first Lua based Neovim (>=0.6) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
 💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS!
 
@@ -10,9 +10,9 @@ Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine i
 
 ## Motivation
 
-There is a number of great NeoVim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
+There is a number of great Neovim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
 
-So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish the following principles:
+So I decided to move to a fresh Lua based Neovim on my own trying to accomplish the following principles:
 
 ## Principles
 
@@ -20,7 +20,7 @@ So I decided to move to a fresh Lua based NeoVim on my own trying to accomplish 
 2. Migrate to Lua based alternative plugins.
 3. Keep the config as simple as possible knowing that this would possibly impact the code quality.
 4. Modular and meaningful directory structure and file naming.
-5. Just make it work and not make it beautiful 😃. Of course, NeoVim itself must look beautiful but my Focus is not on beautiful code or on utilizing all Lua features.
+5. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my Focus is not on beautiful code or on utilizing all Lua features.
 
 ## Features
 
@@ -88,6 +88,8 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | v    | sa               | Add surrounding                                      |
 | n    | sd               | Delete surrounding                                   |
 | n    | sr               | Replace surrounding                                  |
+| n    | ss               | Search 2 char forward (lightspeed)                   |
+| n    | S                | Search 2 char backward (lightspeed)                  |
 
 ## Top level leader key bindings
 
