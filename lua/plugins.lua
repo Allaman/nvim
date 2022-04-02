@@ -209,8 +209,6 @@ use {"folke/twilight.nvim", config = get_config("twilight")}
 
 use {"tweekmonster/startuptime.vim"}
 
-use {"xiyaowong/nvim-transparent", config = get_config("transparent")}
-
 use {"ggandor/lightspeed.nvim", event = "BufReadPre"}
 
 use {"cuducos/yaml.nvim", ft = {"yaml"}}
