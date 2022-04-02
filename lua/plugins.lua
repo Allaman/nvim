@@ -40,6 +40,7 @@ use {"jvgrootveld/telescope-zoxide"}
 use {"crispgm/telescope-heading.nvim"}
 use {"nvim-telescope/telescope-symbols.nvim"}
 use {"nvim-telescope/telescope-file-browser.nvim"}
+use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
 use {"kyazdani42/nvim-tree.lua", config = get_config("nvim-tree")}
 
@@ -120,8 +121,6 @@ use {
     "kevinhwang91/nvim-bqf",
     requires = {{"junegunn/fzf", module = "nvim-bqf"}}
 }
-
-use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
 use {
     "akinsho/nvim-bufferline.lua",
