@@ -191,7 +191,7 @@ use {
     config = get_config("lf")
 }
 
-use {"NTBBloodbath/doom-one.nvim", config = get_config("doom-one")}
+use {"EdenEast/nightfox.nvim", config = get_config("nightfox")}
 
 use {
     "karb94/neoscroll.nvim",
