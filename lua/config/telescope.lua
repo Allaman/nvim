@@ -1,6 +1,6 @@
-local actions = require("telescope.actions")
-local custom_actions = {}
 local telescope = require("telescope")
+local actions = require("telescope.actions")
+local action_layout = require "telescope.actions.layout"
 
 telescope.load_extension("projects")
 telescope.load_extension("fzf")
@@ -33,22 +33,37 @@ telescope.setup {
                 ["<cr>"] = actions.select_default,
                 ["<c-v>"] = actions.select_vertical,
                 ["<c-s>"] = actions.select_horizontal,
-                ["<c-t>"] = actions.select_tab
+                ["<c-t>"] = actions.select_tab,
+                ["<c-p>"] = action_layout.toggle_preview,
+                ["<c-o>"] = action_layout.toggle_mirror,
+                ["<c-h>"] = actions.which_key
             }
         },
-        prompt_prefix = " ",
+        prompt_prefix = "> ",
         selection_caret = " ",
         entry_prefix = "  ",
+        multi_icon = "<>",
         initial_mode = "insert",
+        scroll_strategy = "cycle",
         selection_strategy = "reset",
         sorting_strategy = "descending",
-        layout_strategy = "flex",
+        layout_strategy = "horizontal",
         layout_config = {
-            width = 0.75,
-            prompt_position = "bottom",
-            preview_cutoff = 120,
-            horizontal = {mirror = false},
-            vertical = {mirror = true}
+            width = 0.95,
+            height = 0.85,
+            -- preview_cutoff = 120,
+            prompt_position = "top",
+            horizontal = {
+                preview_width = function(_, cols, _)
+                    if cols > 200 then
+                        return math.floor(cols * 0.4)
+                    else
+                        return math.floor(cols * 0.6)
+                    end
+                end
+            },
+            vertical = {width = 0.9, height = 0.95, preview_height = 0.5},
+            flex = {horizontal = {preview_width = 0.9}}
         },
         file_sorter = require"telescope.sorters".get_fzf_sorter,
         generic_sorter = require"telescope.sorters".get_fzf_sorter,
