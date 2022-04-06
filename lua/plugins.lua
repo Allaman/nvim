@@ -220,6 +220,11 @@ use {"rcarriga/nvim-notify", config = get_config("notify")}
 
 use {"echasnovski/mini.nvim", branch = "stable", config = get_config("mini")}
 
+use {
+    "https://gitlab.com/yorickpeterse/nvim-window.git",
+    config = get_config("nvim-window")
+}
+
 -- TODO: ????
 -- https://github.com/glepnir/lspsaga.nvim
 -- use 'glepnir/lspsaga.nvim'

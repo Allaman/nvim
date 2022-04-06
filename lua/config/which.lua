@@ -244,6 +244,10 @@ wk.register({
     },
     w = {
         name = "Window",
+        c = {
+            "<cmd>lua require('nvim-window').pick()<cr>",
+            "Choose window to jump"
+        },
         q = {"<cmd>:q<cr>", "Close"},
         s = {"<cmd>:split<cr>", "Horizontal Split"},
         t = {"<c-w>t", "Move to new tab"},
