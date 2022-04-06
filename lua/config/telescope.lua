@@ -10,7 +10,7 @@ telescope.load_extension "file_browser"
 
 telescope.setup {
     defaults = {
-        file_ignore_patterns = {"node_modules", "%.jpg", "%.png"},
+        file_ignore_patterns = {"node_modules", ".terraform", "%.jpg", "%.png"},
         vimgrep_arguments = {
             "rg", "--follow", "--color=never", "--no-heading",
             "--with-filename", "--line-number", "--column", "--smart-case"
@@ -18,29 +18,22 @@ telescope.setup {
         mappings = {
             i = {
                 -- Close on first esc instead of gonig to normal mode
+                -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
                 ["<esc>"] = actions.close,
+                ["<C-j>"] = actions.move_selection_next,
+                ["<PageUp>"] = actions.results_scrolling_up,
+                ["<PageDown>"] = actions.results_scrolling_down,
+                ["<C-k>"] = actions.move_selection_previous,
                 ["<A-q>"] = actions.send_selected_to_qflist,
                 ["<C-q>"] = actions.send_to_qflist,
-                ["<s-tab>"] = actions.toggle_selection
-                    + actions.move_selection_next,
-                ["<tab>"] = actions.toggle_selection
-                    + actions.move_selection_previous,
-                ["<cr>"] = custom_actions.multi_selection_open,
-                ["<c-v>"] = custom_actions.multi_selection_open_vsplit,
-                ["<c-s>"] = custom_actions.multi_selection_open_split,
-                ["<c-t>"] = custom_actions.multi_selection_open_tab
-            },
-            n = {
-                ["<s-tab>"] = actions.toggle_selection
-                    + actions.move_selection_next,
-                ["<tab>"] = actions.toggle_selection
-                    + actions.move_selection_previous,
-                ["<A-q>"] = actions.send_selected_to_qflist,
-                ["<C-q>"] = actions.send_to_qflist,
-                ["<cr>"] = custom_actions.multi_selection_open,
-                ["<c-v>"] = custom_actions.multi_selection_open_vsplit,
-                ["<c-s>"] = custom_actions.multi_selection_open_split,
-                ["<c-t>"] = custom_actions.multi_selection_open_tab
+                ["<Tab>"] = actions.toggle_selection
+                    + actions.move_selection_worse,
+                ["<S-Tab>"] = actions.toggle_selection
+                    + actions.move_selection_better,
+                ["<cr>"] = actions.select_default,
+                ["<c-v>"] = actions.select_vertical,
+                ["<c-s>"] = actions.select_horizontal,
+                ["<c-t>"] = actions.select_tab
             }
         },
         prompt_prefix = " ",
