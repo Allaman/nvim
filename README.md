@@ -117,6 +117,20 @@ Basically, you can remove unwanted plugins by just removing the appropriate line
 
 ℹ️ Keep in mind that some plugins are configured to work in conjunction with other plugins. For instance, autopairs is configured in `./lua/config/treesitter.lua`. For now there is no logic implemented that cross-checks such dependencies.
 
+## Add plugins
+
+If you want to follow my method adding a plugin is simple:
+
+In `lua/plugins.lua` add the config to Packer. You are free to use a name for the configuration file (should be a valid filenam)
+
+```lua
+use {"<Address-of-the-plugin>", config = get_config("<name-of-the-plugin>")}
+```
+
+Create `lua/config/<name-of-the-plugin>.lua` where you put the plugins settings. If your plugin does not require additional configuration or loading you can omit the config part.
+
+Open another instance of Neovim (I always try to keep one running instance of Neovim open in case I messed up my config) and run `PackerSync`.
+
 ## Requirements
 
 There are some tools that are required in order to use some features/plugins:
