@@ -41,6 +41,7 @@ So I decided to move to a fresh Lua based Neovim on my own trying to accomplish 
 - Easy Tmux navigation with your home row via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
 - Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
+- Convenient jumping through windows with [nvim-window](https://gitlab.com/yorickpeterse/nvim-window)
 
 ### Coding 🖥️
 
@@ -55,7 +56,7 @@ So I decided to move to a fresh Lua based Neovim on my own trying to accomplish 
 
 ## Structure
 
-Each plugin to be installed is defined in `plugins.lua` and each plugin has its own configuration file (if necessary) in `lua/config` which is loaded by packer.
+Each plugin to be installed is defined in `plugins.lua` and each plugin has its own configuration file (if necessary) in `lua/config/` which is loaded by packer.
 
 ```
 .
