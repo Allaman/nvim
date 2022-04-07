@@ -113,7 +113,6 @@ wk.register({
             "Sort BufferLines automatically by extension"
         }
     },
-    c = {"<cmd>lua require('nvim-window').pick()<cr>", "Choose window to jump"},
     f = {
         name = "Files",
         b = {"<cmd>Telescope file_browser<cr>", "File browser"},
@@ -212,6 +211,10 @@ wk.register({
     },
     m = {
         name = "Misc",
+        a = {
+            "<cmd>lua require'telegraph'.telegraph({cmd='gitui', how='tmux_popup'})<cr>",
+            "Test Telegraph"
+        },
         t = {"<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm"},
         s = {"<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline"},
         z = {"<cmd>ZenMode<cr>", "Toggle ZenMode"}
@@ -245,12 +248,16 @@ wk.register({
     },
     w = {
         name = "Window",
+        p = {"<c-w>x", "Swap"},
         q = {"<cmd>:q<cr>", "Close"},
         s = {"<cmd>:split<cr>", "Horizontal Split"},
         t = {"<c-w>t", "Move to new tab"},
         ["="] = {"<c-w>=", "Equally size"},
         v = {"<cmd>:vsplit<cr>", "Verstical Split"},
-        w = {"<c-w>x", "Swap"}
+        w = {
+            "<cmd>lua require('nvim-window').pick()<cr>",
+            "Choose window to jump"
+        }
     },
     x = {
         name = "LanguageTool",
