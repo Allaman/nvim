@@ -1,3 +1,4 @@
+-- References to ./lua/
 -- Plugin management via Packer
 require("plugins")
 -- Vim mappings, see lua/config/which.lua for more mappings
