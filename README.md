@@ -2,11 +2,13 @@
 
 ![](./screen.png)
 
-This is my first Lua based Neovim (>=0.6) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
+This is my first Lua based Neovim (**>=7.0** since [94d7921](https://github.com/Allaman/nvim/commit/94d7921e1ad111ad09216e1b3c33a01b43ab6329)) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
 💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS!
 
 Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MacBook is configured. The Tmux configuration you can see in the image is [here](https://github.com/Allaman/dotfiles/blob/master/tmux.conf) (as well as my other dotfiles).
+
+Refer to Neovim's [installation](https://github.com/neovim/neovim/wiki/Installing-Neovim) wiki for how to install the latest and greatest 🤓
 
 ## Motivation
 
@@ -48,11 +50,13 @@ So I decided to move to a fresh Lua based Neovim on my own trying to accomplish 
 - Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
-- Asynchronous auto formatting via [Formatter.nvim](https://github.com/mhartington/formatter.nvim)
+- Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
 - Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim), and [gitui](https://github.com/extrawurst/gitui)
 - Schema integration via LSPs for Kubernetes, package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
 - YAML navigation via [yaml.nvim](https://github.com/cuducos/yaml.nvim); useful for your hundreds of lines of Kubernetes manifests 😉
+- Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
+- Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 
 ## Structure
 
@@ -70,7 +74,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 │   ├── options.lua   # non plugin related (vim) options
 │   └── plugins.lua   # define plugins to be managed via Packer
 ├── plugin            # packer_compiled
-├── snippets          # snippets for vsnip
+├── snippets          # snippets directory (vscode style)
 └── spell             # my spell files linked from another repo
 ```
 
@@ -91,6 +95,9 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | n    | sr               | Replace surrounding                                  |
 | n    | ss               | Search 2 char forward (lightspeed)                   |
 | n    | S                | Search 2 char backward (lightspeed)                  |
+| i/s  | \<c-j\>          | Luasnip expand/forward                               |
+| i/s  | \<c-k\>          | Luasnip backward                                     |
+| i    | \<c-h\>          | Luasnip select choice                                |
 
 ## Top level leader key bindings
 
