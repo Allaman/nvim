@@ -3,7 +3,9 @@ require"lualine".setup {
         icons_enabled = true,
         component_separators = {"", ""},
         section_separators = {"", ""},
-        disabled_filetypes = {}
+        disabled_filetypes = {},
+        always_divide_middle = true,
+        globalstatus = true
     },
     sections = {
         lualine_a = {"mode"},
