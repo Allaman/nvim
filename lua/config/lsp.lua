@@ -116,14 +116,5 @@ for _, lsp in ipairs(servers) do
         },
         flags = {debounce_text_changes = 150}
     }
-    require"lsp_signature".setup({
-        bind = true, -- This is mandatory, otherwise border config won't get registered.
-        floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
-        doc_lines = 2, -- Set to 0 for not showing doc
-        hint_prefix = "🐼 ",
-        -- use_lspsaga = false,  -- set to true if you want to use lspsaga popup
-        handler_opts = {
-            border = "shadow" -- double, single, shadow, none
-        }
     })
 end
