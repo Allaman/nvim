@@ -98,6 +98,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | i/s  | \<c-j\>          | Luasnip expand/forward                               |
 | i/s  | \<c-k\>          | Luasnip backward                                     |
 | i    | \<c-h\>          | Luasnip select choice                                |
+| n    | \<c-n\>          | Toggleterm (opens a full terminal in Neovim)         |
 
 ## Top level leader key bindings
 
