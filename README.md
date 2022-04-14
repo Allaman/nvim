@@ -74,11 +74,11 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 │   ├── options.lua   # non plugin related (vim) options
 │   └── plugins.lua   # define plugins to be managed via Packer
 ├── plugin            # packer_compiled
-├── snippets          # snippets directory (vscode style)
+├── snippets          # snippets directory (luasnip style)
 └── spell             # my spell files linked from another repo
 ```
 
-## Useful non leader bindings
+## Bindings
 
 | Mode | key              | binding                                              |
 | ---- | ---------------- | ---------------------------------------------------- |
@@ -98,9 +98,11 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | i/s  | \<c-j\>          | Luasnip expand/forward                               |
 | i/s  | \<c-k\>          | Luasnip backward                                     |
 | i    | \<c-h\>          | Luasnip select choice                                |
-| n    | \<c-n\>          | Toggleterm (opens a full terminal in Neovim)         |
+| n    | \<c-n\>          | Toggleterm (opens/hides a full terminal in Neovim)   |
 
-## Top level leader key bindings
+## Which-key leader key clusters
+
+Mappings are clustered according to their topic/tool.
 
 See `./lua/config/which.lua` for details.
 
@@ -130,7 +132,7 @@ Basically, you can remove unwanted plugins by just removing the appropriate line
 
 If you want to follow my method adding a plugin is simple:
 
-In `lua/plugins.lua` add the config to Packer. You are free to use a name for the configuration file (should be a valid filenam)
+In `lua/plugins.lua` add the plugin to Packer. You are free to use a name for the configuration file (should be a valid filename).
 
 ```lua
 use {"<Address-of-the-plugin>", config = get_config("<name-of-the-plugin>")}
