@@ -164,7 +164,7 @@ use({
 
 use({
 	"akinsho/nvim-toggleterm.lua",
-	keys = { "<C-y>", "<leader>fl", "<leader>gt" },
+	keys = { "<C-n>", "<leader>fl", "<leader>gt" },
 	config = get_config("toggleterm"),
 })
 
