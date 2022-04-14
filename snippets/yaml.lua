@@ -1,30 +1,13 @@
--- require("luasnip.loaders.from_lua").lazy_load()
-local s = require("luasnip.nodes.snippet").S
-local sn = require("luasnip.nodes.snippet").SN
-local t = require("luasnip.nodes.textNode").T
-local f = require("luasnip.nodes.functionNode").F
-local i = require("luasnip.nodes.insertNode").I
-local c = require("luasnip.nodes.choiceNode").C
-local d = require("luasnip.nodes.dynamicNode").D
-local r = require("luasnip.nodes.restoreNode").R
-local l = require("luasnip.extras").lambda
-local rep = require("luasnip.extras").rep
-local p = require("luasnip.extras").partial
-local m = require("luasnip.extras").match
-local n = require("luasnip.extras").nonempty
-local dl = require("luasnip.extras").dynamic_lambda
-local fmt = require("luasnip.extras.fmt").fmt
-local fmta = require("luasnip.extras.fmt").fmta
-local conds = require("luasnip.extras.expand_conditions")
-local types = require("luasnip.util.types")
-local events = require("luasnip.util.events")
-local parse = require("luasnip.util.parser").parse_snippet
-local ai = require("luasnip.nodes.absolute_indexer")
+-- As defining all of the snippet-constructors (s, c, t, ...) in every file is rather cumbersome,
+-- luasnip will bring some globals into scope for executing these files.
+-- defined by snip_env in setup
+require("luasnip.loaders.from_lua").lazy_load()
+local env = snip_env
 
 return {
-	s(
+	env.s(
 		"kust",
-		fmt(
+		env.fmt(
 			[[
       ---
       apiVersion: kustomize.config.k8s.io/v1beta1
@@ -42,15 +25,15 @@ return {
       {}
       ]],
 			{
-				i(1, "resources"),
-				i(2, "patchesStrategicMerge"),
-				i(0),
+				env.i(1, "resources"),
+				env.i(2, "patchesStrategicMerge"),
+				env.i(0),
 			}
 		)
 	),
-	s(
+	env.s(
 		"kust_patch",
-		fmt(
+		env.fmt(
 			[[
       patches:
         - target:
@@ -64,19 +47,19 @@ return {
       {}
       ]],
 			{
-				i(1, "group"),
-				i(2, "version"),
-				i(3, "kind"),
-				i(4, "operation"),
-				i(5, "path"),
-				i(6, "value"),
-				i(0),
+				env.i(1, "group"),
+				env.i(2, "version"),
+				env.i(3, "kind"),
+				env.i(4, "operation"),
+				env.i(5, "path"),
+				env.i(6, "value"),
+				env.i(0),
 			}
 		)
 	),
-	s(
+	env.s(
 		"kust_img",
-		fmt(
+		env.fmt(
 			[[
       images:
         - name: {}
@@ -85,16 +68,16 @@ return {
       {}
       ]],
 			{
-				i(1, "namge"),
-				i(2, "newName"),
-				i(3, "newTag"),
-				i(0),
+				env.i(1, "namge"),
+				env.i(2, "newName"),
+				env.i(3, "newTag"),
+				env.i(0),
 			}
 		)
 	),
-	s(
+	env.s(
 		"kust_cm",
-		fmt(
+		env.fmt(
 			[[
       configMapGenerator:
         - name: {}
@@ -106,9 +89,9 @@ return {
       {}
       ]],
 			{
-				i(1, "name"),
-				i(2, "file"),
-				i(0),
+				env.i(1, "name"),
+				env.i(2, "file"),
+				env.i(0),
 			}
 		)
 	),

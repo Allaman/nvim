@@ -1,44 +1,27 @@
--- require("luasnip.loaders.from_lua").lazy_load()
-local s = require("luasnip.nodes.snippet").S
-local sn = require("luasnip.nodes.snippet").SN
-local t = require("luasnip.nodes.textNode").T
-local f = require("luasnip.nodes.functionNode").F
-local i = require("luasnip.nodes.insertNode").I
-local c = require("luasnip.nodes.choiceNode").C
-local d = require("luasnip.nodes.dynamicNode").D
-local r = require("luasnip.nodes.restoreNode").R
-local l = require("luasnip.extras").lambda
-local rep = require("luasnip.extras").rep
-local p = require("luasnip.extras").partial
-local m = require("luasnip.extras").match
-local n = require("luasnip.extras").nonempty
-local dl = require("luasnip.extras").dynamic_lambda
-local fmt = require("luasnip.extras.fmt").fmt
-local fmta = require("luasnip.extras.fmt").fmta
-local conds = require("luasnip.extras.expand_conditions")
-local types = require("luasnip.util.types")
-local events = require("luasnip.util.events")
-local parse = require("luasnip.util.parser").parse_snippet
-local ai = require("luasnip.nodes.absolute_indexer")
+-- As defining all of the snippet-constructors (s, c, t, ...) in every file is rather cumbersome,
+-- luasnip will bring some globals into scope for executing these files.
+-- defined by snip_env in setup
+require("luasnip.loaders.from_lua").lazy_load()
+local env = snip_env
 
 return {
 	-- s("date", p(os.date, "%Y-%m-%d")),
-	s({ trig = "gwa", name = "Gitlab Warning" }, {
-		t(":warning: "),
-		i(1, { "some-warning" }),
+	env.s({ trig = "gwa", name = "Gitlab Warning" }, {
+		env.t(":warning: "),
+		env.i(1, { "some-warning" }),
 	}),
-	s({ trig = "hugoimg", name = "Hugo image shortcut" }, {
-		t("{{< img name="),
-		i(1, { "name" }),
-		t(" lazy="),
-		i(2, { "true" }),
-		t(" >}}"),
+	env.s({ trig = "hugoimg", name = "Hugo image shortcut" }, {
+		env.t("{{< img name="),
+		env.i(1, { "name" }),
+		env.t(" lazy="),
+		env.i(2, { "true" }),
+		env.t(" >}}"),
 	}),
-	s({ trig = "hugotoc", name = "Hugo toc shortcut" }, {
-		t("{{< toc >}}"),
+	env.s({ trig = "hugotoc", name = "Hugo toc shortcut" }, {
+		env.t("{{< toc >}}"),
 	}),
-	s({ trig = "hugosep", name = "Hugo intro separator shortcut" }, {
-		t("<!-- more -->"),
+	env.s({ trig = "hugosep", name = "Hugo intro separator shortcut" }, {
+		env.t("<!-- more -->"),
 	}),
 	-- s(
 	-- 	"hugores2",
@@ -55,26 +38,26 @@ return {
 	-- 		}
 	-- 	)
 	-- ),
-	s({ trig = "hugores", name = "Hugo resource entry" }, {
-		t("\t- name: "),
-		i(1, { "name", "" }),
-		t("\t\tsrc: "),
+	env.s({ trig = "hugores", name = "Hugo resource entry" }, {
+		env.t("\t- name: "),
+		env.i(1, { "name", "" }),
+		env.t("\t\tsrc: "),
 		-- use value of node 1 but do not "overjump" it
-		d(2, function(args)
-			return sn(nil, { i(1), i(1, args[1]) })
+		env.d(2, function(args)
+			return env.sn(nil, { env.i(1), env.i(1, args[1]) })
 		end, { 1 }),
-		t("\t\ttitle: "),
-		i(3, { "title" }),
+		env.t("\t\ttitle: "),
+		env.i(3, { "title" }),
 	}),
-	s(
+	env.s(
 		"link",
-		fmt(
+		env.fmt(
 			[[
       [{}]({})
       ]],
 			{
-				i(1, "name"),
-				i(2, "url"),
+				env.i(1, "name"),
+				env.i(2, "url"),
 			}
 		)
 	),
