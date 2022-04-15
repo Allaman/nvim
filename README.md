@@ -156,7 +156,7 @@ There are some tools that are required in order to use some features/plugins:
 - [prettier](https://prettier.io/)
 - [gofmt](https://pkg.go.dev/cmd/gofmt)
 - [terraform fmt](https://www.terraform.io/docs/cli/commands/fmt.html)
-- [luarocks](https://github.com/luarocks/luarocks) and `luarocks install --server=https://luarocks.org/dev luaformatter`
+- [stylua](https://github.com/JohnnyMorganz/StyLua)
 - [black](https://github.com/psf/black)
 
 ### Language Servers
@@ -165,6 +165,7 @@ For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/bl
 
 - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
 - `go get golang.org/x/tools/gopls` (optional `golangci-lint`, `gomodifytags`, `gorename`)
+- [pyright](https://github.com/microsoft/pyright) as Python LSP
 - [terraform-ls](https://github.com/hashicorp/terraform-ls)
 - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
 - [lua-language-server](https://github.com/sumneko/lua-language-server)
