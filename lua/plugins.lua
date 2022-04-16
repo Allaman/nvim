@@ -242,6 +242,8 @@ use({ "waylonwalker/Telegraph.nvim", config = require("telegraph").setup({}) })
 
 use({ "rhysd/conflict-marker.vim" })
 
+use({ "edluffy/specs.nvim", config = get_config("specs") })
+
 -- TODO: ????
 -- use {"lukas-reineke/headlines.nvim", config = get_config("headlines")}
 -- https://github.com/glepnir/lspsaga.nvim
