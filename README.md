@@ -68,7 +68,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 │   └── ftplugin      # file specific settings
 ├── init.lua          # main entry point
 ├── lua
-│   ├── autocmd.lua   # vim autocommands
+│   ├── autocmd.lua   # autocommands
 │   ├── config/       # each plugin configuration is in its own file
 │   ├── mappings.lua  # Vim keymaps defintions -> config/which.lua for more
 │   ├── options.lua   # non plugin related (vim) options
@@ -89,7 +89,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | n    | ⬆ ⬇ ⬅ ➡          | Resize panes                                         |
 | i    | \<c-l\>          | Move out of closing bracket                          |
 | n    | \<c-h\|j\|k\|l\> | change pane focus (including Tmux panes)             |
-| n    | \<leader\>space  | switch to previously opened buffer                   |
+| n    | \<leader\>Tab    | switch to previously opened buffer                   |
 | v    | sa               | Add surrounding                                      |
 | n    | sd               | Delete surrounding                                   |
 | n    | sr               | Replace surrounding                                  |
