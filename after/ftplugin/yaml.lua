@@ -4,14 +4,14 @@ vo.shiftwidth = 2
 vo.softtabstop = 2
 
 local wk = require("which-key")
-default_options = {noremap = true, silent = true}
+default_options = { silent = true }
 wk.register({
-    y = {
-        name = "YAML",
-        s = {"<cmd>YAMLView<cr>", "Show Path"},
-        q = {"<cmd>YAMLQuickfix<cr>", "Generate quickfix list"},
-        t = {"<cmd>YAMLTelescope<cr>", "Open Telescope"},
-        k = {"<cmd>YAMLYankKey<cr>", "Yank key"},
-        v = {"<cmd>YAMLYankValue<cr>", "Yank value"}
-    }
-}, {prefix = "<leader>", mode = "n", default_options})
+	y = {
+		name = "YAML",
+		s = { "<cmd>YAMLView<cr>", "Show Path" },
+		q = { "<cmd>YAMLQuickfix<cr>", "Generate quickfix list" },
+		t = { "<cmd>YAMLTelescope<cr>", "Open Telescope" },
+		k = { "<cmd>YAMLYankKey<cr>", "Yank key" },
+		v = { "<cmd>YAMLYankValue<cr>", "Yank value" },
+	},
+}, { prefix = "<leader>", mode = "n", default_options })

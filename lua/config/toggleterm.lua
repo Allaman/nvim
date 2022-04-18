@@ -10,7 +10,7 @@ require("toggleterm").setup({
 			return vim.o.columns * 0.4
 		end
 	end,
-	open_mapping = [[<C-n>]],
+	open_mapping = "<C-n>",
 	hide_numbers = true, -- hide the number column in toggleterm buffers
 	shade_filetypes = {},
 	shade_terminals = true,
@@ -46,7 +46,7 @@ map("n", "<leader>gt", "<cmd>lua _lazygit_toggle()<CR>i", { noremap = true, sile
 map("t", "<ESC>", "<C-\\><C-n>", { noremap = true, silent = true }) -- back to normal mode in Terminal
 
 -- Better navigation to and from terminal
-function _G.set_terminal_keymaps()
+local set_terminal_keymaps = function()
 	local opts = { noremap = true }
 	buf_map(0, "t", "<esc>", [[<C-\><C-n>]], opts)
 	buf_map(0, "t", "jk", [[<C-\><C-n>]], opts)
@@ -56,4 +56,10 @@ function _G.set_terminal_keymaps()
 	buf_map(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "term://*",
+	callback = function()
+		set_terminal_keymaps()
+	end,
+	desc = "Mappings for navigation with a terminal",
+})

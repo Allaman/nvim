@@ -14,12 +14,11 @@ nls.setup({
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then
 			-- auto format on save (not asynchronous)
-			vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-            ]])
+			local LspFormattingGrp = vim.api.nvim_create_augroup("LspFormattingGrp", { clear = true })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				command = "lua vim.lsp.buf.formatting_sync()",
+				group = LspFormattingGrp,
+			})
 		end
 	end,
 })

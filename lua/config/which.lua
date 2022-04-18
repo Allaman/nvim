@@ -74,7 +74,7 @@ require("which-key").setup({
 })
 
 local wk = require("which-key")
-default_options = { noremap = true, silent = true }
+default_options = { silent = true }
 
 -- register non leader based mappings
 wk.register({
