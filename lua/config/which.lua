@@ -228,6 +228,7 @@ wk.register({
 			"<cmd>lua require'telegraph'.telegraph({cmd='gitui', how='tmux_popup'})<cr>",
 			"Test Telegraph",
 		},
+		l = { "<cmd>ource ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
 		p = { "<cmd>PackerSync<cr>", "PackerSync" },
 		t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
 		s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
