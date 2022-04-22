@@ -2,15 +2,24 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
 
-telescope.load_extension("projects")
-telescope.load_extension("fzf")
-telescope.load_extension("zoxide")
-telescope.load_extension("heading")
-telescope.load_extension("file_browser")
-
 telescope.setup({
+	extensions = {
+		fzf = {
+			fuzzy = true, -- false will only do exact matching
+			override_generic_sorter = true, -- override the generic sorter
+			override_file_sorter = true, -- override the file sorter
+			case_mode = "smart_case", -- or "ignore_case" or "respect_case" or "smart_case"
+		},
+	},
+	pickers = {
+		find_files = {
+			hidden = true,
+		},
+		-- find_command = { "fd", "--hidden", "--type", "file", "--follow", "--strip-cwd-prefix" },
+	},
 	defaults = {
 		file_ignore_patterns = { "node_modules", ".terraform", "%.jpg", "%.png" },
+		-- used for grep_string and live_grep
 		vimgrep_arguments = {
 			"rg",
 			"--follow",
@@ -20,6 +29,9 @@ telescope.setup({
 			"--line-number",
 			"--column",
 			"--smart-case",
+			"--no-ignore",
+			"--hidden",
+			"--trim",
 		},
 		mappings = {
 			i = {
@@ -69,8 +81,6 @@ telescope.setup({
 			vertical = { width = 0.9, height = 0.95, preview_height = 0.5 },
 			flex = { horizontal = { preview_width = 0.9 } },
 		},
-		file_sorter = require("telescope.sorters").get_fzf_sorter,
-		generic_sorter = require("telescope.sorters").get_fzf_sorter,
 		winblend = 0,
 		border = {},
 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
@@ -79,3 +89,9 @@ telescope.setup({
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 	},
 })
+
+telescope.load_extension("projects")
+telescope.load_extension("fzf")
+telescope.load_extension("zoxide")
+telescope.load_extension("heading")
+telescope.load_extension("file_browser")
