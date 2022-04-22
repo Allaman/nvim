@@ -6,10 +6,6 @@ expr_options = { expr = true, silent = true }
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 
--- center search results
--- map("n", "n", "nzz", default_options)
--- map("n", "N", "Nzz", default_options)
-
 --Remap for dealing with visual line wraps
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
