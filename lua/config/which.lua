@@ -216,7 +216,7 @@ wk.register({
 		l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line diagnostics" },
 		n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
 		p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-		q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
+		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition" },
