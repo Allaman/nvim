@@ -24,7 +24,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local servers = {
-	"gopls",
 	"bashls",
 	"pyright",
 	"dockerls",
@@ -50,7 +49,6 @@ for _, lsp in ipairs(servers) do
 		end,
 		capabilities = capabilities,
 		settings = {
-			gopls = { analyses = { unusedparams = true }, staticcheck = true },
 			json = {
 				format = { enabled = false },
 				schemas = {
