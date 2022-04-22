@@ -4,7 +4,6 @@ nls.setup({
 		nls.builtins.formatting.stylua,
 		nls.builtins.diagnostics.eslint,
 		nls.builtins.completion.spell,
-		nls.builtins.diagnostics.golangci_lint,
 		nls.builtins.formatting.prettier.with({
 			extra_args = { "--single-quote", "false" },
 		}),
