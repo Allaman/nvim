@@ -88,6 +88,7 @@ wk.register({
 	sn = "# of lines to search for surrounding",
 	ss = { "<Plug>Lightspeed_s", "Search 2-character forward" },
 	-- SS = {"<Plug>Lightspeed_S", "Search 2-character backward"}
+	st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
 
 -- Register all leader based mappings
