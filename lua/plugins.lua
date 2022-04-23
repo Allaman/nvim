@@ -1,3 +1,4 @@
+local settings = require("user-conf")
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -201,7 +202,13 @@ packer.startup(function(use)
 		config = get_config("lf"),
 	})
 
-	use({ "EdenEast/nightfox.nvim", config = get_config("nightfox") })
+	if settings.theme == "nightfox" then
+		use({ "EdenEast/nightfox.nvim", config = get_config("nightfox") })
+	elseif settings.theme == "catppuccino" then
+		use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
+	else
+		use({ "catppuccin/nvim", as = "catppuccin", config = get_config("catppuccin") })
+	end
 
 	use({
 		"karb94/neoscroll.nvim",

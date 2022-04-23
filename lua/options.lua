@@ -1,8 +1,9 @@
+local settings = require("user-conf")
 local o = vim.opt
 local wo = vim.wo
 local fn = vim.fn
 
-vim.cmd "set inccommand=split"
+vim.cmd("set inccommand=split")
 o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
 o.updatetime = 300 -- faster completion
 o.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in milliseconds)
@@ -16,12 +17,16 @@ o.history = 500 -- Use the 'history' option to set the number of lines from comm
 o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 o.fileencoding = "utf-8" -- the encoding written to a file
 o.conceallevel = 0 -- so that `` is visible in markdown files
-o.number = true -- set numbered lines
-o.relativenumber = true -- set relative numbered lines
+o.number = settings.number
+o.relativenumber = settings.relative_number
 o.cmdheight = 1 -- space for displaying messages/commands
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = 2 -- always show tabs
-o.laststatus = 3 --  The value of this option influences when the last window will have a status line (2 always: 3 global statusline)
+if settings.global_statusline then
+	o.laststatus = 3
+else
+	o.laststatus = 2
+end
 o.smartcase = true -- smart case
 o.smartindent = true -- make indenting smarter again
 o.splitbelow = true -- force all horizontal splits to go below current window
@@ -44,8 +49,10 @@ o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
 wo.colorcolumn = "99999"
 o.wildmode = "full"
 o.lazyredraw = true -- do not redraw screen while running macros
-o.grepprg = "rg --hidden --vimgrep --smart-case --" -- use rg instead of grep
-o.completeopt = {"menu", "menuone", "noselect", "noinsert"} -- A comma separated list of options for Insert mode completion
+if settings.isNotEmpty(settings.grepprg) then
+	o.grepprg = settings.grepprg
+end
+o.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- A comma separated list of options for Insert mode completion
 o.wildignorecase = true -- When set case is ignored when completing file names and directories
 o.wildignore = [[
 .git,.hg,.svn
