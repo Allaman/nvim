@@ -22,7 +22,7 @@ So I decided to move to a fresh Lua based Neovim on my own trying to accomplish 
 2. Migrate to Lua based alternative plugins.
 3. Keep the config as simple as possible knowing that this would possibly impact the code quality.
 4. Modular and meaningful directory structure and file naming.
-5. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my Focus is not on beautiful code or on utilizing all Lua features.
+5. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
 
 ## Features
 
@@ -40,7 +40,7 @@ So I decided to move to a fresh Lua based Neovim on my own trying to accomplish 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
-- Easy Tmux navigation with your home row via [Navigator.vim](https://github.com/numToStr/Navigator.nvim)
+- Easy Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
 - Convenient jumping through windows with [nvim-window](https://gitlab.com/yorickpeterse/nvim-window)
@@ -80,25 +80,29 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 
 ## Bindings
 
-| Mode | key              | binding                                              |
-| ---- | ---------------- | ---------------------------------------------------- |
-| n    | space            | Leader key                                           |
-| v    | ga               | Easyalign                                            |
-| n    | gcc              | Toggle line comment                                  |
-| n/v  | gc               | Toggle line comment (works with movements like gcip) |
-| n    | ⬆ ⬇ ⬅ ➡          | Resize panes                                         |
-| i    | \<c-l\>          | Move out of closing bracket                          |
-| n    | \<c-h\|j\|k\|l\> | change pane focus (including Tmux panes)             |
-| n    | \<leader\>Tab    | switch to previously opened buffer                   |
-| v    | sa               | Add surrounding                                      |
-| n    | sd               | Delete surrounding                                   |
-| n    | sr               | Replace surrounding                                  |
-| n    | ss               | Search 2 char forward (lightspeed)                   |
-| n    | S                | Search 2 char backward (lightspeed)                  |
-| i/s  | \<c-j\>          | Luasnip expand/forward                               |
-| i/s  | \<c-k\>          | Luasnip backward                                     |
-| i    | \<c-h\>          | Luasnip select choice                                |
-| n    | \<c-n\>          | Toggleterm (opens/hides a full terminal in Neovim)   |
+| Mode | key                 | binding                                              |
+| ---- | ------------------- | ---------------------------------------------------- |
+| n    | space               | Leader key                                           |
+| n    | ⬆ ⬇ ⬅ ➡             | Resize panes                                         |
+| n    | \<c-h \|j \|k \|l\> | change pane focus (including Tmux panes)             |
+| n    | \<leader\>Tab       | switch to previously opened buffer                   |
+| v    | sa                  | Add surrounding                                      |
+| n    | sd                  | Delete surrounding                                   |
+| n    | sr                  | Replace surrounding                                  |
+| v    | ga                  | Easyalign                                            |
+| n    | gcc                 | Toggle line comment                                  |
+| n/v  | gc                  | Toggle line comment (works with movements like gcip) |
+| n    | ss                  | Search 2 char forward (lightspeed)                   |
+| n    | S                   | Search 2 char backward (lightspeed)                  |
+| i/s  | \<c-j\>             | Luasnip expand/forward                               |
+| i/s  | \<c-k\>             | Luasnip backward                                     |
+| i    | \<c-h\>             | Luasnip select choice                                |
+| n    | \<c-n\>             | Toggleterm (opens/hides a full terminal in Neovim)   |
+| i    | \<c-l\>             | Move out of closing bracket                          |
+| n    | \<CR\>              | Start incremental selection                          |
+| v    | \<Tab\>             | Increment selection                                  |
+| v    | \<S-Tab\>           | Decrement selection                                  |
+| n    | st                  | Treesitter hint textobject                           |
 
 ## Which-key leader key clusters
 
@@ -121,6 +125,12 @@ See `./lua/config/which.lua` for details.
 | x   | Languagetool integration                               |
 | y   | YAML integration (only in YAML files)                  |
 | z   | Spell bindings                                         |
+
+## User configuration (experimental)
+
+The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
+
+All options can be found in `./lua/user-conf.lua`.
 
 ## Remove plugins
 
