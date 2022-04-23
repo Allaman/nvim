@@ -85,7 +85,6 @@ wk.register({
 	sr = "Replace surrounding",
 	sF = "Find left surrounding",
 	sf = "Replace right surrounding",
-	sn = "# of lines to search for surrounding",
 	ss = { "<Plug>Lightspeed_s", "Search 2-character forward" },
 	-- SS = {"<Plug>Lightspeed_S", "Search 2-character backward"}
 	st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
