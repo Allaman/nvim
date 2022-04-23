@@ -93,6 +93,10 @@ wk.register({
 -- Register all leader based mappings
 wk.register({
 	["<Tab>"] = { "<cmd>e#<cr>", "Switch to previously opened buffer" },
+	["<leader>"] = {
+		name = "Leader",
+		a = { "<cmd>lua print('fasfAS')<cr>", "test" },
+	},
 	b = {
 		name = "Buffers",
 		b = {
