@@ -221,7 +221,7 @@ packer.startup(function(use)
 
 	use({ "tweekmonster/startuptime.vim" })
 
-	use({ "ggandor/lightspeed.nvim", event = "BufReadPre" })
+	use({ "ggandor/lightspeed.nvim" })
 
 	use({ "cuducos/yaml.nvim", ft = { "yaml" } })
 
