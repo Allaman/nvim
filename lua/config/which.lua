@@ -238,6 +238,13 @@ wk.register({
 		s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
 		z = { "<cmd>ZenMode<cr>", "Toggle ZenMode" },
 	},
+	q = {
+		name = "Quickfix",
+		j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
+		k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
+		q = { "<cmd>lua require('functions.toggle-lists').toggle_qf()<cr>", "Toogle quickfix list" },
+		t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
+	},
 	s = {
 		name = "Search",
 		C = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
@@ -255,15 +262,6 @@ wk.register({
 			"<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
 			"Colorscheme with Preview",
 		},
-	},
-	t = {
-		name = "Trouble",
-		w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
-		d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostic" },
-		l = { "<cmd>Trouble loclist<cr>", "Loclist" },
-		q = { "<cmd>Trouble quickfix<cr>", "Quickfix" },
-		t = { "<cmd>TodoTrouble<cr>", "Todos" },
-		r = { "<cmd>Trouble lsp_references<cr>", "LSP References" },
 	},
 	w = {
 		name = "Window",

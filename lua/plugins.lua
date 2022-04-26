@@ -170,17 +170,8 @@ packer.startup(function(use)
 	})
 
 	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		cmd = { "TroubleToggle", "Trouble" },
-		config = get_config("trouble"),
-	})
-
-	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		cmd = { "TodoTrouble", "TodoTelescope" },
-		event = "BufReadPost",
 		config = get_config("todo"),
 	})
 
@@ -244,6 +235,7 @@ packer.startup(function(use)
 	use({ "rhysd/conflict-marker.vim" })
 
 	use({ "edluffy/specs.nvim", config = get_config("specs") })
+
 	use({ "mfussenegger/nvim-ts-hint-textobject" })
 end)
 
