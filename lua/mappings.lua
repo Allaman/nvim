@@ -1,3 +1,4 @@
+-- more mappings are defined in `lua/config/which.lua`
 local map = vim.keymap.set
 default_options = { silent = true }
 expr_options = { expr = true, silent = true }
@@ -72,6 +73,7 @@ function EscapePair()
 	end
 end
 
+-- move over a closing element in insert mode
 map("i", "<C-l>", function()
 	return EscapePair()
 end, default_options)
