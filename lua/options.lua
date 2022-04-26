@@ -1,4 +1,5 @@
 local settings = require("user-conf")
+local utils = require("functions")
 local o = vim.opt
 local wo = vim.wo
 local fn = vim.fn
@@ -49,7 +50,7 @@ o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
 wo.colorcolumn = "99999"
 o.wildmode = "full"
 o.lazyredraw = true -- do not redraw screen while running macros
-if settings.isNotEmpty(settings.grepprg) then
+if utils.isNotEmpty(settings.grepprg) then
 	o.grepprg = settings.grepprg
 end
 o.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- A comma separated list of options for Insert mode completion

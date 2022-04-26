@@ -242,7 +242,7 @@ wk.register({
 		name = "Quickfix",
 		j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
 		k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-		q = { "<cmd>lua require('functions.toggle-lists').toggle_qf()<cr>", "Toogle quickfix list" },
+		q = { "<cmd>lua require('functions').toggle_qf()<cr>", "Toogle quickfix list" },
 		t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
 	},
 	s = {
