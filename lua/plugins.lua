@@ -211,12 +211,6 @@ packer.startup(function(use)
 	end
 
 	use({
-		"karb94/neoscroll.nvim",
-		keys = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-e>", "zt", "zz", "zb" },
-		config = get_config("neoscroll"),
-	})
-
-	use({
 		"ThePrimeagen/harpoon",
 		requires = { "nvim-lua/plenary.nvim" },
 		config = get_config("harpoon"),
