@@ -2,27 +2,22 @@
 
 ![](./screen.png)
 
-This is my first Lua based Neovim (**>=7.0** since [94d7921](https://github.com/Allaman/nvim/commit/94d7921e1ad111ad09216e1b3c33a01b43ab6329)) configuration. My goal was to achieve the same functionality as [my old vimrc](https://github.com/Allaman/dotfiles/blob/master/vimrc) and move onwards to a full Lua based configuration and Lua based plugins especially the promising builtin [LSP](https://neovim.io/doc/user/lsp.html) and [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
-
-💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS!
+💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires at least Neovim >= 0.7!
 
 Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MacBook is configured. The Tmux configuration you can see in the image is [here](https://github.com/Allaman/dotfiles/blob/master/tmux.conf) (as well as my other dotfiles).
-
-Refer to Neovim's [installation](https://github.com/neovim/neovim/wiki/Installing-Neovim) wiki for how to install the latest and greatest 🤓
 
 ## Motivation
 
 There is a number of great Neovim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
 
-So I decided to move to a fresh Lua based Neovim on my own trying to accomplish the following principles:
+I decided to move to my own fresh Lua based Neovim from my good old vimrc trying to accomplish the following principles.
 
 ## Principles
 
-1. At least feature parity with my mentioned old vimrc (my lua config is superior almost since day one (or two 😉)).
-2. Migrate to Lua based alternative plugins.
-3. Keep the config as simple as possible knowing that this would possibly impact the code quality.
-4. Modular and meaningful directory structure and file naming.
-5. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
+1. Migrate to Lua based alternative plugins respectively use only Lua based plugins (if possible).
+2. Keep the config as simple as possible knowing that this would possibly impact the code quality.
+3. Modular and meaningful directory structure and file naming.
+4. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
 
 ## Features
 
@@ -30,7 +25,7 @@ So I decided to move to a fresh Lua based Neovim on my own trying to accomplish 
 
 - Package management and plugin configuration via [Packer](https://github.com/wbthomason/packer.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
-- Minimal yet fully featured status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+- Fully featured status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Fast startup 🚀
@@ -68,11 +63,13 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 │   └── ftplugin      # file specific settings
 ├── init.lua          # main entry point
 ├── lua
-│   ├── autocmd.lua   # autocommands
 │   ├── config/       # each plugin configuration is in its own file
+│   ├── autocmd.lua   # autocommands
+│   ├── functions.lua # lua functions to extend functionality
 │   ├── mappings.lua  # Vim keymaps defintions -> config/which.lua for more
 │   ├── options.lua   # non plugin related (vim) options
-│   └── plugins.lua   # define plugins to be managed via Packer
+│   ├── plugins.lua   # define plugins to be managed via Packer
+│   └── user-conf.lua # parameters to configure some settings
 ├── plugin            # packer_compiled
 ├── snippets          # snippets directory (luasnip style)
 └── spell             # my spell files linked from another repo
@@ -119,8 +116,8 @@ See `./lua/config/which.lua` for details.
 | h   | Harpoon integration                                    |
 | l   | LSP integration                                        |
 | m   | Misc stuff                                             |
+| q   | Quickfix                                               |
 | s   | Searching                                              |
-| t   | Trouble integration                                    |
 | w   | Window management                                      |
 | x   | Languagetool integration                               |
 | y   | YAML integration (only in YAML files)                  |
