@@ -1,5 +1,3 @@
-local settings = require("user-conf")
-
 -- use gitsigns as source info
 local function diff_source()
 	local gitsigns = vim.b.gitsigns_status_dict
@@ -18,7 +16,6 @@ require("lualine").setup({
 		icons_enabled = true,
 		disabled_filetypes = {},
 		always_divide_middle = false,
-		globalstatus = settings.global_statusline,
 	},
 	sections = {
 		lualine_a = { { "b:gitsigns_head", icon = "" }, { "diff", soruce = diff_source } },
