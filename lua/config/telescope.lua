@@ -15,6 +15,10 @@ telescope.setup({
 		find_files = {
 			hidden = true,
 		},
+		buffers = {
+			ignore_current_buffer = true,
+			sort_lastused = true,
+		},
 		-- find_command = { "fd", "--hidden", "--type", "file", "--follow", "--strip-cwd-prefix" },
 	},
 	defaults = {

@@ -100,7 +100,7 @@ wk.register({
 	b = {
 		name = "Buffers",
 		b = {
-			"<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>",
+			"<cmd>Telescope buffers<cr>",
 			"Find buffer",
 		},
 		a = {
