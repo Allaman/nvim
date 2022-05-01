@@ -39,8 +39,8 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = function(client)
 			-- disable formatting for LSP clients as this is handled by null-ls
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
+			client.server_capabilities.document_formatting = false
+			client.server_capabilities.document_range_formatting = false
 		end,
 		before_init = function(_, config)
 			if lsp == "pyright" then
