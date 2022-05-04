@@ -34,7 +34,6 @@ telescope.setup({
 			"--column",
 			"--smart-case",
 			"--no-ignore",
-			"--hidden",
 			"--trim",
 		},
 		mappings = {
