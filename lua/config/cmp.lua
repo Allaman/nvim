@@ -52,7 +52,7 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "luasnip" },
 		{ name = "calc" },
-		{ name = "spell" },
+		{ name = "spell", keyword_length = 5 },
 		{ name = "path" },
 		{ name = "rg", keyword_length = 5 },
 	},
