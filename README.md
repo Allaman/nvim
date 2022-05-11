@@ -81,7 +81,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | ---- | ------------------- | ---------------------------------------------------- |
 | n    | space               | Leader key                                           |
 | n    | ⬆ ⬇ ⬅ ➡             | Resize panes                                         |
-| n    | \<c-h \|j \|k \|l\> | change pane focus (including Tmux panes)             |
+| n    | \<c-h \| j \| k \| l\> | change pane focus (including Tmux panes)             |
 | n    | \<leader\>Tab       | switch to previously opened buffer                   |
 | v    | sa                  | Add surrounding                                      |
 | n    | sd                  | Delete surrounding                                   |
