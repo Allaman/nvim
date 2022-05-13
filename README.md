@@ -77,29 +77,29 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 
 ## Bindings
 
-| Mode | key                 | binding                                              |
-| ---- | ------------------- | ---------------------------------------------------- |
-| n    | space               | Leader key                                           |
-| n    | ⬆ ⬇ ⬅ ➡             | Resize panes                                         |
+| Mode | key                    | binding                                              |
+| ---- | ---------------------- | ---------------------------------------------------- |
+| n    | space                  | Leader key                                           |
+| n    | ⬆ ⬇ ⬅ ➡                | Resize panes                                         |
 | n    | \<c-h \| j \| k \| l\> | change pane focus (including Tmux panes)             |
-| n    | \<leader\>Tab       | switch to previously opened buffer                   |
-| v    | sa                  | Add surrounding                                      |
-| n    | sd                  | Delete surrounding                                   |
-| n    | sr                  | Replace surrounding                                  |
-| v    | ga                  | Easyalign                                            |
-| n    | gcc                 | Toggle line comment                                  |
-| n/v  | gc                  | Toggle line comment (works with movements like gcip) |
-| n    | ss                  | Search 2 char forward (lightspeed)                   |
-| n    | S                   | Search 2 char backward (lightspeed)                  |
-| i/s  | \<c-j\>             | Luasnip expand/forward                               |
-| i/s  | \<c-k\>             | Luasnip backward                                     |
-| i    | \<c-h\>             | Luasnip select choice                                |
-| n    | \<c-n\>             | Toggleterm (opens/hides a full terminal in Neovim)   |
-| i    | \<c-l\>             | Move out of closing bracket                          |
-| n    | \<CR\>              | Start incremental selection                          |
-| v    | \<Tab\>             | Increment selection                                  |
-| v    | \<S-Tab\>           | Decrement selection                                  |
-| n    | st                  | Treesitter hint textobject                           |
+| n    | \<leader\>Tab          | switch to previously opened buffer                   |
+| v    | sa                     | Add surrounding                                      |
+| n    | sd                     | Delete surrounding                                   |
+| n    | sr                     | Replace surrounding                                  |
+| v    | ga                     | Easyalign                                            |
+| n    | gcc                    | Toggle line comment                                  |
+| n/v  | gc                     | Toggle line comment (works with movements like gcip) |
+| n    | ss                     | Search 2 char forward (lightspeed)                   |
+| n    | S                      | Search 2 char backward (lightspeed)                  |
+| i/s  | \<c-j\>                | Luasnip expand/forward                               |
+| i/s  | \<c-k\>                | Luasnip backward                                     |
+| i    | \<c-h\>                | Luasnip select choice                                |
+| n    | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)   |
+| i    | \<c-l\>                | Move out of closing bracket                          |
+| n    | \<CR\>                 | Start incremental selection                          |
+| v    | \<Tab\>                | Increment selection                                  |
+| v    | \<S-Tab\>              | Decrement selection                                  |
+| n    | st                     | Treesitter hint textobject                           |
 
 ## Which-key leader key clusters
 
@@ -171,7 +171,9 @@ There are some tools that are required in order to use some features/plugins:
 For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
 
 - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
-- `go get golang.org/x/tools/gopls` (optional `golangci-lint`, `gomodifytags`, `gorename`)
+- `go install golang.org/x/tools/gopls@latest` (optional `golangci-lint`, `gomodifytags`, `gorename`)
+- `go install golang.org/x/tools/cmd/goimports@latest`
+- `go install mvdan.cc/gofumpt@latest`
 - [pyright](https://github.com/microsoft/pyright) as Python LSP
 - [terraform-ls](https://github.com/hashicorp/terraform-ls)
 - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
