@@ -232,10 +232,11 @@ wk.register({
 			"<cmd>lua require'telegraph'.telegraph({cmd='gitui', how='tmux_popup'})<cr>",
 			"Test Telegraph",
 		},
-		l = { "<cmd>ource ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
+		d = { "<cmd>lua require('functions').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
+		l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
 		p = { "<cmd>PackerSync<cr>", "PackerSync" },
-		t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
 		s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
+		t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
 		z = { "<cmd>ZenMode<cr>", "Toggle ZenMode" },
 	},
 	q = {

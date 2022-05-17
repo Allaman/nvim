@@ -48,4 +48,14 @@ M.escapePair = function()
 	end
 end
 
+diagnostics_active = true -- must be global since this function is called in which.lua
+M.toggle_diagnostics = function()
+	diagnostics_active = not diagnostics_active
+	if diagnostics_active then
+		vim.diagnostic.show()
+	else
+		vim.diagnostic.hide()
+	end
+end
+
 return M
