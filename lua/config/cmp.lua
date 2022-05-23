@@ -19,7 +19,6 @@ cmp.setup({
 			},
 		}),
 	},
-	experimental = { native_menu = false, ghost_text = false },
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
@@ -58,10 +57,20 @@ cmp.setup({
 	},
 })
 
--- Use buffer source for `/`.
-cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline("/", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
 
--- Use cmdline & path source for ':'.
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {
-	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
 })
