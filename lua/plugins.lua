@@ -237,6 +237,11 @@ packer.startup(function(use)
 	use({ "edluffy/specs.nvim", config = get_config("specs") })
 
 	use({ "mfussenegger/nvim-ts-hint-textobject" })
+	use({
+		"goolord/alpha-nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+		config = get_config("alpha-nvim"),
+	})
 end)
 
 -- TODO: ????
