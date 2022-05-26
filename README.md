@@ -77,29 +77,29 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 
 ## Bindings
 
-| Mode | key                    | binding                                              |
-| ---- | ---------------------- | ---------------------------------------------------- |
-| n    | space                  | Leader key                                           |
-| n    | ⬆ ⬇ ⬅ ➡                | Resize panes                                         |
-| n    | \<c-h \| j \| k \| l\> | change pane focus (including Tmux panes)             |
-| n    | \<leader\>Tab          | switch to previously opened buffer                   |
-| v    | sa                     | Add surrounding                                      |
-| n    | sd                     | Delete surrounding                                   |
-| n    | sr                     | Replace surrounding                                  |
-| v    | ga                     | Easyalign                                            |
-| n    | gcc                    | Toggle line comment                                  |
-| n/v  | gc                     | Toggle line comment (works with movements like gcip) |
-| n    | ss                     | Search 2 char forward (lightspeed)                   |
-| n    | S                      | Search 2 char backward (lightspeed)                  |
-| i/s  | \<c-j\>                | Luasnip expand/forward                               |
-| i/s  | \<c-k\>                | Luasnip backward                                     |
-| i    | \<c-h\>                | Luasnip select choice                                |
-| n    | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)   |
-| i    | \<c-l\>                | Move out of closing bracket                          |
-| n    | \<CR\>                 | Start incremental selection                          |
-| v    | \<Tab\>                | Increment selection                                  |
-| v    | \<S-Tab\>              | Decrement selection                                  |
-| n    | st                     | Treesitter hint textobject                           |
+| Mode | key                    | binding                                                |
+| ---- | ---------------------- | ------------------------------------------------------ |
+| n    | space                  | Leader key                                             |
+| n    | ⬆ ⬇ ⬅ ➡                | Resize panes                                           |
+| n    | \<c-h \| j \| k \| l\> | change pane focus (including Tmux panes)               |
+| n    | \<leader\>Tab          | switch to previously opened buffer                     |
+| n    | st                     | Visual selection with Treesitter hint textobject       |
+| v    | sa                     | Add surrounding                                        |
+| n    | sd                     | Delete surrounding                                     |
+| n    | sr                     | Replace surrounding                                    |
+| v    | ga                     | Easyalign                                              |
+| n    | gcc                    | Toggle line comment                                    |
+| n/v  | gc                     | Toggle line comment (works with movements like `gcip`) |
+| n    | ss                     | Search 2 char forward (lightspeed)                     |
+| n    | S                      | Search 2 char backward (lightspeed)                    |
+| i/s  | \<c-j\>                | Luasnip expand/forward                                 |
+| i/s  | \<c-k\>                | Luasnip backward                                       |
+| i    | \<c-h\>                | Luasnip select choice                                  |
+| n    | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)     |
+| i    | \<c-l\>                | Move out of closing bracket                            |
+| n    | \<CR\>                 | Start incremental selection                            |
+| v    | \<Tab\>                | Increment selection                                    |
+| v    | \<S-Tab\>              | Decrement selection                                    |
 
 ## Which-key leader key clusters
 
