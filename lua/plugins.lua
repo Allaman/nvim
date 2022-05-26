@@ -230,13 +230,19 @@ packer.startup(function(use)
 		config = get_config("nvim-window"),
 	})
 
-	use({ "waylonwalker/Telegraph.nvim", config = require("telegraph").setup({}) })
+	use({
+		"waylonwalker/Telegraph.nvim",
+		config = function()
+			require("telegraph").setup({})
+		end,
+	})
 
 	use({ "rhysd/conflict-marker.vim" })
 
 	use({ "edluffy/specs.nvim", config = get_config("specs") })
 
 	use({ "mfussenegger/nvim-ts-hint-textobject" })
+
 	use({
 		"goolord/alpha-nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
