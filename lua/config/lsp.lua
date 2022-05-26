@@ -41,6 +41,8 @@ for _, lsp in ipairs(servers) do
 			-- disable formatting for LSP clients as this is handled by null-ls
 			client.server_capabilities.document_formatting = false
 			client.server_capabilities.document_range_formatting = false
+			-- enable illuminate to intelligently highlight
+			require("illuminate").on_attach(client)
 		end,
 		before_init = function(_, config)
 			if lsp == "pyright" then

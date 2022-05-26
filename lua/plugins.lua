@@ -185,7 +185,7 @@ packer.startup(function(use)
 
 	use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
 
-	use({ "RRethy/vim-illuminate", event = "CursorHold" })
+	use({ "RRethy/vim-illuminate" })
 
 	use({
 		"ptzz/lf.vim",
