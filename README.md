@@ -19,6 +19,30 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 3. Modular and meaningful directory structure and file naming.
 4. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
 
+## Try out
+
+If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided Docker image
+
+💡 All dependencies of my config are installed except texlab, tectonic, and vim-grammarous which makes it at 1.8GB a rather large image
+
+**Just start nvim**
+
+```sh
+docker run --name nvim --rm -it allaman/nvim
+```
+
+**Mount a local directory (to ~/mount) and start nvim**
+
+```sh
+docker run --name nvim --rm -it -v ${HOME}/tmp:/home/nvim/mount allaman/nvim
+```
+
+**Start container in bash instead of nvim**
+
+```sh
+docker run --name nvim --rm -it --entrypoint=/bin/bash allaman/nvim
+```
+
 ## Features
 
 ### General ⚙️
