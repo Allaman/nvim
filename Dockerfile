@@ -11,8 +11,8 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Update system and install core packages/dependencies
-RUN apt update \
-&& apt upgrade -y \
+RUN apt-get update \
+&& apt-get upgrade -y \
 && apt-get install --no-install-recommends -y \
   apt-transport-https \
   autoconf \
@@ -40,15 +40,16 @@ RUN apt update \
 
 # Download and build Neovim from latest source
 # NOTE: allow a specific version of Neovim to be installed
-RUN git clone https://github.com/neovim/neovim /tmp/neovim \
-&& cd tmp/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && make install && rm -r /tmp/neovim
+RUN git clone https://github.com/neovim/neovim /tmp/neovim
+WORKDIR /tmp/neovim
+RUN make CMAKE_BUILD_TYPE=RelWithDebInfo && make install && rm -r /tmp/neovim
 
 # Set correct locale
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 
 # Install (global) dependencies (tools, formatters and LSPs)
-RUN apt update \
-&& apt install -y \
+RUN apt-get update \
+&& apt-get install --no-install-recommends -y \
 fzf \
 fd-find \
 ripgrep \
@@ -80,7 +81,7 @@ WORKDIR /home/nvim
 
 # Install (user only) dependencies (formatters and LSPs)
 ENV PATH=$PATH:/usr/local/bin/go/bin/:/home/nvim/.local/bin:/home/nvim/.local/bin/bin:/home/nvim/go/bin
-RUN pip3 install --user pyright black pynvim yamllint
+RUN pip3 install --no-cache-dir --user pyright black pynvim yamllint
 RUN go install golang.org/x/tools/cmd/goimports@latest \
 && go install mvdan.cc/gofumpt@latest \
 && go install golang.org/x/tools/gopls@latest \
