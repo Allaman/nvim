@@ -8,9 +8,9 @@ FROM ${ARCH}debian:stable-slim
 ARG TARGETOS
 ARG TARGETARCH
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
 
 # Update system and install core packages/dependencies
 RUN apt-get update \
@@ -46,7 +46,7 @@ WORKDIR /tmp/neovim
 RUN make CMAKE_BUILD_TYPE=RelWithDebInfo && make install && rm -r /tmp/neovim
 
 # Set correct locale
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && dpkg-reconfigure --frontend=noninteractive locales
 
 # Install (global) dependencies (tools, formatters and LSPs)
 RUN apt-get update \
@@ -110,7 +110,7 @@ COPY --chown=nvim:nvim . .config/nvim
 RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim \
 # Install plugins via Packer
-&& nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' || true \
+&& nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' \
 # we need to wait for parsers to be installed as this is apparently not blocking
 && nvim --headless -c 'TSInstall' +"sleep 15" +qa || true
 
