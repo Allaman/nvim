@@ -85,10 +85,6 @@ RUN pip3 install --no-cache-dir --user pyright black pynvim yamllint
 RUN go install golang.org/x/tools/cmd/goimports@latest \
 && go install mvdan.cc/gofumpt@latest \
 && go install golang.org/x/tools/gopls@latest \
-&& curl -sLo lua-lsp.tar.gz https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-${TARGETARCH}.tar.gz \
-#FIX: extracted very much crap besides the executable
-&& tar -C ~/.local/bin/ -xzf lua-lsp.tar.gz \
-&& rm lua-lsp.tar.gz \
 && curl -sLo stylua.zip https://github.com/JohnnyMorganz/StyLua/releases/download/v0.13.1/stylua-linux.zip \
 && unzip -d ~/.local/bin stylua.zip \
 && chmod +x ~/.local/bin/stylua \
@@ -98,6 +94,12 @@ RUN go install golang.org/x/tools/cmd/goimports@latest \
 && rm tf-ls.zip \
 && curl -sLo tf.zip https://releases.hashicorp.com/terraform/1.2.1/terraform_1.2.1_${TARGETOS}_${TARGETARCH}.zip \
 && unzip -d ~/.local/bin tf.zip \
+# workaround for naming amd64 as x65
+&& if [[ ${TARGETARCH} == "amd64" ]]; then TARGETARCH=x64; fi \
+&& curl -sLo lua-lsp.tar.gz https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-${TARGETARCH}.tar.gz \
+#FIX: extracted very much stuff besides the executable
+&& tar -C ~/.local/bin/ -xzf lua-lsp.tar.gz \
+&& rm lua-lsp.tar.gz \
 && rm tf.zip
 
 # Copy Neovim config into the image
