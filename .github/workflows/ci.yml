@@ -16,7 +16,7 @@ jobs:
       - name: Lint Dockerfile
         uses: hadolint/hadolint-action@master
         with:
-          ignore: "DL3008,DL3013,SC2046"
+          ignore: "DL3008,DL3013"
           verbose: true
   docker:
     runs-on: ubuntu-latest
