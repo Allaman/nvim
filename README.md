@@ -21,6 +21,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 ## Try out
 
+WIP!
 If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided Docker image
 
 💡 All dependencies of my config are installed except texlab, tectonic, and vim-grammarous which makes it at **3.4GB** a rather large image
