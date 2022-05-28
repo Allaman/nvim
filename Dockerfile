@@ -2,6 +2,8 @@ ARG ARCH
 FROM ${ARCH}debian:stable-slim
 
 # TODO: optimize image size
+# TODO: maybe build a dedicated base image with all dependencies included
+# TODO: allow a specific version of Neovim to be installed
 
 ARG TARGETOS
 ARG TARGETARCH
@@ -39,7 +41,6 @@ RUN apt-get update \
 && rm -rf /var/lib/apt/lists/*
 
 # Download and build Neovim from latest source
-# NOTE: allow a specific version of Neovim to be installed
 RUN git clone https://github.com/neovim/neovim /tmp/neovim
 WORKDIR /tmp/neovim
 RUN make CMAKE_BUILD_TYPE=RelWithDebInfo && make install && rm -r /tmp/neovim
@@ -111,7 +112,7 @@ RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
 # Install plugins via Packer
 && nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' || true \
 # we need to wait for parsers to be installed as this is apparently not blocking
-&& nvim --headless -c 'TSInstall' +"sleep 15" +qa
+&& nvim --headless -c 'TSInstall' +"sleep 15" +qa || true
 
 
 ENTRYPOINT ["/bin/bash", "-c", "nvim"]
