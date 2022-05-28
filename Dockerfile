@@ -96,6 +96,7 @@ RUN go install golang.org/x/tools/cmd/goimports@latest \
 && unzip -d ~/.local/bin tf.zip \
 # workaround for naming amd64 as x65
 && if [[ ${TARGETARCH} == "amd64" ]]; then TARGETARCH=x64; fi \
+&& echo ${TARGETARCH}} \
 && curl -sLo lua-lsp.tar.gz https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-${TARGETARCH}.tar.gz \
 #FIX: extracted very much stuff besides the executable
 && tar -C ~/.local/bin/ -xzf lua-lsp.tar.gz \
