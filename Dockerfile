@@ -65,9 +65,9 @@ typescript \
 typescript-language-server \
 vscode-langservers-extracted \
 && rm -rf /var/lib/apt/lists/* \
-&& ln -s $(which fdfind) /usr/bin/fd
+&& ln -s "$(which fdfind)" /usr/bin/fd
 
-RUN curl -sLo go.tar.gz https://go.dev/dl/go1.18.linux-${TARGETARCH}.tar.gz \
+RUN curl -sLo go.tar.gz "https://go.dev/dl/go1.18.linux-${TARGETARCH}.tar.gz" \
 && tar -C /usr/local/bin -xzf go.tar.gz \
 && rm go.tar.gz
 
@@ -80,24 +80,23 @@ USER nvim
 WORKDIR /home/nvim
 
 # Install (user only) dependencies (formatters and LSPs)
-ENV PATH=$PATH:/usr/local/bin/go/bin/:/home/nvim/.local/bin:/home/nvim/.local/bin/bin:/home/nvim/go/bin
-RUN pip3 install --no-cache-dir --user pyright black pynvim yamllint
-RUN go install golang.org/x/tools/cmd/goimports@latest \
+ENV PATH=$PATH:/usr/local/bin/go/bin/:/home/nvim/.local/bin:/home/nvim/.local/bin/bin:/home/nvim/go/bin:/home/nvim/.cargo/bin
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN pip3 install --no-cache-dir --user pyright black pynvim yamllint \
+&& go install golang.org/x/tools/cmd/goimports@latest \
 && go install mvdan.cc/gofumpt@latest \
 && go install golang.org/x/tools/gopls@latest \
-&& curl -sLo stylua.zip https://github.com/JohnnyMorganz/StyLua/releases/download/v0.13.1/stylua-linux.zip \
-&& unzip -d ~/.local/bin stylua.zip \
-&& chmod +x ~/.local/bin/stylua \
-&& rm stylua.zip \
-&& curl -sLo tf-ls.zip https://releases.hashicorp.com/terraform-ls/0.27.0/terraform-ls_0.27.0_linux_${TARGETARCH}.zip \
+&& curl https://sh.rustup.rs -sSf | bash -s -- -y \
+&& cargo install stylua \
+&& curl -sLo tf-ls.zip "https://releases.hashicorp.com/terraform-ls/0.27.0/terraform-ls_0.27.0_linux_${TARGETARCH}.zip" \
 && unzip -d ~/.local/bin tf-ls.zip \
 && rm tf-ls.zip \
-&& curl -sLo tf.zip https://releases.hashicorp.com/terraform/1.2.1/terraform_1.2.1_${TARGETOS}_${TARGETARCH}.zip \
+&& curl -sLo tf.zip "https://releases.hashicorp.com/terraform/1.2.1/terraform_1.2.1_${TARGETOS}_${TARGETARCH}.zip" \
 && unzip -d ~/.local/bin tf.zip \
-# workaround for naming amd64 as x65
-&& if [[ ${TARGETARCH} == "amd64" ]]; then TARGETARCH=x64; fi \
-&& echo ${TARGETARCH}} \
-&& curl -sLo lua-lsp.tar.gz https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-${TARGETARCH}.tar.gz \
+# workaround for naming amd64 as x64
+&& if [[ "${TARGETARCH}" == "amd64" ]]; then TARGETARCH=x64; fi \
+&& echo "${TARGETARCH}" \
+&& curl -sLo lua-lsp.tar.gz "https://github.com/sumneko/lua-language-server/releases/download/3.2.4/lua-language-server-3.2.4-linux-${TARGETARCH}.tar.gz" \
 #FIX: extracted very much stuff besides the executable
 && tar -C ~/.local/bin/ -xzf lua-lsp.tar.gz \
 && rm lua-lsp.tar.gz \
