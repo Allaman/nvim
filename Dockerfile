@@ -101,7 +101,8 @@ RUN pip3 install --no-cache-dir --user pyright black pynvim yamllint \
 #FIX: extracted very much stuff besides the executable
 && tar -C ~/.local/bin/ -xzf lua-lsp.tar.gz \
 && rm lua-lsp.tar.gz \
-&& rm tf.zip
+&& rm tf.zip \
+&& rustup self uninstall -y
 
 # Copy Neovim config into the image
 RUN mkdir -p .config/nvim
