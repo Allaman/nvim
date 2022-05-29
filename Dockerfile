@@ -101,7 +101,7 @@ RUN pip3 install --no-cache-dir --user pyright black pynvim yamllint \
 && rm lua-lsp.tar.gz \
 && rm tf.zip \
 # rust runs in strange segmentation faults when building with amd64 even after increasing Docker memory limits. Stylua is only available as amd64 release
-&& if [[ "${TARGETARCH}" == "arm64" ]]; then \ curl https://sh.rustup.rs -sSf | bash -s -- -y; \ cargo install stylua; rustup self uninstall -y; else \
+&& if [[ "${TARGETARCH}" == "arm64" ]]; then curl https://sh.rustup.rs -sSf | bash -s -- -y; cargo install stylua; rustup self uninstall -y; else \
 curl -sLo stylua.zip "https://github.com/JohnnyMorganz/StyLua/releases/download/v0.13.1/stylua-linux.zip"; unzip -d ~/.local/bin stylua.zip; rm stylua.zip; fi
 
 # Copy Neovim config into the image
