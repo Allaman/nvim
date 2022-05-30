@@ -1,37 +1,6 @@
-local g = vim.g
-
-g.nvim_tree_git_hl = 1 -- 0 by default, will enable file highlight for git attributes (can be used without the icons).
-g.nvim_tree_highlight_opened_files = 1 -- 0 by default, will enable folder and file icon highlight for opened files/directories.
-g.nvim_tree_root_folder_modifier = ":~" -- This is the default. See :help filename-modifiers for more options
-g.nvim_tree_add_trailing = 1 -- 0 by default, append a trailing slash to folder names
-g.nvim_tree_group_empty = 1 --  0 by default, compact folders that only contain a single folder into one node in the file tree
-g.nvim_tree_icon_padding = " " -- one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
-g.nvim_tree_symlink_arrow = " >> " --  defaults to ' ➛ '. used as a separator between symlinks' source and target.
-g.nvim_tree_respect_buf_cwd = 1 -- 0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
-
-g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1 }
-g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "",
-		staged = "S",
-		unmerged = "",
-		renamed = "➜",
-		deleted = "",
-		untracked = "U",
-		ignored = "◌",
-	},
-	folder = {
-		default = "",
-		open = "",
-		empty = "",
-		empty_open = "",
-		symlink = "",
-	},
-}
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({
+	respect_buf_cwd = true, -- 0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 	-- disables netrw completely
 	disable_netrw = true,
 	-- hijack netrw window on startup
@@ -109,6 +78,40 @@ require("nvim-tree").setup({
 				none = "  ",
 			},
 		},
+		icons = {
+			padding = " ", -- one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+			symlink_arrow = " >> ", --  defaults to ' ➛ '. used as a separator between symlinks' source and target.
+			show = {
+				git = true,
+				folder = true,
+				file = true,
+				folder_arrow = true,
+			},
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					unstaged = "",
+					staged = "S",
+					unmerged = "",
+					renamed = "➜",
+					deleted = "",
+					untracked = "U",
+					ignored = "◌",
+				},
+				folder = {
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+				},
+			},
+		},
+		highlight_git = true, -- will enable file highlight for git attributes (can be used without the icons).
+		highlight_opened_files = "3", -- 0 -> "none" 1 -> "icon" 2 -> "name" 3 -> "all"
+		add_trailing = true, -- append a trailing slash to folder names
+		group_empty = true, --  compact folders that only contain a single folder into one node in the file tree
 	},
 	view = {
 		-- show line numbers in tree disabled
