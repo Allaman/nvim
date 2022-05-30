@@ -21,27 +21,34 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 ## Try out
 
-WIP!
 If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided Docker image
 
-💡 All dependencies of my config are installed except texlab, tectonic, and vim-grammarous which makes it at **3.4GB** a rather large image
+💡 All dependencies of my config are installed except texlab, tectonic, and vim-grammarous which makes it at **1.9GB** a rather large image
+
+**Build the image**
+
+There are some issues with building the a multi architecture Docker image via Github Action. Until I sorted that out you can build the Docker image locally on your own
+
+```sh
+docker build -t nvim .
+```
 
 **Just start nvim**
 
 ```sh
-docker run --name nvim --rm -it allaman/nvim
+docker run --name nvim --rm -it nvim
 ```
 
 **Mount a local directory (to ~/mount) and start nvim**
 
 ```sh
-docker run --name nvim --rm -it -v ${HOME}/tmp:/home/nvim/mount allaman/nvim
+docker run --name nvim --rm -it -v ${HOME}/tmp:/home/nvim/mount nvim
 ```
 
 **Start container in bash instead of nvim**
 
 ```sh
-docker run --name nvim --rm -it --entrypoint=/bin/bash allaman/nvim
+docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 ```
 
 ## Features
@@ -182,11 +189,12 @@ There are some tools that are required in order to use some features/plugins:
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
+- [fzf](https://github.com/junegunn/fzf)
 
 ### Autoformatting
 
 - [prettier](https://prettier.io/)
-- [gofmt](https://pkg.go.dev/cmd/gofmt)
+- `go install mvdan.cc/gofumpt@latest`
 - [terraform fmt](https://www.terraform.io/docs/cli/commands/fmt.html)
 - [stylua](https://github.com/JohnnyMorganz/StyLua)
 - [black](https://github.com/psf/black)
@@ -198,11 +206,10 @@ For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/bl
 - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
 - `go install golang.org/x/tools/gopls@latest` (optional `golangci-lint`, `gomodifytags`, `gorename`)
 - `go install golang.org/x/tools/cmd/goimports@latest`
-- `go install mvdan.cc/gofumpt@latest`
 - [pyright](https://github.com/microsoft/pyright) as Python LSP
 - [terraform-ls](https://github.com/hashicorp/terraform-ls)
-- [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
 - [lua-language-server](https://github.com/sumneko/lua-language-server)
+- [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
 - For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-grammarous) Java 8+ is required
 
 ## Inspiration
