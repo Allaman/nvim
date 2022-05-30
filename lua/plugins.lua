@@ -44,6 +44,7 @@ packer.startup(function(use)
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-packer.nvim" })
 
 	use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
 
