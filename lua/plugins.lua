@@ -216,8 +216,6 @@ packer.startup(function(use)
 
 	use({ "ggandor/lightspeed.nvim" })
 
-	use({ "cuducos/yaml.nvim", ft = { "yaml" } })
-
 	use({ "ray-x/go.nvim", config = get_config("go"), ft = { "go" } })
 
 	use({ "LudoPinelli/comment-box.nvim", config = get_config("comment-box") })
