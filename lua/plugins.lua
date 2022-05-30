@@ -253,6 +253,13 @@ packer.startup(function(use)
 		config = function()
 			require("nvim-gps").setup({})
 		end,
+	})
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup({})
+		end,
+	})
 end)
 
 -- TODO: ????
