@@ -82,6 +82,7 @@ wk.register({
 	sa = "Add surrounding",
 	sd = "Delete surrounding",
 	sh = "Highlight surrounding",
+	sn = "Surround update n lines",
 	sr = "Replace surrounding",
 	sF = "Find left surrounding",
 	sf = "Replace right surrounding",
@@ -263,6 +264,7 @@ wk.register({
 			"<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
 			"Colorscheme with Preview",
 		},
+		z = { "<cmd>Telescope packer<cr>", "Plugins" },
 	},
 	w = {
 		name = "Window",
