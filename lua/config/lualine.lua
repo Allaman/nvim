@@ -1,4 +1,5 @@
 -- use gitsigns as source info
+local gps = require("nvim-gps")
 local function diff_source()
 	local gitsigns = vim.b.gitsigns_status_dict
 	if gitsigns then
@@ -38,6 +39,7 @@ require("lualine").setup({
 				shorting_target = 40, -- Shortens path to leave 40 spaces in the window
 				symbols = { modified = "[]", readonly = " " },
 			},
+			{ gps.get_location, cond = gps.is_available },
 		},
 		lualine_x = {
 			"encoding",

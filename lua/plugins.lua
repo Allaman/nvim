@@ -248,6 +248,12 @@ packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = get_config("alpha-nvim"),
 	})
+
+	use({
+		"SmiteshP/nvim-gps",
+		config = function()
+			require("nvim-gps").setup({})
+		end,
 end)
 
 -- TODO: ????
