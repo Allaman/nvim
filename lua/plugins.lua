@@ -140,7 +140,6 @@ packer.startup(function(use)
 
 	use({
 		"ray-x/lsp_signature.nvim",
-		require = { "neovim/nvim-lspconfig" },
 		config = get_config("lsp-signature"),
 	})
 
