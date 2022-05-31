@@ -198,7 +198,6 @@ wk.register({
 			"<cmd>lua vim.lsp.buf.implementation()<cr>",
 			"Show implementations",
 		},
-		K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
 		L = {
 			"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
 			"List Workspace Folders",
@@ -217,7 +216,7 @@ wk.register({
 		e = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
 		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Connected Language Servers" },
-		k = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
+		k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
 		l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line diagnostics" },
 		n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
 		p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
