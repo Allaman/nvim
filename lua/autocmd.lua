@@ -48,7 +48,7 @@ api.nvim_create_autocmd(
 )
 
 -- Enable spell checking for certain file types
-vim.api.nvim_create_autocmd(
+api.nvim_create_autocmd(
 	{ "BufRead", "BufNewFile" },
 	{ pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
 )
