@@ -10,5 +10,7 @@ M.grepprg = "rg --hidden --vimgrep --smart-case --"
 M.number = true
 -- set relative numbered lines
 M.relative_number = true
+-- enable PackerSync on plugins.lua save
+M.packer_auto_sync = false
 
 return M

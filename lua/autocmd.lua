@@ -1,4 +1,5 @@
 local api = vim.api
+local settings = require("user-conf")
 
 --- Remove all trailing whitespace on save
 local TrimWhiteSpaceGrp = api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })
@@ -51,3 +52,15 @@ vim.api.nvim_create_autocmd(
 	{ "BufRead", "BufNewFile" },
 	{ pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
 )
+if settings.packer_auto_sync then
+	-- reload plugins.lua and run PackerSync on save
+	local sync_packer = function()
+		-- TODO: more generic path handling
+		vim.cmd("source $HOME/.config/nvim/lua/plugins.lua")
+		require("packer").sync()
+	end
+	api.nvim_create_autocmd({ "BufWritePost" }, {
+		pattern = { "plugins.lua" },
+		callback = sync_packer,
+	})
+end
