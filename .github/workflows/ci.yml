@@ -20,7 +20,7 @@ jobs:
           ignore: "DL3008,DL3013,SC2015"
           verbose: true
       - name: Lint Markdown files
-        uses: actionshub/markdownlint@v1.1.1
+        uses: actionshub/markdownlint@2.0.2
 
   docker:
     runs-on: ubuntu-latest
