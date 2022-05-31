@@ -15,9 +15,9 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 ## Principles
 
 1. Migrate to Lua based alternative plugins respectively use only Lua based plugins (if possible).
-2. Keep the config as simple as possible knowing that this would possibly impact the code quality.
-3. Modular and meaningful directory structure and file naming.
-4. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
+1. Keep the config as simple as possible knowing that this would possibly impact the code quality.
+1. Modular and meaningful directory structure and file naming.
+1. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
 
 ## Try out
 
@@ -25,7 +25,7 @@ If you have [Docker](https://www.docker.com/) on your system you can try out thi
 
 💡 All dependencies of my config are installed except texlab, tectonic, and vim-grammarous which makes it at **1.9GB** a rather large image
 
-**Build the image**
+### Build the image
 
 There are some issues with building the a multi architecture Docker image via Github Action. Until I sorted that out you can build the Docker image locally on your own
 
@@ -33,19 +33,19 @@ There are some issues with building the a multi architecture Docker image via Gi
 docker build -t nvim .
 ```
 
-**Just start nvim**
+### Just start nvim
 
 ```sh
 docker run --name nvim --rm -it nvim
 ```
 
-**Mount a local directory (to ~/mount) and start nvim**
+### Mount a local directory (to ~/mount) and start nvim
 
 ```sh
 docker run --name nvim --rm -it -v ${HOME}/tmp:/home/nvim/mount nvim
 ```
 
-**Start container in bash instead of nvim**
+### Start container in bash instead of nvim
 
 ```sh
 docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
@@ -89,7 +89,7 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 
 Each plugin to be installed is defined in `plugins.lua` and each plugin has its own configuration file (if necessary) in `lua/config/` which is loaded by packer.
 
-```
+```sh
 .
 ├── after
 │   └── ftplugin      # file specific settings
