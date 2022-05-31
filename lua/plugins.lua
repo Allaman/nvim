@@ -1,12 +1,11 @@
 local settings = require("user-conf")
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 -- returns the require for use in `config` parameter of packer's use
 -- expects the name of the config file
-function get_config(name)
+local function get_config(name)
 	return string.format('require("config/%s")', name)
 end
 
@@ -19,7 +18,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		install_path,
 	})
 	print("Installing packer...")
-	execute("packadd packer.nvim")
+	vim.api.nvim_command("packadd packer.nvim")
 end
 
 -- initialize and configure packer
