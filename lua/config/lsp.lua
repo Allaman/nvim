@@ -25,14 +25,14 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local servers = {
 	"bashls",
-	"pyright",
 	"dockerls",
-	"terraformls",
-	"sumneko_lua",
-	"tsserver",
-	"texlab",
-	"yamlls",
 	"jsonls",
+	"pyright",
+	"sumneko_lua",
+	"terraformls",
+	"texlab",
+	"tsserver",
+	"yamlls",
 }
 -- Use a loop to conveniently call 'setup' on multiple servers
 for _, lsp in ipairs(servers) do
