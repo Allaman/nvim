@@ -12,12 +12,13 @@ end
 
 -- bootstrap packer if not installed
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({
+	PACKER_BOOTSTRAP = fn.system({
 		"git",
 		"clone",
 		"https://github.com/wbthomason/packer.nvim",
 		install_path,
 	})
+	print("Installing packer...")
 	execute("packadd packer.nvim")
 end
 
@@ -266,6 +267,11 @@ packer.startup(function(use)
 		end,
 	})
 end)
+
+-- Automatically run PackerSync when bootstraped
+if PACKER_BOOTSTRAP then
+	require("packer").sync()
+end
 
 -- TODO: ????
 -- use {"lukas-reineke/headlines.nvim", config = get_config("headlines")}
