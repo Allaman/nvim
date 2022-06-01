@@ -21,13 +21,13 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 ## Try out
 
-If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided Docker image
+If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided `Dockerfile`
 
 💡 All dependencies of my config are installed except texlab, tectonic, and vim-grammarous which makes it at **1.9GB** a rather large image
 
 ### Build the image
 
-There are some issues with building the a multi architecture Docker image via Github Action. Until I sorted that out you can build the Docker image locally on your own
+There are some issues with building a multi architecture Docker image via Github Action. Until I sorted that out, you can build the Docker image locally on your own
 
 ```sh
 docker build -t nvim .
