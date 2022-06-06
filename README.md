@@ -2,9 +2,9 @@
 
 ![](./screen.png)
 
-💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires at least Neovim >= 0.7!
+💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim dev build (0.8)!
 
-Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MacBook is configured. The Tmux configuration you can see in the image is [here](https://github.com/Allaman/dotfiles/blob/master/tmux.conf) (as well as my other dotfiles).
+Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MBP is configured. My [dotfiles](https://github.com/Allaman/dotfiles) are also on Github.
 
 ## Motivation
 
