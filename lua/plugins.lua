@@ -188,7 +188,7 @@ packer.startup(function(use)
 
 	use({ "folke/which-key.nvim", config = get_config("which") })
 
-	use("junegunn/vim-easy-align") -- no lua alternative
+	use("junegunn/vim-easy-align") -- no lua alternative, https://github.com/Vonr/align.nvim not working for me
 
 	use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
 
