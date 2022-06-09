@@ -19,7 +19,7 @@ require("lualine").setup({
 		always_divide_middle = false,
 	},
 	sections = {
-		lualine_a = { { "b:gitsigns_head", icon = "" }, { "diff", soruce = diff_source } },
+		lualine_a = { { "b:gitsigns_head", icon = "" }, { "diff", source = diff_source } },
 		lualine_b = {
 			{
 				"diagnostics",

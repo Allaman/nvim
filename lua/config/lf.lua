@@ -1,3 +1,3 @@
 local g = vim.g
--- disable defaut mapping
+-- disable default mapping
 g.lf_map_keys = 0

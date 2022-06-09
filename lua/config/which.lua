@@ -134,7 +134,7 @@ wk.register({
 			"Find File",
 		},
 		l = { "<cmd>Lf<cr>", "Open LF" },
-		p = { "<cmd>NvimTreeToggle<cr>", "Toogle Tree" },
+		p = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		s = { "<cmd>w<cr>", "Save Buffer" },
 		T = { "<cmd>NvimTreeFindFile<CR>", "Find in Tree" },
@@ -149,7 +149,7 @@ wk.register({
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
 		S = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage Buffer" },
-		t = "Open Gitui", -- comand in toggleterm.lua
+		t = "Open Gitui", -- command in toggleterm.lua
 		n = { "<cmd>Neogit<cr>", "Open Neogit" },
 		u = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
@@ -157,7 +157,7 @@ wk.register({
 		},
 		g = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		B = { "<cmd>GitBlameToggle<cr>", "Toogle Blame" },
+		B = { "<cmd>GitBlameToggle<cr>", "Toggle Blame" },
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		C = {
 			"<cmd>Telescope git_bcommits<cr>",
@@ -244,7 +244,7 @@ wk.register({
 		name = "Quickfix",
 		j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
 		k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-		q = { "<cmd>lua require('functions').toggle_qf()<cr>", "Toogle quickfix list" },
+		q = { "<cmd>lua require('functions').toggle_qf()<cr>", "Toggle quickfix list" },
 		t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
 	},
 	s = {
