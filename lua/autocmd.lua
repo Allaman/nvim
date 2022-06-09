@@ -53,10 +53,9 @@ api.nvim_create_autocmd(
 	{ pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
 )
 if settings.packer_auto_sync then
-	-- reload plugins.lua and run PackerSync on save
+	-- source plugins.lua and run PackerSync on save
 	local sync_packer = function()
-		-- TODO: more generic path handling
-		vim.cmd("source $HOME/.config/nvim/lua/plugins.lua")
+		vim.cmd("runtime lua/plugins.lua")
 		require("packer").sync()
 	end
 	api.nvim_create_autocmd({ "BufWritePost" }, {
