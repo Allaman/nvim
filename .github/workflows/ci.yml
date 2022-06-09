@@ -21,6 +21,11 @@ jobs:
           verbose: true
       - name: Lint Markdown files
         uses: actionshub/markdownlint@main
+      - name: Codespell
+        uses: codespell-project/actions-codespell@master
+        with:
+          check_filenames: true
+          check_hidden: true
 
   # docker:
   #   runs-on: ubuntu-latest
