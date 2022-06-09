@@ -27,6 +27,7 @@ local packer = require("packer")
 packer.init({
 	enable = true, -- enable profiling via :PackerCompile profile=true
 	threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
+	max_jobs = 20, -- Limit the number of simultaneous jobs. nil means no limit. Set to 20 in order to prevent PackerSync form being "stuck" -> https://github.com/wbthomason/packer.nvim/issues/746
 	-- Have packer use a popup window
 	display = {
 		open_fn = function()
