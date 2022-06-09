@@ -4,7 +4,7 @@ vo.shiftwidth = 4
 vo.softtabstop = 4
 
 local wk = require("which-key")
-default_options = { silent = true }
+local default_options = { silent = true }
 wk.register({
 	c = {
 		name = "Coding",
