@@ -113,8 +113,10 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | ---- | ---------------------- | ------------------------------------------------------ |
 | n    | space                  | Leader key                                             |
 | n    | ⬆ ⬇ ⬅ ➡                | Resize panes                                           |
-| n    | \<c-h \| j \| k \| l\> | change pane focus (including Tmux panes)               |
-| n    | \<leader\>Tab          | switch to previously opened buffer                     |
+| n    | \<c-h \| j \| k \| l\> | Change pane focus (including Tmux panes)               |
+| n    | \<leader\>Tab          | Switch to previously opened buffer                     |
+| n    | \<Tab\>                | Switch to next buffer (via bufferline)                 |
+| n    | \<S-Tab\>              | Switch to previous buffer (via bufferline)             |
 | n    | st                     | Visual selection with Treesitter hint textobject       |
 | v    | sa                     | Add surrounding                                        |
 | n    | sd                     | Delete surrounding                                     |
