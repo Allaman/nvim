@@ -98,7 +98,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 │   ├── config/       # each plugin configuration is in its own file
 │   ├── autocmd.lua   # autocommands
 │   ├── functions.lua # lua functions to extend functionality
-│   ├── mappings.lua  # Vim keymaps defintions -> config/which.lua for more
+│   ├── mappings.lua  # Vim keymaps definitions -> config/which.lua for more
 │   ├── options.lua   # non plugin related (vim) options
 │   ├── plugins.lua   # define plugins to be managed via Packer
 │   └── user-conf.lua # parameters to configure some settings

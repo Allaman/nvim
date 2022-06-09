@@ -38,7 +38,7 @@ telescope.setup({
 		},
 		mappings = {
 			i = {
-				-- Close on first esc instead of gonig to normal mode
+				-- Close on first esc instead of going to normal mode
 				-- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
 				["<esc>"] = actions.close,
 				["<C-j>"] = actions.move_selection_next,
