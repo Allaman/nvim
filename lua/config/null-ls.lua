@@ -19,7 +19,6 @@ nls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- NOTE: on < 0.8, you should use vim.lsp.buf.formatting_sync() instead
 					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
