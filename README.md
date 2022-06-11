@@ -81,7 +81,7 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 - Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
 - Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim), and [gitui](https://github.com/extrawurst/gitui)
 - Schema integration via LSPs for Kubernetes, package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
-- YAML navigation via [yaml.nvim](https://github.com/cuducos/yaml.nvim); useful for your hundreds of lines of Kubernetes manifests 😉
+- Always know where you are in your code via [nvim-gps](https://github.com/SmiteshP/nvim-gps)
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 
@@ -154,7 +154,6 @@ See `./lua/config/which.lua` for details.
 | s   | Searching                                              |
 | w   | Window management                                      |
 | x   | Languagetool integration                               |
-| y   | YAML integration (only in YAML files)                  |
 | z   | Spell bindings                                         |
 
 ## User configuration (experimental)
