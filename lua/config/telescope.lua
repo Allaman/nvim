@@ -1,6 +1,7 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
+local fb_actions = require("telescope").extensions.file_browser.actions
 
 telescope.setup({
 	extensions = {
@@ -9,6 +10,23 @@ telescope.setup({
 			override_generic_sorter = true, -- override the generic sorter
 			override_file_sorter = true, -- override the file sorter
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case" or "smart_case"
+		},
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({}),
+		},
+		file_browser = {
+			mappings = {
+				i = {
+					["<c-n>"] = fb_actions.create,
+					["<c-r>"] = fb_actions.rename,
+					-- ["<c-h>"] = actions.which_key,
+					["<c-h>"] = fb_actions.toggle_hidden,
+					["<c-x>"] = fb_actions.remove,
+					["<c-p>"] = fb_actions.move,
+					["<c-y>"] = fb_actions.copy,
+					["<c-a>"] = fb_actions.select_all,
+				},
+			},
 		},
 	},
 	pickers = {
@@ -44,6 +62,8 @@ telescope.setup({
 				["<C-j>"] = actions.move_selection_next,
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,
+				["<C-u>"] = actions.preview_scrolling_up,
+				["<C-d>"] = actions.preview_scrolling_down,
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-q>"] = actions.send_selected_to_qflist,
 				["<C-l>"] = actions.send_to_qflist,
@@ -99,3 +119,4 @@ telescope.load_extension("zoxide")
 telescope.load_extension("heading")
 telescope.load_extension("file_browser")
 telescope.load_extension("packer")
+telescope.load_extension("ui-select")
