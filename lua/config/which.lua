@@ -61,7 +61,7 @@ require("which-key").setup({
 		"^:",
 		"^ ",
 	}, -- hide mapping boilerplate
-	show_help = true, -- show help message on the command line when the popup is visible
+	show_help = false, -- show help message on the command line when the popup is visible
 	triggers = "auto", -- automatically setup triggers
 	-- triggers = {"<leader>"} -- or specify a list manually
 	triggers_blacklist = {
@@ -93,7 +93,7 @@ wk.register({
 
 -- Register all leader based mappings
 wk.register({
-	["<Tab>"] = { "<cmd>e#<cr>", "Switch to previously opened buffer" },
+	["<Tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
 	["<leader>"] = {
 		name = "Leader",
 		a = { "<cmd>lua print('fasfAS')<cr>", "test" },
@@ -108,7 +108,7 @@ wk.register({
 			"<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>",
 			"Close all but the current buffer",
 		},
-		d = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		d = { "<cmd>Bdelete!<CR>", "Close buffer" },
 		f = { "<cmd>BufferLinePick<cr>", "Pick buffer" },
 		l = { "<cmd>BufferLineCloseLeft<cr>", "Close all buffers to the left" },
 		p = { "<cmd>BufferLineMovePrev<cr>", "Move buffer prev" },
@@ -144,6 +144,7 @@ wk.register({
 		name = "Git",
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+		l = { "<cmd>Telescope git_commits<cr>", "Log" },
 		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
@@ -161,7 +162,7 @@ wk.register({
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		C = {
 			"<cmd>Telescope git_bcommits<cr>",
-			"Checkout commit(for current file)",
+			"Checkout commit(current file)",
 		},
 	},
 	h = {
@@ -249,7 +250,7 @@ wk.register({
 	},
 	s = {
 		name = "Search",
-		C = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		C = { "<cmd>CheatSH<cr>", "Cht.sh" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		H = { "<cmd>Telescope heading<cr>", "Find Header" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -260,10 +261,7 @@ wk.register({
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		c = { "<cmd>Telescope commands<cr>", "Commands" },
 		p = { "<cmd>Telescope projects<cr>", "Projects" },
-		P = {
-			"<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
-			"Colorscheme with Preview",
-		},
+		P = { "<cmd>Telescope builtin<cr>", "Builtin pickers" },
 		z = { "<cmd>Telescope packer<cr>", "Plugins" },
 	},
 	w = {
