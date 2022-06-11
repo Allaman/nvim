@@ -81,6 +81,8 @@ packer.startup(function(use)
 
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 
+	use("RRethy/nvim-treesitter-endwise")
+
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
