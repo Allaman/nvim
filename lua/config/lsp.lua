@@ -37,12 +37,14 @@ local servers = {
 -- Use a loop to conveniently call 'setup' on multiple servers
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
-		on_attach = function(client)
+		on_attach = function(client, bufnr)
 			-- disable formatting for LSP clients as this is handled by null-ls
 			client.server_capabilities.document_formatting = false
 			client.server_capabilities.document_range_formatting = false
 			-- enable illuminate to intelligently highlight
 			require("illuminate").on_attach(client)
+			-- enable navic for displaying current code context
+			require("nvim-navic").attach(client, bufnr)
 		end,
 		before_init = function(_, config)
 			if lsp == "pyright" then

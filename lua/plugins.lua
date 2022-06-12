@@ -257,12 +257,8 @@ packer.startup(function(use)
 		config = get_config("alpha-nvim"),
 	})
 
-	use({
-		"SmiteshP/nvim-gps",
-		config = function()
-			require("nvim-gps").setup({})
-		end,
-	})
+	use({ "SmiteshP/nvim-navic" })
+
 	use({
 		"j-hui/fidget.nvim",
 		config = function()
