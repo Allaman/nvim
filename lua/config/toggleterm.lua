@@ -37,12 +37,7 @@ require("toggleterm").setup({
 		},
 	},
 })
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "gitui", direction = "float", hidden = true })
-function _lazygit_toggle()
-	lazygit:toggle()
-end
-map("n", "<leader>gt", "<cmd>lua _lazygit_toggle()<CR>i", { noremap = true, silent = true }) -- start lazygit
+map("n", "<leader>gt", "<cmd>lua require('functions').gitui_toggle()<CR>i", { noremap = true, silent = true }) -- start gitui
 map("t", "<ESC>", "<C-\\><C-n>", { noremap = true, silent = true }) -- back to normal mode in Terminal
 
 -- Better navigation to and from terminal

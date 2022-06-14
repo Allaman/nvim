@@ -26,6 +26,12 @@ M.toggle_qf = function()
 	end
 end
 
+M.gitui_toggle = function()
+	local Terminal = require("toggleterm.terminal").Terminal
+	local gitui = Terminal:new({ cmd = "gitui", direction = "float", hidden = true })
+	gitui:toggle()
+end
+
 -- move over a closing element in insert mode
 M.escapePair = function()
 	local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
