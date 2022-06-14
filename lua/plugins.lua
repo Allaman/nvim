@@ -71,7 +71,7 @@ packer.startup(function(use)
 		config = get_config("colorizer"),
 	})
 
-	use({ "windwp/nvim-autopairs", config = get_config("autopairs") })
+	use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -189,7 +189,7 @@ packer.startup(function(use)
 
 	use("ironhouzi/starlite-nvim")
 
-	use({ "folke/which-key.nvim", config = get_config("which") })
+	use({ "folke/which-key.nvim", config = get_config("which-key") })
 
 	use("junegunn/vim-easy-align") -- no lua alternative, https://github.com/Vonr/align.nvim not working for me
 
