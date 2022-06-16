@@ -26,7 +26,6 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local servers = {
 	"bashls",
 	"dockerls",
-	"gopls",
 	"jsonls",
 	"pyright",
 	"sumneko_lua",
@@ -39,57 +38,7 @@ local servers = {
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = function(client, bufnr)
-			-- disable formatting for LSP clients as this is handled by null-ls
-			client.server_capabilities.document_formatting = false
-			client.server_capabilities.document_range_formatting = false
-			-- enable illuminate to intelligently highlight
-			require("illuminate").on_attach(client)
-			-- enable navic for displaying current code context
-			require("nvim-navic").attach(client, bufnr)
-			-- add LSP specific key mappings to which key
-			local wk = require("which-key")
-			local default_options = { silent = true }
-			wk.register({
-				l = {
-					name = "LSP",
-					A = {
-						"<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",
-						"Add Workspace Folder",
-					},
-					D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go To Declaration" },
-					I = {
-						"<cmd>lua vim.lsp.buf.implementation()<cr>",
-						"Show implementations",
-					},
-					L = {
-						"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>",
-						"List Workspace Folders",
-					},
-					R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-					S = {
-						"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-						"Workspace Symbols",
-					},
-					W = {
-						"<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>",
-						"Remove Workspace Folder",
-					},
-					a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-					d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition" },
-					e = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
-					f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-					i = { "<cmd>LspInfo<cr>", "Connected Language Servers" },
-					k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
-					l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line diagnostics" },
-					n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
-					p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-					q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-					r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References" },
-					s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-					t = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "Type Definition" },
-					w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-				},
-			}, { prefix = "<leader>", mode = "n", default_options })
+			require("functions").custom_lsp_attach(client, bufnr)
 		end,
 		before_init = function(_, config)
 			if lsp == "pyright" then

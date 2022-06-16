@@ -48,6 +48,7 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "luasnip" },
 		{ name = "calc" },

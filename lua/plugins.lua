@@ -86,11 +86,14 @@ packer.startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "hrsh7th/cmp-cmdline" },
-			{ "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "lukas-reineke/cmp-rg" } },
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"f3fora/cmp-spell",
+			"hrsh7th/cmp-calc",
+			"lukas-reineke/cmp-rg",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = get_config("cmp"),
 	})
@@ -147,11 +150,6 @@ packer.startup(function(use)
 	use("famiu/bufdelete.nvim")
 
 	use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
-
-	use({
-		"ray-x/lsp_signature.nvim",
-		config = get_config("lsp-signature"),
-	})
 
 	use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
 

@@ -12,20 +12,22 @@ require("go").setup({
 	comment_placeholder = "", -- comment_placeholder your cool placeholder e.g. ﳑ       
 	icons = { breakpoint = "🧘", currentpos = "🏃" },
 	verbose = false, -- output loginf in messages
-	lsp_cfg = false, -- true: use non-default gopls setup specified in go/lsp.lua
+	lsp_cfg = true, -- true: use non-default gopls setup specified in go/lsp.lua
 	-- false: do nothing
 	-- if lsp_cfg is a table, merge table with with non-default gopls setup in go/lsp.lua, e.g.
 	--   lsp_cfg = {settings={gopls={matcher='CaseInsensitive', ['local'] = 'your_local_module_path', gofumpt = true }}}
 	lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
-	lsp_on_attach = nil, -- nil: use on_attach function defined in go/lsp.lua,
+	lsp_on_attach = function(client, bufnr)
+		require("functions").custom_lsp_attach(client, bufnr)
+	end, -- nil: use on_attach function defined in go/lsp.lua,
 	--      when lsp_cfg is true
 	-- if lsp_on_attach is a function: use this function as on_attach function for gopls
-	lsp_codelens = false, -- set to false to disable codelens, true by default
+	lsp_codelens = true, -- set to false to disable codelens, true by default
 	lsp_keymaps = false, -- set to false to disable gopls/lsp keymap
-	lsp_diag_hdlr = false, -- hook lsp diag handler
+	lsp_diag_hdlr = true, -- hook lsp diag handler
 	lsp_diag_virtual_text = { space = 0, prefix = "" }, -- virtual text setup
-	lsp_diag_signs = false,
-	lsp_diag_update_in_insert = false,
+	lsp_diag_signs = true,
+	lsp_diag_update_in_insert = true,
 	lsp_document_formatting = false,
 	-- set to true: use gopls to format
 	-- false if you want to use other formatter tool(e.g. efm, nulls)
