@@ -11,6 +11,10 @@ nls.setup({
 		nls.builtins.formatting.black,
 		nls.builtins.formatting.goimports,
 		nls.builtins.formatting.gofumpt,
+		nls.builtins.formatting.latexindent.with({
+			extra_args = { "-g", "/dev/null" }, -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
+		}),
+		nls.builtins.code_actions.shellcheck,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
