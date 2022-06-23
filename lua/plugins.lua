@@ -65,12 +65,6 @@ packer.startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
-  use({
-    "norcalli/nvim-colorizer.lua",
-    event = "BufReadPre",
-    config = get_config("colorizer"),
-  })
-
   use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
   use({
