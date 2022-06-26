@@ -15,7 +15,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 ## Principles
 
 1. Migrate to Lua based alternative plugins respectively use only Lua based plugins (if possible).
-1. Keep the config as simple as possible knowing that this would possibly impact the code quality.
+1. Keep the config as maintainable as possible knowing that this would possibly impact the code quality.
 1. Modular and meaningful directory structure and file naming.
 1. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
 
@@ -60,6 +60,7 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 - Fully featured status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- Better writing with [vale](https://vale.sh/) integration via [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Fast startup 🚀
 
 ### Navigation 🧭
@@ -67,7 +68,7 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
-- Easy Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
+- Convenient Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
 - Convenient jumping through windows with [nvim-window](https://gitlab.com/yorickpeterse/nvim-window)
@@ -170,7 +171,7 @@ Basically, you can remove unwanted plugins by just removing the appropriate line
 
 ## Add plugins
 
-If you want to follow my method adding a plugin is simple:
+If you want to follow my method adding a plugin is straight forward:
 
 In `lua/plugins.lua` add the plugin to Packer. You are free to use a name for the configuration file (should be a valid filename).
 
@@ -212,6 +213,7 @@ For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/bl
 - [lua-language-server](https://github.com/sumneko/lua-language-server)
 - [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
 - For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-grammarous) Java 8+ is required
+- For better writing [vale](https://vale.sh/) is required
 
 ## Inspiration
 
