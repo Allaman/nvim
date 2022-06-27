@@ -123,7 +123,6 @@ packer.startup(function(use)
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
-    event = "BufReadPre",
     config = get_config("gitsigns"),
   })
 
@@ -167,7 +166,7 @@ packer.startup(function(use)
 
   use({
     "akinsho/nvim-toggleterm.lua",
-    keys = { "<C-n>", "<leader>fl", "<leader>gt" },
+    keys = { "<C-n>", "<leader>fl" },
     config = get_config("toggleterm"),
   })
 
@@ -265,6 +264,12 @@ packer.startup(function(use)
   use({ "Djancyp/cheat-sheet" })
 
   use({ "vimpostor/vim-tpipeline" })
+
+  use({
+    "anuvyklack/hydra.nvim",
+    requires = "anuvyklack/keymap-layer.nvim", -- needed only for pink hydras
+    config = get_config("hydra"),
+  })
 end)
 
 -- TODO: ????
