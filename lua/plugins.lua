@@ -257,9 +257,20 @@ packer.startup(function(use)
     end,
   })
 
-  use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async", config = require("ufo").setup() })
+  use({
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      require("ufo").setup()
+    end,
+  })
 
-  use({ "https://gitlab.com/yorickpeterse/nvim-pqf.git", config = require("pqf").setup() })
+  use({
+    "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+    config = function()
+      require("pqf").setup()
+    end,
+  })
 
   use({ "Djancyp/cheat-sheet" })
 
