@@ -114,9 +114,6 @@ function M.custom_lsp_attach(client, bufnr)
 	if client.server_capabilities.documentSymbolProvider then
 		require("nvim-navic").attach(client, bufnr)
 	end
-	-- add lsp-signature TODO: do I need this?
-	-- require("lsp_signature").on_attach(require("config.lsp-signature").cfg)
-	-- add LSP specific key mappings to which key
 	local wk = require("which-key")
 	local default_options = { silent = true }
 	wk.register({
