@@ -112,7 +112,6 @@ function M.custom_lsp_attach(client, bufnr)
 	require("illuminate").on_attach(client)
 	-- enable navic for displaying current code context
 	if client.server_capabilities.documentSymbolProvider then
-		print("hello")
 		require("nvim-navic").attach(client, bufnr)
 	end
 	-- add lsp-signature TODO: do I need this?
