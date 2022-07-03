@@ -126,6 +126,8 @@ packer.startup(function(use)
     config = get_config("gitsigns"),
   })
 
+  use({ "tpope/vim-fugitive" }) -- yeah this is not lua but one of the best Vim plugins ever
+
   use("p00f/nvim-ts-rainbow")
 
   use({
