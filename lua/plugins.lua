@@ -283,6 +283,13 @@ packer.startup(function(use)
     requires = "anuvyklack/keymap-layer.nvim", -- needed only for pink hydras
     config = get_config("hydra"),
   })
+  use({
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  })
+
 end)
 
 -- TODO: ????
