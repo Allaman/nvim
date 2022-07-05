@@ -29,13 +29,10 @@ api.nvim_create_autocmd(
   { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
 )
 -- windows to close with "q"
-api.nvim_create_autocmd(
-  "FileType",
-  {
-    pattern = { "help", "startuptime", "qf", "lspinfo", "fugitive" },
-    command = [[nnoremap <buffer><silent> q :close<CR>]],
-  }
-)
+api.nvim_create_autocmd("FileType", {
+  pattern = { "help", "startuptime", "qf", "lspinfo", "fugitive", "null-ls-info" },
+  command = [[nnoremap <buffer><silent> q :close<CR>]],
+})
 api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
 
 -- disable list option in certain filetypes
