@@ -174,6 +174,7 @@ wk.register({
       "Test Telegraph",
     },
     d = { "<cmd>lua require('functions').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
+    f = { "<cmd>FocusToggle<cr>", "Toggle Focus" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     p = { "<cmd>PackerSync<cr>", "PackerSync" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
