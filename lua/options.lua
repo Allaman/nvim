@@ -24,9 +24,9 @@ o.cmdheight = 1 -- space for displaying messages/commands
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = 2 -- always show tabs
 if settings.global_statusline then
-	o.laststatus = 3
+  o.laststatus = 3
 else
-	o.laststatus = 2
+  o.laststatus = 2
 end
 o.smartcase = true -- smart case
 o.smartindent = true -- make indenting smarter again
@@ -51,7 +51,7 @@ wo.colorcolumn = "99999"
 o.wildmode = "full"
 o.lazyredraw = true -- do not redraw screen while running macros
 if utils.isNotEmpty(settings.grepprg) then
-	o.grepprg = settings.grepprg
+  o.grepprg = settings.grepprg
 end
 o.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- A comma separated list of options for Insert mode completion
 o.wildignorecase = true -- When set case is ignored when completing file names and directories
