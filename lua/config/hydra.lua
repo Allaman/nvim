@@ -6,7 +6,8 @@ local hint = [[
  _K_: prev hunk     _u_: undo stage hunk   _d_: show deleted _B_: blame show full
  _S_: stage buffer  _U_: undo stage buffer _/_: show base file
  _r_: reset hunk  _R_: reset buffer        _g_: status
- _h_: Branches      _C_: checkout commit (current file) _c_: checkout commit
+ _h_: Branches      _M_: checkout commit (current file) _m_: checkout commit
+ _c_: Commit buffer      _P_: Push
  ^
  _<Enter>_: Neogit              _q_: exit
 ]]
@@ -51,8 +52,10 @@ Hydra({
       { expr = true },
     },
     { "h", "<cmd>Telescope git_branches<cr>" },
-    { "c", "<cmd>Telescope git_commits<cr>" },
-    { "C", "<cmd>Telescope git_bcommits<cr>" },
+    { "c", "<cmd>G commit %<cr>" },
+    { "P", "<cmd>G push<cr>" },
+    { "m", "<cmd>Telescope git_commits<cr>" },
+    { "M", "<cmd>Telescope git_bcommits<cr>" },
     { "g", "<cmd>Telescope git_status<cr>" },
     { "s", gitsigns.stage_hunk, { silent = true } },
     { "R", gitsigns.reset_buffer },
