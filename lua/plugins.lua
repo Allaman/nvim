@@ -188,7 +188,7 @@ packer.startup(function(use)
 
   use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
 
-  use({ "RRethy/vim-illuminate" })
+  use({ "RRethy/vim-illuminate", config = get_config("illuminate") })
 
   use({
     "ptzz/lf.vim",
