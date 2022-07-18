@@ -5,7 +5,7 @@ local function cmd(command)
 end
 
 local hint = [[
- _g_: live grep   _s_: grep string
+ _t_: live grep   _s_: grep string
  _H_: header      _S_: symbols
  _R_: register    _P_: plugins
  _p_: projects    _/_: search in file
@@ -32,7 +32,7 @@ Hydra({
   heads = {
     { "c", cmd("Telescope commands"), { desc = "execute command" } },
     { "f", cmd("Telescope find_files") },
-    { "g", cmd("Telescope live_grep") },
+    { "t", cmd("Telescope live_grep") },
     { "h", cmd("Telescope help_tags"), { desc = "vim help" } },
     { "H", cmd("Telescope header") },
     { "k", cmd("Telescope keymaps") },
