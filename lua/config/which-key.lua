@@ -187,19 +187,7 @@ wk.register({
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
   s = { "Search" },
-  w = {
-    name = "Window",
-    p = { "<c-w>x", "Swap" },
-    q = { "<cmd>:q<cr>", "Close" },
-    s = { "<cmd>:split<cr>", "Horizontal Split" },
-    t = { "<c-w>t", "Move to new tab" },
-    ["="] = { "<c-w>=", "Equally size" },
-    v = { "<cmd>:vsplit<cr>", "Verstical Split" },
-    w = {
-      "<cmd>lua require('nvim-window').pick()<cr>",
-      "Choose window to jump",
-    },
-  },
+  w = { "Windows" },
   x = {
     name = "LanguageTool",
     c = { "<cmd>GrammarousCheck<cr>", "Grammar check" },
