@@ -2,11 +2,11 @@ local Hydra = require("hydra")
 local gitsigns = require("gitsigns")
 
 local hint = [[
- _J_: next hunk     _s_: stage hunk        _p_: preview hunk _b_: blame line
- _K_: prev hunk     _u_: undo stage hunk   _d_: show deleted _B_: blame show full
- _S_: stage buffer  _U_: undo stage buffer _/_: show base file
- _r_: reset hunk  _R_: reset buffer        _g_: status
- _h_: Branches      _M_: checkout commit (current file) _m_: checkout commit
+ _J_: next hunk     _s_: stage hunk         _p_: preview hunk   _b_: blame line
+ _K_: prev hunk     _u_: undo stage hunk    _d_: show deleted   _B_: blame show full
+ _S_: stage buffer  _U_: undo stage buffer  _/_: show base file
+ _r_: reset hunk    _R_: reset buffer       _g_: status
+ _h_: Branches      _M_: checkout commit (current file)   _m_: checkout commit
  _c_: Commit buffer      _P_: Push
  ^
  _<Enter>_: Neogit              _q_: exit
