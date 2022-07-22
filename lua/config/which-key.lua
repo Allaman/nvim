@@ -170,6 +170,7 @@ wk.register({
       "Test Telegraph",
     },
     c = { "<cmd>CheahSH<cr>", "Cht.sh" },
+    C = { "<cmd>lua require('functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     d = { "<cmd>lua require('functions').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     f = { "<cmd>FocusToggle<cr>", "Toggle Focus" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },

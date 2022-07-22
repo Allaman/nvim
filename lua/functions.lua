@@ -26,6 +26,16 @@ M.toggle_qf = function()
   end
 end
 
+-- toggle colorcolumn
+M.toggle_colorcolumn = function()
+  local value = vim.inspect(vim.opt.colorcolumn)
+  if M.isNotEmpty(value) then
+    vim.opt.colorcolumn = "79"
+  else
+    vim.opt.colorcolumn = {}
+  end
+end
+
 -- move over a closing element in insert mode
 M.escapePair = function()
   local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
