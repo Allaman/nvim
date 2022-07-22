@@ -135,13 +135,6 @@ packer.startup(function(use)
     requires = { { "junegunn/fzf", module = "nvim-bqf" }, config = get_config("nvim-bqf") },
   })
 
-  use({
-    "akinsho/nvim-bufferline.lua",
-    requires = "kyazdani42/nvim-web-devicons",
-    event = "BufReadPre",
-    config = get_config("bufferline"),
-  })
-
   use("famiu/bufdelete.nvim")
 
   use({ "neovim/nvim-lspconfig", config = get_config("lsp") })

@@ -57,6 +57,7 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 
 - Package management and plugin configuration via [Packer](https://github.com/wbthomason/packer.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
+- Submodes powered by [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
 - Fully featured status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
@@ -69,7 +70,6 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
 - Convenient Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
-- Buffer management via [Bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
 - Convenient jumping through windows with [nvim-window](https://gitlab.com/yorickpeterse/nvim-window)
 
@@ -116,8 +116,8 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | n    | ⬆ ⬇ ⬅ ➡                | Resize panes                                           |
 | n    | \<c-h \| j \| k \| l\> | Change pane focus (including Tmux panes)               |
 | n    | \<leader\>Tab          | Switch to previously opened buffer                     |
-| n    | \<Tab\>                | Switch to next buffer (via bufferline)                 |
-| n    | \<S-Tab\>              | Switch to previous buffer (via bufferline)             |
+| n    | \<Tab\>                | Switch to next buffer (bnext)                          |
+| n    | \<S-Tab\>              | Switch to previous buffer (bprev)                      |
 | n    | st                     | Visual selection with Treesitter hint textobject       |
 | v    | sa                     | Add surrounding                                        |
 | n    | sd                     | Delete surrounding                                     |
