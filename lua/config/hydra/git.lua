@@ -1,6 +1,10 @@
 local Hydra = require("hydra")
 local gitsigns = require("gitsigns")
 
+local function cmd(command)
+  return table.concat({ "<Cmd>", command, "<CR>" })
+end
+
 local hint = [[
  _J_: next hunk     _s_: stage hunk         _p_: preview hunk   _b_: blame line
  _K_: prev hunk     _u_: undo stage hunk    _d_: show deleted   _B_: blame show full
@@ -51,12 +55,12 @@ Hydra({
       end,
       { expr = true },
     },
-    { "h", "<cmd>Telescope git_branches<cr>" },
-    { "c", "<cmd>G commit %<cr>" },
-    { "P", "<cmd>G push<cr>" },
-    { "m", "<cmd>Telescope git_commits<cr>" },
-    { "M", "<cmd>Telescope git_bcommits<cr>" },
-    { "g", "<cmd>Telescope git_status<cr>" },
+    { "h", cmd("Telescope git_branches"), { exit = true } },
+    { "c", cmd("G commit %") },
+    { "P", cmd("G push"), { exit = true } },
+    { "m", cmd("Telescope git_commits"), { exit = true } },
+    { "M", cmd("Telescope git_bcommits"), { exit = true } },
+    { "g", cmd("Telescope git_status"), { exit = true } },
     { "s", gitsigns.stage_hunk, { silent = true } },
     { "R", gitsigns.reset_buffer },
     { "r", gitsigns.reset_hunk },
