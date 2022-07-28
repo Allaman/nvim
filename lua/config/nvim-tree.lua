@@ -71,6 +71,7 @@ require("nvim-tree").setup({
   },
   renderer = {
     indent_markers = {
+      inline_arrows = true,
       enable = true,
       icons = {
         corner = "└",
