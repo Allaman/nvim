@@ -88,8 +88,12 @@ for _, lsp in ipairs(servers) do
           },
         },
       },
+      -- https://github.com/sumneko/lua-language-server/blob/master/locale/en-us/setting.lua
       Lua = {
         cmd = { "lua-language-server" },
+        format = {
+          enable = false, -- let null-ls handle the formating
+        },
         filetypes = { "lua" },
         runtime = {
           version = "LuaJIT",
