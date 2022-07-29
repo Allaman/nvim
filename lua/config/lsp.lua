@@ -92,7 +92,7 @@ for _, lsp in ipairs(servers) do
       Lua = {
         cmd = { "lua-language-server" },
         format = {
-          enable = false, -- let null-ls handle the formating
+          enable = false, -- let null-ls handle the formatting
         },
         filetypes = { "lua" },
         runtime = {
