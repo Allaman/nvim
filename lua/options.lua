@@ -21,6 +21,7 @@ o.conceallevel = 0 -- so that `` is visible in markdown files
 o.number = settings.number
 o.relativenumber = settings.relative_number
 o.cmdheight = 1 -- space for displaying messages/commands
+o.mouse = settings.mouse
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = 2 -- always show tabs
 if settings.global_statusline then
