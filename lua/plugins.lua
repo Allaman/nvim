@@ -203,10 +203,6 @@ packer.startup(function(use)
     config = get_config("harpoon"),
   })
 
-  use({ "folke/zen-mode.nvim", cmd = "ZenMode", config = get_config("zen-mode") })
-
-  use({ "folke/twilight.nvim", config = get_config("twilight") })
-
   use({ "tweekmonster/startuptime.vim" })
 
   use({ "ggandor/lightspeed.nvim" })

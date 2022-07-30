@@ -179,7 +179,6 @@ wk.register({
     p = { "<cmd>PackerSync<cr>", "PackerSync" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
     t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
-    z = { "<cmd>ZenMode<cr>", "Toggle ZenMode" },
   },
   q = {
     name = "Quickfix",
