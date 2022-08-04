@@ -28,10 +28,13 @@ end
 
 -- toggle colorcolumn
 M.toggle_colorcolumn = function()
-  local value = vim.inspect(vim.opt.colorcolumn)
-  if M.isNotEmpty(value) then
+  local value = vim.inspect(vim.opt.colorcolumn:get())
+  print(value)
+  if value == "{}" then
+    M.notify("Enable colocolumn", "info", "functions.lua")
     vim.opt.colorcolumn = "79"
   else
+    M.notify("Disable colocolumn", "info", "functions.lua")
     vim.opt.colorcolumn = {}
   end
 end
