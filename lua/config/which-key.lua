@@ -170,7 +170,7 @@ wk.register({
       "<cmd>lua require'telegraph'.telegraph({cmd='gitui', how='tmux_popup'})<cr>",
       "Test Telegraph",
     },
-    c = { "<cmd>CheahSH<cr>", "Cht.sh" },
+    c = { "<cmd>CheatSH<cr>", "Cht.sh" },
     C = { "<cmd>lua require('functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     d = { "<cmd>lua require('functions').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     f = { "<cmd>FocusToggle<cr>", "Toggle Focus" },
