@@ -109,11 +109,11 @@ RUN mkdir -p .config/nvim
 COPY --chown=nvim:nvim . .config/nvim
 # Bootstrap Packer
 RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim \
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 # Install plugins via Packer
-&& nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' \
+# && nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 # we need to wait for parsers to be installed as this is apparently not blocking
-&& nvim --headless -c 'TSInstall' +"sleep 15" +qa || true
+# && nvim --headless -c 'TSInstall' +"sleep 15" +qa || true
 
 
 ENTRYPOINT ["/bin/bash", "-c", "nvim"]
