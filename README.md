@@ -148,7 +148,6 @@ See `./lua/config/which.lua` for details.
 | c   | Language specific actions (only in Go, e.g. run tests) |
 | f   | File management                                        |
 | g   | Git actions                                            |
-| h   | Harpoon integration                                    |
 | l   | LSP integration (only when a LSP is attached)          |
 | m   | Misc stuff                                             |
 | q   | Quickfix                                               |
