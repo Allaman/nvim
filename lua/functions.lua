@@ -58,15 +58,21 @@ M.escapePair = function()
   end
 end
 
-diagnostics_active = true -- must be global since this function is called in which.lua
+DIAGNOSTICS_ACTIVE = true -- must be global since the toggle function is called in which.lua
 -- toggle diagnostics line
 M.toggle_diagnostics = function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
+  DIAGNOSTICS_ACTIVE = not DIAGNOSTICS_ACTIVE
+  if DIAGNOSTICS_ACTIVE then
     vim.diagnostic.show()
   else
     vim.diagnostic.hide()
   end
+end
+
+AUTOFORMAT_ACTIVE = true
+-- toggle null-ls's autoformatting
+M.toggle_autoformat = function()
+  AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
 end
 
 --@author kikito
@@ -139,6 +145,7 @@ function M.custom_lsp_attach(client, bufnr)
       d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition" },
       e = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
       -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+      f = { "<cmd>lua require('functions').toggle_autoformat()<cr>", "Toggle format on save" },
       i = { "<cmd>LspInfo<cr>", "Connected Language Servers" },
       k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
       l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },

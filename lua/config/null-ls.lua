@@ -1,5 +1,6 @@
 local nls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 nls.setup({
   sources = {
     nls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
@@ -24,7 +25,9 @@ nls.setup({
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
+          if AUTOFORMAT_ACTIVE then -- global var defined in functions.lua
+            vim.lsp.buf.format({ bufnr = bufnr })
+          end
         end,
       })
     end
