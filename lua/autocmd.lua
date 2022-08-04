@@ -11,6 +11,9 @@ api.nvim_create_autocmd("BufWritePre", {
 -- don't auto comment new line
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
+-- add formatoption +w in mail buffer for NeoMutt
+api.nvim_create_autocmd("Filetype", { pattern = "mail", command = [[set formatoptions+=w]] })
+
 -- Close nvim if NvimTree is only running buffer
 api.nvim_create_autocmd(
   "BufEnter",
