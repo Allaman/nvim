@@ -68,6 +68,8 @@ api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
   { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
 )
+
+-- automatically run PackerSync on save of plugins.lua
 if settings.packer_auto_sync then
   -- source plugins.lua and run PackerSync on save
   local sync_packer = function()
