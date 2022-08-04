@@ -31,10 +31,10 @@ Hydra({
   mode = "n",
   body = "<leader>w",
   heads = {
-    { "s", cmd("split") },
-    { "v", cmd("vsplit") },
-    { "c", cmd("close") }, -- close current window
-    { "o", cmd("only") }, -- close all windows but current
+    { "s", cmd("split"), { exit = true } },
+    { "v", cmd("vsplit"), { exit = true } },
+    { "c", cmd("close"), { exit = true } }, -- close current window
+    { "o", cmd("only"), { exit = true } }, -- close all windows but current
     -- window resizing
     { "=", cmd("wincmd =") },
     { "k", cmd("wincmd +") },
