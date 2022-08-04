@@ -3,6 +3,14 @@ local fn = vim.fn
 
 local M = {}
 
+M.notify = function(message, level, title)
+  local notify_options = {
+    title = title,
+    timeout = 2000,
+  }
+  require("notify")(message, level, notify_options)
+end
+
 -- check if a variable is not empty nor nil
 M.isNotEmpty = function(s)
   return s ~= nil and s ~= ""
@@ -75,6 +83,7 @@ end
 AUTOFORMAT_ACTIVE = true
 -- toggle null-ls's autoformatting
 M.toggle_autoformat = function()
+  M.notify("Toggling autoformatting", "info", "functions.lua")
   AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
 end
 
