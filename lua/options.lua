@@ -48,7 +48,6 @@ wo.foldcolumn = "1"
 o.list = settings.list
 o.listchars = settings.listchars
 o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
-wo.colorcolumn = "99999"
 o.wildmode = "full"
 o.lazyredraw = true -- do not redraw screen while running macros
 if utils.isNotEmpty(settings.grepprg) then
