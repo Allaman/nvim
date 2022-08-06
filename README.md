@@ -205,8 +205,7 @@ There are some tools that are required in order to use some features/plugins:
 For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
 
 - `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
-- `go install golang.org/x/tools/gopls@latest` (optional `golangci-lint`, `gomodifytags`, `gorename`)
-- `go install golang.org/x/tools/cmd/goimports@latest`
+- `:GoInstallBinaries` will install all go dependecies for go.nvim and the go LSP
 - [pyright](https://github.com/microsoft/pyright) as Python LSP
 - [terraform-ls](https://github.com/hashicorp/terraform-ls)
 - [lua-language-server](https://github.com/sumneko/lua-language-server)
