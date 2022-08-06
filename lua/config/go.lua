@@ -1,5 +1,6 @@
 -- NOTE: all LSP and formatting related options are disabeld.
 -- NOTE: LSP is handled by lsp.lua and formatting is handled by null-ls.lua
+-- NOTE: via `lsp_on_attach` the custom callback used by all other LSPs is called
 require("go").setup({
   go = "go", -- go command, can be go[default] or go1.18beta1
   goimport = "gopls", -- goimport command, can be gopls[default] or goimport
@@ -31,8 +32,38 @@ require("go").setup({
   lsp_document_formatting = false,
   -- set to true: use gopls to format
   -- false if you want to use other formatter tool(e.g. efm, nulls)
+  lsp_inlay_hints = {
+    enable = true,
+    -- Only show inlay hints for the current line
+    only_current_line = false,
+    -- Event which triggers a refersh of the inlay hints.
+    -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
+    -- not that this may cause higher CPU usage.
+    -- This option is only respected when only_current_line and
+    -- autoSetHints both are true.
+    only_current_line_autocmd = "CursorHold",
+    -- whether to show variable name before type hints with the inlay hints or not
+    -- default: false
+    show_variable_name = true,
+    -- prefix for parameter hints
+    parameter_hints_prefix = " ",
+    show_parameter_hints = true,
+    -- prefix for all the other hints (type, chaining)
+    other_hints_prefix = "=> ",
+    -- whether to align to the lenght of the longest line in the file
+    max_len_align = false,
+    -- padding from the left if max_len_align is true
+    max_len_align_padding = 1,
+    -- whether to align to the extreme right or not
+    right_align = false,
+    -- padding from the right if right_align is true
+    right_align_padding = 6,
+    -- The color of the hints
+    highlight = "Comment",
+  },
   gopls_cmd = nil, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
   gopls_remote_auto = true, -- add -remote=auto to gopls
+  gocoverage_sign = "█",
   dap_debug = false, -- set to false to disable dap
   dap_debug_keymap = false, -- true: use keymap for debugger defined in go/dap.lua
   -- false: do not use keymap in go/dap.lua.  you must define your own.
@@ -43,4 +74,5 @@ require("go").setup({
   test_runner = "go", -- richgo, go test, richgo, dlv, ginkgo
   run_in_floaterm = false, -- set to true to run in float window.
   -- float term recommended if you use richgo/ginkgo with terminal color
+  luasnip = true,
 })
