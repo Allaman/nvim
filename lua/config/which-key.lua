@@ -105,27 +105,10 @@ wk.register({
       "Find buffer",
     },
     D = {
-      -- "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>",
       "<cmd>%bd|e#|bd#<cr>",
       "Close all but the current buffer",
     },
     d = { "<cmd>Bdelete!<CR>", "Close buffer" },
-    -- f = { "<cmd>BufferLinePick<cr>", "Pick buffer" },
-    -- l = { "<cmd>BufferLineCloseLeft<cr>", "Close all buffers to the left" },
-    -- p = { "<cmd>BufferLineMovePrev<cr>", "Move buffer prev" },
-    -- n = { "<cmd>BufferLineMoveNext<cr>", "Move buffer next" },
-    -- r = {
-    -- 	"<cmd>BufferLineCloseRight<cr>",
-    -- 	"Close all BufferLines to the right",
-    -- },
-    -- x = {
-    -- 	"<cmd>BufferLineSortByDirectory<cr>",
-    -- 	"Sort BufferLines automatically by directory",
-    -- },
-    -- L = {
-    -- 	"<cmd>BufferLineSortByExtension<cr>",
-    -- 	"Sort BufferLines automatically by extension",
-    -- },
   },
   f = {
     name = "Files",

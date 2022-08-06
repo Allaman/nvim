@@ -19,9 +19,7 @@ map("v", ">", ">gv", default_options)
 map("v", "p", '"_dP', default_options)
 
 -- Tab switch buffer
--- map("n", "<TAB>", ":BufferLineCycleNext<CR>", default_options)
 map("n", "<TAB>", ":bnext<CR>", default_options)
--- map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", default_options)
 map("n", "<S-TAB>", ":bprev<CR>", default_options)
 
 -- Cancel search highlighting with ESC
