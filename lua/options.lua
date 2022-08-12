@@ -1,7 +1,6 @@
 local settings = require("user-conf")
 local utils = require("functions")
 local o = vim.opt
-local wo = vim.wo
 local fn = vim.fn
 
 vim.cmd("set inccommand=split")
@@ -42,9 +41,9 @@ o.scrolloff = 3 -- Minimal number of screen lines to keep above and below the cu
 o.sidescrolloff = 5 -- The minimal number of columns to scroll horizontally
 o.hlsearch = true -- highlight all matches on previous search pattern
 o.ignorecase = true -- ignore case in search patterns
-o.foldenable = false -- disable folding; enable with zi
-wo.foldcolumn = "1"
-wo.foldcolumn = "1"
+o.foldenable = false -- disable folding; enable with zi; wait for https://github.com/neovim/neovim/pull/17446
+o.foldcolumn = "1"
+o.foldlevelstart = 99 -- Using ufo provider need a large value, feel free to decrease the value
 o.list = settings.list
 o.listchars = settings.listchars
 o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
