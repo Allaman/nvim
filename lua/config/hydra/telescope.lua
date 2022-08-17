@@ -14,7 +14,7 @@ local hint = [[
  _O_: options     _?_: search history
  _n_: notifications
  ^
- _<Enter>_: Telescope           _<Esc>_
+ _<Enter>_: Telescope           _q_: Exit
 ]]
 
 Hydra({
@@ -49,6 +49,6 @@ Hydra({
     { "?", cmd("Telescope search_history"), { desc = "search history" } },
     { ";", cmd("Telescope command_history"), { desc = "command-line history" } },
     { "<Enter>", cmd("Telescope"), { exit = true, desc = "list all pickers" } },
-    { "<Esc>", nil, { exit = true, nowait = true } },
+    { "q", nil, { exit = true, nowait = true } },
   },
 })
