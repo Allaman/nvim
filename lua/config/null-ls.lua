@@ -31,6 +31,5 @@ nls.setup({
         end,
       })
     end
-    require("functions").custom_lsp_attach(client, bufnr)
   end,
 })
