@@ -134,8 +134,8 @@ vim.api.nvim_create_autocmd("User", {
 
 function M.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
-  client.server_capabilities.document_formatting = false
-  client.server_capabilities.document_range_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
   -- enable illuminate to intelligently highlight
   require("illuminate").on_attach(client)
   -- enable navic for displaying current code context
