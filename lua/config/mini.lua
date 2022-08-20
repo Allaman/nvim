@@ -24,7 +24,7 @@ local set_vim_settings
 if settings.global_statusline then
   set_vim_settings = false
 else
-  set_vim_settings = false
+  set_vim_settings = true
 end
 
 require("mini.statusline").setup({
