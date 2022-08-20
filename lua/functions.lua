@@ -136,8 +136,6 @@ function M.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
-  -- enable illuminate to intelligently highlight
-  require("illuminate").on_attach(client)
   -- enable navic for displaying current code context
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
