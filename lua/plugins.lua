@@ -158,6 +158,7 @@ packer.startup(function(use)
     config = get_config("toggleterm"),
   })
 
+  -- TODO: switch to https://github.com/folke/todo-comments.nvim ?
   use({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
