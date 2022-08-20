@@ -58,7 +58,7 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 - Package management and plugin configuration via [Packer](https://github.com/wbthomason/packer.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
 - Submodes powered by [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
-- Fully featured status line via [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+- Fully featured status line via [mini.nvim](https://github.com/echasnovski/mini.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Better writing with [vale](https://vale.sh/) integration via [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)

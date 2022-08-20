@@ -58,13 +58,6 @@ packer.startup(function(use)
 
   use({ "numToStr/Navigator.nvim", config = get_config("navigator") })
 
-  use({
-    "nvim-lualine/lualine.nvim",
-    config = get_config("lualine"),
-    event = "VimEnter",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
-  })
-
   use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
   use({
