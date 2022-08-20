@@ -26,3 +26,7 @@ require("illuminate").configure({
   -- under_cursor: whether or not to illuminate under the cursor
   under_cursor = true,
 })
+
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
