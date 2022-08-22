@@ -192,26 +192,24 @@ There are some tools that are required in order to use some features/plugins:
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
 
-### Autoformatting
+### LSPs, Formatting, Linters, DAP
 
-- [prettier](https://prettier.io/)
-- `go install mvdan.cc/gofumpt@latest`
-- [terraform fmt](https://www.terraform.io/docs/cli/commands/fmt.html)
-- [stylua](https://github.com/JohnnyMorganz/StyLua)
-- [black](https://github.com/psf/black)
+The following programs should be installed on your system so that the appropriate tools can be installed:
 
-### Language Servers
+- Go
+- Python
+- NodeJs > 12
+- Cargo
 
-For the builtin LSP (see [lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for more info about LSP configuration)
+#### Go
 
-- `sudo npm i -g bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted`
-- `:GoInstallBinaries` will install all go dependencies for go.nvim and the go LSP
-- [pyright](https://github.com/microsoft/pyright) as Python LSP
-- [terraform-ls](https://github.com/hashicorp/terraform-ls)
-- [lua-language-server](https://github.com/sumneko/lua-language-server)
-- [texlab](https://github.com/latex-lsp/texlab) and [tectonic](https://github.com/tectonic-typesetting/tectonic)
-- For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-grammarous) Java 8+ is required
-- For better writing [vale](https://vale.sh/) is required
+Go related dependencies are managed by `go.nvim` and are installed by running `:GoInstallBinaries` (when a Go file is loaded). They are installed in your `$GOPATH`.
+
+#### All other
+
+All other dependecies are managed by [Mason](https://github.com/williamboman/mason.nvim) and [Mason tool installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.stdpath("data") .. "mason"`). [Mason requirements](https://github.com/williamboman/mason.nvim#requirements) must be available on your system.
+
+For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-grammarous) Java 8+ is required
 
 ## Inspiration
 
