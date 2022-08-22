@@ -137,7 +137,8 @@ main () {
     if [[ $LINUX_DISTRIBUTION == "debian" || $LINUX_DISTRIBUTION == "ubuntu" ]]; then
       log "Running on DEB based system"
       sudo apt-get update
-      sudo apt-get install build-essential "$common_packages"
+      # shellcheck disable=SC2086
+      sudo apt-get install build-essential $common_packages
       install_brew
       install_neovim_dependencies
       install_neovim_head
@@ -145,7 +146,8 @@ main () {
     elif [[ $LINUX_DISTRIBUTION == "arch" ]]; then
       echo running on arch based system
       sudo pacman -Sy
-      sudo pacman -S base-devel "$common_packages"
+      # shellcheck disable=SC2086
+      sudo pacman -S base-devel $common_packages
       install_brew
       install_neovim_dependencies
       install_neovim_head
