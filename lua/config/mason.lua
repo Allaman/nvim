@@ -61,6 +61,7 @@ require("mason-tool-installer").setup({
     -- Linter
     "eslint_d",
     "shellcheck",
+    "tflint",
     "vale",
     "yamllint",
     -- DAP
