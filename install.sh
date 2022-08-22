@@ -15,6 +15,12 @@ LINUX_HELP_STRING="#############################################################
 
 Just confirm / hit enter at every choice for the default settings (recommended)
 
+After this script is finished
+-  log out or open a new shell
+- Open nvim and run :PackerSync, close nvim
+- Open nvim and wait for Mason automatically installing dependencies
+Enjoy!
+
 Hit 1 if you agree and want to continue otherwise 2
 ################################################################################"
 
