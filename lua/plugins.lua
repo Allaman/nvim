@@ -274,12 +274,25 @@ packer.startup(function(use)
       require("focus").setup()
     end,
   })
+
   use({
     "williamboman/mason.nvim",
     requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
     config = get_config("mason"),
   })
 
+  use({
+    "mfussenegger/nvim-dap",
+    requires = {
+      "mfussenegger/nvim-dap-python",
+      "leoluz/nvim-dap-go",
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+    },
+    config = function()
+      require("config.dap").setup()
+    end,
+  })
 end)
 
 -- TODO: ????

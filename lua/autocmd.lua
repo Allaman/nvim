@@ -43,7 +43,7 @@ api.nvim_create_autocmd(
 )
 -- windows to close with "q"
 api.nvim_create_autocmd("FileType", {
-  pattern = { "help", "startuptime", "qf", "lspinfo", "fugitive", "null-ls-info" },
+  pattern = { "help", "startuptime", "qf", "lspinfo", "fugitive", "null-ls-info", "dap-float" },
   command = [[nnoremap <buffer><silent> q :close<CR>]],
 })
 api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
