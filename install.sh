@@ -9,7 +9,9 @@ LINUX_HELP_STRING="#############################################################
 - Requires sudo to install some basic packages via your package manager
 - Installs brew in /home/linuxbrew (requires sudo as well) see https://docs.brew.sh/Homebrew-on-Linux
 - Manages all packages required for Neovim via brew (no sudo required)
-- Modifies your ~/.profile to source paths
+- This could result in duplicated tool installations!
+- Currently, only Bash ootb is supported
+- Modifies your ~/.profile and ~/.bashrc to source paths
 
 Just confirm / hit enter at every choice for the default settings (recommended)
 
