@@ -19,10 +19,10 @@ o.fileencoding = "utf-8" -- the encoding written to a file
 o.conceallevel = 0 -- so that `` is visible in markdown files
 o.number = settings.number
 o.relativenumber = settings.relative_number
-o.cmdheight = 1 -- space for displaying messages/commands
 o.mouse = settings.mouse
+o.cmdheight = settings.cmdheight -- space for displaying messages/commands
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
-o.showtabline = 2 -- always show tabs
+o.showtabline = settings.showtabline
 if settings.global_statusline then
   o.laststatus = 3
 else
