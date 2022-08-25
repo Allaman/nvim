@@ -155,7 +155,6 @@ function M.custom_lsp_attach(client, bufnr)
       d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition" },
       e = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
       -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-      f = { "<cmd>lua require('functions').toggle_autoformat()<cr>", "Toggle format on save" },
       i = { "<cmd>LspInfo<cr>", "Connected Language Servers" },
       k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Commands" },
       l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
