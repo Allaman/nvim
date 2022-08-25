@@ -53,7 +53,7 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 
 ## Installation
 
-I created an installation [script](.install.sh) that sets up all required tools on a fresh machine to work with my Neovim config.
+I created an installation [script](install.sh) that sets up all required tools on a fresh machine to work with my Neovim config.
 
 For now it works on Debian/Ubuntu and Arch. MacOS will be added soon.
 
