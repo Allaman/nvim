@@ -36,14 +36,13 @@ end
 
 -- toggle colorcolumn
 M.toggle_colorcolumn = function()
-  local value = vim.inspect(vim.opt.colorcolumn:get())
-  print(value)
-  if value == "{}" then
+  local value = vim.api.nvim_get_option_value("colorcolumn", {})
+  if value == "" then
     M.notify("Enable colocolumn", "info", "functions.lua")
-    vim.opt.colorcolumn = "79"
+    vim.api.nvim_set_option_value("colorcolumn", "79", {})
   else
     M.notify("Disable colocolumn", "info", "functions.lua")
-    vim.opt.colorcolumn = {}
+    vim.api.nvim_set_option_value("colorcolumn", "", {})
   end
 end
 
