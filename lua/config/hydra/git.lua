@@ -6,7 +6,7 @@ local function cmd(command)
 end
 
 local hint = [[
- _J_: next hunk     _s_: stage hunk         _p_: preview hunk   _b_: blame line
+ _J_: next hunk     _s_: stage hunk         _p_: preview hunk   _b_: toggle blame
  _K_: prev hunk     _u_: undo stage hunk    _d_: show deleted   _B_: blame show full
  _S_: stage buffer  _U_: undo stage buffer  _/_: show base file
  _r_: reset hunk    _R_: reset buffer       _g_: status
@@ -69,7 +69,7 @@ Hydra({
     { "S", gitsigns.stage_buffer },
     { "p", gitsigns.preview_hunk },
     { "d", gitsigns.toggle_deleted, { nowait = true } },
-    { "b", gitsigns.blame_line },
+    { "b", cmd("GitBlameToggle"), { exit = true } },
     {
       "B",
       function()
