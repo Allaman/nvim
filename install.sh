@@ -121,7 +121,7 @@ install_neovim_head () {
     log "Installing Neovim HEAD"
     brew install --HEAD neovim
   elif [[ ! $(nvim --version) =~ "dev" ]]; then
-    abort "Neovim ist installed but not HEAD version"
+    abort "Neovim is installed but not HEAD version"
   else
     log "Skipping Neovim installation"
   fi
