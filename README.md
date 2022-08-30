@@ -76,7 +76,7 @@ USE AT YOUR OWN RISK!!
 
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
-- File tree navigation/manipulation via [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+- File tree navigation/manipulation via [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - Convenient Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
 - Convenient jumping through windows with [nvim-window](https://gitlab.com/yorickpeterse/nvim-window)
