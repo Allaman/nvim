@@ -1,4 +1,5 @@
 local Hydra = require("hydra")
+local picker = require("window-picker")
 
 local function cmd(command)
   return table.concat({ "<Cmd>", command, "<CR>" })
@@ -16,6 +17,11 @@ local hint = [[
  ^
  _q_: exit
 ]]
+
+local pick_window = function()
+  local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
+  vim.api.nvim_set_current_win(picked_window_id)
+end
 
 Hydra({
   name = "Windows",
@@ -46,7 +52,7 @@ Hydra({
     { "J", cmd("WinShift down") },
     { "K", cmd("WinShift up") },
     { "L", cmd("WinShift right") },
-    { "p", cmd("lua require('nvim-window').pick()") }, -- pick window
+    { "p", pick_window, { exit = true } }, -- pick window
     -- WinShift modes
     { "w", cmd("WinShift") },
     { "W", cmd("WinShift swap") },

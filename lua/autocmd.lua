@@ -24,12 +24,6 @@ api.nvim_create_autocmd("Filetype", {
   end,
 })
 
--- Close nvim if NvimTree is only running buffer
-api.nvim_create_autocmd(
-  "BufEnter",
-  { command = [[if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]] }
-)
-
 -- Highlight on yank
 local yankGrp = api.nvim_create_augroup("YankHighlight", { clear = true })
 api.nvim_create_autocmd("TextYankPost", {

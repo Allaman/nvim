@@ -54,7 +54,22 @@ packer.startup(function(use)
   use({ "nvim-telescope/telescope-packer.nvim" })
   use({ "nvim-telescope/telescope-ui-select.nvim" })
 
-  use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
+  -- use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
+  use({
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      {
+        -- only needed if you want to use the commands with "_with_window_picker" suffix
+        "s1n7ax/nvim-window-picker",
+        config = get_config("nvim-window-picker"),
+      },
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = get_config("neotree"),
+  })
 
   use({ "numToStr/Navigator.nvim", config = get_config("navigator") })
 
@@ -202,11 +217,6 @@ packer.startup(function(use)
   use({ "rcarriga/nvim-notify", config = get_config("notify") })
 
   use({ "echasnovski/mini.nvim", branch = "stable", config = get_config("mini") })
-
-  use({
-    "https://gitlab.com/yorickpeterse/nvim-window.git",
-    config = get_config("nvim-window"),
-  })
 
   use({
     "waylonwalker/Telegraph.nvim",
