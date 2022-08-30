@@ -263,7 +263,7 @@ packer.startup(function(use)
 
   use({ "Djancyp/cheat-sheet" })
 
-  use({ "vimpostor/vim-tpipeline" })
+  use({ "vimpostor/vim-tpipeline", disable = settings.disable_tmux_statusline_integration })
 
   use({
     "anuvyklack/hydra.nvim",
@@ -302,6 +302,14 @@ packer.startup(function(use)
     config = function()
       require("config.dap").setup()
     end,
+  })
+
+  use({
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+    disable = settings.disable_colorizer,
   })
 end)
 
