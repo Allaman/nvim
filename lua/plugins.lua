@@ -140,7 +140,12 @@ packer.startup(function(use)
 
   use({
     "kevinhwang91/nvim-bqf",
-    requires = { { "junegunn/fzf", module = "nvim-bqf" }, config = get_config("nvim-bqf") },
+    requires = {
+      "junegunn/fzf",
+      module = "nvim-bqf",
+    },
+    ft = "qf",
+    config = get_config("nvim-bqf"),
   })
 
   use("famiu/bufdelete.nvim")
