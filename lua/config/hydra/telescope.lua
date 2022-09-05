@@ -5,16 +5,17 @@ local function cmd(command)
 end
 
 local hint = [[
- _t_: live grep   _s_: grep string
- _H_: header      _S_: symbols
- _R_: register    _P_: plugins
- _p_: projects    _/_: search in file
- _h_: vim help    _c_: execute command
- _k_: keymaps     _;_: commands history
- _O_: options     _?_: search history
- _n_: notifications
+ _f_: files         _p_: projects
+ _t_: live grep     _s_: grep string
+ _H_: header        _S_: symbols
+ _R_: register      _P_: plugins
+ _h_: vim help      _c_: execute command
+ _k_: keymaps       _;_: commands history
+ _O_: options       _?_: search history
+ _n_: notifications _/_: search in file
+
  ^
- _<Enter>_: Telescope           _q_: Exit
+ _<Enter>_: Telescope   _q_: Exit
 ]]
 
 Hydra({
