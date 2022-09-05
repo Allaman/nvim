@@ -127,7 +127,6 @@ wk.register({
     },
     C = { "<cmd>lua require('functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     d = { "<cmd>lua require('functions').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
-    f = { "<cmd>FocusToggle<cr>", "Toggle Focus" },
     i = { "<cmd>IlluminateToggle<cr>", "Toggle Illuminate" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     o = { "Options" },

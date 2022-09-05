@@ -272,13 +272,6 @@ packer.startup(function(use)
   })
 
   use({
-    "beauwilliams/focus.nvim",
-    config = function()
-      require("focus").setup()
-    end,
-  })
-
-  use({
     "williamboman/mason.nvim",
     requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
     config = get_config("mason"),
