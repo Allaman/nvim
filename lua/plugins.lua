@@ -290,7 +290,12 @@ packer.startup(function(use)
   })
 
   use({
+
+  -- NOTE: use https://github.com/Akianonymus/nvim-colorizer.lua ?
+  -- NOTE: use https://github.com/NvChad/nvim-colorizer.lua ?
+  use({
     "norcalli/nvim-colorizer.lua",
+    ft = { "scss", "css", "html" },
     config = function()
       require("colorizer").setup()
     end,
