@@ -134,7 +134,7 @@ wk.register({
     i = { "<cmd>IlluminateToggle<cr>", "Toggle Illuminate" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     o = { "Options" },
-    p = { "<cmd>PackerSync<cr>", "PackerSync" },
+    p = { "<cmd>PackerSync --preview<cr>", "PackerSync" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
     t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
   },

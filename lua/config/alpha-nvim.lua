@@ -159,7 +159,7 @@ local buttons = {
     dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
     dashboard.button("g", "  NeoGit", ":Neogit <CR>"),
     dashboard.button("c", "  Configuration", ":e ~/.config/nvim/ <CR>"),
-    dashboard.button("u", "  Update plugins", ":PackerSync<CR>"),
+    dashboard.button("u", "  Update Plugins", ":PackerSync --preview<CR>"),
     dashboard.button("q", "  Quit", ":qa<CR>"),
   },
   position = "center",
