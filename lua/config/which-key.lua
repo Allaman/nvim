@@ -114,7 +114,6 @@ wk.register({
     name = "Files",
     b = { "<cmd>Telescope file_browser<cr>", "File browser" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
-    l = { "<cmd>Lf<cr>", "Open LF" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = { "<cmd>w<cr>", "Save Buffer" },

@@ -197,12 +197,6 @@ packer.startup(function(use)
 
   use({ "RRethy/vim-illuminate", config = get_config("illuminate") })
 
-  use({
-    "ptzz/lf.vim",
-    requires = "voldikss/vim-floaterm",
-    config = get_config("lf"),
-  })
-
   if settings.theme == "nightfox" then
     use({ "EdenEast/nightfox.nvim", config = get_config("nightfox") })
   elseif settings.theme == "catppuccino" then
