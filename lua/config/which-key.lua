@@ -78,7 +78,6 @@ local default_options = { silent = true }
 
 -- register non leader based mappings
 wk.register({
-  ga = { "<Plug>(EasyAlign)", "Align", mode = "x" },
   sa = "Add surrounding",
   sd = "Delete surrounding",
   sh = "Highlight surrounding",
