@@ -48,6 +48,7 @@ require("mason-tool-installer").setup({
     -- LSP
     "bash-language-server",
     "dockerfile-language-server",
+    "json-lsp",
     "typescript-language-server",
     "texlab",
     "lua-language-server",
