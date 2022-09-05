@@ -16,6 +16,8 @@ local hint = [[
  _<Enter>_: Neogit              _q_: exit
 ]]
 
+local opts = { exit = true, nowait = true }
+
 Hydra({
   hint = hint,
   config = {
@@ -55,12 +57,12 @@ Hydra({
       end,
       { expr = true },
     },
-    { "h", cmd("Telescope git_branches"), { exit = true } },
+    { "h", cmd("Telescope git_branches"), opts },
     { "c", cmd("G commit %") },
-    { "P", cmd("G push"), { exit = true } },
-    { "m", cmd("Telescope git_commits"), { exit = true } },
-    { "M", cmd("Telescope git_bcommits"), { exit = true } },
-    { "g", cmd("Telescope git_status"), { exit = true } },
+    { "P", cmd("G push"), opts },
+    { "m", cmd("Telescope git_commits"), opts },
+    { "M", cmd("Telescope git_bcommits"), opts },
+    { "g", cmd("Telescope git_status"), opts },
     { "s", gitsigns.stage_hunk, { silent = true } },
     { "R", gitsigns.reset_buffer },
     { "r", gitsigns.reset_hunk },
@@ -76,8 +78,8 @@ Hydra({
         gitsigns.blame_line({ full = true })
       end,
     },
-    { "/", gitsigns.show, { exit = true } }, -- show the base of the file
-    { "<Enter>", "<cmd>Neogit<CR>", { exit = true } },
-    { "q", nil, { exit = true, nowait = true } },
+    { "/", gitsigns.show, opts }, -- show the base of the file
+    { "<Enter>", "<cmd>Neogit<CR>", opts },
+    { "q", nil, opts },
   },
 })

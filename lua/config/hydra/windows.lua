@@ -23,6 +23,8 @@ local pick_window = function()
   vim.api.nvim_set_current_win(picked_window_id)
 end
 
+local opts = { exit = true, nowait = true }
+
 Hydra({
   name = "Windows",
   hint = hint,
@@ -37,10 +39,10 @@ Hydra({
   mode = "n",
   body = "<leader>w",
   heads = {
-    { "s", cmd("split"), { exit = true } },
-    { "v", cmd("vsplit"), { exit = true } },
-    { "c", cmd("close"), { exit = true } }, -- close current window
-    { "o", cmd("only"), { exit = true } }, -- close all windows but current
+    { "s", cmd("split"), opts },
+    { "v", cmd("vsplit"), opts },
+    { "c", cmd("close"), opts }, -- close current window
+    { "o", cmd("only"), opts }, -- close all windows but current
     -- window resizing
     { "=", cmd("wincmd =") },
     { "k", cmd("wincmd +") },
@@ -52,10 +54,10 @@ Hydra({
     { "J", cmd("WinShift down") },
     { "K", cmd("WinShift up") },
     { "L", cmd("WinShift right") },
-    { "p", pick_window, { exit = true } }, -- pick window
+    { "p", pick_window, opts }, -- pick window
     -- WinShift modes
     { "w", cmd("WinShift") },
     { "W", cmd("WinShift swap") },
-    { "q", nil, { exit = true, nowait = true } },
+    { "q", nil, opts },
   },
 })
