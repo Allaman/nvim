@@ -256,8 +256,6 @@ packer.startup(function(use)
     end,
   })
 
-  use({ "Djancyp/cheat-sheet" })
-
   use({ "vimpostor/vim-tpipeline", disable = settings.disable_tmux_statusline_integration })
 
   use({
