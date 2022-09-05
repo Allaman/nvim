@@ -86,8 +86,7 @@ wk.register({
   sr = "Replace surrounding",
   sF = "Find left surrounding",
   sf = "Replace right surrounding",
-  ss = { "<Plug>Lightspeed_s", "Search 2-character forward" },
-  -- SS = {"<Plug>Lightspeed_S", "Search 2-character backward"}
+  ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
   st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
 
