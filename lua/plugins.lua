@@ -171,7 +171,7 @@ packer.startup(function(use)
 
   use({
     "akinsho/nvim-toggleterm.lua",
-    keys = { "<C-n>", "<leader>fl" },
+    keys = { "<C-n>" },
     config = get_config("toggleterm"),
   })
 
