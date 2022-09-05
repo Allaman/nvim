@@ -38,7 +38,7 @@ packer.init({
 
 packer.startup(function(use)
   -- actual plugins list
-  use("wbthomason/packer.nvim")
+  use({ "wbthomason/packer.nvim" })
 
   use({
     "nvim-telescope/telescope.nvim",
@@ -54,7 +54,6 @@ packer.startup(function(use)
   use({ "nvim-telescope/telescope-packer.nvim" })
   use({ "nvim-telescope/telescope-ui-select.nvim" })
 
-  -- use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
   use({
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -176,7 +175,7 @@ packer.startup(function(use)
     config = get_config("toggleterm"),
   })
 
-  -- TODO: switch to https://github.com/folke/todo-comments.nvim ?
+  -- TODO: switch to https://github.com/B4mbus/todo-comments.nvim ?
   use({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
