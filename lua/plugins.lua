@@ -107,21 +107,21 @@ packer.startup(function(use)
     config = get_config("luasnip"),
   })
 
-  -- requirement for Neogit
-  use({
-    "sindrets/diffview.nvim",
-    cmd = {
-      "DiffviewOpen",
-      "DiffviewClose",
-      "DiffviewToggleFiles",
-      "DiffviewFocusFiles",
-    },
-    config = get_config("diffview"),
-  })
-
   use({
     "TimUntersberger/neogit",
-    requires = { "nvim-lua/plenary.nvim" },
+    requires = {
+      "nvim-lua/plenary.nvim",
+      {
+        "sindrets/diffview.nvim",
+        cmd = {
+          "DiffviewOpen",
+          "DiffviewClose",
+          "DiffviewToggleFiles",
+          "DiffviewFocusFiles",
+        },
+        config = get_config("diffview"),
+      },
+    },
     cmd = "Neogit",
     config = get_config("neogit"),
   })
