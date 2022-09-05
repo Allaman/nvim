@@ -19,6 +19,7 @@ require("mini.surround").setup({
 })
 
 require("mini.comment").setup({})
+require("mini.bufremove").setup({})
 
 local set_vim_settings
 if settings.global_statusline then

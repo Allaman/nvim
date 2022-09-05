@@ -148,8 +148,6 @@ packer.startup(function(use)
     config = get_config("nvim-bqf"),
   })
 
-  use("famiu/bufdelete.nvim")
-
   use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
 
   use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
