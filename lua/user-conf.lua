@@ -28,5 +28,7 @@ M.disable_tmux_statusline_integration = false
 -- Disable https://github.com/norcalli/nvim-colorizer.lua
 -- due to causing lags with live_grep in some circumstances
 M.disable_colorizer = false
+-- Disable winbar with nvim-navic location
+M.disable_winbar = false
 
 return M

@@ -83,6 +83,18 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+if not settings.disable_winbar then
+  vim.api.nvim_create_autocmd(
+    { "DirChanged", "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "BufReadPre" },
+    {
+      callback = function()
+        -- TODO: this should wait for LSP to be available
+        require("functions").show_winbar()
+      end,
+    }
+  )
+end
+
 -- Enable spell checking for certain file types
 api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },

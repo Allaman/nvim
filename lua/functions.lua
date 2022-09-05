@@ -105,7 +105,19 @@ function M.bufdelete(bufnum)
   require("bufdelete").bufdelete(bufnum, true)
 end
 
+function M.show_winbar()
+  -- inspired by https://github.com/fgheng/winbar.nvim
+  local navic = require("nvim-navic")
+  if navic.is_available() then
+    -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+    local location = navic.get_location()
+    local value = "%#WinBarSeparator#" .. "%=" .. " " .. "%*" .. location .. "%#WinBarSeparator#" .. " " .. "%*"
 
+    vim.api.nvim_set_option_value("winbar", value, { scope = "local" })
+  else
+    vim.api.nvim_set_option_value("winbar", "", { scope = "local" })
+  end
+end
 
 function M.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
