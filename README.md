@@ -1,14 +1,51 @@
 # My Neovim Configuration
 
-![](./screen.png)
+![](./docs/screenshot.png
 
 💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim dev build (0.8)!
 
-Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MBP is configured. My [dotfiles](https://github.com/Allaman/dotfiles) are also on Github.
+Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MBP is configured. My [dotfiles](https://github.com/Allaman/dotfiles) are also on GitHub.
+
+## More Screenshots
+
+Terminal: alacritty
+Font: Jetbrains Mono
+
+<details open>
+<summary>Leader Key Clusters via which-key</summary>
+
+![](./docs/which-key.png)
+
+See `./lua/config/which.lua` for details.
+
+</details>
+
+<details open>
+<summary>Go developement</summary>
+
+![](./docs/go-dev.png)
+
+</details>
+
+<details open>
+<summary>Debugging via DAP</summary>
+
+![](./docs/dap.png)
+
+</details>
+
+<details open>
+<summary>Hydra modes for better shortcut handling</summary>
+
+![](./docs/hydra-git.png)
+![](./docs/hydra-window.png)
+![](./docs/hydra-telescope.png)
+
+</details>
 
 ## Motivation
 
-There is a number of great Neovim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
+There are many great Neovim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
 
 I decided to move to my own fresh Lua based Neovim from my good old vimrc trying to accomplish the following principles.
 
@@ -17,7 +54,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 1. Migrate to Lua based alternative plugins respectively use only Lua based plugins (if possible).
 1. Keep the config as maintainable as possible knowing that this would possibly impact the code quality.
 1. Modular and meaningful directory structure and file naming.
-1. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful but my focus is not on beautiful code or on utilizing all Lua features.
+1. Just make it work and not make it beautiful 😃. Of course, Neovim itself must look beautiful, but my focus is not on beautiful code or on utilizing all Lua features.
 
 ## Try out
 
@@ -27,7 +64,7 @@ If you have [Docker](https://www.docker.com/) on your system you can try out thi
 
 ### Build the image
 
-There are some issues with building a multi architecture Docker image via Github Action. Until I sorted that out, you can build the Docker image locally on your own
+There are some issues with building a multi architecture Docker image via GitHub Action. Until I sorted that out, you can build the Docker image locally on your own
 
 ```sh
 docker build -t nvim .
@@ -55,7 +92,9 @@ docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
 
 I created an installation [script](install.sh) that sets up all required tools on a fresh machine to work with my Neovim config.
 
-For now it works on Debian/Ubuntu and Arch. MacOS will be added soon.
+For now, it works on Debian/Ubuntu and Arch. MacOS will be added soon.
+
+💡If you are a Tmux user have a look at vim-tpipelins's [requirements](https://github.com/vimpostor/vim-tpipeline#installation) for your tmux.conf and enable it in `./lua/user-conf.lua`.
 
 USE AT YOUR OWN RISK!!
 
@@ -77,9 +116,8 @@ USE AT YOUR OWN RISK!!
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - File tree navigation/manipulation via [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- Convenient Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
-- [LF](https://github.com/gokcehan/lf) integration via [lf.vim](https://github.com/ptzz/lf.vim) for a full featured file manager in Neovim
-- Convenient jumping through windows with [nvim-window](https://gitlab.com/yorickpeterse/nvim-window)
+- Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
+- Convenient jumping through windows with [nvim-window-picker](https://gitlab.com/s1n7ax/nvim-window-picker)
 
 ### Coding 🖥️
 
@@ -89,11 +127,11 @@ USE AT YOUR OWN RISK!!
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
 - Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
-- Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim), and [gitui](https://github.com/extrawurst/gitui)
-- Schema integration via LSPs for Kubernetes, package.json, github workflows, gitlab-ci.yml, kustomization.yaml, and more
 - Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim)
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
+- Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
 
 ## Structure
 
@@ -130,12 +168,10 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | v    | sa                     | Add surrounding                                        |
 | n    | sd                     | Delete surrounding                                     |
 | n    | sr                     | Replace surrounding                                    |
-| v    | ga                     | Easyalign                                              |
 | n    | \<c-Tab\>              | Start auto completion (without typing anything)        |
 | n    | gcc                    | Toggle line comment                                    |
 | n/v  | gc                     | Toggle line comment (works with movements like `gcip`) |
-| n    | ss                     | Search 2 char forward (lightspeed)                     |
-| n    | S                      | Search 2 char backward (lightspeed)                    |
+| n    | ss                     | Search 2 char (mini.jump2d)                            |
 | i/s  | \<c-j\>                | Luasnip expand/forward                                 |
 | i/s  | \<c-k\>                | Luasnip backward                                       |
 | i    | \<c-h\>                | Luasnip select choice                                  |
@@ -145,28 +181,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 | v    | \<Tab\>                | Increment selection                                    |
 | v    | \<S-Tab\>              | Decrement selection                                    |
 
-## Which-key leader key clusters
-
-Mappings are clustered according to their topic/tool.
-
-See `./lua/config/which.lua` for details.
-
-| key | cluster                                                |
-| --- | ------------------------------------------------------ |
-| b   | Buffer management                                      |
-| c   | Language specific actions (only in Go, e.g. run tests) |
-| d   | Debugging                                              |
-| f   | File management                                        |
-| g   | Git actions                                            |
-| l   | LSP integration (only when a LSP is attached)          |
-| m   | Misc stuff                                             |
-| q   | Quickfix                                               |
-| s   | Searching                                              |
-| w   | Window management                                      |
-| x   | Languagetool integration                               |
-| z   | Spell bindings                                         |
-
-## User configuration (experimental)
+## User configuration
 
 The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
 
