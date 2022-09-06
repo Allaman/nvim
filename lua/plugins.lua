@@ -182,8 +182,6 @@ packer.startup(function(use)
 
   use({ "ahmedkhalf/project.nvim", config = get_config("project") })
 
-  use("ironhouzi/starlite-nvim")
-
   use({ "folke/which-key.nvim", config = get_config("which-key") })
 
   use({ "junegunn/vim-easy-align", cmd = "EasyAlign" }) -- no lua alternative, https://github.com/Vonr/align.nvim not working for me
