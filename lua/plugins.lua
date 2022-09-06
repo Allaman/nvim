@@ -215,7 +215,6 @@ packer.startup(function(use)
     end,
   })
 
-  use({ "rhysd/conflict-marker.vim" })
 
   use({ "edluffy/specs.nvim", config = get_config("specs") })
 
