@@ -1,6 +1,6 @@
 # My Neovim Configuration
 
-![](./docs/screenshot.png
+![](./docs/screenshot.png)
 
 💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim dev build (0.8)!
 
@@ -11,7 +11,7 @@ Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine i
 Terminal: alacritty
 Font: Jetbrains Mono
 
-<details open>
+<details>
 <summary>Leader Key Clusters via which-key</summary>
 
 ![](./docs/which-key.png)
@@ -20,21 +20,21 @@ See `./lua/config/which.lua` for details.
 
 </details>
 
-<details open>
+<details>
 <summary>Go developement</summary>
 
 ![](./docs/go-dev.png)
 
 </details>
 
-<details open>
+<details>
 <summary>Debugging via DAP</summary>
 
 ![](./docs/dap.png)
 
 </details>
 
-<details open>
+<details>
 <summary>Hydra modes for better shortcut handling</summary>
 
 ![](./docs/hydra-git.png)
