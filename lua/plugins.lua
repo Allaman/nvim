@@ -147,7 +147,7 @@ packer.startup(function(use)
 
   use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
 
-  use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
+  use({ "onsails/lspkind-nvim" })
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
@@ -164,7 +164,7 @@ packer.startup(function(use)
   use({
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
-    config = [[require("config/indent-blankline")]],
+    config = get_config("indent-blankline"),
   })
 
   use({
