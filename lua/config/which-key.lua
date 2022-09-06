@@ -124,7 +124,7 @@ wk.register({
       "<cmd>lua require'telegraph'.telegraph({cmd='gitui', how='tmux_popup'})<cr>",
       "Test Telegraph",
     },
-    C = { "<cmd>lua require('functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
+    c = { "<cmd>lua require('functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     d = { "<cmd>lua require('functions').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     i = { "<cmd>IlluminateToggle<cr>", "Toggle Illuminate" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
