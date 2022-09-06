@@ -8,8 +8,9 @@ Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine i
 
 ## More Screenshots
 
-Terminal: alacritty
-Font: Jetbrains Mono
+_Terminal_: alacritty
+
+_Font_: Jetbrains Mono
 
 <details>
 <summary>Leader Key Clusters via which-key</summary>
