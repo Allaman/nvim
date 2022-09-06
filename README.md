@@ -22,7 +22,7 @@ See `./lua/config/which.lua` for details.
 </details>
 
 <details>
-<summary>Go developement</summary>
+<summary>Go development</summary>
 
 ![](./docs/go-dev.png)
 
