@@ -1,7 +1,6 @@
 require("window-picker").setup({
   autoselect_one = true,
   include_current = false,
-  selection_chars = "fjdkslacmrueiwoqp",
   filter_rules = {
     -- filter using buffer options
     bo = {
@@ -21,5 +20,5 @@ require("window-picker").setup({
       buftype = { "nofile", "help", "terminal" },
     },
   },
-  -- other_win_hl_color = "#e35e4f",
+  other_win_hl_color = "#f05a40",
 })
