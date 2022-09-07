@@ -219,14 +219,13 @@ require("neo-tree").setup({
         "toggle_node",
         nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
       },
-      ["<2-LeftMouse>"] = "open",
-      ["<cr>"] = "open",
+      ["<2-LeftMouse>"] = "open_with_window_picker",
+      ["<cr>"] = "open_with_window_picker",
       ["S"] = "open_split",
       -- ["S"] = "split_with_window_picker",
       ["s"] = "open_vsplit",
       -- ["s"] = "vsplit_with_window_picker",
       ["t"] = "open_tabnew",
-      ["w"] = "open_with_window_picker", -- FIXME:
       --["P"] = "toggle_preview",
       ["C"] = "close_node",
       ["z"] = "close_all_nodes",
