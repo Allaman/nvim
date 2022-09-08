@@ -285,6 +285,12 @@ packer.startup(function(use)
   })
 
   use({
+    "max397574/colortils.nvim",
+    cmd = "Colortils",
+    config = function()
+      require("colortils").setup()
+    end,
+  })
 
   -- NOTE: use https://github.com/Akianonymus/nvim-colorizer.lua ?
   -- NOTE: use https://github.com/NvChad/nvim-colorizer.lua ?
