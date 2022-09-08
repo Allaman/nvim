@@ -151,7 +151,7 @@ local buttons = {
     { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
     { type = "padding", val = 1 },
     dashboard.button("f", "  Find File", ":Telescope find_files <CR>"),
-    dashboard.button("b", "  File Browser", ":Telescope file_browser <CR>"),
+    dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true <CR>"),
     dashboard.button("t", "  Find Text", ":Telescope live_grep <CR>"),
     dashboard.button("p", "  Search Projects", ":Telescope projects<CR>"),
     dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>"),
