@@ -27,13 +27,6 @@ jobs:
         with:
           check_filenames: true
           check_hidden: true
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_LUA: true
-          VALIDATE_ALL_CODEBASE: true
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # docker:
   #   runs-on: ubuntu-latest
