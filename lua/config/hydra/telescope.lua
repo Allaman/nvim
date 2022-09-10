@@ -36,7 +36,7 @@ Hydra({
     { "f", cmd("Telescope find_files") },
     { "t", cmd("Telescope live_grep") },
     { "h", cmd("Telescope help_tags"), { desc = "vim help" } },
-    { "H", cmd("Telescope header") },
+    { "H", cmd("Telescope heading") },
     { "k", cmd("Telescope keymaps") },
     { "O", cmd("Telescope vim_options") },
     { "n", cmd("Telescope notify") },
