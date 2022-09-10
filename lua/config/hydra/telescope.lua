@@ -39,7 +39,6 @@ Hydra({
     { "H", cmd("Telescope heading") },
     { "k", cmd("Telescope keymaps") },
     { "O", cmd("Telescope vim_options") },
-    { "n", cmd("Telescope notify") },
     { "p", cmd("Telescope projects"), { desc = "projects" } },
     { "P", cmd("Telescope packer") },
     { "r", cmd("Telescope oldfiles"), { desc = "recently opened files" } },
