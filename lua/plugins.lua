@@ -291,6 +291,12 @@ packer.startup(function(use)
     end,
   })
 
+  use({
+    "aarondiel/spread.nvim",
+    after = "nvim-treesitter",
+    config = get_config("spread"),
+  })
+
   -- NOTE: use https://github.com/Akianonymus/nvim-colorizer.lua ?
   -- NOTE: use https://github.com/NvChad/nvim-colorizer.lua ?
   use({
