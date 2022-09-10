@@ -52,6 +52,7 @@ packer.startup(function(use)
   use({ "nvim-telescope/telescope-file-browser.nvim" })
   use({ "nvim-telescope/telescope-packer.nvim" })
   use({ "nvim-telescope/telescope-ui-select.nvim" })
+  use({ "ptethng/telescope-makefile" })
 
   use({
     "nvim-neo-tree/neo-tree.nvim",
@@ -169,7 +170,6 @@ packer.startup(function(use)
 
   use({
     "akinsho/nvim-toggleterm.lua",
-    keys = { "<C-n>" },
     config = get_config("toggleterm"),
   })
 
