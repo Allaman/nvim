@@ -12,7 +12,7 @@ local hint = [[
  _H_ ^ ^ _L_   _h_ ^ ^ _l_  _v_: vertically
  ^ ^ _J_ ^ ^   ^ ^ _j_ ^ ^  _c_: close
 
- _=_: equalize _m_: toogle maximize
+ _=_: equalize _m_: toggle maximize
  _p_: pick     _w_: shift   _W_: swap
  ^
  _q_: exit
