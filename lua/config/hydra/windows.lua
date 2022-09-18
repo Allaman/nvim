@@ -12,7 +12,7 @@ local hint = [[
  _H_ ^ ^ _L_   _h_ ^ ^ _l_  _v_: vertically
  ^ ^ _J_ ^ ^   ^ ^ _j_ ^ ^  _c_: close
 
- _=_: equalize _o_: only
+ _=_: equalize _m_: toogle maximize
  _p_: pick     _w_: shift   _W_: swap
  ^
  _q_: exit
@@ -42,7 +42,7 @@ Hydra({
     { "s", cmd("split"), opts },
     { "v", cmd("vsplit"), opts },
     { "c", cmd("close"), opts }, -- close current window
-    { "o", cmd("only"), opts }, -- close all windows but current
+    { "m", cmd("WindowsMaximaze"), opts }, -- maximize current window
     -- window resizing
     { "=", cmd("wincmd =") },
     { "k", cmd("wincmd +") },

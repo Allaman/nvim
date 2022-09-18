@@ -309,6 +309,15 @@ packer.startup(function(use)
     end,
     disable = settings.disable_colorizer,
   })
+  use({
+    "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim",
+    },
+    config = get_config("windows"),
+  })
+
 end)
 
 -- TODO:
