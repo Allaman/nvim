@@ -84,6 +84,8 @@ packer.startup(function(use)
 
   use("RRethy/nvim-treesitter-endwise")
 
+  use({ "David-Kunz/markid" })
+
   use({
     "hrsh7th/nvim-cmp",
     requires = {
@@ -309,6 +311,7 @@ packer.startup(function(use)
     end,
     disable = settings.disable_colorizer,
   })
+
   use({
     "anuvyklack/windows.nvim",
     requires = {
