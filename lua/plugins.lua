@@ -321,6 +321,7 @@ packer.startup(function(use)
     config = get_config("windows"),
   })
 
+  use({ "axieax/urlview.nvim", config = get_config("urlview") })
 end)
 
 -- TODO:
