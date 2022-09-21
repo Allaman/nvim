@@ -52,12 +52,16 @@ catppuccin.setup({
     gitsigns = true,
     telescope = true,
     nvimtree = {
-      enabled = true,
+      enabled = false,
       show_root = true,
       transparent_panel = false,
     },
+    dap = {
+      enabled = true,
+      enable_ui = true, -- enable nvim-dap-ui
+    },
     neotree = {
-      enabled = false,
+      enabled = true,
       show_root = true,
       transparent_panel = false,
     },
@@ -71,15 +75,16 @@ catppuccin.setup({
     vim_sneak = false,
     fern = false,
     barbar = false,
-    bufferline = true,
-    markdown = true,
+    bufferline = false,
+    markdown = false,
     lightspeed = false,
-    ts_rainbow = false,
+    ts_rainbow = true,
     hop = false,
     notify = true,
-    telekasten = true,
+    telekasten = false,
     symbols_outline = true,
     mini = true,
+    fidget = true,
   },
 })
 vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
