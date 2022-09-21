@@ -115,7 +115,7 @@ function M.show_winbar()
     if navic.is_available() then
       -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
       local location = navic.get_location()
-      local value = "%#WinBarSeparator#" .. "%=" .. " " .. "%*" .. location .. "%#WinBarSeparator#" .. " " .. "%*"
+      local value = "%#WinBarSeparator#" .. "%=" .. "%*" .. location .. "%#WinBarSeparator#" .. "%*"
 
       vim.api.nvim_set_option_value("winbar", value, { scope = "local" })
     else
