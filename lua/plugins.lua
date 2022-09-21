@@ -260,6 +260,7 @@ packer.startup(function(use)
   use({
     "anuvyklack/hydra.nvim",
     requires = "anuvyklack/keymap-layer.nvim", -- needed only for pink hydras
+    commit = "ea91aa820a6cecc57bde764bb23612fff26a15de",
     config = get_config("hydra"),
   })
 
