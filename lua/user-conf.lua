@@ -1,7 +1,7 @@
 local M = {}
 
-M.theme = "catppuccino"
--- theme: catppuccino, nightfox, tundra; default is catppuccino
+-- theme: catppuccin, nightfox, tundra; default is catppuccino
+M.theme = "catppuccin"
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
