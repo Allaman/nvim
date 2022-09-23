@@ -68,6 +68,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Better writing with [vale](https://vale.sh/) integration via [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Fast startup 🚀
 
 ### Navigation 🧭

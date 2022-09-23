@@ -1,4 +1,5 @@
 -- adopted from https://github.com/AdamWhittingham/vim-config/blob/nvim/lua/config/startup_screen.lua
+local settings = require("user-conf")
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
   return
@@ -138,7 +139,7 @@ local section_mru = {
     {
       type = "group",
       val = function()
-        return { mru(1, cdir, 9) }
+        return { mru(1, cdir, settings.dashboard_recent_files) }
       end,
       opts = { shrink_margin = false },
     },
@@ -149,7 +150,6 @@ local buttons = {
   type = "group",
   val = {
     { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
-    { type = "padding", val = 1 },
     dashboard.button("f", "  Find File", ":Telescope find_files <CR>"),
     dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true <CR>"),
     dashboard.button("t", "  Find Text", ":Telescope live_grep <CR>"),
@@ -165,13 +165,34 @@ local buttons = {
   position = "center",
 }
 
-local opts = {
-  layout = {
-    { type = "padding", val = 2 },
-    section_mru,
-    { type = "padding", val = 2 },
-    buttons,
+local header = {
+  type = "text",
+  -- From https://gist.github.com/sRavioli/d6fb0a813b6affc171976b7dd09764d3
+  val = require("config.alpha-headers")["random"],
+  opts = {
+    position = "center",
+    hl = "AlphaHeader",
   },
+}
+
+local layout = {}
+layout[0] = header
+layout[1] = { type = "padding", val = 2 }
+layout[2] = section_mru
+layout[3] = { type = "padding", val = 2 }
+layout[4] = buttons
+
+if settings.dashboard_recent_files == 0 then
+  layout[1] = nil
+  layout[2] = nil
+end
+
+if settings.disable_dashboard_header == true then
+  layout[0] = nil
+end
+
+local opts = {
+  layout = layout,
   opts = {
     margin = 5,
   },

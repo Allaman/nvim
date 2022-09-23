@@ -30,5 +30,10 @@ M.disable_tmux_statusline_integration = false
 M.disable_colorizer = false
 -- Disable winbar with nvim-navic location
 M.disable_winbar = false
+-- Number of recent files shown in dashboard
+-- 0 disables showing recent files
+M.dashboard_recent_files = 5
+-- disable the header of the dashboard
+M.disable_dashboard_header = false
 
 return M
