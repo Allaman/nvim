@@ -1,24 +1,6 @@
+local settings = require("user-conf")
 require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "bash",
-    "css",
-    "cmake",
-    "dockerfile",
-    "go",
-    "hcl",
-    "html",
-    "java",
-    "javascript",
-    "json",
-    "kotlin",
-    "latex",
-    "ledger",
-    "lua",
-    "markdown",
-    "python",
-    "toml",
-    "yaml",
-  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = settings.treesitter_ensure_installed,
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
