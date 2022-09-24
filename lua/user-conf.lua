@@ -36,6 +36,8 @@ M.disable_winbar = false
 M.dashboard_recent_files = 5
 -- disable the header of the dashboard
 M.disable_dashboard_header = false
+-- disable quick links of the dashboard
+M.disable_dashboard_quick_links = false
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {

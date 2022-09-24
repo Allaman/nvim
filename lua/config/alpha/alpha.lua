@@ -192,6 +192,11 @@ if settings.disable_dashboard_header == true then
   layout[0] = nil
 end
 
+if settings.disable_dashboard_quick_links == true then
+  layout[3] = nil
+  layout[4] = nil
+end
+
 local opts = {
   layout = layout,
   opts = {
