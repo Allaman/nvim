@@ -96,3 +96,5 @@ require("mini.statusline").setup({
   -- this to `false` and 'laststatus' to 3.
   set_vim_settings = set_vim_settings,
 })
+
+require("mini.align").setup()

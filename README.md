@@ -179,6 +179,7 @@ For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-gram
 | n    | sd                     | Delete surrounding                                     |
 | n    | sr                     | Replace surrounding                                    |
 | n    | \<c-Tab\>              | Start auto completion (without typing anything)        |
+| n/v  | ga                     | Start mini.align (align text)                          |
 | n    | gcc                    | Toggle line comment                                    |
 | n/v  | gc                     | Toggle line comment (works with movements like `gcip`) |
 | n    | ss                     | Search 2 char (mini.jump2d)                            |

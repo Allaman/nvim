@@ -186,8 +186,6 @@ packer.startup(function(use)
 
   use({ "folke/which-key.nvim", config = get_config("which-key") })
 
-  use({ "junegunn/vim-easy-align", cmd = "EasyAlign" }) -- no lua alternative, https://github.com/Vonr/align.nvim not working for me
-
   use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
 
   use({ "RRethy/vim-illuminate", config = get_config("illuminate") })
@@ -210,7 +208,7 @@ packer.startup(function(use)
 
   use({ "rcarriga/nvim-notify", config = get_config("notify") })
 
-  use({ "echasnovski/mini.nvim", branch = "stable", config = get_config("mini") })
+  use({ "echasnovski/mini.nvim", branch = "main", config = get_config("mini") })
 
   use({
     "waylonwalker/Telegraph.nvim",
