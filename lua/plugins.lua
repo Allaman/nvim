@@ -196,6 +196,8 @@ packer.startup(function(use)
     use({ "EdenEast/nightfox.nvim", config = get_config("themes.nightfox") })
   elseif settings.theme == "tundra" then
     use({ "sam4llis/nvim-tundra", config = get_config("themes.tundra") })
+  elseif settings.theme == "tokyonight" then
+    use({ "folke/tokyonight.nvim", branch = "main", config = get_config("themes.tokyonight") })
   else
     use({ "catppuccin/nvim", as = "catppuccin", config = get_config("themes.catppuccin") })
   end
