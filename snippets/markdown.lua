@@ -53,11 +53,12 @@ return {
     "link",
     env.fmt(
       [[
-      [{}]({})
+      [{}]({}){}
       ]],
       {
         env.i(1, "name"),
         env.i(2, "url"),
+        env.i(0),
       }
     )
   ),
