@@ -16,6 +16,20 @@ M.isNotEmpty = function(s)
   return s ~= nil and s ~= ""
 end
 
+--- Check if a directory exists in this path
+M.isdir = function(path)
+  return vim.fn.isdirectory(path) ~= 0
+end
+
+-- Return telescope files command
+M.telescope_find_files = function()
+  if M.isdir(".git/") == true then
+    return "Telescope git_files"
+  else
+    return "Telescope find_files"
+  end
+end
+
 -- toggle quickfixlist
 M.toggle_qf = function()
   local windows = fn.getwininfo()
