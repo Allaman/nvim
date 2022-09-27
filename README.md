@@ -41,6 +41,7 @@ See `./lua/config/which.lua` for details.
 ![](./docs/hydra-git.png)
 ![](./docs/hydra-window.png)
 ![](./docs/hydra-telescope.png)
+![](./docs/hydra-spelling.png)
 
 </details>
 
