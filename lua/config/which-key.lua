@@ -164,12 +164,5 @@ wk.register({
       "Disable the grammar rule under the cursor",
     },
   },
-  z = {
-    name = "Spelling",
-    n = { "]s", "Next" },
-    p = { "[s", "Previous" },
-    a = { "zg", "Add word" },
-    f = { "1z=", "Use 1. correction" },
-    l = { "<cmd>Telescope spell_suggest<cr>", "List corrections" },
-  },
+  z = { "Spelling" },
 }, { prefix = "<leader>", mode = "n", default_options })
