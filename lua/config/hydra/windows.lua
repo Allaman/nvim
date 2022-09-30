@@ -42,7 +42,7 @@ Hydra({
     { "s", cmd("split"), opts },
     { "v", cmd("vsplit"), opts },
     { "c", cmd("close"), opts }, -- close current window
-    { "m", cmd("WindowsMaximaze"), opts }, -- maximize current window
+    { "m", cmd("WindowsMaximize"), opts }, -- maximize current window
     -- window resizing
     { "=", cmd("wincmd =") },
     { "k", cmd("wincmd +") },
