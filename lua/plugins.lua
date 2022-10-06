@@ -209,12 +209,6 @@ packer.startup(function(use)
 
   use({ "echasnovski/mini.nvim", branch = "main", config = get_config("mini") })
 
-  use({
-    "waylonwalker/Telegraph.nvim",
-    config = function()
-      require("telegraph").setup({})
-    end,
-  })
   use({ "mfussenegger/nvim-ts-hint-textobject" })
 
   use({
