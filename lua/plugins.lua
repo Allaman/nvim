@@ -188,7 +188,6 @@ packer.startup(function(use)
 
   use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
 
-  use({ "RRethy/vim-illuminate", config = get_config("illuminate") })
 
   if settings.theme == "nightfox" then
     use({ "EdenEast/nightfox.nvim", config = get_config("themes.nightfox") })
