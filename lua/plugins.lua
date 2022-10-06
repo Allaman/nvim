@@ -191,7 +191,6 @@ packer.startup(function(use)
 
   use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
 
-
   if settings.theme == "nightfox" then
     use({ "EdenEast/nightfox.nvim", config = get_config("themes.nightfox") })
   elseif settings.theme == "tundra" then
@@ -316,16 +315,20 @@ packer.startup(function(use)
   })
 
   use({ "axieax/urlview.nvim", cmd = "Urlview", config = get_config("urlview") })
+
+  -- use({
+  --   "folke/noice.nvim",
+  --   event = "VimEnter",
+  --   config = get_config("noice"),
+  --   requires = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  -- })
+
   use({
-    "folke/noice.nvim",
-    event = "VimEnter",
-    config = get_config("noice"),
-    requires = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-      "hrsh7th/nvim-cmp",
-    },
     "ironhouzi/starlite-nvim",
     config = get_config("starlite-nvim"),
   })
