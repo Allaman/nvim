@@ -326,6 +326,8 @@ packer.startup(function(use)
       "rcarriga/nvim-notify",
       "hrsh7th/nvim-cmp",
     },
+    "ironhouzi/starlite-nvim",
+    config = get_config("starlite-nvim"),
   })
 end)
 
