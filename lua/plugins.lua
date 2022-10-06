@@ -215,9 +215,6 @@ packer.startup(function(use)
       require("telegraph").setup({})
     end,
   })
-
-  use({ "edluffy/specs.nvim", config = get_config("specs") })
-
   use({ "mfussenegger/nvim-ts-hint-textobject" })
 
   use({
