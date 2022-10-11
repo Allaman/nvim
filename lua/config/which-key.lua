@@ -104,6 +104,7 @@ wk.register({
     },
     d = { "<cmd>lua MiniBufremove.delete()<CR>", "Close buffer" },
   },
+  d = { "Debug" },
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
