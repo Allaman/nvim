@@ -128,8 +128,6 @@ packer.startup(function(use)
     config = get_config("git.neogit"),
   })
 
-  use({ "f-person/git-blame.nvim", config = get_config("git.git-blame") })
-
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },

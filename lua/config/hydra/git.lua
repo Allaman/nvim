@@ -71,7 +71,7 @@ Hydra({
     { "S", gitsigns.stage_buffer },
     { "p", gitsigns.preview_hunk },
     { "d", gitsigns.toggle_deleted, { nowait = true } },
-    { "b", cmd("GitBlameToggle"), { exit = true } },
+    { "b", gitsigns.blame_line, { exit = true } },
     {
       "B",
       function()
