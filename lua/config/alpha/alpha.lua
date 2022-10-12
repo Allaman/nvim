@@ -1,5 +1,5 @@
 -- adopted from https://github.com/AdamWhittingham/vim-config/blob/nvim/lua/config/startup_screen.lua
-local settings = require("user-conf")
+local settings = require("settings")
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
   return
