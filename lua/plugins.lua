@@ -178,7 +178,6 @@ packer.startup(function(use)
   -- TODO: switch to https://github.com/B4mbus/todo-comments.nvim ?
   use({
     "folke/todo-comments.nvim",
-    cmd = "TodoQuickFix",
     requires = "nvim-lua/plenary.nvim",
     config = get_config("todo"),
   })
