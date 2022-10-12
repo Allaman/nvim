@@ -1,6 +1,8 @@
 -- NOTE: all LSP and formatting related options are disabeld.
 -- NOTE: LSP is handled by lsp.lua and formatting is handled by null-ls.lua
 -- NOTE: via `lsp_on_attach` the custom callback used by all other LSPs is called
+local icons = require("config.icons")
+
 require("go").setup({
   go = "go", -- go command, can be go[default] or go1.18beta1
   goimport = "gopls", -- goimport command, can be gopls[default] or goimport
@@ -20,12 +22,13 @@ require("go").setup({
   lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
   lsp_diag_underline = false,
   lsp_on_attach = function(client, bufnr)
-    require("functions").custom_lsp_attach(client, bufnr)
+    local utils = require("config.lsp.utils")
+    utils.custom_lsp_attach(client, bufnr)
     local wk = require("which-key")
     local default_options = { silent = true }
     wk.register({
       c = {
-        name = "Coding",
+        -- name = "Coding",
         a = { "<cmd>GoCodeAction<cr>", "Code action" },
         e = { "<cmd>GoIfErr<cr>", "Add if err" },
         h = {
@@ -61,7 +64,7 @@ require("go").setup({
     }, { prefix = "<leader>", mode = "n", default_options })
     wk.register({
       c = {
-        name = "Coding",
+        -- name = "Coding",
         j = { "<cmd>'<,'>GoJson2Struct<cr>", "Json to struct" },
       },
     }, { prefix = "<leader>", mode = "v", default_options })

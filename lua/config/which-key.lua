@@ -108,7 +108,7 @@ wk.register({
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    f = { "<cmd>" .. require("functions").telescope_find_files() .. "<cr>", "Find File" },
+    f = { "<cmd>" .. require("utils").telescope_find_files() .. "<cr>", "Find File" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
@@ -116,7 +116,7 @@ wk.register({
   },
   m = {
     name = "Misc",
-    c = { "<cmd>lua require('functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
+    c = { "<cmd>lua require('utils').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
     d = { "<cmd>lua require('config.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
@@ -128,7 +128,7 @@ wk.register({
     name = "Quickfix",
     j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
     k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('functions').toggle_qf()<cr>", "Toggle quickfix list" },
+    q = { "<cmd>lua require('utils').toggle_qf()<cr>", "Toggle quickfix list" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
   s = { "Search" },
