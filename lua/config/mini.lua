@@ -19,7 +19,6 @@ require("mini.surround").setup({
 })
 
 require("mini.comment").setup({})
-require("mini.bufremove").setup({})
 require("mini.jump").setup({
   -- Module mappings. Use `''` (empty string) to disable one.
   mappings = {

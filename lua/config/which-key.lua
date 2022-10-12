@@ -102,7 +102,7 @@ wk.register({
       "<cmd>%bd|e#|bd#<cr>",
       "Close all but the current buffer",
     },
-    d = { "<cmd>lua MiniBufremove.delete()<CR>", "Close buffer" },
+    d = { "<cmd>Bdelete<cr>", "Close buffer" },
   },
   d = { "Debug" },
   f = {
