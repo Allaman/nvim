@@ -38,7 +38,6 @@ See `./lua/config/which.lua` for details.
 <details>
 <summary>Hydra modes for better shortcut handling</summary>
 
-![](./docs/hydra-git.png)
 ![](./docs/hydra-window.png)
 ![](./docs/hydra-telescope.png)
 ![](./docs/hydra-spelling.png)
@@ -71,7 +70,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Better writing with [vale](https://vale.sh/) integration via [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), and [nightfox](https://github.com/EdenEast/nightfox.nvim)
-- Fast startup 🚀
+- Fast startup < 150 ms 🚀
 
 ### Navigation 🧭
 
@@ -90,7 +89,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
 - Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
-- Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [git-blame](https://github.com/f-person/git-blame.nvim)
+- Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
@@ -133,7 +132,7 @@ I created an installation [script](install.sh) that sets up all required tools o
 
 For now, it works on Debian/Ubuntu and Arch. MacOS will be added soon.
 
-💡If you are a Tmux user have a look at vim-tpipelins's [requirements](https://github.com/vimpostor/vim-tpipeline#installation) for your tmux.conf and enable it in `./lua/user-conf.lua`.
+💡If you are a Tmux user have a look at vim-tpipelins's [requirements](https://github.com/vimpostor/vim-tpipeline#installation) for your tmux.conf and enable it in `./lua/settings.lua`.
 
 USE AT YOUR OWN RISK!!
 
@@ -199,27 +198,26 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 
 ```sh
 .
-├── after
-│   └── ftplugin      # file specific settings
-├── init.lua          # main entry point
+├── after # file specific settings
+├── init.lua # main entry point
 ├── lua
-│   ├── config/       # each plugin configuration is in its own file
-│   ├── autocmd.lua   # autocommands
-│   ├── functions.lua # lua functions to extend functionality
-│   ├── mappings.lua  # Vim keymaps definitions -> config/which.lua for more
-│   ├── options.lua   # non plugin related (vim) options
-│   ├── plugins.lua   # define plugins to be managed via Packer
-│   └── user-conf.lua # parameters to configure some settings
-├── plugin            # packer_compiled
-├── snippets          # snippets directory (luasnip style)
-└── spell             # my spell files linked from another repo
+│   ├── autocmd.lua # autocommands
+│   ├── config/ # each plugin configuration is in its own file
+│   ├── mappings.lua # Vim keymaps definitions -> look for wk.register for more mappings
+│   ├── options.lua # non plugin related (vim) options
+│   ├── plugins.lua # define plugins to be managed via Packer
+│   ├── settings.lua # parameters to configure some settings
+│   └── utils.lua # lua code to extend functionality
+├── plugin # packer_compiled
+├── snippets # snippets directory (luasnip style)
+└── spell # my spell files linked from another repo
 ```
 
 ## User configuration
 
 The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
 
-All options can be found in `./lua/user-conf.lua`.
+All options can be found in `./lua/settings.lua`.
 
 ## Remove plugins
 
