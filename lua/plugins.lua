@@ -314,6 +314,7 @@ packer.startup(function(use)
 
   use({ "axieax/urlview.nvim", cmd = "Urlview", config = get_config("urlview") })
 
+  use({ "famiu/bufdelete.nvim" })
   -- use({
   --   "folke/noice.nvim",
   --   event = "VimEnter",
