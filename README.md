@@ -198,19 +198,19 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 
 ```sh
 .
-├── after # file specific settings
-├── init.lua # main entry point
+├── after            # file specific settings
+├── init.lua         # main entry point
 ├── lua
-│   ├── autocmd.lua # autocommands
-│   ├── config/ # each plugin configuration is in its own file
+│   ├── autocmd.lua  # autocommands
+│   ├── config/      # each plugin configuration is in its own file
 │   ├── mappings.lua # Vim keymaps definitions -> look for wk.register for more mappings
-│   ├── options.lua # non plugin related (vim) options
-│   ├── plugins.lua # define plugins to be managed via Packer
+│   ├── options.lua  # non plugin related (vim) options
+│   ├── plugins.lua  # define plugins to be managed via Packer
 │   ├── settings.lua # parameters to configure some settings
-│   └── utils.lua # lua code to extend functionality
-├── plugin # packer_compiled
-├── snippets # snippets directory (luasnip style)
-└── spell # my spell files linked from another repo
+│   └── utils.lua    # lua code to extend functionality
+├── plugin           # packer_compiled
+├── snippets         # snippets directory (luasnip style)
+└── spell            # my spell files linked from another repo
 ```
 
 ## User configuration
