@@ -11,7 +11,7 @@ local hint = [[
   _n_ %{nu} number
   _r_ %{rnu} relative number
   ^
-       ^^^^                _<Esc>_
+   _q_    ^^           _<Esc>_
 ]]
 
 Hydra({
@@ -106,6 +106,7 @@ Hydra({
       end,
       { desc = "cursor line" },
     },
+    { "q", nil, { exit = true } },
     { "<Esc>", nil, { exit = true } },
   },
 })
