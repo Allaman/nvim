@@ -1,4 +1,4 @@
-local settings = require("user-conf")
+local settings = require("settings")
 require("nvim-treesitter.configs").setup({
   ensure_installed = settings.treesitter_ensure_installed,
   ignore_install = {}, -- List of parsers to ignore installing

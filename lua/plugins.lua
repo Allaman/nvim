@@ -1,4 +1,4 @@
-local settings = require("user-conf")
+local settings = require("settings")
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
