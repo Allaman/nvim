@@ -104,7 +104,6 @@ wk.register({
     },
     d = { "<cmd>Bdelete<cr>", "Close buffer" },
   },
-  d = { "Debug" },
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
