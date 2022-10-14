@@ -28,7 +28,7 @@ require("go").setup({
     local default_options = { silent = true }
     wk.register({
       c = {
-        -- name = "Coding",
+        name = "Coding",
         a = { "<cmd>GoCodeAction<cr>", "Code action" },
         e = { "<cmd>GoIfErr<cr>", "Add if err" },
         h = {
