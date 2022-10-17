@@ -18,12 +18,14 @@ end
 
 --- Check if a directory exists in this path
 M.isdir = function(path)
-  return vim.fn.isdirectory(path) ~= 0
+  local ok = vim.loop.fs_stat(path)
+  return ok
 end
 
 -- Return telescope files command
 M.telescope_find_files = function()
-  if M.isdir(".git/") == true then
+  local path = vim.loop.cwd() .. "/.git"
+  if M.isdir(path) then
     return "Telescope git_files"
   else
     return "Telescope find_files"
