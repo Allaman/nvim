@@ -1,8 +1,25 @@
-# My Neovim Configuration
+<h1 align="center">My Nvim Configuration</h1>
+
+<div align="center"><p>
+    <a href="https://github.com/neovim/neovim">
+      <img alt="Neovim" src="https://img.shields.io/badge/Neovim-0.8.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white"/>
+    </a>
+    <a href="https://github.com/Allaman/nvim/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/Allaman/nvim"/>
+    </a>
+    <a href="https://github.com/Allaman/nvim/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/Allaman/nvim?style=flat-square&logo=MIT&label=License" alt="License"/>
+    </a>
+    <a href="https://github.com/Allaman/nvim/issues">
+      <img alt="Github issues" src="https://img.shields.io/github/issues/Allaman/nvim.svg?style=flat-square&label=Issues&color=F05F40"/>
+    </a>
+</p>
+
+</div>
 
 ![](./docs/screenshot.png)
 
-💻 This configuration is working on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim >= 0.8!
+💻 This configuration works on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim >= 0.8!
 
 Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MBP is configured. My [dotfiles](https://github.com/Allaman/dotfiles) are also on GitHub.
 
