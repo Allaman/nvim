@@ -184,7 +184,7 @@ packer.startup(function(use)
 
   use({ "folke/which-key.nvim", config = get_config("which-key") })
 
-  use({ "rhysd/vim-grammarous", cmd = "GrammarousCheck" })
+  use({ "rhysd/vim-grammarous", ft = { "markdown", "latex" }, config = get_config("grammarous") })
 
   if settings.theme == "nightfox" then
     use({ "EdenEast/nightfox.nvim", config = get_config("themes.nightfox") })
