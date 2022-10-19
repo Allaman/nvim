@@ -203,7 +203,7 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 ├── lua
 │   ├── autocmd.lua  # autocommands
 │   ├── config/      # each plugin configuration is in its own file
-│   ├── mappings.lua # Vim keymaps definitions -> look for wk.register for more mappings
+│   ├── mappings.lua # Keymappings not in plugin configuration
 │   ├── options.lua  # non plugin related (vim) options
 │   ├── plugins.lua  # define plugins to be managed via Packer
 │   ├── settings.lua # parameters to configure some settings
