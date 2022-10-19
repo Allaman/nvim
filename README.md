@@ -7,11 +7,11 @@
     <a href="https://github.com/Allaman/nvim/pulse">
       <img alt="Last commit" src="https://img.shields.io/github/last-commit/Allaman/nvim"/>
     </a>
-    <a href="https://github.com/Allaman/nvim/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/Allaman/nvim?style=flat-square&logo=MIT&label=License" alt="License"/>
-    </a>
     <a href="https://github.com/Allaman/nvim/issues">
       <img alt="Github issues" src="https://img.shields.io/github/issues/Allaman/nvim.svg?style=flat-square&label=Issues&color=F05F40"/>
+    </a>
+    <a href="https://github.com/Allaman/nvim/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/Allaman/nvim?style=flat-square&logo=MIT&label=License" alt="License"/>
     </a>
 </p>
 
