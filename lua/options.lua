@@ -50,7 +50,6 @@ o.list = settings.list
 o.listchars = settings.listchars
 o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
 o.wildmode = "full"
-o.lazyredraw = true -- do not redraw screen while running macros
 if utils.isNotEmpty(settings.grepprg) then
   o.grepprg = settings.grepprg
 end
