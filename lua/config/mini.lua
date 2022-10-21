@@ -70,13 +70,6 @@ require("mini.jump2d").setup({
   },
 })
 
-local set_vim_settings
-if settings.global_statusline then
-  set_vim_settings = false
-else
-  set_vim_settings = true
-end
-
 require("mini.statusline").setup({
   -- Content of statusline as functions which return statusline string. See
   -- `:h statusline` and code of default contents (used instead of `nil`).
@@ -109,7 +102,7 @@ require("mini.statusline").setup({
   -- Whether to set Vim's settings for statusline (make it always shown with
   -- 'laststatus' set to 2). To use global statusline in Neovim>=0.7.0, set
   -- this to `false` and 'laststatus' to 3.
-  set_vim_settings = set_vim_settings,
+  set_vim_settings = false,
 })
 
 require("mini.align").setup()

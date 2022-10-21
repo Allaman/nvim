@@ -20,7 +20,6 @@ o.conceallevel = 0 -- so that `` is visible in markdown files
 o.number = settings.number
 o.relativenumber = settings.relative_number
 o.mouse = settings.mouse
-o.cmdheight = settings.cmdheight -- space for displaying messages/commands
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = settings.showtabline
 if not settings.disable_winbar then
