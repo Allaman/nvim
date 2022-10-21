@@ -217,15 +217,6 @@ packer.startup(function(use)
   use({ "SmiteshP/nvim-navic" })
 
   use({
-    "j-hui/fidget.nvim",
-    config = function()
-      require("fidget").setup({ window = {
-        blend = 0,
-      } })
-    end,
-  })
-
-  use({
     "kevinhwang91/nvim-ufo",
     requires = "kevinhwang91/promise-async",
     config = function()
