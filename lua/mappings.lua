@@ -1,4 +1,3 @@
--- more mappings are defined in `lua/config/which.lua`
 local map = vim.keymap.set
 local default_options = { silent = true }
 local expr_options = { expr = true, silent = true }
@@ -53,7 +52,7 @@ wk.register({
   st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
 
--- Register all leader based mappings
+-- Register leader based mappings
 wk.register({
   ["<tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
   b = {
