@@ -1,6 +1,6 @@
 local nvim_lsp = require("lspconfig")
 local utils = require("config.lsp.utils")
-local opts = require("config.lsp.opts")
+local languages = require("config.lsp.languages")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- enable autoclompletion via nvim-cmp
@@ -36,11 +36,11 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
     flags = { debounce_text_changes = 150 },
     settings = {
-      json = opts.json,
-      Lua = opts.lua,
+      json = languages.json,
+      Lua = languages.lua,
       redhat = { telemetry = { enabled = false } },
-      texlab = opts.tex,
-      yaml = opts.yaml,
+      texlab = languages.tex,
+      yaml = languages.yaml,
     },
   })
 end
