@@ -47,7 +47,7 @@ end
 local function get_location()
   local location = navic.get_location()
   if navic.is_available() then
-    return "%#WinBarContext#" .. " " .. icons.ui.ChevronRight .. " " .. location .. "%*"
+    return "%#WinBarContext#" .. " " .. icons.arrows.ChevronRight .. " " .. location .. "%*"
   end
   return ""
 end
@@ -59,20 +59,20 @@ function M.get_winbar()
   if navic.is_available() then
     return "%#WinBarSeparator#"
       .. "%="
-      .. icons.ui.ArrowLeft
+      .. icons.arrows.ArrowLeft
       .. "%*"
       .. get_location()
       .. "%#WinBarSeparator# "
-      .. icons.ui.ArrowRight
+      .. icons.arrows.ArrowRight
       .. "%*"
   else
     return "%#WinBarSeparator#"
       .. "%="
-      .. icons.ui.ArrowLeft
+      .. icons.arrows.ArrowLeft
       .. "%*"
       .. get_modified()
       .. "%#WinBarSeparator# "
-      .. icons.ui.ArrowRight
+      .. icons.arrows.ArrowRight
       .. "%*"
   end
 end
