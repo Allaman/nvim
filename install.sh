@@ -71,7 +71,7 @@ get_os () {
     OS="apple"
   elif [[ "$OSTYPE" =~ "linux" ]]; then
     OS="linux"
-    log "Running on Linunx"
+    log "Running on Linux"
     ask_for_understanding "$LINUX_HELP_STRING"
   fi
 }
