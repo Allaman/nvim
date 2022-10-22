@@ -1,3 +1,4 @@
+-- vim:foldmethod=marker:foldlevel=0:foldenable:
 local settings = require("settings")
 local fn = vim.fn
 
@@ -21,7 +22,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.api.nvim_command("packadd packer.nvim")
 end
 
--- initialize and configure packer
 local packer = require("packer")
 
 packer.init({
@@ -37,48 +37,14 @@ packer.init({
 })
 
 packer.startup(function(use)
-  -- actual plugins list
   use({ "wbthomason/packer.nvim" })
 
-  use({
-    "nvim-telescope/telescope.nvim",
-    requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
-    cmd = "Telescope",
-    config = get_config("telescope"),
-  })
-
-  use({ "jvgrootveld/telescope-zoxide" })
-  use({ "crispgm/telescope-heading.nvim" })
-  use({ "nvim-telescope/telescope-symbols.nvim" })
-  use({ "nvim-telescope/telescope-file-browser.nvim" })
-  use({ "nvim-telescope/telescope-packer.nvim" })
-  use({ "nvim-telescope/telescope-ui-select.nvim" })
-  use({ "ptethng/telescope-makefile" })
-
-  use({
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    cmd = "NeoTree*",
-    requires = {
-      {
-        -- only needed if you want to use the commands with "_with_window_picker" suffix
-        "s1n7ax/nvim-window-picker",
-        config = get_config("nvim-window-picker"),
-      },
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    config = get_config("neotree"),
-  })
-
-  use({ "numToStr/Navigator.nvim", config = get_config("navigator") })
-
-  use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
+  -- {{{ Coding
+  use({ "windwp/nvim-autopairs", config = get_config("coding.nvim-autopairs") })
 
   use({
     "nvim-treesitter/nvim-treesitter",
-    config = get_config("treesitter"),
+    config = get_config("coding.treesitter"),
     run = ":TSUpdate",
   })
 
@@ -97,16 +63,95 @@ packer.startup(function(use)
       "lukas-reineke/cmp-rg",
       "hrsh7th/cmp-nvim-lsp-signature-help",
     },
-    config = get_config("cmp"),
+    config = get_config("coding.cmp"),
   })
 
   use({ "rafamadriz/friendly-snippets" })
+
   use({
     "L3MON4D3/LuaSnip",
     requires = "saadparwaiz1/cmp_luasnip",
-    config = get_config("luasnip"),
+    config = get_config("coding.luasnip"),
   })
 
+  use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+
+  use({
+    "kevinhwang91/nvim-bqf",
+    requires = {
+      "junegunn/fzf",
+      module = "nvim-bqf",
+    },
+    ft = "qf",
+    config = get_config("coding.nvim-bqf"),
+  })
+
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    config = get_config("coding.indent-blankline"),
+  })
+
+  -- TODO: switch to https://github.com/B4mbus/todo-comments.nvim ?
+  use({
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = get_config("coding.todo"),
+  })
+
+  use({ "rhysd/vim-grammarous", ft = { "markdown", "latex" }, config = get_config("coding.grammarous") })
+
+  use({ "ray-x/go.nvim", requires = "ray-x/guihua.lua", config = get_config("coding.go"), ft = { "go" } })
+
+  use({ "LudoPinelli/comment-box.nvim", cmd = "CB*", config = get_config("coding.comment-box") })
+
+  use({ "echasnovski/mini.nvim", branch = "main", config = get_config("coding.mini") })
+
+  use({ "mfussenegger/nvim-ts-hint-textobject" })
+
+  use({
+    "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+    config = function()
+      require("pqf").setup()
+    end,
+  })
+
+  use({
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  })
+
+  use({
+    "aarondiel/spread.nvim",
+    after = "nvim-treesitter",
+    config = get_config("coding.spread"),
+  })
+
+  use({
+    "ironhouzi/starlite-nvim",
+    config = get_config("coding.starlite-nvim"),
+  })
+
+  use({ "axieax/urlview.nvim", cmd = "Urlview", config = get_config("ui.urlview") })
+
+  use({ "famiu/bufdelete.nvim" })
+  -- }}} Coding
+
+  -- {{{ Dap
+  use({
+    "mfussenegger/nvim-dap",
+    requires = {
+      "mfussenegger/nvim-dap-python",
+      "leoluz/nvim-dap-go",
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+    },
+  })
+  -- }}} Dap
+
+  -- {{{ Git
   use({
     "TimUntersberger/neogit",
     requires = {
@@ -133,19 +178,18 @@ packer.startup(function(use)
   })
 
   use({ "tpope/vim-fugitive" }) -- yeah this is not lua but one of the best Vim plugins ever
+  -- }}} Git
 
-  use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
-
+  -- {{{ Hydra
   use({
-    "kevinhwang91/nvim-bqf",
-    requires = {
-      "junegunn/fzf",
-      module = "nvim-bqf",
-    },
-    ft = "qf",
-    config = get_config("nvim-bqf"),
+    "anuvyklack/hydra.nvim",
+    requires = "anuvyklack/keymap-layer.nvim", -- needed only for pink hydras
+    commit = "ea91aa820a6cecc57bde764bb23612fff26a15de",
+    config = get_config("hydra"),
   })
+  -- }}} Hydra
 
+  -- {{{ LSP
   use({ "neovim/nvim-lspconfig", config = get_config("lsp.lsp") })
 
   use({ "onsails/lspkind-nvim" })
@@ -156,96 +200,7 @@ packer.startup(function(use)
     config = get_config("lsp.null-ls"),
   })
 
-  use({
-    "simrat39/symbols-outline.nvim",
-    cmd = { "SymbolsOutline" },
-    config = get_config("symbols"),
-  })
-
-  use({
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
-    config = get_config("indent-blankline"),
-  })
-
-  use({
-    "akinsho/nvim-toggleterm.lua",
-    config = get_config("toggleterm"),
-  })
-
-  -- TODO: switch to https://github.com/B4mbus/todo-comments.nvim ?
-  use({
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = get_config("todo"),
-  })
-
-  use({ "ahmedkhalf/project.nvim", config = get_config("project") })
-
-  use({ "folke/which-key.nvim", config = get_config("which-key") })
-
-  use({ "rhysd/vim-grammarous", ft = { "markdown", "latex" }, config = get_config("grammarous") })
-
-  if settings.theme == "nightfox" then
-    use({ "EdenEast/nightfox.nvim", config = get_config("themes.nightfox") })
-  elseif settings.theme == "tundra" then
-    use({ "sam4llis/nvim-tundra", config = get_config("themes.tundra") })
-  elseif settings.theme == "tokyonight" then
-    use({ "folke/tokyonight.nvim", branch = "main", config = get_config("themes.tokyonight") })
-  else
-    use({ "catppuccin/nvim", as = "catppuccin", config = get_config("themes.catppuccin") })
-  end
-
-  use({ "tweekmonster/startuptime.vim" })
-
-  use({ "ray-x/go.nvim", requires = "ray-x/guihua.lua", config = get_config("go"), ft = { "go" } })
-
-  use({ "LudoPinelli/comment-box.nvim", cmd = "CB*", config = get_config("comment-box") })
-
-  use({ "rcarriga/nvim-notify", config = get_config("notify") })
-
-  use({ "echasnovski/mini.nvim", branch = "main", config = get_config("mini") })
-
-  use({ "mfussenegger/nvim-ts-hint-textobject" })
-
-  use({
-    "goolord/alpha-nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
-    config = get_config("alpha.alpha"),
-  })
-
   use({ "SmiteshP/nvim-navic" })
-
-  use({
-    "kevinhwang91/nvim-ufo",
-    requires = "kevinhwang91/promise-async",
-    config = function()
-      require("ufo").setup()
-    end,
-  })
-
-  use({
-    "https://gitlab.com/yorickpeterse/nvim-pqf.git",
-    config = function()
-      require("pqf").setup()
-    end,
-  })
-
-  use({ "vimpostor/vim-tpipeline", disable = settings.disable_tmux_statusline_integration })
-
-  use({
-    "anuvyklack/hydra.nvim",
-    requires = "anuvyklack/keymap-layer.nvim", -- needed only for pink hydras
-    commit = "ea91aa820a6cecc57bde764bb23612fff26a15de",
-    config = get_config("hydra"),
-  })
-
-  use({
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
-  })
 
   use({
     "williamboman/mason.nvim",
@@ -254,16 +209,101 @@ packer.startup(function(use)
     requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
     config = get_config("lsp.mason"),
   })
+  -- }}} LSP
+
+  -- {{{ UI
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
+    cmd = "Telescope",
+    config = get_config("ui.telescope"),
+  })
+  use({ "jvgrootveld/telescope-zoxide" })
+  use({ "crispgm/telescope-heading.nvim" })
+  use({ "nvim-telescope/telescope-symbols.nvim" })
+  use({ "nvim-telescope/telescope-file-browser.nvim" })
+  use({ "nvim-telescope/telescope-packer.nvim" })
+  use({ "nvim-telescope/telescope-ui-select.nvim" })
+  use({ "ptethng/telescope-makefile" })
+  use({
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    cmd = "NeoTree*",
+    requires = {
+      {
+        "s1n7ax/nvim-window-picker", -- only needed if you want to use the commands with "_with_window_picker" suffix
+        config = get_config("ui.nvim-window-picker"),
+      },
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = get_config("ui.neotree"),
+  })
+  use({ "numToStr/Navigator.nvim", config = get_config("ui.navigator") })
 
   use({
-    "mfussenegger/nvim-dap",
+    "simrat39/symbols-outline.nvim",
+    cmd = { "SymbolsOutline" },
+    config = get_config("ui.symbols"),
+  })
+
+  use({
+    "akinsho/nvim-toggleterm.lua",
+    config = get_config("ui.toggleterm"),
+  })
+
+  use({ "ahmedkhalf/project.nvim", config = get_config("ui.project") })
+
+  use({ "folke/which-key.nvim", config = get_config("ui.which-key") })
+
+  if settings.theme == "nightfox" then
+    use({ "EdenEast/nightfox.nvim", config = get_config("ui.themes.nightfox") })
+  elseif settings.theme == "tundra" then
+    use({ "sam4llis/nvim-tundra", config = get_config("ui.themes.tundra") })
+  elseif settings.theme == "tokyonight" then
+    use({ "folke/tokyonight.nvim", branch = "main", config = get_config("ui.themes.tokyonight") })
+  else
+    use({ "catppuccin/nvim", as = "catppuccin", config = get_config("ui.themes.catppuccin") })
+  end
+
+  use({
+    "goolord/alpha-nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
+    config = get_config("ui.alpha"),
+  })
+
+  use({
+    "anuvyklack/windows.nvim",
+    event = "VimEnter",
     requires = {
-      "mfussenegger/nvim-dap-python",
-      "leoluz/nvim-dap-go",
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim",
+    },
+    config = get_config("ui.windows"),
+  })
+
+  use({
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = get_config("ui.noice"),
+    requires = {
+      "MunifTanjim/nui.nvim",
+      { "rcarriga/nvim-notify", config = get_config("ui.notify") },
     },
   })
+  -- }}} UI
+
+  -- {{{ Other
+  use({
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      require("ufo").setup()
+    end,
+  })
+
+  use({ "vimpostor/vim-tpipeline", disable = settings.disable_tmux_statusline_integration })
 
   use({
     "max397574/colortils.nvim",
@@ -271,12 +311,6 @@ packer.startup(function(use)
     config = function()
       require("colortils").setup()
     end,
-  })
-
-  use({
-    "aarondiel/spread.nvim",
-    after = "nvim-treesitter",
-    config = get_config("spread"),
   })
 
   -- NOTE: use https://github.com/Akianonymus/nvim-colorizer.lua ?
@@ -290,45 +324,6 @@ packer.startup(function(use)
     disable = settings.disable_colorizer,
   })
 
-  use({
-    "anuvyklack/windows.nvim",
-    event = "VimEnter",
-    requires = {
-      "anuvyklack/middleclass",
-      "anuvyklack/animation.nvim",
-    },
-    config = get_config("windows"),
-  })
-
-  use({ "axieax/urlview.nvim", cmd = "Urlview", config = get_config("urlview") })
-
-  use({ "famiu/bufdelete.nvim" })
-
-  use({
-    "folke/noice.nvim",
-    event = "VimEnter",
-    config = get_config("noice"),
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-  })
-
-  use({
-    "ironhouzi/starlite-nvim",
-    config = get_config("starlite-nvim"),
-  })
+  use({ "tweekmonster/startuptime.vim" })
+  -- }}} Other
 end)
-
--- TODO:
--- use({
---   "someone-stole-my-name/yaml-companion.nvim",
---   requires = {
---     { "neovim/nvim-lspconfig" },
---     { "nvim-lua/plenary.nvim" },
---     { "nvim-telescope/telescope.nvim" },
---   },
---   config = function()
---     require("telescope").load_extension("yaml_schema")
---   end,
--- })

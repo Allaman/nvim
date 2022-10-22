@@ -1,15 +1,21 @@
 return {
-  ui = {
+  arrows = {
     ArrowRight = "❯",
     ArrowLeft = "❮",
+    -- ChevronRight = "",
+    ChevronRight = ">",
+    CurvedArrowRight = " ",
+    DoubleArrowRight = "»",
+    SmallArrowRight = "➜",
+    Diamond = "<>",
+  },
+  ui = {
     BigCircle = " ",
     BigUnfilledCircle = " ",
     BookMark = " ",
     Bug = " ",
     Calendar = " ",
     Check = " ",
-    -- ChevronRight = "",
-    ChevronRight = ">",
     Circle = " ",
     Close = " ",
     Code = " ",
@@ -25,11 +31,15 @@ return {
     Note = " ",
     Package = " ",
     Pencil = " ",
+    Plus = "+",
     Project = " ",
+    RunningMan = "🏃",
     Search = " ",
     SignIn = " ",
     Table = " ",
     Telescope = " ",
+    Yoga = "🧘",
+    Xmark = "✗",
   },
   diagnostics = {
     Error = " ",
@@ -37,11 +47,6 @@ return {
     Information = " ",
     Question = " ",
     Warning = " ",
-  },
-  lsp = {
-    server_installed = "✓",
-    server_pending = "➜",
-    server_uninstalled = "✗",
   },
   git = {
     Add = " ",

@@ -2,6 +2,7 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
 local fb_actions = require("telescope").extensions.file_browser.actions
+local icons = require("config.ui.icons")
 
 telescope.setup({
   extensions = {
@@ -83,10 +84,10 @@ telescope.setup({
         ["<c-x>"] = actions.delete_buffer,
       },
     },
-    prompt_prefix = "> ",
-    selection_caret = " ",
+    prompt_prefix = table.concat({ icons.arrows.ChevronRight, " " }),
+    selection_caret = icons.arrows.CurvedArrowRight,
     entry_prefix = "  ",
-    multi_icon = "<>",
+    multi_icon = icons.arrows.Diamond,
     initial_mode = "insert",
     scroll_strategy = "cycle",
     selection_strategy = "reset",
@@ -121,7 +122,6 @@ telescope.setup({
 telescope.load_extension("projects")
 telescope.load_extension("zoxide")
 telescope.load_extension("heading")
-telescope.load_extension("file_browser")
 telescope.load_extension("packer")
 telescope.load_extension("ui-select")
 telescope.load_extension("make")

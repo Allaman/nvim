@@ -222,11 +222,12 @@ Each plugin to be installed is defined in `plugins.lua` and each plugin has its 
 ├── init.lua         # main entry point
 ├── lua
 │   ├── autocmd.lua  # autocommands
-│   ├── config/      # each plugin configuration is in its own file
+│   ├── config/      # plugin configurations
 │   ├── mappings.lua # Keymappings not in plugin configuration
 │   ├── options.lua  # non plugin related (vim) options
 │   ├── plugins.lua  # define plugins to be managed via Packer
 │   ├── settings.lua # parameters to configure some settings
+│   ├── winbar.lua   # winbar configuration
 │   └── utils.lua    # lua code to extend functionality
 ├── plugin           # packer_compiled
 ├── snippets         # snippets directory (luasnip style)

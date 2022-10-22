@@ -1,6 +1,8 @@
 -- disable v
 -- local presets = require("which-key.plugins.presets")
 -- presets.operators["v"] = nil
+local icons = require("config.ui.icons")
+
 require("which-key").setup({
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -32,9 +34,9 @@ require("which-key").setup({
     -- ["<tab>"] = "TAB",
   },
   icons = {
-    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-    separator = "➜", -- symbol used between a key and it's label
-    group = "+", -- symbol prepended to a group
+    breadcrumb = icons.arrows.DoubleArrowRight, -- symbol used in the command line area that shows your active key combo
+    separator = icons.arrows.SmallArrowRight, -- symbol used between a key and it's label
+    group = icons.ui.Plus, -- symbol prepended to a group
   },
   window = {
     border = "none", -- none, single, double, shadow
