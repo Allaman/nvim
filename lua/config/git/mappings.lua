@@ -11,11 +11,11 @@ function M.setup()
       name = "Git",
       M = { "Hydra move" },
       ["<Enter>"] = { "<cmd>Neogit<cr>", "Neogit" },
-      h = { "<cmd>Telescope git_branches", "Branches" },
-      c = { "<cmd>G commit %", "Commit buffer" },
-      P = { "<cmd>G push", "Push" },
-      g = { "<cmd>Telescope git_status", "Status" },
-      m = { "<cmd>Telescope git_commits", "Commits" },
+      h = { "<cmd>Telescope git_branches<cr>", "Branches" },
+      c = { "<cmd>G commit %<cr>", "Commit buffer" },
+      P = { "<cmd>G push<cr>", "Push" },
+      g = { "<cmd>Telescope git_status<cr>", "Status" },
+      m = { "<cmd>Telescope git_commits<cr>", "Commits" },
       S = { gs.stage_buffer, "Stage buffer" },
       u = { gs.undo_stage_hunk, "Undo stage hunk" },
       r = {
@@ -56,9 +56,9 @@ function M.setup()
     return "<Ignore>"
   end, { desc = "Previous hunk", expr = true })
 
-  map({ "n", "v" }, "<leader>grr", ":Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
-  map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-  map({ "o", "x" }, "gH", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
+  map({ "n", "v" }, "<leader>grr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
+  map({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
+  map({ "o", "x" }, "gH", "<cmd><C-U>Gitsigns select_hunk<cr>", { desc = "Select hunk" })
 end
 
 return M
