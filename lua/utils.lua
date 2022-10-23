@@ -16,8 +16,8 @@ M.isNotEmpty = function(s)
   return s ~= nil and s ~= ""
 end
 
---- Check if a directory exists in this path
-M.isdir = function(path)
+--- Check if path exists
+M.path_exists = function(path)
   local ok = vim.loop.fs_stat(path)
   return ok
 end
@@ -25,7 +25,7 @@ end
 -- Return telescope files command
 M.telescope_find_files = function()
   local path = vim.loop.cwd() .. "/.git"
-  if M.isdir(path) then
+  if M.path_exists(path) then
     return "Telescope git_files"
   else
     return "Telescope find_files"
