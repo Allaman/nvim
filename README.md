@@ -84,6 +84,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Package management and plugin configuration via [Packer](https://github.com/wbthomason/packer.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
 - Submodes powered by [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
+- Complete transformation via [noice.nvim](https://github.com/folke/noice.nvim)
 - Fully featured status line via [mini.nvim](https://github.com/echasnovski/mini.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
@@ -109,7 +110,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
 - Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
-- Git integration via [Neogit](https://github.com/TimUntersberger/neogit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+- Git integration via [Neogit](https://github.com/TimUntersberger/neogit) and [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
