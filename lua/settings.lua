@@ -55,6 +55,7 @@ M.treesitter_ensure_installed = {
   "lua",
   "markdown",
   "python",
+  "regex",
   "toml",
   "yaml",
 }
