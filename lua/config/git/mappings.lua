@@ -10,7 +10,7 @@ function M.setup()
     g = {
       name = "Git",
       M = { "Hydra move" },
-      ["<Enter>"] = { "<cmd>Neogit<cr>", "Neogit" },
+      ["<Enter>"] = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
       h = { "<cmd>Telescope git_branches<cr>", "Branches" },
       c = { "<cmd>G commit %<cr>", "Commit buffer" },
       P = { "<cmd>G push<cr>", "Push" },

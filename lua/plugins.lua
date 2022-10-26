@@ -167,7 +167,7 @@ packer.startup(function(use)
         config = get_config("git.diffview"),
       },
     },
-    cmd = "Neogit",
+    module = "neogit",
     config = get_config("git.neogit"),
   })
 
