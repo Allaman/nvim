@@ -2,7 +2,7 @@ local catppuccin = require("catppuccin")
 
 catppuccin.setup({
   dim_inactive = {
-    enabled = false,
+    enabled = true,
     shade = "dark",
     percentage = 0.15,
   },
