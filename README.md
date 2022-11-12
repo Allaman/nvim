@@ -66,7 +66,7 @@ See `./lua/config/which.lua` for details.
 
 ## Motivation
 
-There are many great Neovim configurations online (see [Inspiration](#inspiration)) that give you a pleasant experience right out of the box. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
+There are many great Neovim configurations (see [Inspiration](#inspiration)), that give you a pleasant experience right out of the box, available. However, I am a long time (Neo)Vim user with a specific workflow and needs. Additionally, I do not have any Lua background and was not willing to spent too much time into that. Therefore, it was quite hard for me to customize and strip down the existing configs to my needs especially because the code is quite sophisticated.
 
 I decided to move to my own fresh Lua based Neovim from my good old vimrc trying to accomplish the following principles.
 
@@ -90,7 +90,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - Better writing with [vale](https://vale.sh/) integration via [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
-- Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), and [nightfox](https://github.com/EdenEast/nightfox.nvim)
+- Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), and more
 - Fast startup < 150 ms 🚀
 
 ### Navigation 🧭
