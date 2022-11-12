@@ -41,13 +41,13 @@ require("which-key").setup({
   window = {
     border = "none", -- none, single, double, shadow
     position = "bottom", -- bottom, top
-    margin = { 0, 40, 3, 40 }, -- extra window margin [top, right, bottom, left]
+    margin = { 0, 10, 3, 10 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
   },
   layout = {
     height = { min = 3, max = 25 }, -- min and max height of the columns
-    width = { min = 10, max = 50 }, -- min and max width of the columns
-    spacing = 20, -- spacing between columns
+    width = { min = 5, max = 50 }, -- min and max width of the columns
+    spacing = 10, -- spacing between columns
     align = "center", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
