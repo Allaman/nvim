@@ -7,7 +7,7 @@ catppuccin.setup({
     percentage = 0.15,
   },
   transparent_background = false,
-  term_colors = false,
+  term_colors = true,
   compile = {
     enabled = true,
     path = vim.fn.stdpath("cache") .. "/catppuccin",
@@ -76,7 +76,7 @@ catppuccin.setup({
     fern = false,
     barbar = false,
     bufferline = false,
-    markdown = false,
+    markdown = true,
     lightspeed = false,
     ts_rainbow = true,
     hop = false,
