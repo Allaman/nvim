@@ -19,7 +19,6 @@ require("nvim-treesitter.configs").setup({
   endwise = {
     enable = true,
   },
-  markid = { enable = true },
   indent = { enable = true },
   autopairs = { enable = true },
   textobjects = {
