@@ -56,9 +56,11 @@ M.treesitter_ensure_installed = {
   "ledger",
   "lua",
   "markdown",
+  "markdown_inline",
   "python",
   "regex",
   "toml",
+  "vim",
   "yaml",
 }
 
