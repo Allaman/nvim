@@ -1,4 +1,7 @@
 -- References to ./lua/
+
+-- Load global functions
+require("globals")
 -- Plugin management via Packer
 require("plugins")
 -- "Global" Keymappings
