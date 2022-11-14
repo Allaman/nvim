@@ -100,24 +100,6 @@ function M.get_listed_buffers()
   return buffers
 end
 
--- sets the winbar with nvim-navic location
--- inspired by https://github.com/fgheng/winbar.nvim
-function M.show_winbar()
-  -- prevent crashing after initial setup
-  local ok, _ = pcall(require, "nvim-navic")
-  if ok then
-    local navic = require("nvim-navic")
-    if navic.is_available() then
-      -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-      local location = navic.get_location()
-      local value = "%#WinBarSeparator#" .. "%=" .. "%*" .. location .. "%#WinBarSeparator#" .. "%*"
-      vim.api.nvim_set_option_value("winbar", value, { scope = "local" })
-    else
-      vim.api.nvim_set_option_value("winbar", "", { scope = "local" })
-    end
-  end
-end
-
 function M.map(mode, l, r, opts)
   opts = opts or {}
   vim.keymap.set(mode, l, r, opts)
