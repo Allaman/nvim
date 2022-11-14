@@ -1,3 +1,4 @@
+local settings = require("settings")
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
@@ -125,4 +126,6 @@ telescope.load_extension("heading")
 telescope.load_extension("packer")
 telescope.load_extension("ui-select")
 telescope.load_extension("make")
-telescope.load_extension("noice")
+if not settings.disable_noice then
+  telescope.load_extension("noice")
+end
