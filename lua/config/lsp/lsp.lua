@@ -15,6 +15,7 @@ local servers = {
   "bashls",
   "dockerls",
   "jsonls",
+  "marksman",
   "pyright",
   "sumneko_lua",
   "terraformls",
