@@ -209,6 +209,13 @@ packer.startup(function(use)
     requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
     config = get_config("lsp.mason"),
   })
+  use({
+    "folke/neodev.nvim",
+    config = function()
+      require("neodev").setup()
+    end,
+    before = "nvim-lspconfig",
+  })
   -- }}} LSP
 
   -- {{{ UI
