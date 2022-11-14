@@ -70,8 +70,8 @@ api.nvim_create_autocmd("User", {
 
     if fallback_on_empty then
       -- require("neo-tree").close_all()
-      vim.cmd("Alpha")
-      vim.cmd(event.buf .. "bwipeout")
+      vim.api.nvim_command("Alpha")
+      vim.api.nvim_command(event.buf .. "bwipeout")
     end
   end,
 })
@@ -93,7 +93,7 @@ api.nvim_create_autocmd(
 if settings.packer_auto_sync then
   -- source plugins.lua and run PackerSync on save
   local sync_packer = function()
-    vim.cmd("runtime lua/plugins.lua")
+    vim.api.nvim_command("runtime lua/plugins.lua")
     require("packer").sync()
   end
   api.nvim_create_autocmd({ "BufWritePost" }, {
