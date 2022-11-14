@@ -299,7 +299,9 @@ packer.startup(function(use)
       "MunifTanjim/nui.nvim",
       { "rcarriga/nvim-notify", config = get_config("ui.notify") },
     },
+    disable = settings.disable_noice,
   })
+
   -- }}} UI
 
   -- {{{ Other
