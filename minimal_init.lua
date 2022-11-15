@@ -1,7 +1,7 @@
 -- Adopted from https://github.com/folke/noice.nvim/wiki/Minimal-%60init.lua%60-to-Reproduce-an-Issue
 -- use with nvim -u minimal_init.lua
-vim.cmd([[set runtimepath=$VIMRUNTIME]])
-vim.cmd([[set packpath=/tmp/nvim/site]])
+vim.api.nvim_command([[set runtimepath=$VIMRUNTIME]])
+vim.api.nvim_command([[set packpath=/tmp/nvim/site]])
 
 local package_root = "/tmp/nvim/site/pack"
 local install_path = package_root .. "/packer/start/packer.nvim"
@@ -31,4 +31,4 @@ end
 
 load_plugins()
 require("packer").sync()
-vim.cmd([[autocmd User PackerComplete ++once echo "Ready!" | lua load_config()]])
+vim.api.nvim_command([[autocmd User PackerComplete ++once echo "Ready!" | lua load_config()]])
