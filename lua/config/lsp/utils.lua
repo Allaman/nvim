@@ -14,7 +14,7 @@ end
 AUTOFORMAT_ACTIVE = true
 -- toggle null-ls's autoformatting
 M.toggle_autoformat = function()
-  require("utils").notify("Toggling autoformatting", "info", "functions.lua")
+  require("utils").notify("Toggling autoformatting", 1, "lsp.utils")
   AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
 end
 

@@ -8,7 +8,7 @@ M.notify = function(message, level, title)
     title = title,
     timeout = 2000,
   }
-  require("notify")(message, level, notify_options)
+  vim.api.nvim_notify(message, level, notify_options)
 end
 
 -- check if a variable is not empty nor nil
