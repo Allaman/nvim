@@ -239,7 +239,7 @@ require("neo-tree").setup({
         },
       },
       ["A"] = "add_directory", -- also accepts the config.show_path option.
-      ["d"] = "delete",
+      ["dd"] = "delete",
       ["r"] = "rename",
       ["y"] = "copy_to_clipboard",
       ["x"] = "cut_to_clipboard",
