@@ -20,6 +20,10 @@ M.winbar_filetype_exclude = {
 }
 
 local excludes = function()
+  if M.winbar_filetype_exclude == nil then
+    vim.opt_local.winbar = nil
+    return true
+  end
   if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) then
     vim.opt_local.winbar = nil
     return true
