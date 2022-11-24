@@ -166,6 +166,7 @@ There are some tools that are required in order to use some features/plugins:
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
+- [trash-cli](https://github.com/andreafrancia/trash-cli)
 
 ### LSPs, Formatting, Linters, DAP
 
