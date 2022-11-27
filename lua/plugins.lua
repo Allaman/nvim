@@ -137,7 +137,7 @@ packer.startup(function(use)
   use({ "axieax/urlview.nvim", cmd = "Urlview", config = get_config("ui.urlview") })
 
   use({ "famiu/bufdelete.nvim" })
-  use({ "rafcamlet/nvim-luapad" })
+
   use({ "rafcamlet/nvim-luapad", ft = "lua" })
   -- }}} Coding
 
