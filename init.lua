@@ -3,7 +3,7 @@
 -- Load global functions
 require("anvim.globals")
 -- Plugin management via Packer
-require("anvim.plugins")
+require("anvim.packer")
 -- "Global" Keymappings
 require("anvim.mappings")
 -- All non plugin related (vim) options

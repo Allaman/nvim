@@ -105,4 +105,11 @@ function M.map(mode, l, r, opts)
   vim.keymap.set(mode, l, r, opts)
 end
 
+-- returns the require for use in `config` parameter of packer's `use`
+-- expects the name of the config file
+-- prefixes with `anvim.config.`
+M.get_config = function(name)
+  return string.format('require("anvim.config.%s")', name)
+end
+
 return M
