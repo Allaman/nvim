@@ -1,7 +1,7 @@
 -- disable v
 -- local presets = require("which-key.plugins.presets")
 -- presets.operators["v"] = nil
-local icons = require("config.ui.icons")
+local icons = require("anvim.config.ui.icons")
 
 require("which-key").setup({
   plugins = {

@@ -1,5 +1,5 @@
 -- vim:foldmethod=marker:foldlevel=0:foldenable:
-local settings = require("settings")
+local settings = require("anvim.settings")
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -7,7 +7,7 @@ local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 -- returns the require for use in `config` parameter of packer's use
 -- expects the name of the config file
 local function get_config(name)
-  return string.format('require("config/%s")', name)
+  return string.format('require("anvim.config.%s")', name)
 end
 
 -- bootstrap packer if not installed
@@ -38,6 +38,9 @@ packer.init({
 
 packer.startup(function(use)
   use({ "wbthomason/packer.nvim" })
+  -- use({ "~/workspace/github.com/allaman/kustomize.nvim", ft = "yaml", config = "require('kustomize').setup()" })
+  use({ "allaman/kustomize.nvim", ft = "yaml", config = "require('kustomize').setup()" })
+  use({ "~/live-server.nvim" })
 
   -- {{{ Coding
   use({ "windwp/nvim-autopairs", config = get_config("coding.nvim-autopairs") })
@@ -304,6 +307,12 @@ packer.startup(function(use)
     disable = settings.disable_noice,
   })
 
+  use({
+    "nvim-zh/colorful-winsep.nvim",
+    config = function()
+      require("colorful-winsep").setup()
+    end,
+  })
   -- }}} UI
 
   -- {{{ Other
@@ -337,5 +346,15 @@ packer.startup(function(use)
   })
 
   use({ "tweekmonster/startuptime.vim" })
+
+  use({
+    "ziontee113/icon-picker.nvim",
+    requires = "stevearc/dressing.nvim",
+    config = function()
+      require("icon-picker").setup({
+        disable_legacy_commands = true,
+      })
+    end,
+  })
   -- }}} Other
 end)

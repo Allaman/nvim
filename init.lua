@@ -1,12 +1,12 @@
 -- References to ./lua/
 
 -- Load global functions
-require("globals")
+require("anvim.globals")
 -- Plugin management via Packer
-require("plugins")
+require("anvim.plugins")
 -- "Global" Keymappings
-require("mappings")
+require("anvim.mappings")
 -- All non plugin related (vim) options
-require("options")
+require("anvim.options")
 -- Vim autocommands/autogroups
-require("autocmd")
+require("anvim.autocmd")

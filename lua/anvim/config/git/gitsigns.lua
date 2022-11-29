@@ -42,5 +42,5 @@ require("gitsigns").setup({
   yadm = {
     enable = false,
   },
-  on_attach = require("config.git.mappings").setup(),
+  on_attach = require("anvim.config.git.mappings").setup(),
 })

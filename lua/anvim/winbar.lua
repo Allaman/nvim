@@ -1,5 +1,5 @@
 -- adopted from https://alpha2phi.medium.com/neovim-for-beginners-window-bar-e7b4435fc7e9
-local icons = require("config.ui.icons")
+local icons = require("anvim.config.ui.icons")
 local navic = require("nvim-navic")
 
 M = {}

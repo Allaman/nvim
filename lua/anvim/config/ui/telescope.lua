@@ -1,9 +1,9 @@
-local settings = require("settings")
+local settings = require("anvim.settings")
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
 local fb_actions = require("telescope").extensions.file_browser.actions
-local icons = require("config.ui.icons")
+local icons = require("anvim.config.ui.icons")
 
 telescope.setup({
   extensions = {

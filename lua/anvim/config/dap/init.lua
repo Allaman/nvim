@@ -47,8 +47,8 @@ local function configure_exts()
 end
 
 local function configure_debuggers()
-  require("config.dap.python").setup()
-  require("config.dap.go").setup()
+  require("anvim.config.dap.python").setup()
+  require("anvim.config.dap.go").setup()
 end
 
 local function create_mapping()
@@ -63,7 +63,7 @@ function M.setup()
   configure_exts() -- Extensions
   configure_debuggers() -- Debugger
   create_mapping() -- which-key mapping
-  require("config.hydra.dap") -- enable Hydra head
+  require("anvim.config.hydra.dap") -- enable Hydra head
 end
 
 return M

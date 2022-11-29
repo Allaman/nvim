@@ -34,7 +34,7 @@ map("x", "J", ":move '>+1<CR>gv-gv", default_options)
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-  return require("utils").escapePair()
+  return require("anvim.utils").escapePair()
 end, default_options)
 
 local wk = require("which-key")
@@ -70,7 +70,7 @@ wk.register({
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    f = { "<cmd>" .. require("utils").telescope_find_files() .. "<cr>", "Find File" },
+    f = { "<cmd>" .. require("anvim.utils").telescope_find_files() .. "<cr>", "Find File" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
@@ -78,9 +78,9 @@ wk.register({
   },
   m = {
     name = "Misc",
-    c = { "<cmd>lua require('utils').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
+    c = { "<cmd>lua require('anvim.utils').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
-    d = { "<cmd>lua require('config.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
+    d = { "<cmd>lua require('anvim.config.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     o = { "Options" },
     p = { "<cmd>PackerSync --preview<cr>", "PackerSync" },
@@ -90,7 +90,7 @@ wk.register({
     name = "Quickfix",
     j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
     k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('utils').toggle_qf()<cr>", "Toggle quickfix list" },
+    q = { "<cmd>lua require('nvim.utils').toggle_qf()<cr>", "Toggle quickfix list" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
   -- hydra heads

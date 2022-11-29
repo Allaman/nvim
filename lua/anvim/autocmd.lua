@@ -1,5 +1,5 @@
 local api = vim.api
-local settings = require("settings")
+local settings = require("anvim.settings")
 
 --- Remove all trailing whitespace on save
 local TrimWhiteSpaceGrp = api.nvim_create_augroup("TrimWhiteSpaceGrp", { clear = true })

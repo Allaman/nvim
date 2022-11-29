@@ -1,7 +1,7 @@
 local wk = require("which-key")
 local default_options = { silent = true }
 local gs = package.loaded.gitsigns
-local map = require("utils").map
+local map = require("anvim.utils").map
 
 M = {}
 
