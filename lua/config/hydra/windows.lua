@@ -13,7 +13,8 @@ local hint = [[
  ^ ^ _J_ ^ ^   ^ ^ _j_ ^ ^  _c_: close
 
  _=_: equalize _m_: toggle maximize
- _p_: pick     _w_: shift   _W_: swap
+ _p_: pick
+ _r_: Rotate down/right   _R_: rotate up/left
  ^
  _q_: exit
 ]]
@@ -50,14 +51,15 @@ Hydra({
     { "h", cmd("wincmd <") },
     { "l", cmd("wincmd >") },
     -- move window around
-    { "H", cmd("WinShift left") },
-    { "J", cmd("WinShift down") },
-    { "K", cmd("WinShift up") },
-    { "L", cmd("WinShift right") },
-    { "p", pick_window, opts }, -- pick window
-    -- WinShift modes
-    { "w", cmd("WinShift") },
-    { "W", cmd("WinShift swap") },
+    { "H", cmd("wincmd H") },
+    { "J", cmd("wincmd J") },
+    { "K", cmd("wincmd K") },
+    { "L", cmd("wincmd L") },
+    -- rotate window
+    { "r", cmd("windcmd r") },
+    { "R", cmd("windcmd R") },
+    -- pick window
+    { "p", pick_window, opts },
     { "q", nil, opts },
   },
 })
