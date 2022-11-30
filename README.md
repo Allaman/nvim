@@ -37,7 +37,7 @@ _Font_: Jetbrains Mono
 
 ![](./docs/which-key.png)
 
-See `./lua/config/which.lua` for details.
+See `./lua/anvim/config/ui/which-key.lua` for details.
 
 </details>
 
@@ -153,7 +153,7 @@ I created an installation [script](install.sh) that sets up all required tools o
 
 For now, it works on Debian/Ubuntu and Arch. MacOS will be added soon.
 
-💡If you are a Tmux user have a look at vim-tpipelins's [requirements](https://github.com/vimpostor/vim-tpipeline#installation) for your tmux.conf and enable it in `./lua/settings.lua`.
+💡If you are a Tmux user have a look at vim-tpipelins's [requirements](https://github.com/vimpostor/vim-tpipeline#installation) for your tmux.conf and enable it in `./lua/anvim/settings.lua`.
 
 USE AT YOUR OWN RISK!!
 
@@ -216,49 +216,57 @@ For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-gram
 
 ## Structure
 
-Each plugin to be installed is defined in `plugins.lua` and each plugin has its own configuration file (if necessary) in `lua/config/` which is loaded by packer.
+Each plugin to be installed is defined in `./lua/anvim/plugins/` and each plugin has its own configuration file (if necessary) in `lua/anvim/config/` which is loaded by packer.
+
+`tree1 .`
 
 ```sh
 .
 ├── after            # file specific settings
 ├── init.lua         # main entry point
-├── lua
-│   ├── autocmd.lua  # autocommands
-│   ├── config/      # plugin configurations
-│   ├── mappings.lua # Keymappings not in plugin configuration
-│   ├── options.lua  # non plugin related (vim) options
-│   ├── plugins.lua  # define plugins to be managed via Packer
-│   ├── settings.lua # parameters to configure some settings
-│   ├── winbar.lua   # winbar configuration
-│   └── utils.lua    # lua code to extend functionality
+├── lua/anvim        # lua configuration
 ├── plugin           # packer_compiled
 ├── snippets         # snippets directory (luasnip style)
 └── spell            # my spell files linked from another repo
+```
+
+`tree1 lua/anvim`
+
+```sh
+lua/anvim
+├── autocmd.lua      # autocmds for various things
+├── config           # configuration folder for plugins
+├── globals.lua      # global functions
+├── mappings.lua     # key bindings
+├── options.lua      # vim options
+├── plugins          # plugins to be installed
+├── packer.lua       # packer configuration
+├── settings.lua     # user settings to configure
+├── utils.lua        # utility functions
+└── winbar.lua       # winbar configuration
 ```
 
 ## User configuration
 
 The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
 
-All options can be found in `./lua/settings.lua`.
+All options can be found in `./lua/anvim/settings.lua`.
 
 ## Remove plugins
 
-Basically, you can remove unwanted plugins by just removing the appropriate line in `./lua/plugins.lua` and, if applicable, delete its configuration file in `./lua/config/`.
+Basically, you can remove unwanted plugins by just removing the appropriate table in `./lua/anvim/plugins/<file>.lua` and, if applicable, delete its configuration file in `./lua/anvim/config/`.
 
-ℹ️ Keep in mind that some plugins are configured to work in conjunction with other plugins. For instance, autopairs is configured in `./lua/config/treesitter.lua`. For now there is no logic implemented that cross-checks such dependencies.
+**Keep in mind that some plugins are configured to work in conjunction with other plugins. For instance, autopairs is configured in `./lua/vim/config/treesitter.lua`. For now there is no logic implemented that cross-checks such dependencies.**
 
 ## Add plugins
 
 If you want to follow my method adding a plugin is straight forward:
 
-In `lua/plugins.lua` add the plugin to Packer. You are free to use a name for the configuration file (should be a valid filename).
+To quickly test add in `lua/anvim/packer.lua` the plugin with the usual `use` syntax (within `packer.startup(function(use)...)`)
 
-```lua
-use {"<Address-of-the-plugin>", config = get_config("<name-of-the-plugin>")}
-```
+If you are confident that you will keep the plugin put it in an appropriate place in `./lua/anvim/plugins/<file>.lua`. A table for a plugin ist just the same table as in `use({<this>})`.
 
-Create `lua/config/<name-of-the-plugin>.lua` where you put the plugins settings. If your plugin does not require additional configuration or loading you can omit the config part.
+Create `lua/anvim/config/<folder>/<name-of-the-plugin>.lua` where you put the plugins settings. If your plugin does not require additional configuration or loading you can omit the config part.
 
 Open another instance of Neovim (I always try to keep one running instance of Neovim open in case I messed up my config) and run `PackerSync`.
 
