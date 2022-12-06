@@ -54,10 +54,10 @@ end
 M.toggle_colorcolumn = function()
   local value = vim.api.nvim_get_option_value("colorcolumn", {})
   if value == "" then
-    M.notify("Enable colocolumn", "info", "functions.lua")
+    M.notify("Enable colocolumn", 1, "functions.lua")
     vim.api.nvim_set_option_value("colorcolumn", "79", {})
   else
-    M.notify("Disable colocolumn", "info", "functions.lua")
+    M.notify("Disable colocolumn", 1, "functions.lua")
     vim.api.nvim_set_option_value("colorcolumn", "", {})
   end
 end
