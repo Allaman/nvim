@@ -19,7 +19,9 @@ local opts = {
     ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
   },
   format = { enabled = false },
-  validate = true, -- TODO: conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
+  -- anabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
+  -- see utils.custom_lsp_attach() for the workaround
+  validate = true,
   completion = true,
   hover = true,
 }
