@@ -1,3 +1,4 @@
+local utils = require("anvim.utils")
 M = {}
 
 DIAGNOSTICS_ACTIVE = true -- must be global since the toggle function is called in which.lua
@@ -38,6 +39,26 @@ function M.get_python_path(workspace)
   return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
+local function handle_helm(bufnr)
+  local bufName = vim.api.nvim_buf_get_name(bufnr)
+  -- usually Helm files are in a template folder
+  -- TODO: more robust and elegant check
+  if string.find(bufName, "templates") then
+    utils.notify("Disabling diagnostics for Helm template files", 1, "lsp/utils")
+    vim.diagnostic.reset(bufnr)
+    vim.diagnostic.disable(bufnr)
+  end
+end
+
+local function handle_kustomization(bufnr)
+  local bufName = vim.api.nvim_buf_get_name(bufnr)
+  if bufName == "kustomization.yaml" then
+    utils.notify("Disabling diagnostics for kustomization.yaml", 1, "lsp/utils")
+    vim.diagnostic.reset(bufnr)
+    vim.diagnostic.disable(bufnr)
+  end
+end
+
 function M.custom_lsp_attach(client, bufnr)
   -- disable formatting for LSP clients as this is handled by null-ls
   client.server_capabilities.documentFormattingProvider = false
@@ -46,6 +67,8 @@ function M.custom_lsp_attach(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
   end
+  handle_helm(bufnr)
+  handle_kustomization(bufnr)
   local wk = require("which-key")
   local default_options = { silent = true }
   wk.register({
