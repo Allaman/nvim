@@ -52,7 +52,8 @@ end
 
 local function handle_kustomization(bufnr)
   local bufName = vim.api.nvim_buf_get_name(bufnr)
-  if bufName == "kustomization.yaml" then
+  -- TODO: more robust and elegant check
+  if string.find(bufName, "kustomization.yaml") then
     utils.notify("Disabling diagnostics for kustomization.yaml", 1, "lsp/utils")
     vim.diagnostic.reset(bufnr)
     vim.diagnostic.disable(bufnr)
