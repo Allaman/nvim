@@ -90,7 +90,7 @@ wk.register({
     name = "Quickfix",
     j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
     k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('nvim.utils').toggle_qf()<cr>", "Toggle quickfix list" },
+    q = { "<cmd>lua require('anvim.utils').toggle_qf()<cr>", "Toggle quickfix list" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
   -- hydra heads
