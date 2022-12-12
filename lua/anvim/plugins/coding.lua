@@ -76,6 +76,7 @@ M.packages = {
     end,
   },
   {
+    -- TODO: alternative: https://github.com/Wansmer/treesj
     "aarondiel/spread.nvim",
     after = "nvim-treesitter",
     config = utils.get_config("coding.spread"),
