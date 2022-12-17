@@ -3,4 +3,4 @@ vo.tabstop = 4
 vo.shiftwidth = 4
 vo.softtabstop = 4
 
-require("anvim.config.dap").setup()
+require("core.config.dap").setup()

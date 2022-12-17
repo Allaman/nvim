@@ -1,0 +1,5 @@
+require("core.config.hydra.git")
+require("core.config.hydra.options")
+require("core.config.hydra.spelling")
+require("core.config.hydra.telescope")
+require("core.config.hydra.windows")

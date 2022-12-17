@@ -1,5 +1,0 @@
-require("anvim.config.hydra.git")
-require("anvim.config.hydra.options")
-require("anvim.config.hydra.spelling")
-require("anvim.config.hydra.telescope")
-require("anvim.config.hydra.windows")
