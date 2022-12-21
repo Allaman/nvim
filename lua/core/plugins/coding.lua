@@ -4,8 +4,9 @@ local M = {}
 M.packages = {
   {
     "allaman/kustomize.nvim",
+    -- "~/workspace/github.com/allaman/kustomize.nvim",
     ft = "yaml",
-    config = "require('kustomize').setup()",
+    config = "require('kustomize').setup({defaults = true})",
   },
   {
     "~/live-server.nvim",
