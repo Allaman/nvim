@@ -238,7 +238,7 @@ packer.startup(function(use)
   use({
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
-    cmd = "NeoTree*",
+    cmd = "Neotree*",
     requires = {
       {
         "s1n7ax/nvim-window-picker", -- only needed if you want to use the commands with "_with_window_picker" suffix
