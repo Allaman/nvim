@@ -88,10 +88,11 @@ function M.custom_lsp_attach(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
   end
-  handle_helm_templates(bufnr)
-  handle_kustomization(bufnr)
-  handle_docker_compose(bufnr)
-  handle_helm_releases(bufnr)
+  -- TODO: this workaround is not sufficient and bugyy
+  -- handle_helm_templates(bufnr)
+  -- handle_kustomization(bufnr)
+  -- handle_docker_compose(bufnr)
+  -- handle_helm_releases(bufnr)
   local wk = require("which-key")
   local default_options = { silent = true }
   wk.register({

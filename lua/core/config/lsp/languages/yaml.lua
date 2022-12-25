@@ -21,7 +21,8 @@ local opts = {
   format = { enabled = false },
   -- anabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
   -- see utils.custom_lsp_attach() for the workaround
-  validate = true,
+  -- how can I detect Kubernetes ONLY yaml files? (no CRDs, Helmreleases, etc.)
+  validate = false,
   completion = true,
   hover = true,
 }
