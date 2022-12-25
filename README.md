@@ -264,7 +264,7 @@ If you want to follow my method adding a plugin is straight forward:
 
 To quickly test add in `lua/core/packer.lua` the plugin with the usual `use` syntax (within `packer.startup(function(use)...)`)
 
-If you are confident that you will keep the plugin put it in an appropriate place in `./lua/core/plugins/<file>.lua`. A table for a plugin ist just the same table as in `use({<this>})`.
+If you are confident that you will keep the plugin put it in an appropriate place in `./lua/core/plugins/<file>.lua`. A table for a plugin is just the same table as in `use({<this>})`.
 
 Create `lua/core/config/<folder>/<name-of-the-plugin>.lua` where you put the plugins settings. If your plugin does not require additional configuration or loading you can omit the config part.
 
