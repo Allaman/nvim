@@ -81,7 +81,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 ### General ⚙️
 
-- Package management and plugin configuration via [Lazy](https://github.com/folke/lazy.nvim)
+- Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
 - Submodes powered by [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
 - Complete transformation via [noice.nvim](https://github.com/folke/noice.nvim)
@@ -119,7 +119,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided `Dockerfile`
 
-💡 All dependencies of my config are installed except texlab, tectonic, and vim-grammarous which makes it at **1.9GB** a rather large image
+💡 All dependencies of my config are installed except texlab, tectonic, which makes it at **1.9GB** a rather large image
 
 ### Build the image
 
@@ -184,8 +184,6 @@ Go related dependencies are managed by `go.nvim` and are installed by running `:
 #### All other
 
 All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim) and [Mason tool installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.stdpath("data") .. "mason"`). [Mason requirements](https://github.com/williamboman/mason.nvim#requirements) must be available on your system.
-
-For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-grammarous) Java 8+ is required
 
 ## Bindings
 
