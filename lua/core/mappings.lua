@@ -2,10 +2,6 @@ local map = vim.keymap.set
 local default_options = { silent = true }
 local expr_options = { expr = true, silent = true }
 
---Remap space as leader key
-map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-vim.g.mapleader = " "
-
 --Remap for dealing with visual line wraps
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
@@ -34,7 +30,7 @@ map("x", "J", ":move '>+1<CR>gv-gv", default_options)
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-  return require("core.utils").escapePair()
+  return require("core.utils.functions").escapePair()
 end, default_options)
 
 local wk = require("which-key")
@@ -70,7 +66,7 @@ wk.register({
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    f = { "<cmd>" .. require("core.utils").telescope_find_files() .. "<cr>", "Find File" },
+    f = { "<cmd>" .. require("core.utils.functions").telescope_find_files() .. "<cr>", "Find File" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
@@ -78,19 +74,19 @@ wk.register({
   },
   m = {
     name = "Misc",
-    c = { "<cmd>lua require('core.utils').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
+    c = { "<cmd>lua require('core.utils.functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
     d = { "<cmd>lua require('core.config.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     o = { "Options" },
-    p = { "<cmd>PackerSync --preview<cr>", "PackerSync" },
+    p = { "<cmd>Lazy check<cr>", "Lazy check" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
   },
   q = {
     name = "Quickfix",
     j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
     k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('core.utils').toggle_qf()<cr>", "Toggle quickfix list" },
+    q = { "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", "Toggle quickfix list" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
   -- hydra heads
