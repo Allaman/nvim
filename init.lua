@@ -2,8 +2,10 @@
 
 -- Load global functions
 require("core.globals")
+-- Plugin management via lazy
+require("core.lazy")
 -- Plugin management via Packer
-require("core.packer")
+-- require("core.packer")
 -- "Global" Keymappings
 require("core.mappings")
 -- All non plugin related (vim) options

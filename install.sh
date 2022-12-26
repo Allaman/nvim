@@ -17,7 +17,7 @@ Just confirm / hit enter at every choice for the default settings (recommended)
 
 After this script is finished
 -  log out or open a new shell
-- Open nvim and run :PackerSync, close nvim
+- Open nvim and run :Lazy sync, close nvim
 - Open nvim and wait for Mason automatically installing dependencies
 Enjoy!
 

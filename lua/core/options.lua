@@ -1,5 +1,5 @@
 local settings = require("core.settings")
-local utils = require("core.utils")
+local utils = require("core.utils.functions")
 local o = vim.opt
 local fn = vim.fn
 
@@ -23,7 +23,7 @@ o.mouse = settings.mouse
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = settings.showtabline
 if not settings.disable_winbar then
-  o.winbar = "%{%v:lua.require'core.winbar'.get_winbar()%}"
+  o.winbar = "%{%v:lua.require'core.utils.winbar'.get_winbar()%}"
 end
 if settings.global_statusline then
   o.laststatus = 3

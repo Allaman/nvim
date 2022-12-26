@@ -107,13 +107,8 @@ curl -sLo stylua.zip "https://github.com/JohnnyMorganz/StyLua/releases/download/
 # Copy Neovim config into the image
 RUN mkdir -p .config/nvim
 COPY --chown=nvim:nvim . .config/nvim
-# Bootstrap Packer
-RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim \
-# see https://github.com/Allaman/nvim/issues/12
-&& sed -i 's/  max_jobs = 20,/  max_jobs = nil,/' .config/nvim/lua/plugins.lua \
-# Install plugins via Packer
-&& nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' \
+# Install plugins
+RUN nvim --headless "+Lazy! sync" +qa \
 # we need to wait for parsers to be installed as this is apparently not blocking
 && nvim --headless -c 'TSInstall' +"sleep 15" +qa || true
 

@@ -81,7 +81,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 ### General ⚙️
 
-- Package management and plugin configuration via [Packer](https://github.com/wbthomason/packer.nvim)
+- Package management and plugin configuration via [Lazy](https://github.com/folke/lazy.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
 - Submodes powered by [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
 - Complete transformation via [noice.nvim](https://github.com/folke/noice.nvim)
@@ -216,16 +216,14 @@ For advanced spell checks via [vim-grammarous](https://github.com/rhysd/vim-gram
 
 ## Structure
 
-Each plugin to be installed is defined in `./lua/core/plugins/` and each plugin has its own configuration file (if necessary) in `lua/core/config/` which is loaded by packer.
-
 `tree1 .`
 
 ```sh
 .
 ├── after            # file specific settings
 ├── init.lua         # main entry point
-├── lua/core        # lua configuration
-├── plugin           # packer_compiled
+├── lazy-lock.json   # Lockfile for Lazy.nvim
+├── lua/core         # lua configuration
 ├── snippets         # snippets directory (luasnip style)
 └── spell            # my spell files linked from another repo
 ```
@@ -237,24 +235,24 @@ lua/core
 ├── autocmd.lua      # autocmds for various things
 ├── config           # configuration folder for plugins
 ├── globals.lua      # global functions
+├── lazy.lua         # Lazy configuration
 ├── mappings.lua     # key bindings
 ├── options.lua      # vim options
-├── plugins          # plugins to be installed
-├── packer.lua       # packer configuration
+├── plugins          # plugins and their configuration
 ├── settings.lua     # user settings to configure
-├── utils.lua        # utility functions
-└── winbar.lua       # winbar configuration
 ```
+
+Each plugin to be installed is defined in `./lua/core/plugins/` in a separate file.
 
 ## User configuration
 
-The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
+The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc. but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
 
 All options can be found in `./lua/core/settings.lua`.
 
 ## Remove plugins
 
-Basically, you can remove unwanted plugins by just removing the appropriate table in `./lua/core/plugins/<file>.lua` and, if applicable, delete its configuration file in `./lua/core/config/`.
+You can remove unwanted plugins by just removing the appropriate file in `./lua/core/plugins/`. Lazy will take care of removing the plugin.
 
 **Keep in mind that some plugins are configured to work in conjunction with other plugins. For instance, autopairs is configured in `./lua/vim/config/treesitter.lua`. For now there is no logic implemented that cross-checks such dependencies.**
 
@@ -262,13 +260,9 @@ Basically, you can remove unwanted plugins by just removing the appropriate tabl
 
 If you want to follow my method adding a plugin is straight forward:
 
-To quickly test add in `lua/core/packer.lua` the plugin with the usual `use` syntax (within `packer.startup(function(use)...)`)
+Create a file in `./lua/core/plugins/` following the expected format of Lazy.
 
-If you are confident that you will keep the plugin put it in an appropriate place in `./lua/core/plugins/<file>.lua`. A table for a plugin is just the same table as in `use({<this>})`.
-
-Create `lua/core/config/<folder>/<name-of-the-plugin>.lua` where you put the plugins settings. If your plugin does not require additional configuration or loading you can omit the config part.
-
-Open another instance of Neovim (I always try to keep one running instance of Neovim open in case I messed up my config) and run `PackerSync`.
+Open another instance of Neovim (I always try to keep one running instance of Neovim open in case I messed up my config) and run `Lazy sync`.
 
 ## Inspiration
 

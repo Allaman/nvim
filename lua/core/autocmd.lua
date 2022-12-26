@@ -88,16 +88,3 @@ api.nvim_create_autocmd(
     end,
   }
 )
-
--- automatically run PackerSync on save of plugins.lua
-if settings.packer_auto_sync then
-  -- source plugins.lua and run PackerSync on save
-  local sync_packer = function()
-    vim.api.nvim_command("runtime lua/plugins.lua")
-    require("packer").sync()
-  end
-  api.nvim_create_autocmd({ "BufWritePost" }, {
-    pattern = { "plugins.lua" },
-    callback = sync_packer,
-  })
-end
