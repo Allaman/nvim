@@ -207,10 +207,12 @@ All other dependencies are managed by [Mason](https://github.com/williamboman/ma
 | i/s  | \<c-k\>                | Luasnip backward                                       |
 | i    | \<c-h\>                | Luasnip select choice                                  |
 | n    | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)     |
-| i    | \<c-l\>                | Move out of closing bracket                            |
+| i    | \<c-l\>                | Move out of closing brackets                           |
 | n    | \<CR\>                 | Start incremental selection                            |
 | v    | \<Tab\>                | Increment selection                                    |
 | v    | \<S-Tab\>              | Decrement selection                                    |
+| v    | \<S-j\>                | Move selected lines down                               |
+| v    | \<S-k\>                | Move selected lines up                                 |
 
 ## Structure
 
