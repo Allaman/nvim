@@ -166,7 +166,15 @@ There are some tools that are required in order to use some features/plugins:
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
+
+For neo-tree delete functionality:
+
 - [trash-cli](https://github.com/andreafrancia/trash-cli)
+
+For Latex functionality:
+
+- [Tectonic](https://tectonic-typesetting.github.io/en-US/)
+- [Skim](https://skim-app.sourceforge.io/)
 
 ### LSPs, Formatting, Linters, DAP
 
