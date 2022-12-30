@@ -14,7 +14,7 @@ function M.config()
   end
   g.vimtex_compiler_method = "tectonic"
   g.vimtex_mappings_enabled = false
-  -- Do not auto open quickfix on compile erros
+  -- Do not auto open quickfix on compile errors
   g.vimtex_quickfix_mode = 0
   -- vimtex toc options
   g.vimtex_toc_config = {
