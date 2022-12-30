@@ -50,7 +50,6 @@ M.treesitter_ensure_installed = {
   "javascript",
   "json",
   "kotlin",
-  "latex",
   "ledger",
   "lua",
   "markdown",

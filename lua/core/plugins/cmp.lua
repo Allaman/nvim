@@ -66,6 +66,7 @@ function M.config()
       { name = "calc" },
       { name = "path" },
       { name = "rg", keyword_length = 5 },
+      -- { omni = true }, -- completion for vimtex - is this necessary?
     },
   })
 
