@@ -5,7 +5,6 @@ local M = {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-endwise",
-    "p00f/nvim-ts-rainbow",
     "mfussenegger/nvim-ts-hint-textobject",
     "windwp/nvim-ts-autotag",
   },
@@ -54,11 +53,6 @@ function M.config()
           ["ar"] = "@parameter.outer",
         },
       },
-    },
-    rainbow = {
-      enable = true,
-      extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-      max_file_lines = 2000, -- Do not enable for files with more than specified lines
     },
   })
 
