@@ -24,6 +24,7 @@ function M.config()
       ["."] = "actions.toggle_hidden",
     },
   })
+  vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 end
 
 return M
