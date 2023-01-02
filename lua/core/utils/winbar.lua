@@ -18,6 +18,7 @@ M.winbar_filetype_exclude = {
   "Outline",
   "spectre_panel",
   "toggleterm",
+  "oil",
 }
 
 local excludes = function()
