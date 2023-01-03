@@ -3,6 +3,7 @@ local M = {
   dependencies = {
     "ray-x/guihua.lua",
   },
+  ft = { "go" },
 }
 
 function M.config()
