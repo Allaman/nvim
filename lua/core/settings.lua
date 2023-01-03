@@ -62,4 +62,31 @@ M.treesitter_ensure_installed = {
   "yaml",
 }
 
+M.mason_tool_installer_ensure_installed = {
+  -- LSP
+  "bash-language-server",
+  "dockerfile-language-server",
+  "json-lsp",
+  "marksman",
+  "typescript-language-server",
+  "texlab",
+  "ltex-ls",
+  "lua-language-server",
+  "pyright",
+  "terraform-ls",
+  "yaml-language-server",
+  -- Formatter
+  "black",
+  "prettier",
+  "stylua",
+  -- Linter
+  "eslint_d",
+  "shellcheck",
+  "tflint",
+  "vale",
+  "yamllint",
+  -- DAP
+  "debugpy",
+}
+
 return M

@@ -1,3 +1,5 @@
+local settings = require("core.settings")
+
 local M = {
   "williamboman/mason.nvim",
   cmd = "Mason",
@@ -54,32 +56,7 @@ function M.config()
 
     -- a list of all tools you want to ensure are installed upon
     -- start; they should be the names Mason uses for each tool
-    ensure_installed = {
-      -- LSP
-      "bash-language-server",
-      "dockerfile-language-server",
-      "json-lsp",
-      "marksman",
-      "typescript-language-server",
-      "texlab",
-      "ltex-ls",
-      "lua-language-server",
-      "pyright",
-      "terraform-ls",
-      "yaml-language-server",
-      -- Formatter
-      "black",
-      "prettier",
-      "stylua",
-      -- Linter
-      "eslint_d",
-      "shellcheck",
-      "tflint",
-      "vale",
-      "yamllint",
-      -- DAP
-      "debugpy",
-    },
+    ensure_installed = settings.mason_tool_installer_ensure_installed,
 
     -- if set to true this will check each tool for updates. If updates
     -- are available the tool will be updated. This setting does not
