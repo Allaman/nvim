@@ -16,6 +16,7 @@ function M.config()
       ["<C-v>"] = "actions.select_vsplit",
       ["<C-h>"] = "actions.select_split",
       ["<C-p>"] = "actions.preview",
+      ["<C-l>"] = "actions.refresh",
       ["q"] = "actions.close",
       ["-"] = "actions.parent",
       ["_"] = "actions.open_cwd",
