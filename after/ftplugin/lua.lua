@@ -15,5 +15,6 @@ wk.register({
       end,
       "Luapad",
     },
+    t = { "<cmd>PlenaryBustedDirectory tests/<cr>", "Run tests in ./tests" },
   },
 }, { prefix = "<leader>", mode = "n", default_options })
