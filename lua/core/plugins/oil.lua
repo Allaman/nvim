@@ -21,7 +21,7 @@ function M.config()
       ["-"] = "actions.parent",
       ["_"] = "actions.open_cwd",
       ["<C-c>"] = "actions.cd",
-      ["~"] = "actions.tcd",
+      ["~"] = "actions.open_terminal",
       ["."] = "actions.toggle_hidden",
     },
   })
