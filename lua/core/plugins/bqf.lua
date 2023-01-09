@@ -4,10 +4,7 @@ local M = {
     "junegunn/fzf",
   },
   ft = "qf",
-}
-
-function M.config()
-  require("bqf").setup({
+  opts = {
     auto_enable = true,
     auto_resize_height = true,
     preview = {
@@ -29,7 +26,7 @@ function M.config()
         return ret
       end,
     },
-  })
-end
+  },
+}
 
 return M

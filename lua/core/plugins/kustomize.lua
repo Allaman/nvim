@@ -1,10 +1,7 @@
 local M = {
   "allaman/kustomize.nvim",
   ft = "yaml",
+  opts = { defaults = true },
 }
-
-function M.config()
-  require("kustomize").setup({ defaults = true })
-end
 
 return M

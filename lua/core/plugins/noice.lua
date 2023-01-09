@@ -10,6 +10,7 @@ local M = {
   enabled = settings.enable_noice,
 }
 
+-- FIX: can't refactor to 'opts'
 function M.config()
   require("noice").setup({
     cmdline = {

@@ -7,10 +7,7 @@ local M = {
     "kyazdani42/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-}
-
-function M.config()
-  require("neo-tree").setup({
+  opts = {
     -- If a user has a sources list it will replace this one.
     -- Only sources listed here will be loaded.
     -- You can also add an external source by adding it's name to this list.
@@ -421,7 +418,7 @@ function M.config()
         },
       },
     },
-  })
-end
+  },
+}
 
 return M

@@ -1,10 +1,7 @@
 local M = {
   "simrat39/symbols-outline.nvim",
   cmd = "SymbolsOutline",
-}
-
-function M.config()
-  require("symbols-outline").setup({
+  opts = {
     highlight_hovered_item = true,
     show_guides = true,
     auto_preview = false,
@@ -63,7 +60,7 @@ function M.config()
       Operator = { icon = "+", hl = "TSOperator" },
       TypeParameter = { icon = "𝙏", hl = "TSParameter" },
     },
-  })
-end
+  },
+}
 
 return M

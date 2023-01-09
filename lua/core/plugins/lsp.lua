@@ -3,10 +3,9 @@ local M = {
   dependencies = {
     "onsails/lspkind-nvim",
   },
+  config = function()
+    require("core.plugins.lsp.lsp")
+  end,
 }
-
-function M.config()
-  require("core.plugins.lsp.lsp")
-end
 
 return M

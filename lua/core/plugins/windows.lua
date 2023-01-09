@@ -5,18 +5,15 @@ local M = {
     "anuvyklack/middleclass",
     "anuvyklack/animation.nvim",
   },
-}
-
-function M.config()
-  require("windows").setup({
-    autowidth = { --		     |windows.autowidth|
+  opts = {
+    autowidth = { -- |windows.autowidth|
       enable = false,
-      winwidth = 5, --		      |windows.winwidth|
-      filetype = { --	    |windows.autowidth.filetype|
+      winwidth = 5, -- |windows.winwidth|
+      filetype = { -- |windows.autowidth.filetype|
         help = 2,
       },
     },
-    ignore = { --			|windows.ignore|
+    ignore = { -- |windows.ignore|
       buftype = { "quickfix" },
       filetype = { "NvimTree", "neo-tree", "undotree", "NeogitStatus" },
     },
@@ -26,7 +23,7 @@ function M.config()
       fps = 30,
       easing = "in_out_sine",
     },
-  })
-end
+  },
+}
 
 return M

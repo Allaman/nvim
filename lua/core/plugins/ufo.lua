@@ -1,12 +1,9 @@
 local M = {
   "kevinhwang91/nvim-ufo",
   dependencies = {
-    "kevinhwang91/promise-async"
-  }
+    "kevinhwang91/promise-async",
+  },
+  config = true,
 }
-
-function M.config()
-  require("ufo").setup()
-end
 
 return M

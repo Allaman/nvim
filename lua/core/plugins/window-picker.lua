@@ -1,9 +1,6 @@
 local M = {
   "s1n7ax/nvim-window-picker",
-}
-
-function M.config()
-  require("window-picker").setup({
+  opts = {
     autoselect_one = true,
     include_current = false,
     filter_rules = {
@@ -26,7 +23,7 @@ function M.config()
       },
     },
     other_win_hl_color = "#f05a40",
-  })
-end
+  },
+}
 
 return M

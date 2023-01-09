@@ -3,10 +3,7 @@ local M = {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-}
-
-function M.config()
-  require("todo-comments").setup({
+  opts = {
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
     -- keywords recognized as todo comments
@@ -60,7 +57,7 @@ function M.config()
       pattern = [[\b(KEYWORDS):]], -- ripgrep regex
       -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
     },
-  })
-end
+  },
+}
 
 return M

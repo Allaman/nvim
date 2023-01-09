@@ -4,12 +4,7 @@ local M = {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-}
-
-function M.config()
-  local neogit = require("neogit")
-
-  neogit.setup({
+  opts = {
     disable_signs = false,
     disable_context_highlighting = false,
     disable_commit_confirmation = false,
@@ -35,7 +30,7 @@ function M.config()
         -- ["s"] = "",
       },
     },
-  })
-end
+  },
+}
 
 return M
