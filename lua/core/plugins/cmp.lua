@@ -9,8 +9,12 @@ local M = {
     "lukas-reineke/cmp-rg",
     "hrsh7th/cmp-nvim-lsp-signature-help",
   },
-  opts = {
-          formatting = {
+  config = function()
+    local cmp = require("cmp")
+    local lspkind = require("lspkind")
+
+    cmp.setup({
+      formatting = {
         format = lspkind.cmp_format({
           with_text = false,
           maxwidth = 50,
@@ -62,13 +66,6 @@ local M = {
         { name = "rg", keyword_length = 5 },
         -- { omni = true }, -- completion for vimtex - is this necessary?
       },
-  }
-  config = function()
-    local cmp = require("cmp")
-    local lspkind = require("lspkind")
-
-    cmp.setup({
-
     })
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
