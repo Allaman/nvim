@@ -24,7 +24,7 @@ nls.setup({
     local default_options = { silent = true }
     wk.register({
       m = {
-        F = { "<cmd>lua require('core.config.lsp.utils').toggle_autoformat()<cr>", "Toggle format on save" },
+        F = { "<cmd>lua require('core.plugins.lsp.utils').toggle_autoformat()<cr>", "Toggle format on save" },
       },
     }, { prefix = "<leader>", mode = "n", default_options })
     if client.supports_method("textDocument/formatting") then
