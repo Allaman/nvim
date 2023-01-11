@@ -1,6 +1,6 @@
 local M = {
   "ahmedkhalf/project.nvim",
-  -- can't use 'opts' becuase module has non standard name 'project_nvim'
+  -- can't use 'opts' because module has non standard name 'project_nvim'
   config = function()
     require("project_nvim").setup({
       patterns = {
