@@ -15,8 +15,12 @@ end
 AUTOFORMAT_ACTIVE = true
 -- toggle null-ls's autoformatting
 M.toggle_autoformat = function()
-  require("core.utils.functions").notify("Toggling autoformatting", 1, "lsp.utils")
   AUTOFORMAT_ACTIVE = not AUTOFORMAT_ACTIVE
+  require("core.utils.functions").notify(
+    string.format("Autoformatting %s", AUTOFORMAT_ACTIVE and "on" or "off"),
+    1,
+    "lsp.utils"
+  )
 end
 
 -- detect python venv
