@@ -56,8 +56,8 @@ Hydra({
     { "K", cmd("wincmd K") },
     { "L", cmd("wincmd L") },
     -- rotate window
-    { "r", cmd("windcmd r") },
-    { "R", cmd("windcmd R") },
+    { "r", cmd("wincmd r") },
+    { "R", cmd("wincmd R") },
     -- pick window
     { "p", pick_window, opts },
     { "q", nil, opts },
