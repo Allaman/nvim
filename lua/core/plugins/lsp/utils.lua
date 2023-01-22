@@ -1,17 +1,16 @@
 local utils = require("core.utils.functions")
 M = {}
 
-DIAGNOSTICS_ACTIVE = true -- must be global since the toggle function is called in which.lua
--- toggle diagnostics line
-M.toggle_diagnostics = function()
-  DIAGNOSTICS_ACTIVE = not DIAGNOSTICS_ACTIVE
-  if DIAGNOSTICS_ACTIVE then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
+-- must be global or the initial state is not working
+VIRTUAL_TEXT_ACTIVE = true
+-- toggle displaying virtual text
+M.toggle_virtual_text = function()
+  VIRTUAL_TEXT_ACTIVE = not VIRTUAL_TEXT_ACTIVE
+  utils.notify(string.format("Virtualtext %s", VIRTUAL_TEXT_ACTIVE and "on" or "off"), 1, "lsp/utils.lua")
+  vim.diagnostic.show(nil, 0, nil, { virtual_text = VIRTUAL_TEXT_ACTIVE })
 end
 
+-- must be global or the initial state is not working
 AUTOFORMAT_ACTIVE = true
 -- toggle null-ls's autoformatting
 M.toggle_autoformat = function()

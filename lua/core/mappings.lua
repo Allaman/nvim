@@ -76,7 +76,7 @@ wk.register({
     name = "Misc",
     c = { "<cmd>lua require('core.utils.functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
-    d = { "<cmd>lua require('core.config.lsp.utils').toggle_diagnostics()<cr>", "Toggle Diagnostics" },
+    d = { "<cmd>lua require('core.plugins.lsp.utils').toggle_virtual_text()<cr>", "Toggle Virtualtext" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     o = { "Options" },
     p = { "<cmd>Lazy check<cr>", "Lazy check" },
