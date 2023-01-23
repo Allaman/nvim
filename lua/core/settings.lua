@@ -79,6 +79,7 @@ M.mason_tool_installer_ensure_installed = {
   "black",
   "prettier",
   "stylua",
+  "shfmt",
   -- Linter
   "eslint_d",
   "shellcheck",
