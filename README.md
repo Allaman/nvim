@@ -274,6 +274,7 @@ Open another instance of Neovim (I always try to keep one running instance of Ne
 
 ## Inspiration
 
+- [LazyVim](https://github.com/LazyVim/LazyVim)
 - [LunarVim](https://github.com/LunarVim/LunarVim)
 - [SpaceVim](https://spacevim.org/)
 - [Doom-nvim](https://github.com/NTBBloodbath/doom-nvim)

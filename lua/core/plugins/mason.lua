@@ -8,6 +8,7 @@ local M = {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
+    -- install_root_dir = path.concat({ vim.fn.stdpath("data"), "mason" }),
     require("mason").setup({})
 
     -- TODO: https://github.com/Allaman/nvim/issues/37

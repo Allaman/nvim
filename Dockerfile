@@ -109,7 +109,7 @@ RUN mkdir -p .config/nvim
 COPY --chown=nvim:nvim . .config/nvim
 # Install plugins
 RUN nvim --headless "+Lazy! sync" +qa \
-# we need to wait for parsers to be installed as this is apparently not blocking
+# we need to wait for parsers to be installed as this is apparently not blocking and '!' doesn't work
 && nvim --headless -c 'TSInstall' +"sleep 15" +qa || true
 
 
