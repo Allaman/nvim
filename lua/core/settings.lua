@@ -84,7 +84,6 @@ M.mason_tool_installer_ensure_installed = {
   "eslint_d",
   "shellcheck",
   "tflint",
-  "vale",
   "yamllint",
   -- DAP
   "debugpy",
