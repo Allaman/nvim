@@ -14,6 +14,7 @@ local M = {
         ["<CR>"] = "actions.select",
         ["<C-v>"] = "actions.select_vsplit",
         ["<C-h>"] = "actions.select_split",
+        ["<C-t>"] = "actions.select_tab",
         ["<C-p>"] = "actions.preview",
         ["<C-l>"] = "actions.refresh",
         ["q"] = "actions.close",
@@ -22,6 +23,7 @@ local M = {
         ["<C-c>"] = "actions.cd",
         ["~"] = "actions.open_terminal",
         ["."] = "actions.toggle_hidden",
+        ["<C-y>"] = "actions.copy_entry_path",
       },
     })
   end,
