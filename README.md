@@ -119,7 +119,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided `Dockerfile`
 
-💡 All dependencies of my config are installed except texlab, tectonic, which makes it at **1.9GB** a rather large image
+💡 Due to installing required tools like LSPs, CLI apps, etc. the image is approximately 3 GB large
 
 ### Build the image
 
