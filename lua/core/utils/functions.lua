@@ -18,8 +18,7 @@ end
 
 --- Check if path exists
 M.path_exists = function(path)
-  local ok = vim.loop.fs_stat(path)
-  return ok
+  return vim.loop.fs_stat(path)
 end
 
 -- Return telescope files command
