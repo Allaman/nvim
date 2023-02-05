@@ -20,8 +20,6 @@ M.list = false
 -- which list chars to schow
 M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- Disable integration of Neovim's statusline in your Tmux status
--- See https://github.com/vimpostor/vim-tpipeline#installation
--- M.disable_tmux_statusline_integration = true
 -- Disable https://github.com/norcalli/nvim-colorizer.lua
 -- due to causing lags with live_grep in some circumstances
 -- M.disable_colorizer = false

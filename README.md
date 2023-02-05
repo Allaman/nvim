@@ -153,8 +153,6 @@ I created an installation [script](install.sh) that sets up all required tools o
 
 For now, it works on Debian/Ubuntu and Arch. MacOS will be added soon.
 
-💡If you are a Tmux user have a look at vim-tpipelins's [requirements](https://github.com/vimpostor/vim-tpipeline#installation) for your tmux.conf and enable it in `./lua/core/settings.lua`.
-
 USE AT YOUR OWN RISK!!
 
 ## Requirements
