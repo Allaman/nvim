@@ -2,7 +2,6 @@ local settings = require("core.settings")
 
 local M = {
   "williamboman/mason.nvim",
-  cmd = "Mason",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
