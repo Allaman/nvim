@@ -30,6 +30,39 @@ map("n", "<C-f>", "/", { desc = "Search buffer" })
 -- save like your are used to
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- toggles
+map("n", "<leader>th", function()
+  vim.o.list = vim.o.list == false and true or false
+end, { desc = "Toggle hidden chars" })
+map("n", "<leader>tl", function()
+  vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
+end, { desc = "Toggle sgincolumn" })
+map("n", "<leader>tv", function()
+  vim.o.virtualedit = vim.o.virtualedit == "all" and "block" or "all"
+end, { desc = "Toggle virtualedit" })
+map("n", "<leader>ts", function()
+  vim.o.spell = vim.o.spell == false and true or false
+end, { desc = "Toggle spell" })
+map("n", "<leader>tw", function()
+  vim.o.wrap = vim.o.wrap == false and true or false
+end, { desc = "Toggle wrap" })
+map("n", "<leader>tc", function()
+  vim.o.cursorline = vim.o.cursorline == false and true or false
+end, { desc = "Toggle cursorline" })
+map(
+  "n",
+  "<leader>to",
+  "<cmd>lua require('core.utils.functions').toggle_colorcolumn()<cr>",
+  { desc = "Toggle colorcolumn" }
+)
+map(
+  "n",
+  "<leader>tt",
+  "<cmd>lua require('core.plugins.lsp.utils').toggle_virtual_text()<cr>",
+  { desc = "Toggle Virtualtext" }
+)
+map("n", "<leader>ts", "<cmd>SymbolsOutline<cr>", { desc = "Toggle SymbolsOutline" })
+
 local wk = require("which-key")
 
 -- register non leader based mappings
@@ -71,12 +104,9 @@ wk.register({
   },
   m = {
     name = "Misc",
-    c = { "<cmd>lua require('core.utils.functions').toggle_colorcolumn()<cr>", "Toggle Colorcolumn" },
     C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
-    d = { "<cmd>lua require('core.plugins.lsp.utils').toggle_virtual_text()<cr>", "Toggle Virtualtext" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     p = { "<cmd>Lazy check<cr>", "Lazy check" },
-    s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
   },
   q = {
     name = "Quickfix",
@@ -85,6 +115,7 @@ wk.register({
     q = { "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", "Toggle quickfix list" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
+  t = { name = "Toggles" },
   -- hydra heads
   s = { "Search" },
   w = { "Windows" },
