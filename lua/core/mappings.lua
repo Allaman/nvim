@@ -18,8 +18,6 @@ map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 
 -- Cancel search highlighting with ESC
 
--- Autocorrect spelling from previous error
-map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u", default_options)
 
 -- Move selected line / block of text in visual mode
 map("x", "K", ":move '<-2<CR>gv-gv", default_options)
