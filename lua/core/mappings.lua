@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-local default_options = { silent = true }
 local expr_options = { expr = true, silent = true }
 
 --Remap for dealing with visual line wraps
@@ -7,19 +6,18 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 
 -- better indenting
-map("v", "<", "<gv", default_options)
-map("v", ">", ">gv", default_options)
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
 -- paste over currently selected text without yanking it
-map("v", "p", '"_dp', default_options)
-map("v", "P", '"_dP', default_options)
+map("v", "p", '"_dp')
+map("v", "P", '"_dP')
 
--- Tab switch buffer
-map("n", "<tab>", ":bnext<CR>", default_options)
-map("n", "<S-tab>", ":bprev<CR>", default_options)
+-- switch buffer
+map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 
 -- Cancel search highlighting with ESC
-map("n", "<esc>", ":nohlsearch<Bar>:echo<CR>", default_options)
 
 -- Autocorrect spelling from previous error
 map("i", "<c-f>", "<c-g>u<Esc>[s1z=`]a<c-g>u", default_options)
@@ -31,7 +29,7 @@ map("x", "J", ":move '>+1<CR>gv-gv", default_options)
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   return require("core.utils.functions").escapePair()
-end, default_options)
+end)
 
 local wk = require("which-key")
 
