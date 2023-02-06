@@ -24,6 +24,9 @@ map("i", "<C-l>", function()
   return require("core.utils.functions").escapePair()
 end)
 
+-- search like you are used to
+map("n", "<C-f>", "/", { desc = "Search buffer" })
+
 local wk = require("which-key")
 
 -- register non leader based mappings
