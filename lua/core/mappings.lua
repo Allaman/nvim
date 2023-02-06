@@ -19,9 +19,6 @@ map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 -- Cancel search highlighting with ESC
 
 
--- Move selected line / block of text in visual mode
-map("x", "K", ":move '<-2<CR>gv-gv", default_options)
-map("x", "J", ":move '>+1<CR>gv-gv", default_options)
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
