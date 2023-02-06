@@ -1,9 +1,8 @@
 local map = vim.keymap.set
-local expr_options = { expr = true, silent = true }
 
---Remap for dealing with visual line wraps
-map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
-map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
+-- Remap for dealing with visual line wraps
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- better indenting
 map("v", "<", "<gv")
