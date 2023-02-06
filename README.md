@@ -189,36 +189,38 @@ Go related dependencies are managed by `go.nvim` and are installed by running `:
 
 #### All other
 
-All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim) and [Mason tool installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.stdpath("data") .. "mason"`). [Mason requirements](https://github.com/williamboman/mason.nvim#requirements) must be available on your system.
+All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim) and [Mason tool installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.std path("data") .. "mason"`). [Mason requirements](https://GitHub.com/William beman/mason.nvim#requirements) must be available on your system.
 
 ## Bindings
 
-| Mode | key                    | binding                                                |
-| ---- | ---------------------- | ------------------------------------------------------ |
-| n    | space                  | Leader key                                             |
-| n    | \<c-h \| j \| k \| l\> | Change window focus (including Tmux panes)             |
-| n    | \<leader\>Tab          | Switch to previously opened buffer                     |
-| n    | \<Tab\>                | Switch to next buffer (bnext)                          |
-| n    | \<S-Tab\>              | Switch to previous buffer (bprev)                      |
-| n    | st                     | Visual selection with Treesitter hint textobject       |
-| v    | sa                     | Add surrounding                                        |
-| n    | sd                     | Delete surrounding                                     |
-| n    | sr                     | Replace surrounding                                    |
-| n    | \<c-Tab\>              | Start auto completion (without typing anything)        |
-| n/v  | ga                     | Start mini.align (align text)                          |
-| n    | gcc                    | Toggle line comment                                    |
-| n/v  | gc                     | Toggle line comment (works with movements like `gcip`) |
-| n    | ss                     | Search 2 char (mini.jump2d)                            |
-| i/s  | \<c-j\>                | Luasnip expand/forward                                 |
-| i/s  | \<c-k\>                | Luasnip backward                                       |
-| i    | \<c-h\>                | Luasnip select choice                                  |
-| n    | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)     |
-| i    | \<c-l\>                | Move out of closing brackets                           |
-| n    | \<CR\>                 | Start incremental selection                            |
-| v    | \<Tab\>                | Increment selection                                    |
-| v    | \<S-Tab\>              | Decrement selection                                    |
-| v    | \<S-j\>                | Move selected lines down                               |
-| v    | \<S-k\>                | Move selected lines up                                 |
+| Mode    | key                    | binding                                                |
+| ------- | ---------------------- | ------------------------------------------------------ |
+| n       | space                  | Leader key                                             |
+| n       | \<c-h \| j \| k \| l\> | Change window focus (including Tmux panes)             |
+| n       | \<leader\>Tab          | Switch to previously opened buffer                     |
+| n       | \<Tab\>                | Switch to next buffer (bnext)                          |
+| n       | \<S-Tab\>              | Switch to previous buffer (bprevious)                  |
+| n       | st                     | Visual selection with Treesitter hint textobject       |
+| v       | sa                     | Add surrounding                                        |
+| n       | sd                     | Delete surrounding                                     |
+| n       | sr                     | Replace surrounding                                    |
+| n       | \<c-Tab\>              | Start auto completion (without typing anything)        |
+| n/v     | ga                     | Start mini.align (align text)                          |
+| n       | gcc                    | Toggle line comment                                    |
+| n/v     | gc                     | Toggle line comment (works with movements like `gcip`) |
+| n       | ss                     | Search 2 char (mini.jump2d)                            |
+| i/s     | \<c-j\>                | Luasnip expand/forward                                 |
+| i/s     | \<c-k\>                | Luasnip backward                                       |
+| i       | \<c-h\>                | Luasnip select choice                                  |
+| n       | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)     |
+| i       | \<c-l\>                | Move out of closing brackets                           |
+| n       | \<CR\>                 | Start incremental selection                            |
+| v       | \<Tab\>                | Increment selection                                    |
+| v       | \<S-Tab\>              | Decrement selection                                    |
+| n       | \<c-f\>                | Search buffer                                          |
+| i/v/n/s | \<c-s\>                | Save file                                              |
+
+Hit `<leader>` to start `which-key` which gives you more mappings grouped by topic.
 
 ## Structure
 
