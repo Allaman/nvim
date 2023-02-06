@@ -78,7 +78,6 @@ wk.register({
     C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
     d = { "<cmd>lua require('core.plugins.lsp.utils').toggle_virtual_text()<cr>", "Toggle Virtualtext" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
-    o = { "Options" },
     p = { "<cmd>Lazy check<cr>", "Lazy check" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
   },
