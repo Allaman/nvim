@@ -22,7 +22,7 @@ jobs:
           ignore: "DL3008,DL3013,SC2015"
           verbose: true
       - name: Lint Markdown files
-        uses: actionshub/markdownlint@main
+        uses: actionshub/markdownlint@v3.0.2
       - name: Codespell
         uses: codespell-project/actions-codespell@master
         with:
