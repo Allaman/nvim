@@ -12,19 +12,21 @@ local M = {
   config = function()
     local settings = require("core.settings")
     local telescope = require("telescope")
+    local telescopeConfig = require("telescope.config")
     local actions = require("telescope.actions")
     local action_layout = require("telescope.actions.layout")
     local fb_actions = require("telescope").extensions.file_browser.actions
     local icons = require("core.utils.icons")
+
+    local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+    if settings.telescope_grep_hidden then
+      table.insert(vimgrep_arguments, "--hidden")
+    end
+    -- trim the indentation at the beginning of presented line
+    table.insert(vimgrep_arguments, "--trim")
+
     telescope.setup({
       extensions = {
-        -- do we need this? For what?
-        fzf = {
-          fuzzy = true, -- false will only do exact matching
-          override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case" or "smart_case"
-        },
         ["ui-select"] = {
           require("telescope.themes").get_dropdown({}),
         },
@@ -54,24 +56,10 @@ local M = {
           ignore_current_buffer = true,
           sort_lastused = true,
         },
-        -- find_command = { "fd", "--hidden", "--type", "file", "--follow", "--strip-cwd-prefix" },
-        -- find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
       },
       defaults = {
-        file_ignore_patterns = { "node_modules", ".terraform", "%.jpg", "%.png" },
-        -- used for grep_string and live_grep
-        vimgrep_arguments = {
-          "rg",
-          "--follow",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--no-ignore",
-          "--trim",
-        },
+        file_ignore_patterns = settings.telescope_file_ignore_patterns,
+        vimgrep_arguments = vimgrep_arguments,
         mappings = {
           i = {
             -- Close on first esc instead of going to normal mode
