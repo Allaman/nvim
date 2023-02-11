@@ -22,6 +22,13 @@ elseif settings.theme == "tokyonight" then
       require("core.plugins.themes.tokyonight")
     end,
   }
+elseif settings.theme == "kanagawa" then
+  return {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("lua.core.plugins.themes.kanagawa")
+    end,
+  }
 else
   return {
     "catppuccin/nvim",

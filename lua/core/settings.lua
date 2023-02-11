@@ -1,6 +1,6 @@
 local M = {}
 
--- theme: nightfox, tokyonight, tundra; default is catppuccin
+-- theme: nightfox, tokyonight, tundra, kanagawa; default is catppuccin
 -- refer to the themes settings file for different styles
 M.theme = "tokyonight"
 -- Toggle global status line
