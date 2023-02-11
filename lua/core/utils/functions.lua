@@ -22,7 +22,7 @@ M.path_exists = function(path)
 end
 
 -- Return telescope files command
-M.telescope_find_files = function()
+M.project_files = function()
   local path = vim.loop.cwd() .. "/.git"
   if M.path_exists(path) then
     return "Telescope git_files"
