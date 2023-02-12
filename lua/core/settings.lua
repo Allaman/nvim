@@ -19,10 +19,6 @@ M.showtabline = 1
 M.list = false
 -- which list chars to schow
 M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
--- Disable integration of Neovim's statusline in your Tmux status
--- Disable https://github.com/norcalli/nvim-colorizer.lua
--- due to causing lags with live_grep in some circumstances
--- M.disable_colorizer = false
 -- Noice heavily changes the Neovim UI ...
 M.enable_noice = true
 -- Disable winbar with nvim-navic location
