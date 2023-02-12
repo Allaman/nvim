@@ -56,6 +56,7 @@ M.treesitter_ensure_installed = {
   "yaml",
 }
 
+-- Tools that should be installed by Mason(-tool-install)
 M.mason_tool_installer_ensure_installed = {
   -- LSP
   "bash-language-server",
@@ -86,6 +87,7 @@ M.mason_tool_installer_ensure_installed = {
 -- enable greping in hidden files
 M.telescope_grep_hidden = true
 
+-- which patterns to ignore in file switcher
 M.telescope_file_ignore_patterns = {
   "%.7z",
   "%.JPEG",
