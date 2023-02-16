@@ -51,6 +51,7 @@ M.treesitter_ensure_installed = {
   "query",
   "python",
   "regex",
+  "terraform",
   "toml",
   "vim",
   "yaml",
