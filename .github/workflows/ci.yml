@@ -22,7 +22,7 @@ jobs:
           ignore: "DL3008,DL3013,SC2015"
           verbose: true
       - name: Lint Markdown files
-        uses: actionshub/markdownlint@v3.0.2
+        uses: actionshub/markdownlint@v3.1.3
       - name: Codespell
         uses: codespell-project/actions-codespell@master
         with:
@@ -44,7 +44,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           push: true
           platforms: linux/amd64,linux/arm64
