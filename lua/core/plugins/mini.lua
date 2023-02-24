@@ -21,7 +21,11 @@ local M = {
       },
     })
 
-    require("mini.comment").setup({})
+    require("mini.comment").setup({
+      options = {
+        ignore_blank_line = true,
+      },
+    })
     require("mini.jump").setup({
       -- Module mappings. Use `''` (empty string) to disable one.
       mappings = {
