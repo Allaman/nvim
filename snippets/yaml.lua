@@ -15,18 +15,22 @@ return {
       namespace: foo
       commonLabels:
         app.kubernetes.io/managed-by: kustomize
+        app.kubernetes.io/team: {}
+        app.kubernetes.io/name: {}
       commonAnnotations:
         foo: bar
       nameSuffix: foo
       resources:
         - {}
-      patchesStrategicMerge:
+      patches:
         - {}
       {}
       ]],
       {
-        env.i(1, "resources"),
-        env.i(2, "patchesStrategicMerge"),
+        env.i(1, "infra"),
+        env.i(2, "foo"),
+        env.i(3, "resources"),
+        env.i(4, "patches"),
         env.i(0),
       }
     )
