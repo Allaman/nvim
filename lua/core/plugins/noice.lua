@@ -3,7 +3,7 @@ local settings = require("core.settings")
 local M = {
   "folke/noice.nvim",
   event = "VeryLazy",
-  requires = {
+  dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
