@@ -3,13 +3,15 @@ local M = {
   dependencies = {
     "ray-x/guihua.lua",
   },
-  ft = { "go" },
+  event = { "CmdlineEnter" },
+  ft = { "go", "gomod" },
+  build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   config = function()
     local icons = require("core.utils.icons")
     require("go").setup({
       -- NOTE: all LSP and formatting related options are disabeld.
-      -- NOTE: LSP is handled by lsp.lua and formatting is handled by null-ls.lua
-      -- NOTE: via `lsp_on_attach` the custom callback used by all other LSPs is called
+      -- NOTE: is not related to core.plugins.lsp
+      -- NOTE: manages LSP on its own
       go = "go", -- go command, can be go[default] or go1.18beta1
       goimport = "gopls", -- goimport command, can be gopls[default] or goimport
       fillstruct = "gopls", -- can be nil (use fillstruct, slower) and gopls
@@ -28,11 +30,15 @@ local M = {
       lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
       lsp_diag_underline = false,
       lsp_on_attach = function(client, bufnr)
-        local utils = require("core.plugins.lsp.utils")
-        utils.custom_lsp_attach(client, bufnr)
+        -- attach my LSP configs keybindings
+        require("core.plugins.lsp.keys").on_attach(client, bufnr)
         local wk = require("which-key")
         local default_options = { silent = true }
         wk.register({
+          -- overwrite default lsp renaming key
+          l = {
+            R = { "<cmd>GoRename<cr>", "GoRename" },
+          },
           c = {
             name = "Coding",
             a = { "<cmd>GoCodeAction<cr>", "Code action" },
