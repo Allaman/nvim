@@ -1,6 +1,7 @@
 local utils = require("core.utils.functions")
 M = {}
 
+-- TODO: refactor
 -- must be global or the initial state is not working
 VIRTUAL_TEXT_ACTIVE = true
 -- toggle displaying virtual text
@@ -14,6 +15,7 @@ M.toggle_virtual_text = function()
   vim.diagnostic.show(nil, 0, nil, { virtual_text = VIRTUAL_TEXT_ACTIVE })
 end
 
+-- TODO: refactor
 -- must be global or the initial state is not working
 AUTOFORMAT_ACTIVE = true
 -- toggle null-ls's autoformatting
@@ -28,9 +30,9 @@ end
 
 -- detect python venv
 -- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107
-local util = require("lspconfig/util")
-local path = util.path
-function M.get_python_path(workspace)
+M.get_python_path = function(workspace)
+  local lsp_util = require("lspconfig/util")
+  local path = lsp_util.path
   -- Use activated virtualenv.
   if vim.env.VIRTUAL_ENV then
     return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
