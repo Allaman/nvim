@@ -1,3 +1,10 @@
-local M = { "SmiteshP/nvim-navic" }
+local M = {
+  "SmiteshP/nvim-navic",
+  init = require("core.utils.functions").on_attach(function(client, buffer)
+    if client.server_capabilities.documentSymbolProvider then
+      require("nvim-navic").attach(client, buffer)
+    end
+  end),
+}
 
 return M

@@ -100,6 +100,8 @@ wk.register({
     },
     d = { "<cmd>Bdelete<cr>", "Close buffer" },
   },
+  l = { "LSP" }, -- core.plugins.lsp.keys
+  lw = { "Workspaces" }, -- core.plugins.lsp.keys
   f = {
     name = "Files",
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
