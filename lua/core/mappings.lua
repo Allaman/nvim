@@ -1,3 +1,4 @@
+local utils = require("core.utils.functions")
 local map = vim.keymap.set
 
 -- Remap for dealing with visual line wraps
@@ -32,21 +33,27 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- toggles
 map("n", "<leader>th", function()
+  utils.notify("Toggling hidden chars", vim.log.levels.INFO, "core.mappings")
   vim.o.list = vim.o.list == false and true or false
 end, { desc = "Toggle hidden chars" })
 map("n", "<leader>tl", function()
+  utils.notify("Toggling signcolumn", vim.log.levels.INFO, "core.mappings")
   vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
-end, { desc = "Toggle sgincolumn" })
+end, { desc = "Toggle signcolumn" })
 map("n", "<leader>tv", function()
+  utils.notify("Toggling virtualedit", vim.log.levels.INFO, "core.mappings")
   vim.o.virtualedit = vim.o.virtualedit == "all" and "block" or "all"
 end, { desc = "Toggle virtualedit" })
 map("n", "<leader>ts", function()
+  utils.notify("Toggling spell", vim.log.levels.INFO, "core.mappings")
   vim.o.spell = vim.o.spell == false and true or false
 end, { desc = "Toggle spell" })
 map("n", "<leader>tw", function()
+  utils.notify("Toggling wrap", vim.log.levels.INFO, "core.mappings")
   vim.o.wrap = vim.o.wrap == false and true or false
 end, { desc = "Toggle wrap" })
 map("n", "<leader>tc", function()
+  utils.notify("Toggling cursorline", vim.log.levels.INFO, "core.mappings")
   vim.o.cursorline = vim.o.cursorline == false and true or false
 end, { desc = "Toggle cursorline" })
 map(
