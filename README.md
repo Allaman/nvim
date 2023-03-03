@@ -104,7 +104,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 ### Coding 🖥️
 
 - Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
 - Debugging for Go and Python via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
 - Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
@@ -189,7 +189,7 @@ Go related dependencies are managed by `go.nvim` and are installed by running `:
 
 #### All other
 
-All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim) and [Mason tool installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.std path("data") .. "mason"`). [Mason requirements](https://GitHub.com/William beman/mason.nvim#requirements) must be available on your system.
+All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.std path("data") .. "mason"`). [Mason requirements](https://GitHub.com/William beman/mason.nvim#requirements) must be available on your system.
 
 ## Bindings
 
