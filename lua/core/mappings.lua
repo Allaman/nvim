@@ -120,4 +120,4 @@ wk.register({
   s = { "Search" },
   w = { "Windows" },
   z = { "Spelling" },
-}, { prefix = "<leader>", mode = "n", default_options })
+}, { prefix = "<leader>", mode = "n", {} })
