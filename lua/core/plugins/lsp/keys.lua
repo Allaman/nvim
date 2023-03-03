@@ -3,7 +3,17 @@ local M = {}
 M._keys = {
   { "<leader>lD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
   { "<leader>ll", vim.diagnostic.open_float, desc = "Line Diagnostics" },
-  { "<leader>lR", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+  -- { "<leader>lR", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+  {
+    "<leader>lR",
+    function()
+      require("inc_rename")
+      return ":IncRename " .. vim.fn.expand("<cword>")
+    end,
+    expr = true,
+    desc = "Rename",
+    has = "rename",
+  },
   { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
   { "<leader>ld", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition", has = "definition" },
   { "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "References" },

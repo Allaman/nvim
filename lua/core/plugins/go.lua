@@ -35,10 +35,6 @@ local M = {
         local wk = require("which-key")
         local default_options = { silent = true }
         wk.register({
-          -- overwrite default lsp renaming key
-          l = {
-            R = { "<cmd>GoRename<cr>", "GoRename" },
-          },
           c = {
             name = "Coding",
             a = { "<cmd>GoCodeAction<cr>", "Code action" },
