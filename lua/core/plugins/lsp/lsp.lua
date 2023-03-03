@@ -35,7 +35,7 @@ for _, lsp in ipairs(servers) do
     settings = {
       json = languages.json,
       Lua = languages.lua,
-      ltex = languages.ltx,
+      ltex = languages.ltex,
       redhat = { telemetry = { enabled = false } },
       texlab = languages.tex,
       yaml = languages.yaml,
