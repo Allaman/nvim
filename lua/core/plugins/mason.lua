@@ -4,18 +4,14 @@ local M = {
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
     -- install_root_dir = path.concat({ vim.fn.stdpath("data"), "mason" }),
-    require("mason").setup({})
+    require("mason").setup({ ensure_installed = settings.tools })
+    require("mason-lspconfig").setup({ ensure_installed = settings.lsp_servers })
 
     -- TODO: https://github.com/Allaman/nvim/issues/37
-    require("mason-lspconfig").setup({})
-
-    require("mason-tool-installer").setup({
-      ensure_installed = settings.mason_tool_installer_ensure_installed,
-    })
+    -- require("mason-lspconfig").setup({})
   end,
 }
 

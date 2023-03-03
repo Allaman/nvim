@@ -56,21 +56,22 @@ M.treesitter_ensure_installed = {
   "vim",
   "yaml",
 }
-
--- Tools that should be installed by Mason(-tool-install)
-M.mason_tool_installer_ensure_installed = {
-  -- LSP
-  "bash-language-server",
-  "dockerfile-language-server",
-  "json-lsp",
+-- Tools that should be installed by Mason-lspconfig
+M.lsp_servers = {
+  "bashls",
+  "dockerls",
+  "jsonls",
+  "ltex",
   "marksman",
-  "typescript-language-server",
-  "texlab",
-  "ltex-ls",
-  "lua-language-server",
   "pyright",
-  "terraform-ls",
-  "yaml-language-server",
+  "lua_ls",
+  "terraformls",
+  "texlab",
+  "tsserver",
+  "yamlls",
+}
+-- Tools that should be installed by Mason
+M.tools = {
   -- Formatter
   "black",
   "prettier",

@@ -104,11 +104,15 @@ function M.map(mode, l, r, opts)
   vim.keymap.set(mode, l, r, opts)
 end
 
--- returns the require for use in `config` parameter of packer's `use`
--- expects the name of the config file
--- prefixes with `core.config.`
-M.get_config = function(name)
-  return string.format('require("core.config.%s")', name)
+---@param on_attach fun(client, buffer)
+function M.on_attach(on_attach)
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      local buffer = args.buf
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      on_attach(client, buffer)
+    end,
+  })
 end
 
 return M
