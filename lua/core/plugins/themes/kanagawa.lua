@@ -13,10 +13,18 @@ require("kanagawa").setup({
   dimInactive = false, -- dim inactive window `:h hl-NormalNC`
   globalStatus = true, -- adjust window separators highlight for laststatus=3
   terminalColors = true, -- define vim.g.terminal_color_{0,17}
-  colors = {},
-  overrides = {},
+  colors = { -- add/modify theme and palette colors
+    palette = {},
+    theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+  },
+  overrides = function(colors) -- add/modify highlights
+    return {}
+  end,
   theme = "default", -- Load "default" theme or the experimental "light" theme
 })
 
 -- setup must be called before loading
 vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme kanagawa-wave")
+-- vim.cmd("colorscheme kanagawa-dragon")
+-- vim.cmd("colorscheme kanagawa-lotus")
