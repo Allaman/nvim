@@ -259,6 +259,10 @@ The intention of my Neovim configuration was never to be a fully customizable "d
 
 All options can be found in `./lua/core/settings.lua`.
 
+## Adding LSPs
+
+You can add LSPs via `lsp_servers` in settings.lua. The server will be installed by Mason und loaded by nvim-lspconfig. If you want to pass settings for the LSP have a look at `./lua/core/plugins/lsp/settings/` how to add settings for specific LSPs.
+
 ## Remove plugins
 
 You can remove unwanted plugins by just removing the appropriate file in `./lua/core/plugins/`. Lazy will take care of removing the plugin.
