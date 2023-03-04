@@ -7,6 +7,9 @@ local M = {
     "kyazdani42/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
+  keys = {
+    { "<leader>fp", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Filetree" },
+  },
   opts = {
     -- If a user has a sources list it will replace this one.
     -- Only sources listed here will be loaded.
