@@ -56,7 +56,8 @@ M.treesitter_ensure_installed = {
   "vim",
   "yaml",
 }
--- Tools that should be installed by Mason-lspconfig
+
+-- LSPs that should be installed by Mason-lspconfig
 M.lsp_servers = {
   "bashls",
   "dockerls",
@@ -70,6 +71,7 @@ M.lsp_servers = {
   "tsserver",
   "yamlls",
 }
+
 -- Tools that should be installed by Mason
 M.tools = {
   -- Formatter
