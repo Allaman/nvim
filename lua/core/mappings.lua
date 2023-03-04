@@ -25,9 +25,6 @@ map("i", "<C-l>", function()
   return require("core.utils.functions").escapePair()
 end)
 
--- search like you are used to
-map("n", "<C-f>", "/", { desc = "Search buffer" })
-
 -- save like your are used to
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
@@ -90,10 +87,6 @@ wk.register({
   ["<tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
   b = {
     name = "Buffers",
-    b = {
-      "<cmd>Telescope buffers<cr>",
-      "Find buffer",
-    },
     D = {
       "<cmd>%bd|e#|bd#<cr>",
       "Close all but the current buffer",
@@ -104,12 +97,7 @@ wk.register({
   lw = { "Workspaces" }, -- core.plugins.lsp.keys
   f = {
     name = "Files",
-    b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
-    f = { "<cmd>" .. require("core.utils.functions").project_files() .. "<cr>", "Find File" },
-    p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
-    z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },
   },
   m = {
     name = "Misc",
