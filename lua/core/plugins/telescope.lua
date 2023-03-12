@@ -21,7 +21,7 @@ local M = {
     { "<leader>sp", "<cmd>Telescope projects<cr>", desc = "Projects" },
     { "<leader>sR", "<cmd>Telescope regiesters<cr>", desc = "Registers" },
     { "<leader>ss", "<cmd>Telescope grep_string<cr>", desc = "Text under cursor" },
-    { "<leader>sS", "<cmd>Telescope symbols<cr>", desc = "Symbols" },
+    { "<leader>sS", "<cmd>Telescope symbols<cr>", desc = "Emoji" },
     { "<leader>s:", "<cmd>Telescope search_history<cr>", desc = "Search History" },
     { "<leader>s;", "<cmd>Telescope command_history<cr>", desc = "Command history" },
     {
