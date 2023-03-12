@@ -5,6 +5,7 @@ local M = {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
   },
+  cmd = "Mason",
   config = function()
     -- install_root_dir = path.concat({ vim.fn.stdpath("data"), "mason" }),
     require("mason").setup({ ensure_installed = settings.tools })

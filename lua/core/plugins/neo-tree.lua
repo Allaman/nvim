@@ -4,8 +4,8 @@ local M = {
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "kyazdani42/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
+    { "kyazdani42/nvim-web-devicons", lazy = true },
+    { "MunifTanjim/nui.nvim", lazy = true },
   },
   keys = {
     { "<leader>fp", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Filetree" },
