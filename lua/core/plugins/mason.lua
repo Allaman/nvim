@@ -12,7 +12,6 @@ local M = {
     -- ensure tools (except LSPs) are installed
     local mr = require("mason-registry")
     for _, tool in ipairs(settings.tools) do
-      vim.pretty_print(tool)
       local p = mr.get_package(tool)
       if not p:is_installed() then
         p:install()
