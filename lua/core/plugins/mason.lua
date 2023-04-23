@@ -3,7 +3,7 @@ local settings = require("core.settings")
 local M = {
   "williamboman/mason.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    { "williamboman/mason-lspconfig.nvim", module = "mason" },
   },
   config = function()
     -- install_root_dir = path.concat({ vim.fn.stdpath("data"), "mason" }),
