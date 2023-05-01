@@ -69,6 +69,7 @@ M.lsp_servers = {
   "terraformls",
   "texlab",
   "tsserver",
+  "typst_lsp",
   "yamlls",
 }
 
