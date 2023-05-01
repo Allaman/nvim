@@ -44,6 +44,7 @@ return {
             group: {}
             version: {}
             kind: {}
+            name: {}
           patch: |-
             - op: {}
               path: {}
@@ -54,9 +55,10 @@ return {
         env.i(1, "group"),
         env.i(2, "version"),
         env.i(3, "kind"),
-        env.i(4, "operation"),
-        env.i(5, "path"),
-        env.i(6, "value"),
+        env.i(4, "kind"),
+        env.i(5, "operation"),
+        env.i(6, "path"),
+        env.i(7, "value"),
         env.i(0),
       }
     )
