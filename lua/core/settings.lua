@@ -51,6 +51,7 @@ M.treesitter_ensure_installed = {
   "query",
   "python",
   "regex",
+  "rust",
   "terraform",
   "toml",
   "vim",
@@ -66,6 +67,8 @@ M.lsp_servers = {
   "marksman",
   "pyright",
   "lua_ls",
+  "rust_analyzer",
+  "tailwindcss",
   "terraformls",
   "texlab",
   "tsserver",
@@ -88,6 +91,7 @@ M.tools = {
   "ruff",
   -- DAP
   "debugpy",
+  "codelldb",
 }
 
 -- enable greping in hidden files

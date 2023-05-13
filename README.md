@@ -105,10 +105,11 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 - Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
-- Debugging for Go and Python via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
+- Debugging for Go, Python, and Rust via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
 - Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
+- Excellent Rust support via LSP and [rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim) including sensible keybindings
 - Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - Git integration via [Neogit](https://github.com/TimUntersberger/neogit) and [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
