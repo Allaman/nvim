@@ -226,43 +226,6 @@ local M = {
         noremap = true,
         nowait = true,
       },
-      mappings = {
-        ["<space>"] = {
-          "toggle_node",
-          nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-        },
-        ["<2-LeftMouse>"] = "open_with_window_picker",
-        ["<cr>"] = "open",
-        ["S"] = "open_split",
-        -- ["S"] = "split_with_window_picker",
-        ["s"] = "open_vsplit",
-        -- ["s"] = "vsplit_with_window_picker",
-        ["t"] = "open_tabnew",
-        --["P"] = "toggle_preview",
-        ["C"] = "close_node",
-        ["z"] = "close_all_nodes",
-        --["Z"] = "expand_all_nodes",
-        ["R"] = "refresh",
-        ["a"] = {
-          "add",
-          -- some commands may take optional config options, see `:h neo-tree-mappings` for details
-          config = {
-            show_path = "none", -- "none", "relative", "absolute"
-          },
-        },
-        ["A"] = "add_directory", -- also accepts the config.show_path option.
-        ["dd"] = "delete",
-        ["r"] = "rename",
-        ["y"] = "copy_to_clipboard",
-        ["x"] = "cut_to_clipboard",
-        ["p"] = "paste_from_clipboard",
-        ["c"] = "copy", -- takes text input for destination, also accepts the config.show_path option
-        ["m"] = "move", -- takes text input for destination, also accepts the config.show_path option
-        ["q"] = "close_window",
-        ["?"] = "show_help",
-        ["<"] = "prev_source",
-        [">"] = "next_source",
-      },
     },
     filesystem = {
       commands = {
@@ -275,11 +238,14 @@ local M = {
         system_open = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
-          -- macOs: open file in default application in the background.
-          -- Probably you need to adapt the Linux recipe for manage path with spaces. I don't have a mac to try.
-          vim.api.nvim_command("silent !open -g " .. path)
-          -- Linux: open file in default application
-          vim.api.nvim_command(string.format("silent !xdg-open '%s'", path))
+          local utils = require("core.utils.functions")
+          if utils.getOS() == "Darwin" then
+            vim.api.nvim_command("silent !open -g " .. path)
+          elseif utils.getOS() == "Linux" then
+            vim.api.nvim_command(string.format("silent !xdg-open '%s'", path))
+          else
+            vim.notify("Could not determine OS", vim.log.levels.ERROR)
+          end
         end,
       },
       window = {
@@ -295,6 +261,42 @@ local M = {
           ["."] = "set_root",
           ["[g"] = "prev_git_modified",
           ["]g"] = "next_git_modified",
+          ["<space>"] = {
+            "toggle_node",
+            nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+          },
+          ["<2-LeftMouse>"] = "open_with_window_picker",
+          ["<cr>"] = "open",
+          ["S"] = "open_split",
+          -- ["S"] = "split_with_window_picker",
+          ["s"] = "open_vsplit",
+          -- ["s"] = "vsplit_with_window_picker",
+          ["t"] = "open_tabnew",
+          --["P"] = "toggle_preview",
+          ["C"] = "close_node",
+          ["z"] = "close_all_nodes",
+          --["Z"] = "expand_all_nodes",
+          ["R"] = "refresh",
+          ["a"] = {
+            "add",
+            -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+            config = {
+              show_path = "none", -- "none", "relative", "absolute"
+            },
+          },
+          ["A"] = "add_directory", -- also accepts the config.show_path option.
+          ["d"] = "noop", -- unbind delete
+          ["dd"] = "delete", -- bind delete to new mapping
+          ["r"] = "rename",
+          ["y"] = "copy_to_clipboard",
+          ["x"] = "cut_to_clipboard",
+          ["p"] = "paste_from_clipboard",
+          ["c"] = "copy", -- takes text input for destination, also accepts the config.show_path option
+          ["m"] = "move", -- takes text input for destination, also accepts the config.show_path option
+          ["q"] = "close_window",
+          ["?"] = "show_help",
+          ["<"] = "prev_source",
+          [">"] = "next_source",
         },
       },
       async_directory_scan = "auto", -- "auto"   means refreshes are async, but it's synchronous when called from the Neotree commands.
@@ -422,6 +424,17 @@ local M = {
       },
     },
   },
+  config = function(_, opts)
+    require("neo-tree").setup(opts)
+    vim.api.nvim_create_autocmd("TermClose", {
+      pattern = "*lazygit",
+      callback = function()
+        if package.loaded["neo-tree.sources.git_status"] then
+          require("neo-tree.sources.git_status").refresh()
+        end
+      end,
+    })
+  end,
 }
 
 return M

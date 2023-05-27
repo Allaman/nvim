@@ -3,6 +3,25 @@ local fn = vim.fn
 
 local M = {}
 
+-- Check if running on Darwin or Linux
+M.getOS = function()
+  local handle = io.popen("uname -s")
+  if handle == nil then
+    vim.notify("Error while opening handler", vim.log.levels.ERROR)
+    return
+  end
+  local uname = handle:read("*a")
+  handle:close()
+  uname = uname:gsub("%s+", "")
+  if uname == "Darwin" then
+    return "Darwin"
+  elseif uname == "Linux" then
+    return "Linux"
+  else
+    return
+  end
+end
+
 M.notify = function(message, level, title)
   local notify_options = {
     title = title,
@@ -11,7 +30,7 @@ M.notify = function(message, level, title)
   vim.api.nvim_notify(message, level, notify_options)
 end
 
--- check if a variable is not empty nor nil
+-- Check if a variable is not empty nor nil
 M.isNotEmpty = function(s)
   return s ~= nil and s ~= ""
 end
