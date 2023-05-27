@@ -70,6 +70,7 @@ catppuccin.setup({
       enabled = true,
       colored_indent_levels = false,
     },
+    alpha = true,
     dashboard = false,
     neogit = true,
     vim_sneak = false,
@@ -87,4 +88,4 @@ catppuccin.setup({
     fidget = false,
   },
 })
-vim.cmd([[colorscheme catppuccin-frappe]])
+vim.cmd([[colorscheme catppuccin-macchiato]])
