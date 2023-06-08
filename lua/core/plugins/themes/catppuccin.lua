@@ -70,6 +70,9 @@ catppuccin.setup({
       enabled = true,
       colored_indent_levels = false,
     },
+    dropbar = {
+      enabled = true,
+    },
     alpha = true,
     dashboard = false,
     neogit = true,
