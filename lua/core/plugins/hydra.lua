@@ -1,5 +1,7 @@
 local M = {
   "anuvyklack/hydra.nvim",
+  lazy = true,
+  keys = { "<leader>w", "<leader>z", "<leader>gM", "<leader>d" },
   dependencies = {
     "anuvyklack/keymap-layer.nvim",
   },

@@ -1,7 +1,11 @@
 return {
   "nvim-lualine/lualine.nvim",
+  event = "VeryLazy",
   dependencies = {
-    "kyazdani42/nvim-web-devicons",
+    {
+      "kyazdani42/nvim-web-devicons",
+      lazy = true,
+    },
   },
   opts = {
     sections = {

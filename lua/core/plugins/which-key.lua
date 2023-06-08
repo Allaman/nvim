@@ -1,5 +1,6 @@
 local M = {
   "folke/which-key.nvim",
+  event = "VeryLazy",
   config = function()
     -- disable v
     -- local presets = require("which-key.plugins.presets")

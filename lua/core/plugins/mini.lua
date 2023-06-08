@@ -1,6 +1,7 @@
 local M = {
   "echasnovski/mini.nvim",
   branch = "main",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("mini.surround").setup({
       -- Number of lines within which surrounding is searched

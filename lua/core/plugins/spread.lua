@@ -1,6 +1,7 @@
 -- TODO: alternative: https://github.com/Wansmer/treesj
 local M = {
   "aarondiel/spread.nvim",
+  event = "InsertEnter",
 }
 
 function M.config()

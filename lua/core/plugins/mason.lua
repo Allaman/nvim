@@ -2,6 +2,7 @@ local settings = require("core.settings")
 
 local M = {
   "williamboman/mason.nvim",
+  event = "VeryLazy",
   dependencies = {
     { "williamboman/mason-lspconfig.nvim", module = "mason" },
   },
