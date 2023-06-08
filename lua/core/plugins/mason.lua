@@ -12,11 +12,18 @@ local M = {
 
     -- ensure tools (except LSPs) are installed
     local mr = require("mason-registry")
-    for _, tool in ipairs(settings.tools) do
-      local p = mr.get_package(tool)
-      if not p:is_installed() then
-        p:install()
+    local function install_ensured()
+      for _, tool in ipairs(settings.tools) do
+        local p = mr.get_package(tool)
+        if not p:is_installed() then
+          p:install()
+        end
       end
+    end
+    if mr.refresh then
+      mr.refresh(install_ensured)
+    else
+      install_ensured()
     end
 
     -- install LSPs
