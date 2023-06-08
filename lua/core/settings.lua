@@ -61,6 +61,7 @@ M.lsp_servers = {
   "bashls",
   "dockerls",
   "jsonls",
+  "gopls",
   "ltex",
   "marksman",
   "pyright",
