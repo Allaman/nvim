@@ -18,7 +18,7 @@ end)
 for _, lsp in ipairs(settings.lsp_servers) do
   if lsp == "rust_analyzer" then
     vim.notify("rust_analyzer is managed by rust-tools", vim.log.levels.INFO, { title = "LSP config" })
-    break
+    goto continue
   end
   nvim_lsp[lsp].setup({
     before_init = function(_, config)
@@ -37,4 +37,5 @@ for _, lsp in ipairs(settings.lsp_servers) do
       yaml = lsp_settings.yaml,
     },
   })
+  ::continue::
 end
