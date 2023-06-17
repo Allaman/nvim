@@ -66,7 +66,7 @@ map(
   { desc = "Toggle Virtualtext" }
 )
 map("n", "<leader>ts", "<cmd>SymbolsOutline<cr>", { desc = "Toggle SymbolsOutline" })
-map("n", "<leader>tS", "<cmd>windo set scb!<cr>", { desc = "Toogle Scrollbind" })
+map("n", "<leader>tS", "<cmd>windo set scb!<cr>", { desc = "Toggle Scrollbind" })
 
 local wk = require("which-key")
 
