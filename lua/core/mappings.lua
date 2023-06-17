@@ -101,7 +101,6 @@ wk.register({
   },
   m = {
     name = "Misc",
-    C = { "<cmd>:CBcatalog<cr>", "Commentbox Catalog" },
     l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
     p = { "<cmd>Lazy check<cr>", "Lazy check" },
   },
