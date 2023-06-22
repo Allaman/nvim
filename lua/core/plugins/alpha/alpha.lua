@@ -152,6 +152,7 @@ local buttons = {
   val = {
     { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
     dashboard.button("f", "  Find File", ":" .. require("core.utils.functions").project_files() .. "<CR>"),
+    dashboard.button("F", "  Find File (ignore git)", ":Telescope find_files <CR>"),
     dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true <CR>"),
     dashboard.button("t", "  Find Text", ":Telescope live_grep <CR>"),
     dashboard.button("p", "  Search Projects", ":Telescope projects<CR>"),
