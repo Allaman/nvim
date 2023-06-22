@@ -103,6 +103,7 @@ local M = {
         enable = false,
       },
     })
+    mappings()
   end,
 }
 
