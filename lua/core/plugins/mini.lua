@@ -1,9 +1,14 @@
-local M = {
-  "echasnovski/mini.nvim",
-  branch = "main",
-  event = { "BufReadPre", "BufNewFile" },
-  config = function()
-    require("mini.surround").setup({
+return {
+
+  {
+    "echasnovski/mini.comment",
+    event = { "BufReadPre", "BufNewFile" },
+  },
+
+  {
+    "echasnovski/mini.surround",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
       -- Number of lines within which surrounding is searched
       n_lines = 50,
 
@@ -20,10 +25,13 @@ local M = {
         replace = "sr", -- Replace surrounding
         update_n_lines = "sn", -- Update `n_lines`
       },
-    })
+    },
+  },
 
-    require("mini.comment").setup({})
-    require("mini.jump").setup({
+  {
+    "echasnovski/mini.jump",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
       -- Module mappings. Use `''` (empty string) to disable one.
       mappings = {
         forward = "f",
@@ -42,8 +50,13 @@ local M = {
         -- Delay between jump and automatic stop if idle (no jump is done)
         idle_stop = 10000000,
       },
-    })
-    require("mini.jump2d").setup({
+    },
+  },
+
+  {
+    "echasnovski/mini.jump2d",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
       -- Function producing jump spots (byte indexed) for a particular line.
       -- For more information see |MiniJump2d.start|.
       -- If `nil` (default) - use |MiniJump2d.default_spotter|
@@ -72,20 +85,30 @@ local M = {
       mappings = {
         start_jumping = "",
       },
-    })
+    },
+  },
 
-    require("mini.align").setup()
-    require("mini.test").setup()
+  {
+    "echasnovski/mini.align",
+    event = { "BufReadPre", "BufNewFile" },
+  },
 
-    local hipatterns = require("mini.hipatterns")
-    hipatterns.setup({
-      highlighters = {
+  {
+    "echasnovski/mini.test",
+    event = { "BufReadPre", "BufNewFile" },
+  },
 
-        -- TODO: tailwind integration?
-        hex_color = hipatterns.gen_highlighter.hex_color(),
-      },
-    })
-  end,
+  {
+    "echasnovski/mini.hipatterns",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = function()
+      local hi = require("mini.hipatterns")
+      return {
+        highlighters = {
+          -- TODO: tailwind integration?
+          hex_color = hi.gen_highlighter.hex_color(),
+        },
+      }
+    end,
+  },
 }
-
-return M
