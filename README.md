@@ -22,7 +22,7 @@
 
 ![](./docs/screenshot.png)
 
-💻 This configuration works on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim >= 0.10!
+💻 This configuration works on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim >= 0.10 for all features. If you are running Neovim 0.9, dropbar.nvim is disabled, which only works in Neovim >= 0.10
 
 Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MBP is configured. My [dotfiles](https://github.com/Allaman/dotfiles) are also on GitHub.
 
