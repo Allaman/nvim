@@ -3,7 +3,7 @@ return {
   {
     "echasnovski/mini.comment",
     event = { "BufReadPre", "BufNewFile" },
-    -- is not loaded without explicitely saying it
+    -- is not loaded without explicitly saying it
     config = true,
   },
 
