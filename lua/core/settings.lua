@@ -28,6 +28,9 @@ M.dashboard_recent_files = 5
 M.disable_dashboard_header = false
 -- disable quick links of the dashboard
 M.disable_dashboard_quick_links = false
+-- which tool to use for handling git merge conflicts
+-- choose between "git-conflict" and "diffview"
+M.merge_conflict_tool = "git-conflict"
 -- treesitter parsers to be installed
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
