@@ -22,6 +22,18 @@ M.getOS = function()
   end
 end
 
+--- Check if the minimum Neovim version is satisfied
+--- Expects only the minor version, e.g. "9" for 0.9.1
+---@param version number
+---@return boolean
+M.checkMinimumNeovimVersion = function(version)
+  print(version)
+  if version < vim.version().minor then
+    return false
+  end
+  return true
+end
+
 M.notify = function(message, level, title)
   local notify_options = {
     title = title,
