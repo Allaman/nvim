@@ -30,6 +30,13 @@ M.isNeovimVersionsatisfied = function(version)
   return version <= tonumber(vim.version().minor)
 end
 
+---checks if a command is available
+---@param command string
+---@return boolean
+M.isExecutableAvailable = function(command)
+  return vim.fn.executable(command) == 1
+end
+
 M.notify = function(message, level, title)
   local notify_options = {
     title = title,
