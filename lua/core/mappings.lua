@@ -28,6 +28,7 @@ end)
 -- save like your are used to
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+
 -- toggles
 map("n", "<leader>th", function()
   utils.notify("Toggling hidden chars", vim.log.levels.INFO, "core.mappings")
@@ -79,7 +80,6 @@ wk.register({
   sr = "Replace surrounding",
   sF = "Find left surrounding",
   sf = "Replace right surrounding",
-  ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
   st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
 

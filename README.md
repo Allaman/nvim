@@ -210,7 +210,7 @@ All other dependencies are managed by [Mason](https://github.com/williamboman/ma
 | n/v     | ga                     | Start mini.align (align text)                          |
 | n       | gcc                    | Toggle line comment                                    |
 | n/v     | gc                     | Toggle line comment (works with movements like `gcip`) |
-| n       | ss                     | Search 2 char (mini.jump2d)                            |
+| n       | s                      | Jump to character(s) (flash.nvim)                      |
 | i/s     | \<c-j\>                | Luasnip expand/forward                                 |
 | i/s     | \<c-k\>                | Luasnip backward                                       |
 | i       | \<c-h\>                | Luasnip select choice                                  |
