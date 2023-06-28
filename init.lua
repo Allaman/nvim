@@ -1,6 +1,6 @@
 -- References to ./lua/
 
--- Chech prerequisites
+-- Check prerequisites
 require("core.checks")
 -- Load global functions
 require("core.globals")
