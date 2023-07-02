@@ -1,5 +1,5 @@
 local M = {
-  "TimUntersberger/neogit",
+  "NeogitOrg/neogit",
   cmd = "Neogit",
   dependencies = {
     "nvim-lua/plenary.nvim",
