@@ -67,7 +67,6 @@ M.lsp_servers = {
   "gopls",
   "ltex",
   "marksman",
-  "nil_ls",
   "pyright",
   "lua_ls",
   "rust_analyzer",

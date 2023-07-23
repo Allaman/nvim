@@ -1,4 +1,5 @@
 local settings = require("core.settings")
+local utils = require("core.utils.functions")
 
 local M = {
   "williamboman/mason.nvim",
@@ -26,6 +27,10 @@ local M = {
       install_ensured()
     end
 
+    -- TODO: this is rather hacky ...
+    if utils.isExecutableAvailable("nix") then
+      table.insert(settings.lsp_servers, "nil_ls")
+    end
     -- install LSPs
     require("mason-lspconfig").setup({ ensure_installed = settings.lsp_servers })
   end,
