@@ -8,7 +8,6 @@ local M = {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "ptethng/telescope-makefile",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   keys = {
     -- Search stuff
@@ -62,16 +61,8 @@ local M = {
     -- trim the indentation at the beginning of presented line
     table.insert(vimgrep_arguments, "--trim")
 
-    local fzf_opts = {
-      fuzzy = true,
-      override_generic_sorter = true,
-      override_file_sorter = true,
-      case_mode = "smart_case",
-    }
-
     telescope.setup({
       extensions = {
-        fzf = fzf_opts,
         ["ui-select"] = {
           require("telescope.themes").get_dropdown({}),
         },
@@ -105,7 +96,6 @@ local M = {
           sort_lastused = true,
         },
         live_grep = {
-          sorter = telescope.extensions.fzf.native_fzf_sorter(fzf_opts),
           only_sort_text = true, -- grep for content and not file name/path
           mappings = {
             i = { ["<c-f>"] = require("telescope.actions").to_fuzzy_refine },
@@ -183,7 +173,6 @@ local M = {
     if settings.enable_noice then
       telescope.load_extension("noice")
     end
-    telescope.load_extension("fzf")
   end,
 }
 
