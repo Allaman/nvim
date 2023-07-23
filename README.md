@@ -167,14 +167,14 @@ There are some tools that are required in order to use some features/plugins:
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
 
-For neo-tree delete functionality:
+For the neo-tree delete functionality:
 
 - [trash-cli](https://github.com/andreafrancia/trash-cli)
 
 For Latex functionality:
 
-- [Tectonic](https://tectonic-typesetting.github.io/en-US/)
-- [Skim](https://skim-app.sourceforge.io/)
+- [Tectonic](https://tectonic-typesetting.github.io/en-US/) (can be changed in `settings.lua`)
+- [Skim](https://skim-app.sourceforge.io/) (can be changed in `settings.lua`)
 
 ### LSPs, Formatting, Linters, DAP
 
@@ -238,18 +238,19 @@ Hit `<leader>` to start `which-key` which gives you more mappings grouped by top
 └── spell            # my spell files linked from another repo
 ```
 
-`tree1 lua/core`
+`tree -L 1 lua/core`
 
 ```sh
 lua/core
 ├── autocmd.lua      # autocmds for various things
-├── config           # configuration folder for plugins
 ├── globals.lua      # global functions
+├── health.lua       # checkhealth implementation
 ├── lazy.lua         # Lazy configuration
 ├── mappings.lua     # key bindings
 ├── options.lua      # vim options
 ├── plugins          # plugins and their configuration
 ├── settings.lua     # user settings to configure
+└── utils            # utility stuff
 ```
 
 Each plugin to be installed is defined in `./lua/core/plugins/` in a separate file.
