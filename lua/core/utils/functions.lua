@@ -37,6 +37,10 @@ M.isExecutableAvailable = function(command)
   return vim.fn.executable(command) == 1
 end
 
+---notify
+---@param message string
+---@param level integer
+---@param title string
 M.notify = function(message, level, title)
   local notify_options = {
     title = title,
