@@ -7,7 +7,7 @@ local M = {
     g.tex_flavor = "latex"
     -- TODO: config for winodows - if vim.fn.has("win32")
     if vim.fn.has("unix") == 1 then
-      g.vimtex_view_method = "skim"
+      g.vimtex_view_method = settings.vimtex_view_method
       g.vimtex_view_skim_sync = 1
       g.vimtex_view_skim_activate = 1
     end
