@@ -3,22 +3,25 @@ local fn = vim.fn
 
 local M = {}
 
--- Check if running on Darwin or Linux
+---Return OS
+---@return string
 M.getOS = function()
   local handle = io.popen("uname -s")
   if handle == nil then
     vim.notify("Error while opening handler", vim.log.levels.ERROR)
-    return
+    return ""
   end
   local uname = handle:read("*a")
   handle:close()
   uname = uname:gsub("%s+", "")
   if uname == "Darwin" then
     return "Darwin"
+  elseif uname == "NixOS" then
+    return "NixOS"
   elseif uname == "Linux" then
     return "Linux"
   else
-    return
+    return ""
   end
 end
 
