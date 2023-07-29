@@ -44,6 +44,7 @@ local exec_found_template = "'%s' executable found"
 
 M.check = function()
   vim.health.start("System configuration")
+  local os = utils.getOS()
 
   if not utils.isNeovimVersionsatisfied(10) then
     _warn("This config probably won't work very well with Neovim < 0.10")
@@ -51,7 +52,6 @@ M.check = function()
     _ok("This config will work with your Neovim version")
   end
 
-  local os = utils.getOS()
   if os == "NixOS" then
     _warn("This config downloads and runs binaries which might cause an issue on NixOS")
   elseif os == "" then
@@ -87,6 +87,22 @@ M.check = function()
   if not utils.isExecutableAvailable("python") then
     if not utils.isExecutableAvailable("python3") then
       _warn("Python was not found - some Python related features might not work")
+    end
+  end
+
+  if settings.enable_spectre then
+    if os == "Darwin" then
+      if not utils.isExecutableAvailable("gsed") then
+        _warn("gsed was not found - nvim-spectre (search and replace) might not work")
+      else
+        _ok(string.format(exec_found_template, "gsed"))
+      end
+    else
+      if not utils.isExecutableAvailable("sed") then
+        _warn("sed was not found - nvim-spectre (search and replace) might not work")
+      else
+        _ok(string.format(exec_found_template, "sed"))
+      end
     end
   end
 end
