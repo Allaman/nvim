@@ -70,6 +70,7 @@ api.nvim_create_autocmd("FileType", {
     "PlenaryTestPopup",
     "startuptime",
     "tsplayground",
+    "spectre_panel",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

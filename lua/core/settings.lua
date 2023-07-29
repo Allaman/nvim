@@ -31,6 +31,9 @@ M.disable_dashboard_quick_links = false
 -- which tool to use for handling git merge conflicts
 -- choose between "git-conflict" and "diffview"
 M.merge_conflict_tool = "git-conflict"
+-- enable advanced search and replace
+-- https://github.com/nvim-pack/nvim-spectre
+M.enable_spectre = true
 -- Tool to compile LaTex files
 M.vimtex_compiler_method = "tectonic"
 -- Tool to view PDFs generated from LaTex
