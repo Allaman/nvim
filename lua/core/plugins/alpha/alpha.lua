@@ -1,6 +1,6 @@
 -- adopted from https://github.com/AdamWhittingham/vim-config/blob/nvim/lua/config/startup_screen.lua
 -- use with nvim -u minimal_init_lazy.lua
-local settings = require("core.settings")
+local conf = vim.g.config.plugins.alpha
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
   return
@@ -140,7 +140,7 @@ local section_mru = {
     {
       type = "group",
       val = function()
-        return { mru(1, cdir, settings.dashboard_recent_files) }
+        return { mru(1, cdir, conf.dashboard_recent_files) }
       end,
       opts = { shrink_margin = false },
     },
@@ -184,16 +184,16 @@ layout[2] = section_mru
 layout[3] = { type = "padding", val = 2 }
 layout[4] = buttons
 
-if settings.dashboard_recent_files == 0 then
+if conf.dashboard_recent_files == 0 then
   layout[1] = nil
   layout[2] = nil
 end
 
-if settings.disable_dashboard_header == true then
+if conf.disable_dashboard_header == true then
   layout[0] = nil
 end
 
-if settings.disable_dashboard_quick_links == true then
+if conf.disable_dashboard_quick_links == true then
   layout[3] = nil
   layout[4] = nil
 end

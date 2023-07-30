@@ -1,7 +1,8 @@
 local M = {}
 
 local utils = require("core.utils.functions")
-local settings = require("core.settings")
+local plugins = vim.g.config.plugins
+local tex = vim.g.config.plugins.tex
 
 local health = vim.health
 local _ok = health.ok
@@ -60,6 +61,12 @@ M.check = function()
     _ok("Running on supported OS: " .. os)
   end
 
+  if next(utils.load_user_config()) == nil then
+    _warn("No user configuration provided (this is optional)")
+  else
+    _ok("User configuration found")
+  end
+
   for k, v in pairs(programs) do
     if not utils.isExecutableAvailable(k) then
       if v.required then
@@ -72,16 +79,16 @@ M.check = function()
     end
   end
 
-  if not utils.isExecutableAvailable(settings.vimtex_compiler_method) then
-    _warn(string.format(exec_not_found_template, settings.vimtex_compiler_method, "to compile LaTex files"))
+  if not utils.isExecutableAvailable(tex.vimtex_compiler_method) then
+    _warn(string.format(exec_not_found_template, tex.vimtex_compiler_method, "to compile LaTex files"))
   else
-    _ok(string.format(exec_found_template, settings.vimtex_compiler_method))
+    _ok(string.format(exec_found_template, tex.vimtex_compiler_method))
   end
 
-  if not utils.isExecutableAvailable(settings.vimtex_view_method) then
-    _warn(string.format(exec_not_found_template, settings.vimtex_view_method, "to view compiled LaTex files (PDFs)"))
+  if not utils.isExecutableAvailable(tex.vimtex_view_method) then
+    _warn(string.format(exec_not_found_template, tex.vimtex_view_method, "to view compiled LaTex files (PDFs)"))
   else
-    _ok(string.format(exec_found_template, settings.vimtex_view_method))
+    _ok(string.format(exec_found_template, tex.vimtex_view_method))
   end
 
   if not utils.isExecutableAvailable("python") then
@@ -90,7 +97,7 @@ M.check = function()
     end
   end
 
-  if settings.enable_spectre then
+  if plugins.spectre.enable then
     if os == "Darwin" then
       if not utils.isExecutableAvailable("gsed") then
         _warn("gsed was not found - nvim-spectre (search and replace) might not work")

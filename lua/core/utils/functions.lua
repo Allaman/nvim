@@ -156,4 +156,44 @@ function M.on_attach(on_attach)
   })
 end
 
+---returns OS dependent path separator
+---@return string
+M.path_separator = function()
+  local is_windows = vim.fn.has("win32") == 1
+  if is_windows == true then
+    return "\\"
+  else
+    return "/"
+  end
+end
+
+---load user config file "config.lua" in Neovim config path
+---@return table
+M.load_user_config = function()
+  local config_path = get_config_dir()
+  local config_file = config_path .. M.path_separator() .. "config.lua"
+  local ok, err = pcall(dofile, config_file)
+  if not ok then
+    M.notify("Can not load user config: " .. err, vim.log.levels.INFO, "core.utils")
+    return {}
+  else
+    return dofile(config_file)
+  end
+end
+
+---Merge two tables into the first table
+---@param t1 table
+---@param t2 table
+---@return table
+M.merge_tables = function(t1, t2)
+  for k, v in pairs(t2) do
+    if (type(v) == "table") and (type(t1[k] or false) == "table") then
+      M.merge_tables(t1[k], t2[k])
+    else
+      t1[k] = v
+    end
+  end
+  return t1
+end
+
 return M

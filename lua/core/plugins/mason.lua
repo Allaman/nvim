@@ -1,4 +1,4 @@
-local settings = require("core.settings")
+local conf = vim.g.config
 local utils = require("core.utils.functions")
 
 local M = {
@@ -14,7 +14,7 @@ local M = {
     -- ensure tools (except LSPs) are installed
     local mr = require("mason-registry")
     local function install_ensured()
-      for _, tool in ipairs(settings.tools) do
+      for _, tool in ipairs(conf.tools) do
         local p = mr.get_package(tool)
         if not p:is_installed() then
           p:install()
@@ -29,10 +29,10 @@ local M = {
 
     -- TODO: this is rather hacky ...
     if utils.isExecutableAvailable("nix") then
-      table.insert(settings.lsp_servers, "nil_ls")
+      table.insert(conf.lsp_servers, "nil_ls")
     end
     -- install LSPs
-    require("mason-lspconfig").setup({ ensure_installed = settings.lsp_servers })
+    require("mason-lspconfig").setup({ ensure_installed = conf.lsp_servers })
   end,
 }
 

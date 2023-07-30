@@ -1,5 +1,3 @@
-local settings = require("core.settings")
-
 return {
   "nvim-pack/nvim-spectre",
   event = { "BufReadPre", "BufNewFile" },
@@ -12,7 +10,7 @@ return {
       R = { "Replace" },
     }, { prefix = "<leader>", mode = "n", {} })
   end,
-  enabled = settings.enable_spectre,
+  enabled = vim.g.config.plugins.spectre.enable,
   keys = {
     {
       "<leader>Rr",

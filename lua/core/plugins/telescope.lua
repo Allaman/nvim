@@ -46,7 +46,7 @@ local M = {
     { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
   },
   config = function()
-    local settings = require("core.settings")
+    local conf = vim.g.config
     local telescope = require("telescope")
     local telescopeConfig = require("telescope.config")
     local actions = require("telescope.actions")
@@ -55,7 +55,7 @@ local M = {
     local icons = require("core.utils.icons")
 
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
-    if settings.telescope_grep_hidden then
+    if conf.telescope_grep_hidden then
       table.insert(vimgrep_arguments, "--hidden")
     end
     -- trim the indentation at the beginning of presented line
@@ -103,7 +103,7 @@ local M = {
         },
       },
       defaults = {
-        file_ignore_patterns = settings.telescope_file_ignore_patterns,
+        file_ignore_patterns = conf.telescope_file_ignore_patterns,
         vimgrep_arguments = vimgrep_arguments,
         mappings = {
           i = {
@@ -170,7 +170,7 @@ local M = {
     telescope.load_extension("heading")
     telescope.load_extension("ui-select")
     telescope.load_extension("make")
-    if settings.enable_noice then
+    if conf.plugins.noice.enable then
       telescope.load_extension("noice")
     end
   end,

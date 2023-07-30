@@ -1,5 +1,3 @@
-local settings = require("core.settings")
-
 local M = {
   "folke/noice.nvim",
   event = "VeryLazy",
@@ -7,7 +5,7 @@ local M = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
-  enabled = settings.enable_noice,
+  enabled = vim.g.config.plugins.noice.enable,
 }
 
 -- FIX: can't refactor to 'opts'

@@ -20,3 +20,9 @@ P = function(v)
   print(vim.inspect(v))
   return v
 end
+
+---Get the full path to Neovim config directory
+---@return string|nil
+function _G.get_config_dir()
+  return vim.fn.stdpath("config")
+end

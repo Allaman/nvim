@@ -10,9 +10,9 @@ local M = {
     "nvim-treesitter/playground",
   },
   config = function()
-    local settings = require("core.settings")
+    local conf = vim.g.config
     require("nvim-treesitter.configs").setup({
-      ensure_installed = settings.treesitter_ensure_installed,
+      ensure_installed = conf.treesitter_ensure_installed,
       ignore_install = {}, -- List of parsers to ignore installing
       highlight = {
         enable = true, -- false will disable the whole extension
