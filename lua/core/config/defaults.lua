@@ -77,6 +77,15 @@ return {
       -- choose between "git-conflict" and "diffview" or "both"
       merge_conflict_tool = "git-conflict",
     },
+    -- https://github.com/Allaman/kustomize.nvim
+    kustomize = {
+      dev = false,
+    },
+    lazy = {
+      dev = {
+        path = "$HOME/workspace/github.com/",
+      },
+    },
     noice = {
       enable = true, -- Noice heavily changes the Neovim UI ...
     },

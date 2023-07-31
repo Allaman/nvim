@@ -1,8 +1,11 @@
+local conf = vim.g.config.plugins.kustomize
 local M = {
   "allaman/kustomize.nvim",
   requires = "nvim-lua/plenary.nvim",
   ft = "yaml",
-  opts = { defaults = true },
+  config = true,
+  opts = conf.opts,
+  dev = conf.dev,
 }
 
 return M

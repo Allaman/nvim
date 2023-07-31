@@ -28,4 +28,7 @@ require("lazy").setup("core.plugins", {
     notify = true, -- get a notification when changes are found
   },
   debug = false,
+  dev = {
+    path = vim.g.config.plugins.lazy.dev.path,
+  },
 })
