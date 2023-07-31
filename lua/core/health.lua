@@ -62,7 +62,7 @@ M.check = function()
   end
 
   if next(utils.load_user_config()) == nil then
-    _warn("No user configuration provided (this is optional)")
+    _warn("No or wrong (check :messages) user configuration provided (this is optional)")
   else
     _ok("User configuration found")
   end
