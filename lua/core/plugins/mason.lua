@@ -27,10 +27,6 @@ local M = {
       install_ensured()
     end
 
-    -- TODO: this is rather hacky ...
-    if utils.isExecutableAvailable("nix") then
-      table.insert(conf.lsp_servers, "nil_ls")
-    end
     -- install LSPs
     require("mason-lspconfig").setup({ ensure_installed = conf.lsp_servers })
   end,
