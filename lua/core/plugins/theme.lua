@@ -40,6 +40,6 @@ local themes = {
   },
 }
 
-local selectedTheme = themes[vim.g.config.theme]
+local selectedTheme = themes[vim.g.config.theme.name]
 
 return selectedTheme

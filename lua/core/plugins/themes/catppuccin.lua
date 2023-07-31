@@ -91,4 +91,4 @@ catppuccin.setup({
     fidget = false,
   },
 })
-vim.cmd([[colorscheme catppuccin-macchiato]])
+vim.cmd("colorscheme " .. vim.g.config.theme.catppuccin.variant)
