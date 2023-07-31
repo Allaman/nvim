@@ -74,8 +74,7 @@ return {
     },
     git = {
       -- which tool to use for handling git merge conflicts
-      -- choose between "git-conflict" and "diffview"
-      -- TODO: allow "both" option
+      -- choose between "git-conflict" and "diffview" or "both"
       merge_conflict_tool = "git-conflict",
     },
     noice = {
