@@ -55,7 +55,7 @@ local function create_mapping()
   local wk = require("which-key")
   wk.register({
     d = { "Debug" },
-  }, { prefix = "<leader>", mode = "n", { silent = true } })
+  }, { prefix = "<leader>", mode = "n", {} })
 end
 
 function M.setup()

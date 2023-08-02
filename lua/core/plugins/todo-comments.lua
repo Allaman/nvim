@@ -1,6 +1,8 @@
 local M = {
   "folke/todo-comments.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  keys = {
+    { "<leader>qt", "<cmd>TodoQuickFix<cr>", desc = "Show TODOs" },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

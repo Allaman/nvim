@@ -13,9 +13,12 @@ map("v", ">", ">gv")
 map("v", "p", '"_dp')
 map("v", "P", '"_dP')
 
--- switch buffer
+-- buffers
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
+map("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Cluse buffer" })
+map("n", "<leader><tab>", "<cmd>e#<cr>", { desc = "Previous Buffer" }) -- TODO: better desc
 
 -- Cancel search highlighting with ESC
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC" })
@@ -27,6 +30,11 @@ end)
 
 -- save like your are used to
 map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New file" })
+-- save file
+map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 
 -- search and replace is a pain with a German keyboard layout
 map({ "v", "n" }, "<leader>sr", ":%s/", { desc = "Buffer search and replace" })
@@ -68,12 +76,20 @@ map(
   "<cmd>lua require('core.plugins.lsp.utils').toggle_virtual_text()<cr>",
   { desc = "Toggle Virtualtext" }
 )
-map("n", "<leader>ts", "<cmd>SymbolsOutline<cr>", { desc = "Toggle SymbolsOutline" })
 map("n", "<leader>tS", "<cmd>windo set scb!<cr>", { desc = "Toggle Scrollbind" })
+
+-- Reload snippets folder
+map("n", "<leader>ms", "<cmd>source ~/.config/nvim/snippets/*<cr>", { desc = "Reload snippets" })
+
+-- Quickfix
+map("n", "<leader>qj", "<cmd>cnext<cr>", { desc = "Next entry" })
+map("n", "<leader>qk", "<cmd>cprevious<cr>", { desc = "Previous entry" })
+map("n", "<leader>qq", "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", { desc = "Toggle Quickfix" })
 
 local wk = require("which-key")
 
 -- register non leader based mappings
+-- TODO:
 wk.register({
   sa = "Add surrounding",
   sd = "Delete surrounding",
@@ -84,39 +100,3 @@ wk.register({
   sf = "Replace right surrounding",
   st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
-
--- Register leader based mappings
-wk.register({
-  ["<tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
-  b = {
-    name = "Buffers",
-    D = {
-      "<cmd>%bd|e#|bd#<cr>",
-      "Close all but the current buffer",
-    },
-    d = { "<cmd>Bdelete<cr>", "Close buffer" },
-  },
-  l = { "LSP" }, -- core.plugins.lsp.keys
-  lw = { "Workspaces" }, -- core.plugins.lsp.keys
-  f = {
-    name = "Files",
-    s = { "<cmd>w<cr>", "Save Buffer" },
-  },
-  m = {
-    name = "Misc",
-    l = { "<cmd>source ~/.config/nvim/snippets/*<cr>", "Reload snippets" },
-    p = { "<cmd>Lazy check<cr>", "Lazy check" },
-  },
-  q = {
-    name = "Quickfix",
-    j = { "<cmd>cnext<cr>", "Next Quickfix Item" },
-    k = { "<cmd>cprevious<cr>", "Previous Quickfix Item" },
-    q = { "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", "Toggle quickfix list" },
-    t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
-  },
-  t = { name = "Toggles" },
-  -- hydra heads
-  s = { "Search" },
-  w = { "Windows" },
-  z = { "Spelling" },
-}, { prefix = "<leader>", mode = "n", {} })
