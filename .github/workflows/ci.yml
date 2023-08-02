@@ -28,7 +28,7 @@ jobs:
         with:
           check_filenames: true
           check_hidden: true
-          ignore_words_list: noice,windo
+          ignore_words_list: noice,windo,enew
 
   docker:
     runs-on: ubuntu-latest
