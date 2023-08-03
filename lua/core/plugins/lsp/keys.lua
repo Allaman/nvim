@@ -38,6 +38,13 @@ M._keys = {
 function M.on_attach(client, buffer)
   local Keys = require("lazy.core.handler.keys")
   local keymaps = {}
+  local wk = require("which-key")
+
+  wk.register({
+    l = {
+      w = { "Workspaces" },
+    },
+  }, { prefix = "<leader>", mode = "n" })
 
   for _, value in ipairs(M._keys) do
     local keys = Keys.parse(value)

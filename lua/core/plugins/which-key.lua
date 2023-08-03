@@ -25,7 +25,6 @@ local M = {
       ["<leader>b"] = { name = "Buffers" },
       ["<leader>f"] = { name = "Files" },
       ["<leader>l"] = { name = "LSP" },
-      ["<leader>lw"] = { name = "Workspaces" },
       ["<leader>m"] = { name = "Misc" },
       ["<leader>q"] = { name = "Quickfix" },
       ["<leader>s"] = { name = "Search" },
