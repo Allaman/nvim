@@ -112,6 +112,12 @@ M.check = function()
       end
     end
   end
+
+  if plugins.telescope.fzf_native.enable then
+    _warn(
+      "Make sure your platform meets the requirements for building telescope-fzf-native: https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation"
+    )
+  end
 end
 
 return M

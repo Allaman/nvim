@@ -1,3 +1,4 @@
+local conf = vim.g.config.plugins
 local M = {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
@@ -8,6 +9,7 @@ local M = {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     "ptethng/telescope-makefile",
+    { "nvim-telescope/telescope-fzf-native.nvim", enabled = conf.telescope.fzf_native.enable, build = "make" },
   },
   keys = {
     -- Search stuff
@@ -46,7 +48,6 @@ local M = {
     { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
   },
   config = function()
-    local conf = vim.g.config
     local telescope = require("telescope")
     local telescopeConfig = require("telescope.config")
     local actions = require("telescope.actions")
@@ -55,7 +56,7 @@ local M = {
     local icons = require("core.utils.icons")
 
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
-    if conf.telescope_grep_hidden then
+    if conf.telescope.grep_hidden then
       table.insert(vimgrep_arguments, "--hidden")
     end
     -- trim the indentation at the beginning of presented line
@@ -103,7 +104,7 @@ local M = {
         },
       },
       defaults = {
-        file_ignore_patterns = conf.telescope_file_ignore_patterns,
+        file_ignore_patterns = conf.telescope.file_ignore_patterns,
         vimgrep_arguments = vimgrep_arguments,
         mappings = {
           i = {
@@ -170,8 +171,11 @@ local M = {
     telescope.load_extension("heading")
     telescope.load_extension("ui-select")
     telescope.load_extension("make")
-    if conf.plugins.noice.enable then
+    if conf.noice.enable then
       telescope.load_extension("noice")
+    end
+    if conf.telescope.fzf_native.enable then
+      telescope.load_extension("fzf")
     end
   end,
 }
