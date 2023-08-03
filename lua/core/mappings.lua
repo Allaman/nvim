@@ -17,7 +17,7 @@ map("v", "P", '"_dP')
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-map("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Cluse buffer" })
+map("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Close buffer" })
 map("n", "<leader><tab>", "<cmd>e#<cr>", { desc = "Previous Buffer" }) -- TODO: better desc
 
 -- Cancel search highlighting with ESC
