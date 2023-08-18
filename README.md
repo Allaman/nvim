@@ -119,35 +119,41 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 ## Try out
 
-If you have [Docker](https://www.docker.com/) on your system you can try out this config via the provided `Dockerfile`
+If you have [Docker](https://www.docker.com/) on your system you can try out this configuration.
 
 💡 Due to installing required tools like LSPs, CLI apps, etc. the image is approximately 3 GB large
 
+### Dockerhub
+
+There is a GitHub action in place that builds and pushes the Docker image to Dockerhub as `allaman/nvim`
+
+#### Just start Neovim in container
+
+```sh
+docker run --name nvim --rm -it allaman/nvim
+```
+
+#### Mount a local directory (to ~/mount) and start Neovim
+
+```sh
+docker run --name nvim --rm -it -v ${HOME}/tmp:/home/nvim/mount allaman/nvim
+```
+
+#### Start container in bash instead of Neovim
+
+```sh
+docker run --name nvim --rm -it --entrypoint=/bin/bash allaman/nvim
+```
+
 ### Build the image
 
-There are some issues with building a multi architecture Docker image via GitHub Action. Until I sorted that out, you can build the Docker image locally on your own
+You can also build the image on your own
 
 ```sh
 docker build -t nvim .
 ```
 
-### Just start nvim
-
-```sh
-docker run --name nvim --rm -it nvim
-```
-
-### Mount a local directory (to ~/mount) and start nvim
-
-```sh
-docker run --name nvim --rm -it -v ${HOME}/tmp:/home/nvim/mount nvim
-```
-
-### Start container in bash instead of nvim
-
-```sh
-docker run --name nvim --rm -it --entrypoint=/bin/bash nvim
-```
+Replace `allaman/nvim` in the former commands with just `nvim`.
 
 ## Installation
 
@@ -160,6 +166,8 @@ USE AT YOUR OWN RISK!!
 ## Requirements
 
 There are some tools that are required in order to use some features/plugins:
+
+Run `:checkhealth core` to check the status.
 
 ### Tools
 
