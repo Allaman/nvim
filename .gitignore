@@ -3,4 +3,3 @@ packer_compiled.lua
 .envrc
 spell/
 .luarc.json
-config.lua

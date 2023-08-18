@@ -258,9 +258,9 @@ Each plugin to be installed is defined in `./lua/core/plugins/` in a separate fi
 
 The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc. but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
 
-The default configuration can be found in `./lua/core/config/defaults.lua` which is just one rather large table. You can overwrite any of this configuration by writing a `./config.lua` file following the same structure as `defaults.lua` and pick only those keys that you want to modify.
+The default configuration can be found in `./lua/core/config/defaults.lua` which is just one rather large table. You can overwrite any of this configuration by writing a `$HOME/.nvim_config.lua` file that follows the same structure as `defaults.lua` and pick only those keys that you want to modify.
 
-You can start with `cp ./config-example.lua config.lua`.
+You can start with `cp ./config-example.lua $HOME/.nvim_config.lua`.
 
 ## Remove plugins
 

@@ -170,8 +170,8 @@ end
 ---load user config file "config.lua" in Neovim config path
 ---@return table
 M.load_user_config = function()
-  local config_path = get_config_dir()
-  local config_file = config_path .. M.path_separator() .. "config.lua"
+  local home = os.getenv("HOME") or os.getenv("USERPROFILE") or (os.getenv("HOMEDRIVE") .. os.getenv("HOMEPATH"))
+  local config_file = home .. M.path_separator() .. ".nvim_config.lua"
   local ok, err = pcall(dofile, config_file)
   if not ok then
     M.notify("Can not load user config: " .. err, vim.log.levels.INFO, "core.utils")
