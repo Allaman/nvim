@@ -20,7 +20,6 @@ local M = {
         buftype = { "nofile", "help", "terminal" },
       },
     },
-    other_win_hl_color = "#f05a40",
   },
 }
 
