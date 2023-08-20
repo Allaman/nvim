@@ -97,6 +97,6 @@ wk.register({
   sn = "Surround update n lines",
   sr = "Replace surrounding",
   sF = "Find left surrounding",
-  sf = "Replace right surrounding",
+  sf = "Find right surrounding",
   st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
