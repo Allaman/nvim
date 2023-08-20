@@ -167,10 +167,13 @@ M.path_separator = function()
   end
 end
 
----load user config file "config.lua" in Neovim config path
+---load user config file .nvim_config.lua
 ---@return table
 M.load_user_config = function()
-  local home = os.getenv("HOME") or os.getenv("USERPROFILE") or (os.getenv("HOMEDRIVE") .. os.getenv("HOMEPATH"))
+  local home = os.getenv("XDG_CONFIG_HOME")
+    or os.getenv("HOME")
+    or os.getenv("USERPROFILE")
+    or (os.getenv("HOMEDRIVE") .. os.getenv("HOMEPATH"))
   local config_file = home .. M.path_separator() .. ".nvim_config.lua"
   local ok, err = pcall(dofile, config_file)
   if not ok then
