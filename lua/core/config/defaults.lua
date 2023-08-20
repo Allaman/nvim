@@ -86,6 +86,9 @@ return {
         path = "$HOME/workspace/github.com/",
       },
     },
+    ltex = {
+      additional_lang = "de-DE", -- manually set a language in ltex-ls
+    },
     noice = {
       enable = true, -- Noice heavily changes the Neovim UI ...
     },
