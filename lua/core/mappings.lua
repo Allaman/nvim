@@ -85,18 +85,3 @@ map("n", "<leader>ms", "<cmd>source ~/.config/nvim/snippets/*<cr>", { desc = "Re
 map("n", "<leader>qj", "<cmd>cnext<cr>", { desc = "Next entry" })
 map("n", "<leader>qk", "<cmd>cprevious<cr>", { desc = "Previous entry" })
 map("n", "<leader>qq", "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", { desc = "Toggle Quickfix" })
-
-local wk = require("which-key")
-
--- register non leader based mappings
--- TODO:
-wk.register({
-  sa = "Add surrounding",
-  sd = "Delete surrounding",
-  sh = "Highlight surrounding",
-  sn = "Surround update n lines",
-  sr = "Replace surrounding",
-  sF = "Find left surrounding",
-  sf = "Find right surrounding",
-  st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
-})
