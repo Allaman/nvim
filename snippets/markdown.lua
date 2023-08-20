@@ -49,6 +49,12 @@ return {
     env.t("\t\ttitle: "),
     env.i(3, { "title" }),
   }),
+  env.s({ trig = "ltexLang", name = "Ltex language overwrite" }, {
+    env.t("<!-- LTeX: language="),
+    env.i(1, { "lang" }),
+    env.t(" -->"),
+    env.i(0),
+  }),
   env.s(
     "link",
     env.fmt(
