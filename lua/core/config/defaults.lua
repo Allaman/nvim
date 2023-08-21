@@ -103,10 +103,8 @@ return {
       fzf_native = {
         enable = false,
       },
-      -- enable greping in hidden files
-      grep_hidden = true,
       -- which patterns to ignore in file switcher
-      telescope_file_ignore_patterns = {
+      file_ignore_patterns = {
         "%.7z",
         "%.JPEG",
         "%.JPG",
@@ -158,6 +156,8 @@ return {
         "target/",
         "vendor/*",
       },
+      -- enable greping in hidden files
+      grep_hidden = true,
     },
     tex = {
       vimtex_compiler_method = "tectonic", -- Tool to compile LaTex files
