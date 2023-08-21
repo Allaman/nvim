@@ -210,4 +210,41 @@ M.table_length = function(t)
   return count
 end
 
+---Search for TODO|HACK|FIXME|NOTE with rg and
+---populate quickfixlist with the results
+M.search_todos = function()
+  local result
+  result = vim.fn.system("rg --json --case-sensitive -w 'TODO|HACK|FIXME|NOTE'")
+  if result == nil then
+    return
+  end
+  local lines = vim.split(result, "\n")
+  local qf_list = {}
+
+  for _, line in ipairs(lines) do
+    if line ~= "" then
+      local data = vim.fn.json_decode(line)
+      if data ~= nil then
+        if data.type == "match" then
+          local submatches = data.data.submatches[1]
+          table.insert(qf_list, {
+            filename = data.data.path.text,
+            lnum = data.data.line_number,
+            col = submatches.start,
+            text = data.data.lines.text,
+          })
+        end
+      end
+    end
+  end
+
+  if next(qf_list) ~= nil then
+    vim.fn.setqflist(qf_list)
+    vim.cmd("copen")
+  else
+    local utils = require("core.utils.functions")
+    utils.notify("No results found!", vim.log.levels.INFO, "Search TODOs")
+  end
+end
+
 return M
