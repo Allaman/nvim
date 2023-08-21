@@ -116,6 +116,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
+- GitHub Copilot integration via [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (not enabled by default)
 
 ## Try out
 
@@ -203,32 +204,34 @@ All other dependencies are managed by [Mason](https://github.com/williamboman/ma
 
 ## Bindings
 
-| Mode    | key                    | binding                                                |
-| ------- | ---------------------- | ------------------------------------------------------ |
-| n       | space                  | Leader key                                             |
-| n       | \<c-h \| j \| k \| l\> | Change window focus (including Tmux panes)             |
-| n       | \<leader\>Tab          | Switch to previously opened buffer                     |
-| n       | \<Tab\>                | Switch to next buffer (bnext)                          |
-| n       | \<S-Tab\>              | Switch to previous buffer (bprevious)                  |
-| n       | st                     | Visual selection with Treesitter hint textobject       |
-| v       | sa                     | Add surrounding                                        |
-| n       | sd                     | Delete surrounding                                     |
-| n       | sr                     | Replace surrounding                                    |
-| n       | \<c-Tab\>              | Start auto completion (without typing anything)        |
-| n/v     | ga                     | Start mini.align (align text)                          |
-| n       | gcc                    | Toggle line comment                                    |
-| n/v     | gc                     | Toggle line comment (works with movements like `gcip`) |
-| n       | ss                     | Jump to character(s) (flash.nvim)                      |
-| i/s     | \<c-j\>                | Luasnip expand/forward                                 |
-| i/s     | \<c-k\>                | Luasnip backward                                       |
-| i       | \<c-h\>                | Luasnip select choice                                  |
-| n       | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)     |
-| i       | \<c-l\>                | Move out of closing brackets                           |
-| n       | \<CR\>                 | Start incremental selection                            |
-| v       | \<Tab\>                | Increment selection                                    |
-| v       | \<S-Tab\>              | Decrement selection                                    |
-| n       | \<c-f\>                | Search buffer                                          |
-| i/v/n/s | \<c-s\>                | Save file                                              |
+| Mode    | key                    | binding                                                          |
+| ------- | ---------------------- | ---------------------------------------------------------------- |
+| n       | space                  | Leader key                                                       |
+| n       | \<c-h \| j \| k \| l\> | Change window focus (including Tmux panes)                       |
+| n       | \<leader\>Tab          | Switch to previously opened buffer                               |
+| n       | \<Tab\>                | Switch to next buffer (bnext)                                    |
+| n       | \<S-Tab\>              | Switch to previous buffer (bprevious)                            |
+| n       | st                     | Visual selection with Treesitter hint textobject                 |
+| v       | sa                     | Add surrounding                                                  |
+| n       | sd                     | Delete surrounding                                               |
+| n       | sr                     | Replace surrounding                                              |
+| n       | \<c-Tab\>              | Start auto completion (without typing anything)                  |
+| n/v     | ga                     | Start mini.align (align text)                                    |
+| n       | gcc                    | Toggle line comment                                              |
+| n/v     | gc                     | Toggle line comment (works with movements like `gcip`)           |
+| n       | ss                     | Jump to character(s) (flash.nvim)                                |
+| i/s     | \<c-j\>                | Luasnip expand/forward                                           |
+| i/s     | \<c-k\>                | Luasnip backward                                                 |
+| i       | \<c-h\>                | Luasnip select choice                                            |
+| n       | \<c-n\>                | Toggleterm (opens/hides a full terminal in Neovim)               |
+| i       | \<c-l\>                | Move out of closing brackets                                     |
+| n       | \<CR\>                 | Start incremental selection                                      |
+| v       | \<Tab\>                | Increment selection                                              |
+| v       | \<S-Tab\>              | Decrement selection                                              |
+| n       | \<c-f\>                | Search buffer                                                    |
+| i/v/n/s | \<c-s\>                | Save file                                                        |
+| n       | :LtexLang <lang>       | Set a specific language like "de-DE" for ltex-ls                 |
+| n       | \<leader\>mc           | Enable GitHub Copilot (if plugin is enabled in your user config) |
 
 Hit `<leader>` to start `which-key` which gives you more mappings grouped by topic.
 

@@ -63,4 +63,8 @@ M.set_ltex_lang = function(lang)
   end
 end
 
+M.get_LSP_clients = function()
+  return vim.lsp.buf_get_clients(0)
+end
+
 return M

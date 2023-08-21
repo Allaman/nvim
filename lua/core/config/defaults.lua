@@ -72,6 +72,10 @@ return {
       -- disable quick links of the dashboard
       disable_dashboard_quick_links = false,
     },
+    -- https://github.com/zbirenbaum/copilot.lua
+    copilot = {
+      enable = false,
+    },
     git = {
       -- which tool to use for handling git merge conflicts
       -- choose between "git-conflict" and "diffview" or "both"

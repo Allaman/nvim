@@ -10,7 +10,6 @@ return {
   opts = {
     extensions = vim.g.config.plugins.lualine.extensions,
     sections = {
-      lualine_a = {},
       lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = {
         {
@@ -29,5 +28,35 @@ return {
       lualine_z = { "location" },
     },
   },
-  config = true,
+  config = function(_, opts)
+    if vim.g.config.plugins.copilot.enable then
+      local lsp_utils = require("core.plugins.lsp.utils")
+      local utils = require("core.utils.functions")
+      local function list_LSP_clients()
+        local clients = lsp_utils.get_LSP_clients()
+        local list = {}
+        for _, client in ipairs(clients) do
+          table.insert(list, client.name)
+          -- TODO only indicate a running copilot?
+          -- if client.name == "copilot" then
+          --   local icons = require("core.utils.icons")
+          --   return icons.apps.Copilot
+          -- end
+        end
+        return table.concat(list, "|")
+      end
+      opts.sections = {
+        lualine_a = {
+          {
+            list_LSP_clients,
+            cond = function()
+              return utils.table_length(lsp_utils.get_LSP_clients()) > 0
+            end,
+          },
+        },
+      }
+    end
+
+    require("lualine").setup(opts)
+  end,
 }

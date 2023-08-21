@@ -1,4 +1,7 @@
 return {
+  apps = {
+    Copilot = "",
+  },
   arrows = {
     ArrowRight = "❯",
     ArrowLeft = "❮",

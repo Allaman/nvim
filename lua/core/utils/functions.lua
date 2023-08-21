@@ -199,4 +199,15 @@ M.merge_tables = function(t1, t2)
   return t1
 end
 
+---returns the number of items in a table
+---@param t table
+---@return integer
+M.table_length = function(t)
+  local count = 0
+  for _ in pairs(t) do
+    count = count + 1
+  end
+  return count
+end
+
 return M
