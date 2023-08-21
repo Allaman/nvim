@@ -86,6 +86,10 @@ return {
         path = "$HOME/workspace/github.com/",
       },
     },
+    lualine = {
+      -- https://github.com/nvim-lualine/lualine.nvim#extensions
+      extensions = { "lazy" },
+    },
     ltex = {
       additional_lang = "de-DE", -- manually set a language in ltex-ls
     },

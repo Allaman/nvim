@@ -8,6 +8,7 @@ return {
     },
   },
   opts = {
+    extensions = vim.g.config.plugins.lualine.extensions,
     sections = {
       lualine_a = {},
       lualine_b = { "branch", "diff", "diagnostics" },
