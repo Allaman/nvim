@@ -21,14 +21,14 @@ local M = {
     { "<leader>sO", "<cmd>Telescope vim_options<cr>", desc = "Vim Options" },
     { "<leader>sp", "<cmd>Telescope projects<cr>", desc = "Projects" },
     { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers" },
-    { "<leader>ss", "<cmd>Telescope grep_string<cr>", desc = "Text under cursor" },
+    { "<leader>ss", "<cmd>Telescope grep_string<cr>", desc = "Word under cursor" },
     { "<leader>sS", "<cmd>Telescope symbols<cr>", desc = "Emoji" },
     { "<leader>s:", "<cmd>Telescope search_history<cr>", desc = "Search History" },
     { "<leader>s;", "<cmd>Telescope command_history<cr>", desc = "Command history" },
     {
       "<leader>sf",
       "<cmd>lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<cr>",
-      desc = "Fuzzy search",
+      desc = "Word search",
     },
     -- Git
     { "<leader>gh", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
