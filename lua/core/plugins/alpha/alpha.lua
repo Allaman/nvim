@@ -151,6 +151,7 @@ local buttons = {
   type = "group",
   val = {
     { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
+    dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
     dashboard.button("f", "  Find File", ":" .. require("core.utils.functions").project_files() .. "<CR>"),
     dashboard.button("F", "  Find File (ignore git)", ":Telescope find_files <CR>"),
     dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true <CR>"),
@@ -158,7 +159,6 @@ local buttons = {
     dashboard.button("p", "  Search Projects", ":Telescope projects<CR>"),
     dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>"),
     dashboard.button("r", "  Recent Files", ":Telescope oldfiles <CR>"),
-    dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
     dashboard.button("g", "  NeoGit", ":Neogit <CR>"),
     dashboard.button("l", "  Lazy", ":Lazy check<CR>"),
     dashboard.button("q", "  Quit", ":qa<CR>"),
