@@ -1,5 +1,4 @@
 local conf = vim.g.config
-local utils = require("core.utils.functions")
 
 local M = {
   "williamboman/mason.nvim",
