@@ -114,6 +114,7 @@ return {
       -- which patterns to ignore in file switcher
       file_ignore_patterns = {
         "%.7z",
+        "%.avi",
         "%.JPEG",
         "%.JPG",
         "%.V",
