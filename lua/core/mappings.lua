@@ -40,6 +40,10 @@ map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 map({ "v", "n" }, "<leader>sr", ":%s/", { desc = "Buffer search and replace" })
 
 -- toggles
+map("n", "<leader>tn", function()
+  vim.o.number = vim.o.number == false and true or false
+  vim.o.relativenumber = vim.o.relativenumber == false and true or false
+end, { desc = "Toggle number" })
 map("n", "<leader>th", function()
   utils.notify("Toggling hidden chars", vim.log.levels.INFO, "core.mappings")
   vim.o.list = vim.o.list == false and true or false
