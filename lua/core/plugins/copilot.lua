@@ -37,7 +37,9 @@ return {
       suggestion = { enabled = false },
       panel = { enabled = false },
     })
-    -- HACK I want Copilot to only be enabled when I ask for it
-    vim.cmd([[Copilot disable]])
+    if vim.g.config.plugins.copilot.disable_autostart then
+      -- HACK I want Copilot to only be enabled when I ask for it
+      vim.cmd([[Copilot disable]])
+    end
   end,
 }
