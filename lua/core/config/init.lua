@@ -14,7 +14,6 @@ function M.init()
   vim.g.config = utils.merge_tables(require("core.config.defaults"), user_config)
 
   -- configure vim.opt
-  vim.opt.shortmess:append("c") -- prevent "pattern not found" messages
   for k, v in pairs(vim.g.config.options) do
     vim.opt[k] = v
   end
