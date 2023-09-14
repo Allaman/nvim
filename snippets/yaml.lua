@@ -6,6 +6,40 @@ local env = snip_env
 
 return {
   env.s(
+    "taskfile",
+    env.fmt(
+      [[
+      version: "3"
+
+      tasks:
+        default:
+          silent: true
+          cmds:
+            - task -l
+
+      build:
+        desc: Build
+        cmds:
+          - |
+            echo building
+            echo finished
+
+      test:
+        desc: Test
+        deps:
+          - build
+        cmds:
+          - defer: rm -r .buid/
+          - echo testing
+
+        {}
+      ]],
+      {
+        env.i(0),
+      }
+    )
+  ),
+  env.s(
     "kust",
     env.fmt(
       [[
