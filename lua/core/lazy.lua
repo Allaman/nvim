@@ -32,4 +32,9 @@ require("lazy").setup("core.plugins", {
   dev = {
     path = vim.g.config.plugins.lazy.dev.path,
   },
+  performance = {
+    rtp = {
+      disabled_plugins = vim.g.config.plugins.lazy.disabled_neovim_plugins,
+    },
+  },
 })

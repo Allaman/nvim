@@ -90,6 +90,16 @@ return {
       dev = {
         path = "$HOME/workspace/github.com/",
       },
+      disable_neovim_plugins = {
+        -- "gzip",
+        -- "matchit",
+        -- "matchparen",
+        -- "netrwPlugin",
+        -- "tarPlugin",
+        -- "tohtml",
+        -- "tutor",
+        -- "zipPlugin",
+      },
     },
     lualine = {
       -- https://github.com/nvim-lualine/lualine.nvim#extensions
