@@ -29,7 +29,7 @@ return {
         deps:
           - build
         cmds:
-          - defer: rm -r .buid/
+          - defer: rm -r .build/
           - echo testing
 
         {}
