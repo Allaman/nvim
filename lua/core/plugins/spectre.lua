@@ -41,5 +41,19 @@ return {
       end,
       desc = "Search on current file",
     },
+    {
+      "<leader>Rc",
+      function()
+        require("spectre.actions").run_current_replace()
+      end,
+      desc = "Replace current",
+    },
+    {
+      "<leader>RR",
+      function()
+        require("spectre.actions").run_replace()
+      end,
+      desc = "Replace all",
+    },
   },
 }
