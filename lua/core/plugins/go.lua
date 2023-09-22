@@ -27,7 +27,6 @@ local M = {
       -- if lsp_cfg is a table, merge table with with non-default gopls setup in go/lsp.lua, e.g.
       --   lsp_cfg = {settings={gopls={matcher='CaseInsensitive', ['local'] = 'your_local_module_path', gofumpt = true }}}
       lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
-      lsp_diag_underline = false,
       lsp_on_attach = function(client, bufnr)
         -- attach my LSP configs keybindings
         require("core.plugins.lsp.keys").on_attach(client, bufnr)
@@ -80,9 +79,12 @@ local M = {
       -- if lsp_on_attach is a function: use this function as on_attach function for gopls
       lsp_codelens = true, -- set to false to disable codelens, true by default
       lsp_keymaps = false, -- set to false to disable gopls/lsp keymap
-      lsp_diag_hdlr = true, -- hook lsp diag handler
-      lsp_diag_virtual_text = { space = 0, prefix = icons.arrows.Diamond }, -- virtual text setup
-      lsp_diag_signs = true,
+      diagnostic = {
+        underline = false,
+        hdlr = true, -- hook lsp diag handler
+        virtual_text = { space = 0, prefix = icons.arrows.Diamond }, -- virtual text setup
+        signs = true,
+      },
       lsp_diag_update_in_insert = true,
       lsp_document_formatting = false,
       -- set to true: use gopls to format
