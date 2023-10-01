@@ -2,6 +2,9 @@ local M = {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPost", "BufNewFile" },
   opts = {
+    scope = {
+      enabled = vim.g.config.plugins.indent_blankline.enable_scope,
+    },
     indentLine_enabled = 1,
     char = "▏",
     filetype_exclude = {

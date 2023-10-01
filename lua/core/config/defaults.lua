@@ -82,6 +82,9 @@ return {
       -- choose between "git-conflict" and "diffview" or "both"
       merge_conflict_tool = "git-conflict",
     },
+    indent_blankline = {
+      enable_scope = true,
+    },
     -- https://github.com/Allaman/kustomize.nvim
     kustomize = {
       dev = false,
