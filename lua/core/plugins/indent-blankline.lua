@@ -48,6 +48,9 @@ local M = {
       "for",
     },
   },
+  config = function(opts)
+    require("ibl").setup(opts)
+  end,
 }
 
 return M
