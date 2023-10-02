@@ -4,6 +4,7 @@ local M = {
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
+  build = "make install_jsregexp",
   config = function()
     local ls = require("luasnip")
     local vsc = require("luasnip.loaders.from_vscode")
