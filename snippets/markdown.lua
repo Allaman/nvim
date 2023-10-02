@@ -68,4 +68,18 @@ return {
       }
     )
   ),
+  env.s(
+    "hugohint",
+    env.fmt(
+      [===[
+      {{{{< hint {} >}}}}
+      {}
+      {{{{< /hint >}}}}
+      ]===],
+      {
+        env.i(1, "type"),
+        env.i(0),
+      }
+    )
+  ),
 }
