@@ -119,6 +119,9 @@ return {
       -- https://github.com/nvim-pack/nvim-spectre
       enable = true,
     },
+    symbol_usage = {
+      enable = true,
+    },
     telescope = {
       -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
       -- requires cmake and gcc toolchain
