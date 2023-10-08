@@ -23,12 +23,7 @@ local opts = {
     },
   },
   workspace = {
-    library = {
-      vim.api.nvim_get_runtime_file("", true),
-      [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-      [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-      "${3rd}/luv/library",
-    },
+    checkThirdParty = false,
     -- adjust these two values if your performance is not optimal
     maxPreload = 2000,
     preloadFileSize = 1000,
