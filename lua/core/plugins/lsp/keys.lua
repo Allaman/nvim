@@ -21,7 +21,7 @@ M._keys = {
   { "<leader>lt", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Goto Type Definition" },
   { "<leader>lk", vim.lsp.buf.hover, desc = "Hover" },
   { "<leader>lS", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
-  { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
+  -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
   { "<leader>ln", vim.diagnostic.goto_next, desc = "Next Diagnostic" },
   { "<leader>lp", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
@@ -48,7 +48,7 @@ function M.on_attach(client, buffer)
 
   for _, value in ipairs(M._keys) do
     local keys = Keys.parse(value)
-    if keys[2] == vim.NIL or keys[2] == false then
+    if keys.rhs == vim.NIL or keys.rhs == false then
       keymaps[keys.id] = nil
     else
       keymaps[keys.id] = keys
