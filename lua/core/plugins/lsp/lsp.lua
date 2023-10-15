@@ -12,10 +12,6 @@ require("core.utils.functions").on_attach(function(client, buffer)
 end)
 
 for _, lsp in ipairs(conf.lsp_servers) do
-  if lsp == "rust_analyzer" then
-    vim.notify("rust_analyzer is managed by rust-tools", vim.log.levels.INFO, { title = "LSP config" })
-    goto continue
-  end
   nvim_lsp[lsp].setup({
     before_init = function(_, config)
       if lsp == "pyright" then
@@ -33,7 +29,6 @@ for _, lsp in ipairs(conf.lsp_servers) do
       yaml = lsp_settings.yaml,
     },
   })
-  ::continue::
 end
 
 vim.api.nvim_create_user_command(

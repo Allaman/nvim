@@ -19,7 +19,6 @@ nls.setup({
     nls.builtins.code_actions.gitsigns,
     nls.builtins.formatting.shfmt,
     nls.builtins.diagnostics.ruff,
-    nls.builtins.formatting.rustfmt,
   },
   on_attach = function(client, bufnr)
     vim.keymap.set(
