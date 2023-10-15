@@ -15,10 +15,29 @@ M._keys = {
     has = "rename",
   },
   { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
-  { "<leader>ld", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition", has = "definition" },
+  {
+    "<leader>ld",
+    function()
+      require("telescope.builtin").lsp_definitions({ reuse_win = true })
+    end,
+    desc = "Goto Definition",
+    has = "definition",
+  },
   { "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-  { "<leader>lI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
-  { "<leader>lt", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Goto Type Definition" },
+  {
+    "<leader>lI",
+    function()
+      require("telescope.builtin").lsp_implementations({ reuse_win = true })
+    end,
+    desc = "Goto Implementation",
+  },
+  {
+    "<leader>lt",
+    function()
+      require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+    end,
+    desc = "Goto Type Definition",
+  },
   { "<leader>lk", vim.lsp.buf.hover, desc = "Hover" },
   { "<leader>lS", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
   -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
