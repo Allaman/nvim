@@ -17,20 +17,20 @@ return {
           cmds:
             - task -l
 
-      build:
-        desc: Build
-        cmds:
-          - |
-            echo building
-            echo finished
+        build:
+          desc: Build
+          cmds:
+            - |
+              echo building
+              echo finished
 
-      test:
-        desc: Test
-        deps:
-          - build
-        cmds:
-          - defer: rm -r .build/
-          - echo testing
+        test:
+          desc: Test
+          deps:
+            - build
+          cmds:
+            - defer: rm -r .build/
+            - echo testing
 
         {}
       ]],
