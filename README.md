@@ -236,30 +236,41 @@ Hit `<leader>` to start `which-key` which gives you more mappings grouped by top
 
 ## Structure
 
-`tree -L 1 .`
-
 ```sh
+❯ tree -L 1 .
 .
-├── after            # file specific settings
-├── init.lua         # main entry point
-├── lazy-lock.json   # Lockfile for Lazy.nvim
-├── lua/core         # lua configuration
-├── snippets         # snippets directory (luasnip style)
-└── spell            # my spell files linked from another repo
+├── after              # file specific settings
+├── config-example.lua # user-config file
+├── init.lua           # main entry point
+├── lazy-lock.json     # Lockfile for Lazy.nvim
+├── lua                # lua configuration
+├── snippets           # snippets directory (luasnip style)
+└── spell              # my spell files linked from another repo
 ```
 
-`tree -L 1 lua/core`
+```sh
+❯ tree -L 1 lua
+lua
+├── config # Neovim config and user-config handling
+├── core   # checkhealth and plugins
+└── utils  # utilities
+```
 
 ```sh
+❯ tree -L 1 lua/config
+lua/config
+├── autocmds.lua # autocmds
+├── defaults.lua # default configuration
+├── init.lua     # entry point
+├── lazy.lua     # plugin management
+└── mappings.lua # "global" key mappings
+```
+
+```sh
+❯ tree -L 1 lua/core
 lua/core
-├── config           # default config and user config handling
-├── autocmd.lua      # autocmds for various things
-├── globals.lua      # global functions
-├── health.lua       # checkhealth implementation
-├── lazy.lua         # Lazy configuration
-├── mappings.lua     # key bindings
-├── plugins          # plugins and their configuration
-└── utils            # utility stuff
+├── health.lua # :checkhealth core
+└── plugins # plugins and their config
 ```
 
 Each plugin to be installed is defined in `./lua/core/plugins/` in a separate file.
