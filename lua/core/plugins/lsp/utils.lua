@@ -1,4 +1,4 @@
-local utils = require("core.utils.functions")
+local utils = require("utils.functions")
 M = {}
 
 -- TODO: refactor
@@ -55,7 +55,7 @@ M.set_ltex_lang = function(lang)
 
   for _, client in ipairs(clients) do
     if client.name == "ltex" then
-      utils.notify("Set ltex-ls lang to " .. lang, vim.log.levels.INFO, "core.utils.functions")
+      utils.notify("Set ltex-ls lang to " .. lang, vim.log.levels.INFO, "utils.functions")
       client.config.settings.ltex.language = lang
       vim.lsp.buf_notify(0, "workspace/didChangeConfiguration", { settings = client.config.settings })
       return

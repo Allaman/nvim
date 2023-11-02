@@ -36,7 +36,7 @@ local M = {
     -- files
     { "<leader>fb", "<cmd>Telescope file_browser grouped=true<cr>", desc = "Filebrowser" },
     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
-    { "<leader>ff", "<cmd>" .. require("core.utils.functions").project_files() .. "<cr>", desc = "Open file" },
+    { "<leader>ff", "<cmd>" .. require("utils.functions").project_files() .. "<cr>", desc = "Open file" },
     { "<leader>fF", "<cmd>Telescope find_files<cr>", desc = "Open file (ignore git)" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },
     -- misc
@@ -52,7 +52,7 @@ local M = {
     local actions = require("telescope.actions")
     local action_layout = require("telescope.actions.layout")
     local fb_actions = require("telescope").extensions.file_browser.actions
-    local icons = require("core.utils.icons")
+    local icons = require("utils.icons")
 
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
     if conf.telescope.grep_hidden then

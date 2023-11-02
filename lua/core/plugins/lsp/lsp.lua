@@ -4,10 +4,10 @@ local utils = require("core.plugins.lsp.utils")
 local lsp_settings = require("core.plugins.lsp.settings")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
--- enable autoclompletion via nvim-cmp
+-- enable autocompletion via nvim-cmp
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-require("core.utils.functions").on_attach(function(client, buffer)
+require("utils.functions").on_attach(function(client, buffer)
   require("core.plugins.lsp.keys").on_attach(client, buffer)
 end)
 
@@ -36,7 +36,7 @@ vim.api.nvim_create_user_command(
   "lua require('core.plugins.lsp.utils').set_ltex_lang(<q-args>)",
   { nargs = 1, desc = "Set ltex-ls language" }
 )
-vim.api.nvim_set_keymap(
+vim.keymap.set(
   "n",
   "<leader>mx",
   "<cmd>lua require('core.plugins.lsp.utils').set_ltex_lang(vim.g.config.plugins.ltex.additional_lang)<cr>",

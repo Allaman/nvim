@@ -7,8 +7,12 @@ api.nvim_create_autocmd("BufWritePre", {
   group = TrimWhiteSpaceGrp,
 })
 
--- don't auto comment new line
-api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+  desc = "Disable New Line Comment",
+})
 
 -- wrap words "softly" (no carriage return) in mail buffer
 api.nvim_create_autocmd("Filetype", {
@@ -31,8 +35,18 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+-- detect terraform
+-- https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md
+-- expects a terraform filetype and not a tf filetype
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.tf" },
+  callback = function()
+    vim.api.nvim_command("set filetype=terraform")
+  end,
+})
+
 -- detect terraform vars
-api.nvim_create_autocmd("Filetype", {
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "terraform-vars",
   callback = function()
     vim.api.nvim_command("set filetype=hcl")
@@ -40,12 +54,12 @@ api.nvim_create_autocmd("Filetype", {
 })
 
 -- fix terraform and hcl comment string
-vim.api.nvim_create_autocmd("FileType", {
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("FixTerraformCommentString", { clear = true }),
   callback = function(ev)
     vim.bo[ev.buf].commentstring = "# %s"
   end,
-  pattern = { "terraform", "hcl" },
+  pattern = { "*tf" },
 })
 
 -- Highlight on yank

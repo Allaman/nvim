@@ -1,5 +1,9 @@
-local utils = require("core.utils.functions")
+local utils = require("utils.functions")
 local map = vim.keymap.set
+
+local mapping = {
+  { "n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true } },
+}
 
 -- Remap for dealing with visual line wraps
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
@@ -25,7 +29,7 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-  return require("core.utils.functions").escapePair()
+  return require("utils.functions").escapePair()
 end)
 
 -- save like your are used to
@@ -68,12 +72,7 @@ map("n", "<leader>tc", function()
   utils.notify("Toggling cursorline", vim.log.levels.INFO, "core.mappings")
   vim.o.cursorline = vim.o.cursorline == false and true or false
 end, { desc = "Toggle cursorline" })
-map(
-  "n",
-  "<leader>to",
-  "<cmd>lua require('core.utils.functions').toggle_colorcolumn()<cr>",
-  { desc = "Toggle colorcolumn" }
-)
+map("n", "<leader>to", "<cmd>lua require('utils.functions').toggle_colorcolumn()<cr>", { desc = "Toggle colorcolumn" })
 map(
   "n",
   "<leader>tt",
@@ -83,12 +82,13 @@ map(
 map("n", "<leader>tS", "<cmd>windo set scb!<cr>", { desc = "Toggle Scrollbind" })
 
 -- Reload snippets folder
+-- TODO make path system independent
 map("n", "<leader>ms", "<cmd>source ~/.config/nvim/snippets/*<cr>", { desc = "Reload snippets" })
 
 -- Quickfix
 map("n", "<leader>qj", "<cmd>cnext<cr>", { desc = "Next entry" })
 map("n", "<leader>qk", "<cmd>cprevious<cr>", { desc = "Previous entry" })
-map("n", "<leader>qq", "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", { desc = "Toggle Quickfix" })
+map("n", "<leader>qq", "<cmd>lua require('utils.functions').toggle_qf()<cr>", { desc = "Toggle Quickfix" })
 -- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
 map("n", "<leader>qt", function()
   utils.search_todos()

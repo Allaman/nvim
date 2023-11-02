@@ -11,13 +11,20 @@ return {
     dir = fn.stdpath("data") .. "/swp", -- swap file directory
     expandtab = true, -- use spaces instead of tabs
     formatoptions = "jcroqlnt", -- tcqj
-    grepprg = "rg --hidden --vimgrep --smart-case --", -- use rg instead of grep
+    grepprg = "rg --vimgrep --smart-case --", -- use rg instead of grep
     hidden = true, -- Enable modified buffers in background
     history = 500, -- Use the 'history' option to set the number of lines from command mode that are remembered.
     ignorecase = true, -- ignore case in search patterns
     inccommand = "nosplit", -- preview incremental substitute
     list = false, -- enable or disable listchars
-    listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<", -- which list chars to show
+    listchars = {
+      tab = "| ",
+      trail = "+",
+      extends = ">",
+      precedes = "<",
+      space = "·",
+      nbsp = "␣",
+    },
     mouse = "nv", -- enable mouse see :h mouse
     number = true, -- set numbered lines
     pumblend = 10, -- Popup blend
@@ -88,6 +95,13 @@ return {
     -- https://github.com/Allaman/kustomize.nvim
     kustomize = {
       dev = false,
+      opts = {
+        kinds = {
+          -- setting those to false removes "clutter" but you cannot "jump" to a ressource anymore
+          show_filepath = true,
+          show_line = true,
+        },
+      },
     },
     lazy = {
       dev = {
@@ -110,6 +124,12 @@ return {
     },
     ltex = {
       additional_lang = "de-DE", -- manually set a language in ltex-ls
+    },
+    mini_pick = {
+      mappings = {
+        move_down = "<C-j>",
+        move_up = "<C-k>",
+      },
     },
     noice = {
       enable = true, -- Noice heavily changes the Neovim UI ...
@@ -232,7 +252,6 @@ return {
     "query",
     "python",
     "regex",
-    "rust",
     "terraform",
     "toml",
     "vim",
@@ -244,12 +263,12 @@ return {
     "bashls",
     "dockerls",
     "jsonls",
+    -- TODO managed by go.nvim
     "gopls",
     "ltex",
     "marksman",
     "pyright",
     "lua_ls",
-    "rust_analyzer",
     "tailwindcss",
     "terraformls",
     "texlab",

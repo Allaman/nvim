@@ -31,7 +31,7 @@ return {
     },
   },
   config = function()
-    local utils = require("core.utils.functions")
+    local utils = require("utils.functions")
     utils.map("n", "<leader>mc", "<cmd>Copilot enable<cr>", { desc = "Enable Copilot" })
     require("copilot").setup({
       suggestion = { enabled = false },

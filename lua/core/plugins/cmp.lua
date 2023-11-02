@@ -63,7 +63,7 @@ local M = {
     }
 
     if vim.g.config.plugins.copilot.enable then
-      local icons = require("core.utils.icons")
+      local icons = require("utils.icons")
       table.insert(format.symbol_map, { Copilot = icons.apps.Copilot })
     end
 

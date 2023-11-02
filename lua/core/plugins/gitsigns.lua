@@ -9,7 +9,7 @@ local M = {
       local wk = require("which-key")
       local default_options = { silent = true }
       local gs = package.loaded.gitsigns
-      local map = require("core.utils.functions").map
+      local map = require("utils.functions").map
 
       wk.register({
         g = {

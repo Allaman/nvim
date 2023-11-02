@@ -40,4 +40,4 @@ require("nvim-tundra").setup({
 })
 
 vim.opt.background = "dark"
-vim.cmd("colorscheme tundra")
+vim.cmd("colorscheme tundra") -- TODO update to 0.10 API cim.cmd.colorscheme

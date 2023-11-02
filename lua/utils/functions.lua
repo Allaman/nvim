@@ -167,23 +167,6 @@ M.path_separator = function()
   end
 end
 
----load user config file .nvim_config.lua
----@return table
-M.load_user_config = function()
-  local home = os.getenv("XDG_CONFIG_HOME")
-    or os.getenv("HOME")
-    or os.getenv("USERPROFILE")
-    or (os.getenv("HOMEDRIVE") .. os.getenv("HOMEPATH"))
-  local config_file = home .. M.path_separator() .. ".nvim_config.lua"
-  local ok, err = pcall(dofile, config_file)
-  if not ok then
-    M.notify("Can not load user config: " .. err, vim.log.levels.INFO, "core.utils")
-    return {}
-  else
-    return dofile(config_file)
-  end
-end
-
 ---Merge two tables into the first table
 ---@param t1 table
 ---@param t2 table
@@ -242,7 +225,7 @@ M.search_todos = function()
     vim.fn.setqflist(qf_list)
     vim.cmd("copen")
   else
-    local utils = require("core.utils.functions")
+    local utils = require("utils.functions")
     utils.notify("No results found!", vim.log.levels.INFO, "Search TODOs")
   end
 end

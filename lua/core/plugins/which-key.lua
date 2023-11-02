@@ -1,4 +1,4 @@
-local icons = require("core.utils.icons")
+local icons = require("utils.icons")
 local M = {
   "folke/which-key.nvim",
   event = "VeryLazy",

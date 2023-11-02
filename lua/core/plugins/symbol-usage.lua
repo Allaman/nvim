@@ -1,4 +1,4 @@
-local utils = require("core.utils.functions")
+local utils = require("utils.functions")
 local event
 if utils.isNeovimVersionsatisfied(10) then
   event = "LspAttach"

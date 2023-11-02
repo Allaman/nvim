@@ -1,6 +1,6 @@
 local M = {}
 
-local utils = require("core.utils.functions")
+local utils = require("utils.functions")
 local plugins = vim.g.config.plugins
 local tex = vim.g.config.plugins.tex
 

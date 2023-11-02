@@ -28,7 +28,7 @@ local M = {
         system_open = function(state)
           local node = state.tree:get_node()
           local path = node:get_id()
-          local utils = require("core.utils.functions")
+          local utils = require("utils.functions")
           if utils.getOS() == "Darwin" then
             vim.api.nvim_command("silent !open -g " .. path)
           elseif utils.getOS() == "Linux" then

@@ -31,7 +31,7 @@ return {
   config = function(_, opts)
     if vim.g.config.plugins.copilot.enable then
       local lsp_utils = require("core.plugins.lsp.utils")
-      local utils = require("core.utils.functions")
+      local utils = require("utils.functions")
       local function list_LSP_clients()
         local clients = lsp_utils.get_LSP_clients()
         local list = {}
@@ -39,7 +39,7 @@ return {
           table.insert(list, client.name)
           -- TODO only indicate a running copilot?
           -- if client.name == "copilot" then
-          --   local icons = require("core.utils.icons")
+          --   local icons = require("utils.icons")
           --   return icons.apps.Copilot
           -- end
         end
