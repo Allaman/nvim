@@ -17,11 +17,12 @@ local M = {
       shading_factor = "1", -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
       direction = "vertical", -- 'vertical' | 'horizontal' | 'window' | 'float',
     })
-    map("t", "<ESC>", "<C-\\><C-n>", { noremap = true }) -- back to normal mode in Terminal
+
+    local opts = { noremap = true }
+    map("t", "<ESC>", "<C-\\><C-n>", opts) -- back to normal mode in Terminal
 
     -- Better navigation to and from terminal
     local set_terminal_keymaps = function()
-      local opts = { noremap = true }
       buf_map(0, "t", "<esc>", [[<C-\><C-n>]], opts)
       buf_map(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
       buf_map(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
@@ -33,6 +34,7 @@ local M = {
       pattern = "term://*",
       callback = function()
         set_terminal_keymaps()
+        vim.cmd([[setlocal nospell]])
       end,
       desc = "Mappings for navigation with a terminal",
     })
