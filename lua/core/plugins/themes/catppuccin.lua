@@ -56,10 +56,6 @@ catppuccin.setup({
       show_root = true,
       transparent_panel = false,
     },
-    dap = {
-      enabled = true,
-      enable_ui = true, -- enable nvim-dap-ui
-    },
     neotree = {
       enabled = true,
       show_root = true,
