@@ -75,6 +75,9 @@ end
 -- toggle quickfixlist
 M.toggle_qf = function()
   local windows = fn.getwininfo()
+  if windows == nil then
+    return
+  end
   local qf_exists = false
   for _, win in pairs(windows) do
     if win["quickfix"] == 1 then
