@@ -190,7 +190,6 @@ return {
         ".git/",
         ".gradle/",
         ".idea/",
-        ".settings/",
         ".vale/",
         ".vscode/",
         "__pycache__/*",
