@@ -33,6 +33,11 @@ local opts = {
       fileMatch = { "*api*.json" },
       url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json",
     },
+    {
+      description = "Tasks config",
+      fileMatch = { "*tasks*.json" },
+      url = "https://json.schemastore.org/task.json",
+    },
   },
 }
 
