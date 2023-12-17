@@ -89,6 +89,30 @@ return {
       -- choose between "git-conflict" and "diffview" or "both"
       merge_conflict_tool = "git-conflict",
     },
+    harpoon = {
+      -- https://github.com/ThePrimeagen/harpoon
+      enable = false,
+      key_mappings = function(harpoon)
+        vim.keymap.set("n", "<leader>a", function()
+          harpoon:list():append()
+        end, { desc = "Append to harpoon" })
+        vim.keymap.set("n", "<C-e>", function()
+          harpoon.ui:toggle_quick_menu(harpoon:list())
+        end)
+        vim.keymap.set("n", "<leader>1", function()
+          harpoon:list():select(1)
+        end, { desc = "Harpoon 2" })
+        vim.keymap.set("n", "<leader>2", function()
+          harpoon:list():select(2)
+        end, { desc = "Harpoon 2" })
+        vim.keymap.set("n", "<leader>3", function()
+          harpoon:list():select(3)
+        end, { desc = "Harpoon 3" })
+        vim.keymap.set("n", "<leader>4", function()
+          harpoon:list():select(4)
+        end, { desc = "Harpoon 4" })
+      end,
+    },
     indent_blankline = {
       enable_scope = true,
     },
