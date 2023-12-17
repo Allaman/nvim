@@ -134,6 +134,13 @@ return {
     noice = {
       enable = true, -- Noice heavily changes the Neovim UI ...
     },
+    oil = {
+      --- https://github.com/stevearc/oil.nvim
+      enable = false,
+      key_mappings = function()
+        vim.keymap.set("n", "_", "<cmd>Oil<cr>", { desc = "Open oil" })
+      end,
+    },
     overseer = {
       -- https://github.com/stevearc/overseer.nvim
       enable = false,
