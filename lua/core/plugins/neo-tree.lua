@@ -4,7 +4,7 @@ local M = {
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "kyazdani42/nvim-web-devicons", lazy = true },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
     { "MunifTanjim/nui.nvim", lazy = true },
   },
   keys = {
