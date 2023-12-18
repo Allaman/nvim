@@ -85,9 +85,10 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
 - Submodes powered by [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
 - Complete transformation via [noice.nvim](https://github.com/folke/noice.nvim)
-- Fully featured status line via [mini.nvim](https://github.com/echasnovski/mini.nvim)
+- Fully featured status line via [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
 - Fancy notifications via [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- Search and replace frontend via [nvim-spectre](https://github.com/nvim-pack/nvim-spectre) (optional)
 - Better writing with [ltex-ls](https://valentjn.github.io/ltex/index.html)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), and more
@@ -99,6 +100,8 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - File tree navigation/manipulation via [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- Alternative file handling via [oil.nvim](https://github.com/stevearc/oil.nvim) (optional)
+- Miller columns file navigation via [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md)
 - Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - Convenient jumping through windows with [nvim-window-picker](https://gitlab.com/s1n7ax/nvim-window-picker)
 
@@ -109,13 +112,14 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Debugging for Go and Python via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
 - Auto formatting via [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
-- Excellent Go support via LSP and [go.nvim](https://github.com/ray-x/go.nvim) including sensible keybindings
+- Excellent Go support via LSP including sensible keybindings
 - Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - Git integration via [Neogit](https://github.com/TimUntersberger/neogit) and [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
-- GitHub Copilot integration via [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (not enabled by default)
+- GitHub Copilot integration via [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (optional)
+- Taskrunner via [Overseer](https://github.com/stevearc/overseer.nvim/) (optional)
 
 ## Try out
 
@@ -193,15 +197,13 @@ The following programs should be installed on your system so that the appropriat
 - NodeJs > 12
 - Cargo
 
-#### Go
-
-Go related dependencies are managed by `go.nvim` and are installed by running `:GoInstallBinaries` (when a Go file is loaded). They are installed in your `$GOPATH`.
-
 #### All other
 
 All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.std path("data") .. "mason"`). [Mason requirements](https://GitHub.com/William beman/mason.nvim#requirements) must be available on your system.
 
 ## Bindings
+
+Some bindings can be overwritten in your user config file. See `./lua/core/config/defaults.lua` for possible settings.
 
 | Mode    | key                    | binding                                                          |
 | ------- | ---------------------- | ---------------------------------------------------------------- |
@@ -229,8 +231,15 @@ All other dependencies are managed by [Mason](https://github.com/williamboman/ma
 | v       | \<S-Tab\>              | Decrement selection                                              |
 | n       | \<c-f\>                | Search buffer                                                    |
 | i/v/n/s | \<c-s\>                | Save file                                                        |
+| n       | \<leader\>Rr           | Toggle Search and Replace (via Spectre)                          |
+| n       | \<leader\>Rw           | Search (and replace) current word (via Spectre)                  |
+| n       | \<leader\>Rf           | Search (and replace) in current file (via Spectre)               |
+| n       | \<leader\>Rc           | Replace current selection (in Spectre)                           |
+| n       | \<leader\>RR           | Replace all (in Spectre)                                         |
 | n       | :LtexLang <lang>       | Set a specific language like "de-DE" for ltex-ls                 |
 | n       | \<leader\>mc           | Enable GitHub Copilot (if plugin is enabled in your user config) |
+| n       | \<leader\>tr           | Toggle Overseer (if plugin is enabled in your user config)       |
+| n       | \<leader\>r            | OverseerRun (if plugin is enabled in your user config)           |
 
 Hit `<leader>` to start `which-key` which gives you more mappings grouped by topic.
 
