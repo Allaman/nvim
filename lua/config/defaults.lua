@@ -89,6 +89,10 @@ return {
       -- choose between "git-conflict" and "diffview" or "both"
       merge_conflict_tool = "git-conflict",
     },
+    gopher = {
+      -- https://github.com/olexsmir/gopher.nvim
+      enable = false,
+    },
     harpoon = {
       -- https://github.com/ThePrimeagen/harpoon
       enable = false,
@@ -301,7 +305,6 @@ return {
     "bashls",
     "dockerls",
     "jsonls",
-    -- TODO managed by go.nvim
     "gopls",
     "ltex",
     "marksman",
@@ -331,5 +334,13 @@ return {
     -- DAP
     "debugpy",
     "codelldb",
+    -- Go
+    "gofumpt",
+    "goimports",
+    "gomodifytags",
+    "gotests",
+    "iferr",
+    "impl",
+    "staticcheck",
   },
 }
