@@ -5,7 +5,7 @@ local M = {
   },
   -- enabled = false,
   config = function()
-    require("core.plugins.lsp.null-ls")
+    require("core.plugins.lsp.none-ls")
   end,
 }
 
