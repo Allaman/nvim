@@ -120,6 +120,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
 - GitHub Copilot integration via [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (optional)
 - Taskrunner via [Overseer](https://github.com/stevearc/overseer.nvim/) (optional)
+- Check your code with [trouble.nvim](https://github.com/folke/trouble.nvim) (optional)
 
 ## Try out
 

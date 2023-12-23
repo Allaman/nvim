@@ -251,6 +251,10 @@ return {
       vimtex_compiler_method = "tectonic", -- Tool to compile LaTex files
       vimtex_view_method = "skim", -- Tool to view PDFs generated from LaTex
     },
+    trouble = {
+      enable = false,
+      opts = {},
+    },
   },
 
   theme = {
