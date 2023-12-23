@@ -68,7 +68,7 @@ map("n", "<leader>tc", function()
   utils.notify("Toggling cursorline", vim.log.levels.INFO, "core.mappings")
   vim.o.cursorline = vim.o.cursorline == false and true or false
 end, { desc = "Toggle cursorline" })
-map("n", "<leader>to", "<cmd>lua require('utils.functions').toggle_colorcolumn()<cr>", { desc = "Toggle colorcolumn" })
+map("n", "<leader>tO", "<cmd>lua require('utils.functions').toggle_colorcolumn()<cr>", { desc = "Toggle colorcolumn" })
 map(
   "n",
   "<leader>tt",
