@@ -290,6 +290,7 @@ return {
     "java",
     "javascript",
     "json",
+    "jsonc",
     "kotlin",
     "ledger",
     "lua",
