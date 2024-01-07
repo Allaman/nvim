@@ -62,6 +62,15 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*tf" },
 })
 
+-- fix nix comment string
+api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("FixNixCommentString", { clear = true }),
+  callback = function(ev)
+    vim.bo[ev.buf].commentstring = "# %s"
+  end,
+  pattern = { "*.nix" },
+})
+
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost", {
   callback = function()
