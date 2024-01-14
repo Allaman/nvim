@@ -191,6 +191,7 @@ return {
       fzf_native = {
         enable = false,
       },
+      show_untracked_files = false,
       -- which patterns to ignore in file switcher
       file_ignore_patterns = {
         "%.7z",

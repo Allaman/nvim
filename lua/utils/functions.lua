@@ -66,7 +66,8 @@ end
 M.project_files = function()
   local path = vim.loop.cwd() .. "/.git"
   if M.path_exists(path) then
-    return "Telescope git_files"
+    local show_untracked = vim.g.config.plugins.telescope.show_untracked_files
+    return "lua require('telescope.builtin').git_files({ show_untracked = " .. tostring(show_untracked) .. " })"
   else
     return "Telescope find_files"
   end
