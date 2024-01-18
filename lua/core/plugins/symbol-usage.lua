@@ -10,7 +10,5 @@ return {
   "Wansmer/symbol-usage.nvim",
   event = event,
   enabled = vim.g.config.plugins.symbol_usage.enable,
-  config = function()
-    require("symbol-usage").setup()
-  end,
+  config = true,
 }
