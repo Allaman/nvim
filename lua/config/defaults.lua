@@ -347,6 +347,5 @@ return {
     "gotests",
     "iferr",
     "impl",
-    "staticcheck",
   },
 }

@@ -7,7 +7,6 @@ local M = {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-calc",
     "lukas-reineke/cmp-rg",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
     "saadparwaiz1/cmp_luasnip",
   },
   config = function()
@@ -16,7 +15,6 @@ local M = {
 
     local sources = {
       { name = "nvim_lsp" },
-      { name = "nvim_lsp_signature_help" },
       { name = "buffer", keyword_length = 5 },
       { name = "luasnip" },
       { name = "calc" },
