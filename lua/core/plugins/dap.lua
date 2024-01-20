@@ -1,7 +1,7 @@
 local M = {
   {
     "mfussenegger/nvim-dap",
-    event = "VeryLazy",
+    lazy = true,
     dependencies = {
       "mfussenegger/nvim-dap-python",
       "leoluz/nvim-dap-go",

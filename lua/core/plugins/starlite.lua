@@ -1,12 +1,20 @@
 local M = {
   "ironhouzi/starlite-nvim",
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     local map = vim.keymap.set
-    local default_options = { silent = true }
-    map("n", "*", ":lua require'starlite'.star()<cr>", default_options)
-    map("n", "g*", ":lua require'starlite'.g_star()<cr>", default_options)
-    map("n", "#", ":lua require'starlite'.hash()<cr>", default_options)
-    map("n", "g#", ":lua require'starlite'.g_hash()<cr>", default_options)
+    map({ "n", "x" }, "*", function()
+      require("starlite").star()
+    end, { desc = "Search forward (word)" })
+    map({ "n", "x" }, "g*", function()
+      require("starlite").g_star()
+    end, { desc = "Search forward" })
+    map({ "n", "x" }, "#", function()
+      require("starlite").hash()
+    end, { desc = "Search backward (word)" })
+    map({ "n", "x" }, "g#", function()
+      require("starlite").g_hash()
+    end, { desc = "Search backward" })
   end,
 }
 

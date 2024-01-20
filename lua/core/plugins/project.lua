@@ -1,5 +1,6 @@
 local M = {
   "ahmedkhalf/project.nvim",
+  cmd = "Telescope projects",
   -- can't use 'opts' because module has non standard name 'project_nvim'
   config = function()
     require("project_nvim").setup({

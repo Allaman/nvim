@@ -1,5 +1,6 @@
 local M = {
   "windwp/nvim-autopairs",
+  event = { "BufReadPre", "BufNewFile" },
   opts = {
     enable_check_bracket_line = false, -- Don't add pairs if it already has a close pair in the same line
     ignored_next_char = "[%w%.]", -- will ignore alphanumeric and `.` symbol

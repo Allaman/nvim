@@ -1,6 +1,6 @@
 local M = {
   "lervag/vimtex",
-  lazy = false,
+  ft = "tex",
   config = function()
     local conf = vim.g.config.plugins.tex
     local g = vim.g

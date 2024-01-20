@@ -6,8 +6,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { "onsails/lspkind-nvim" },
-      { "folke/neodev.nvim", config = true, lazy = true, ft = "lua" },
-      { "folke/neoconf.nvim", config = true, lazy = true, ft = "lua" },
+      { "folke/neoconf.nvim", config = true, ft = "lua" }, -- must be loaded before lsp
     },
     config = function()
       require("core.plugins.lsp.lsp")
@@ -15,7 +14,8 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    event = "VeryLazy",
+    lazy = true,
+    cmd = "Mason",
     dependencies = {
       { "williamboman/mason-lspconfig.nvim", module = "mason" },
     },

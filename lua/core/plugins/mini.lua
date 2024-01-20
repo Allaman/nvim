@@ -71,7 +71,7 @@ return {
 
   {
     "echasnovski/mini.files",
-    event = { "VimEnter" },
+    kyes = "-",
     opts = {
       windows = {
         -- Whether to show preview of directory under cursor
