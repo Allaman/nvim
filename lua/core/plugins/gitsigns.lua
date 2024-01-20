@@ -34,6 +34,8 @@ local M = {
           b = { gs.toggle_current_line_blame, "Blame line" },
           D = { gs.diffthis, "Diff" },
           d = { gs.toggle_deleted, "Show deleted" },
+          j = { gs.next_hunk, "Next hunk" },
+          k = { gs.preview_hunk, "Previous hunk" },
         },
       }, { prefix = "<leader>", mode = "n", default_options })
 
