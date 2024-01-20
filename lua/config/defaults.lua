@@ -174,10 +174,6 @@ return {
     overseer = {
       -- https://github.com/stevearc/overseer.nvim
       enable = false,
-      key_mappings = function()
-        vim.keymap.set("n", "<leader>r", "<cmd>OverseerRun<cr>", { desc = "Overseer Run" })
-        vim.keymap.set("n", "<leader>tr", "<cmd>OverseerToggle<cr>", { desc = "Overseer" })
-      end,
     },
     spectre = {
       -- enable advanced search and replace
