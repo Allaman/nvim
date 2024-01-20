@@ -93,7 +93,8 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), and more
 - Health check via `checkhealth core`
-- Fast startup < 150 ms 🚀
+- Lazy loading plugins (25 of 92 in my case)
+- Startup <= 70ms 🚀
 
 ### Navigation 🧭
 
@@ -104,11 +105,10 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - [LF](https://github.com/gokcehan/lf) integration via [lf.nvim](https://github.com/lmburns/lf.nvim) (optional)
 - Miller columns file navigation via [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md)
 - Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
-- Convenient jumping through windows with [nvim-window-picker](https://gitlab.com/s1n7ax/nvim-window-picker)
 
 ### Coding 🖥️
 
-- Auto completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- Auto-completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
 - Debugging for Go and Python via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
@@ -218,7 +218,7 @@ Some bindings can be overwritten in your user config file. See `./lua/core/confi
 | v       | sa                     | Add surrounding                                                  |
 | n       | sd                     | Delete surrounding                                               |
 | n       | sr                     | Replace surrounding                                              |
-| n       | \<c-Tab\>              | Start auto completion (without typing anything)                  |
+| n       | \<c-Tab\>              | Start auto completion                                            |
 | n/v     | ga                     | Start mini.align (align text)                                    |
 | n       | gcc                    | Toggle line comment                                              |
 | n/v     | gc                     | Toggle line comment (works with movements like `gcip`)           |
