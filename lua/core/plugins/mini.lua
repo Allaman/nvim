@@ -111,15 +111,4 @@ return {
       },
     },
   },
-
-  {
-    "echasnovski/mini.pick",
-    event = { "VimEnter" },
-    opts = {
-      mappings = plugins.mini_pick.mappings,
-    },
-    config = function(_, opts)
-      require("mini.pick").setup(opts)
-    end,
-  },
 }

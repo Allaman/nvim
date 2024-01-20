@@ -161,12 +161,6 @@ return {
     ltex = {
       additional_lang = "de-DE", -- manually set a language in ltex-ls
     },
-    mini_pick = {
-      mappings = {
-        move_down = "<C-j>",
-        move_up = "<C-k>",
-      },
-    },
     noice = {
       enable = true, -- Noice heavily changes the Neovim UI ...
     },
