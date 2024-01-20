@@ -101,6 +101,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
 - File tree navigation/manipulation via [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - Alternative file handling via [oil.nvim](https://github.com/stevearc/oil.nvim) (optional)
+- [LF](https://github.com/gokcehan/lf) integration via [lf.nvim](https://github.com/lmburns/lf.nvim) (optional)
 - Miller columns file navigation via [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md)
 - Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 - Convenient jumping through windows with [nvim-window-picker](https://gitlab.com/s1n7ax/nvim-window-picker)
@@ -241,6 +242,7 @@ Some bindings can be overwritten in your user config file. See `./lua/core/confi
 | n       | \<leader\>mc           | Enable GitHub Copilot (if plugin is enabled in your user config) |
 | n       | \<leader\>tr           | Toggle Overseer (if plugin is enabled in your user config)       |
 | n       | \<leader\>r            | OverseerRun (if plugin is enabled in your user config)           |
+| n       | \<leader\>lf           | lf.nvim (if plugin is enabled in your user config)               |
 
 Hit `<leader>` to start `which-key` which gives you more mappings grouped by topic.
 

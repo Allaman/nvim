@@ -146,6 +146,14 @@ return {
         -- "zipPlugin",
       },
     },
+    lf = {
+      -- https://github.com/lmburns/lf.nvim
+      enable = false,
+      replace_ntrw = 0,
+      key_mappings = function()
+        vim.keymap.set("n", "<leader>lf", "<cmd>lua require('lf').start()<cr>", { desc = "LF" })
+      end,
+    },
     lualine = {
       -- https://github.com/nvim-lualine/lualine.nvim#extensions
       extensions = { "lazy" },
