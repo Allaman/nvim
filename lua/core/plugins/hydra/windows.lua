@@ -1,8 +1,7 @@
 local Hydra = require("hydra")
-local picker = require("window-picker")
 
 local function cmd(command)
-  return table.concat({ "<Cmd>", command, "<CR>" })
+  return table.concat({ ":", command, "<cr>" })
 end
 
 local hint = [[
@@ -13,16 +12,10 @@ local hint = [[
  ^ ^ _J_ ^ ^   ^ ^ _j_ ^ ^  _c_: close
 
  _=_: equalize _m_: toggle maximize
- _p_: pick
  _r_: Rotate down/right   _R_: rotate up/left
  ^
- _q_: exit
+ ^ ^ ^ ^ _q_: exit
 ]]
-
-local pick_window = function()
-  local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
-  vim.api.nvim_set_current_win(picked_window_id)
-end
 
 local opts = { exit = true, nowait = true }
 
@@ -58,8 +51,7 @@ Hydra({
     -- rotate window
     { "r", cmd("wincmd r") },
     { "R", cmd("wincmd R") },
-    -- pick window
-    { "p", pick_window, opts },
+    -- quit
     { "q", nil, opts },
   },
 })

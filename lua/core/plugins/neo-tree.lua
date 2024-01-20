@@ -6,6 +6,31 @@ local M = {
     "nvim-lua/plenary.nvim",
     { "nvim-tree/nvim-web-devicons", lazy = true },
     { "MunifTanjim/nui.nvim", lazy = true },
+    {
+      "s1n7ax/nvim-window-picker",
+      lazy = true,
+      opts = {
+        filter_rules = {
+          -- filter using buffer options
+          bo = {
+            -- if the file type is one of following, the window will be ignored
+            filetype = {
+              "neo-tree",
+              "neo-tree-popup",
+              "notify",
+              "packer",
+              "qf",
+              "diff",
+              "fugitive",
+              "fugitiveblame",
+            },
+
+            -- if the buffer type is one of following, the window will be ignored
+            buftype = { "nofile", "help", "terminal" },
+          },
+        },
+      },
+    },
   },
   keys = {
     { "<leader>fp", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Filetree" },
