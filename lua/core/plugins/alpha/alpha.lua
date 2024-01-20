@@ -172,7 +172,6 @@ local buttons = {
     dashboard.button("F", "  Find File (ignore git)", ":Telescope find_files <CR>"),
     dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true <CR>"),
     dashboard.button("t", "  Find Text", ":Telescope live_grep <CR>"),
-    dashboard.button("p", "  Search Projects", ":Telescope projects<CR>"),
     dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>"),
     dashboard.button("r", "  Recent Files", ":Telescope oldfiles <CR>"),
     dashboard.button("g", "  NeoGit", ":Neogit <CR>"),
