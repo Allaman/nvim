@@ -151,7 +151,7 @@ return {
       enable = false,
       replace_ntrw = 0,
       key_mappings = function()
-        vim.keymap.set("n", "<leader>lf", "<cmd>lua require('lf').start()<cr>", { desc = "LF" })
+        vim.keymap.set("n", "<leader>lf", "<cmd>Lf<cr>", { desc = "LF" })
       end,
     },
     lualine = {
