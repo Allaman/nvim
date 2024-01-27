@@ -19,7 +19,7 @@ local hint = [[
 
 local opts = { exit = true, nowait = true }
 
-Hydra({
+local win_hydra = Hydra({
   name = "Windows",
   hint = hint,
   config = {
@@ -55,3 +55,9 @@ Hydra({
     { "q", nil, opts },
   },
 })
+
+Hydra.spawn = function(head)
+  if head == "win_hydra" then
+    win_hydra:activate()
+  end
+end
