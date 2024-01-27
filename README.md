@@ -116,7 +116,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Excellent Go support via LSP including sensible keybindings
 - Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - Git integration via [Neogit](https://github.com/TimUntersberger/neogit) and [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- Outlining symbols with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
+- Outlining symbols with [outline.nvim](https://github.com/hedyhli/outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
 - GitHub Copilot integration via [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (optional)
