@@ -1,6 +1,5 @@
 return {
   "nvim-pack/nvim-spectre",
-  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
