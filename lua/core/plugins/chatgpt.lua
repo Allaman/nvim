@@ -4,9 +4,6 @@ return {
   enabled = conf.enable,
   cmd = "ChatGPT",
   opts = conf.opts,
-  -- config = function()
-  --   require("chatgpt").setup()
-  -- end,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
