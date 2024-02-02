@@ -126,6 +126,7 @@ return {
       end,
     },
     indent_blankline = {
+      enable = false,
       enable_scope = true,
     },
     -- https://github.com/Allaman/kustomize.nvim
