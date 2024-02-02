@@ -18,7 +18,6 @@ local M = {
     { "<leader>sh", "<cmd>Telescope heading<cr>", desc = "Headings" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
     { "<leader>sO", "<cmd>Telescope vim_options<cr>", desc = "Vim Options" },
-    { "<leader>sp", "<cmd>Telescope projects<cr>", desc = "Projects" },
     { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>ss", "<cmd>Telescope grep_string<cr>", desc = "Word under cursor" },
     { "<leader>sS", "<cmd>Telescope symbols<cr>", desc = "Emoji" },

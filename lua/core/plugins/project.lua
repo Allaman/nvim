@@ -1,28 +1,30 @@
 local M = {
   "ahmedkhalf/project.nvim",
-  cmd = "Telescope projects",
-  -- can't use 'opts' because module has non standard name 'project_nvim'
-  config = function()
-    require("project_nvim").setup({
-      -- neo-tree integration
-      sync_root_with_cwd = true,
-      respect_buf_cwd = true,
-      update_focused_file = {
-        enable = true,
-        update_root = true,
-      },
-      patterns = {
-        ".git",
-        "package.json",
-        ".terraform",
-        "go.mod",
-        "requirements.yml",
-        "pyrightconfig.json",
-        "pyproject.toml",
-      },
-      -- detection_methods = { "lsp", "pattern" },
-      detection_methods = { "pattern" },
-    })
+  keys = {
+    { "<leader>sp", "<cmd>Telescope projects<cr>", desc = "Projects" },
+  },
+  opts = {
+    -- neo-tree integration
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
+    update_focused_file = {
+      enable = true,
+      update_root = true,
+    },
+    patterns = {
+      ".git",
+      "package.json",
+      ".terraform",
+      "go.mod",
+      "requirements.yml",
+      "pyrightconfig.json",
+      "pyproject.toml",
+    },
+    -- detection_methods = { "lsp", "pattern" },
+    detection_methods = { "pattern" },
+  },
+  config = function(_, opts)
+    require("project_nvim").setup(opts)
   end,
 }
 
