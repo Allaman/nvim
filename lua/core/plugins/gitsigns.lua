@@ -35,7 +35,7 @@ local M = {
           D = { gs.diffthis, "Diff" },
           d = { gs.toggle_deleted, "Show deleted" },
           j = { gs.next_hunk, "Next hunk" },
-          k = { gs.preview_hunk, "Previous hunk" },
+          k = { gs.prev_hunk, "Previous hunk" },
         },
       }, { prefix = "<leader>", mode = "n", default_options })
 
