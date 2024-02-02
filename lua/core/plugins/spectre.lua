@@ -3,12 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  config = function()
-    local wk = require("which-key")
-    wk.register({
-      R = { "Replace" },
-    }, { prefix = "<leader>", mode = "n", {} })
-  end,
   enabled = vim.g.config.plugins.spectre.enable,
   keys = {
     {
