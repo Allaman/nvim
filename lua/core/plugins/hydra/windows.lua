@@ -57,7 +57,7 @@ local win_hydra = Hydra({
 })
 
 Hydra.spawn = function(head)
-  if head == "win_hydra" then
+  if head == "win-hydra" then
     win_hydra:activate()
   end
 end
