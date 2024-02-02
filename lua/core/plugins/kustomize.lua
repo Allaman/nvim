@@ -1,5 +1,5 @@
 local conf = vim.g.config.plugins.kustomize
-local M = {
+return {
   "allaman/kustomize.nvim",
   dependencies = "nvim-lua/plenary.nvim",
   ft = "yaml",
@@ -7,5 +7,3 @@ local M = {
   opts = conf.opts,
   dev = conf.dev,
 }
-
-return M
