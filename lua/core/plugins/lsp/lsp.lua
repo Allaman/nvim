@@ -11,6 +11,10 @@ require("utils.functions").on_attach(function(client, buffer)
   require("core.plugins.lsp.keys").on_attach(client, buffer)
 end)
 
+if conf.plugins.lsp.log == "off" then
+  vim.lsp.set_log_level("off")
+end
+
 for _, lsp in ipairs(conf.lsp_servers) do
   nvim_lsp[lsp].setup({
     before_init = function(_, config)

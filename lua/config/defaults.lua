@@ -84,6 +84,9 @@ return {
       enable = false,
       disable_autostart = false,
     },
+    lsp = {
+      log = "off",
+    },
     git = {
       -- which tool to use for handling git merge conflicts
       -- choose between "git-conflict" and "diffview" or "both"
