@@ -251,4 +251,18 @@ M.search_todos = function()
   end
 end
 
+M.stopLSP = function(lsp_name)
+  for _, client in ipairs(vim.lsp.get_active_clients()) do
+    if client.name == lsp_name then
+      vim.lsp.stop_client(client.id)
+      M.notify("Stopping LSP " .. lsp_name, vim.log.levels.INFO, "Utils")
+      break
+    end
+  end
+end
+
+M.startLSP = function(lsp_name)
+  require("lspconfig")[lsp_name].setup({})
+end
+
 return M

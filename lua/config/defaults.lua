@@ -257,6 +257,10 @@ return {
       enable = false,
       opts = {},
     },
+    -- https://github.com/folke/zen-mode.nvim
+    zenmode = {
+      enable = false,
+    },
   },
 
   theme = {
