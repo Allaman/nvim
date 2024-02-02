@@ -45,14 +45,12 @@ return {
         end
         return table.concat(list, "|")
       end
-      opts.sections = {
-        lualine_a = {
-          {
-            list_LSP_clients,
-            cond = function()
-              return utils.table_length(lsp_utils.get_LSP_clients()) > 0
-            end,
-          },
+      opts.sections.lualine_a = {
+        {
+          list_LSP_clients,
+          cond = function()
+            return utils.table_length(lsp_utils.get_LSP_clients()) > 0
+          end,
         },
       }
     end
