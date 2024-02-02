@@ -92,6 +92,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Better writing with [ltex-ls](https://valentjn.github.io/ltex/index.html)
 - Dashboard via [alpha.nvim](https://github.com/goolord/alpha-nvim) with recent files and quick links
 - Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), and more
+- AI assistance with [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim) (optionally)
 - Health check via `checkhealth core`
 - Lazy loading plugins (25 of 92 in my case)
 - Startup <= 70ms 🚀

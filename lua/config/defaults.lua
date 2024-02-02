@@ -79,6 +79,11 @@ return {
       -- disable quick links of the dashboard
       disable_dashboard_quick_links = false,
     },
+    -- https://github.com/jackMort/ChatGPT.nvim
+    chatgpt = {
+      enable = false,
+      opts = {},
+    },
     -- https://github.com/zbirenbaum/copilot.lua
     copilot = {
       enable = false,
