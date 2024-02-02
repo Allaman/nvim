@@ -28,6 +28,7 @@ local M = {
       ["<leader>m"] = { name = "Misc" },
       ["<leader>q"] = { name = "Quickfix" },
       ["<leader>R"] = { name = "Replace" },
+      ["<leader>mS"] = { name = "TreeSJ" },
       ["<leader>s"] = { name = "Search" },
       ["<leader>t"] = { name = "Toggles" },
       -- Hydra not working with "name" key
