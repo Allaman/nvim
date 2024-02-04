@@ -71,7 +71,6 @@ return {
 
   {
     "echasnovski/mini.files",
-    kyes = "-",
     opts = {
       windows = {
         -- Whether to show preview of directory under cursor
