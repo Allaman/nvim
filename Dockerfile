@@ -5,9 +5,9 @@ FROM ${ARCH}allaman/nvim-full:latest
 RUN mkdir -p .config/nvim \
   && mkdir -p .local/share/nvim/mason/packages \
   ## Create empty user config file
-  && echo "return {}" > $HOME/.nvim_config.lua \
+  && echo "return {}" > .nvim_config.lua \
   ## Add mason tools dir to path
-  && echo "PATH=$PATH:$HOME/.local/share/nvim/mason/bin" >> $HOME/.bashrc
+  && echo "PATH=$PATH:~/.local/share/nvim/mason/bin" >> ~/.bashrc
 
 COPY --chown=nvim:nvim . .config/nvim
 # Install plugins and tools with Mason and go.nvim
