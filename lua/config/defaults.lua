@@ -327,7 +327,6 @@ return {
     "marksman",
     "pyright",
     "lua_ls",
-    "tailwindcss",
     "terraformls",
     "texlab",
     "tsserver",
