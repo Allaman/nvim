@@ -23,7 +23,7 @@ return {
       "<leader>Rw",
       mode = "v",
       function()
-        require("spectre").open_visual({ select_word = true })
+        require("spectre").open_visual()
       end,
       desc = "Search current word",
     },
