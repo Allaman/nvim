@@ -10,5 +10,5 @@ vim.api.nvim_buf_set_keymap(
   "n",
   "<leader>Rc",
   "<cmd>lua require('spectre.actions').run_current_replace()<cr>",
-  { desc = "Replace all" }
+  { desc = "Replace current" }
 )
