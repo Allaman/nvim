@@ -58,7 +58,7 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   callback = function(ev)
     vim.bo[ev.buf].commentstring = "# %s"
   end,
-  pattern = { "*tf" },
+  pattern = { "*tf", "*.hcl" },
   desc = "fix terraform and hcl comment string",
 })
 
