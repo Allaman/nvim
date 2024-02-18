@@ -7,7 +7,6 @@ local M = {
     "crispgm/telescope-heading.nvim",
     "nvim-telescope/telescope-symbols.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
-    "ptethng/telescope-makefile",
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = conf.telescope.fzf_native.enable, build = "make" },
   },
   keys = {
