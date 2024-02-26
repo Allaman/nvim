@@ -183,6 +183,9 @@ local M = {
     if conf.telescope.fzf_native.enable then
       telescope.load_extension("fzf")
     end
+    if conf.emoji.enable then
+      telescope.load_extension("emoji")
+    end
   end,
 }
 

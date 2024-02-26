@@ -27,6 +27,10 @@ local M = {
       table.insert(sources, { name = "copilot", group_index = 2 })
     end
 
+    if vim.g.config.plugins.emoji.enable then
+      table.insert(sources, { name = "emoji" })
+    end
+
     local format = {
       mode = "symbol_text",
       max_width = 50,
