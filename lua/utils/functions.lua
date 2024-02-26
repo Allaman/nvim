@@ -214,11 +214,11 @@ M.table_length = function(t)
   return count
 end
 
----Search for TODO|HACK|FIXME|NOTE with rg and
+---Search for BUG|TODO|HACK|FIXME|NOTE with rg and
 ---populate quickfixlist with the results
 M.search_todos = function()
   local result
-  result = vim.fn.system("rg --json --case-sensitive -w 'TODO|HACK|FIXME|NOTE'")
+  result = vim.fn.system("rg --json --case-sensitive -w 'BUG|TODO|HACK|FIXME|NOTE'")
   if result == nil then
     return
   end
