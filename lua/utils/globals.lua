@@ -17,6 +17,11 @@ end
 
 -- Print the string representation of a Lua table
 P = function(v)
-  print(vim.inspect(v))
+  vim.print(vim.inspect(v))
   return v
+end
+
+-- Print config
+PC = function()
+  vim.print(vim.g.config)
 end
