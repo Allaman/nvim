@@ -11,4 +11,5 @@ return {
   event = event,
   enabled = vim.g.config.plugins.symbol_usage.enable,
   config = true,
+  opts = vim.g.config.plugins.symbol_usage.opts,
 }

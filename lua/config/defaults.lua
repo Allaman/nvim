@@ -191,6 +191,9 @@ return {
     },
     symbol_usage = {
       enable = true,
+      opts = {
+        vt_position = "above", -- 'above'|'end_of_line'|'textwidth'
+      },
     },
     telescope = {
       -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
