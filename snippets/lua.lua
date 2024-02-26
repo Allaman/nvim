@@ -6,13 +6,13 @@ local env = snip_env
 
 return {
   env.s(
-    "pp",
-    env.fmt(
+    { trig = "pp", name = "pretty_print", desc = "Pretty Print" },
+    env.fmta(
       [[
-      vim.pretty_print({})
+      vim.print(<args>)
       ]],
       {
-        env.i(1, "text"),
+        args = env.i(1, "args"),
       }
     )
   ),

@@ -6,10 +6,18 @@ local env = snip_env
 
 return {
   -- s("date", p(os.date, "%Y-%m-%d")),
-  env.s({ trig = "gwa", name = "Gitlab Warning" }, {
-    env.t(":warning: "),
-    env.i(1, { "some-warning" }),
-  }),
+  env.s(
+    { trig = "gitlab_warn", name = "Gitlab warning", desc = "Warning emoji for Gitlab markdown" },
+    env.fmta(
+      [[
+      :warning: <warn><finish>
+      ]],
+      {
+        warn = env.i(1, "warning"),
+        finish = env.i(0),
+      }
+    )
+  ),
   env.s({ trig = "hugoimg", name = "Hugo image shortcut" }, {
     env.t("{{< img name="),
     env.i(1, { "name" }),
@@ -17,28 +25,13 @@ return {
     env.i(2, { "true" }),
     env.t(" >}}"),
   }),
-  env.s({ trig = "hugotoc", name = "Hugo toc shortcut" }, {
+  env.s({ trig = "hugotoc", name = "Hugo toc", desc = "Hugo Table of Contents" }, {
     env.t("{{< toc >}}"),
   }),
-  env.s({ trig = "hugosep", name = "Hugo intro separator shortcut" }, {
+  env.s({ trig = "hugosep", name = "Hugo separator", desc = "Separator in Hugo" }, {
     env.t("<!-- more -->"),
   }),
-  -- s(
-  -- 	"hugores2",
-  -- 	fmt(
-  -- 		[[
-  --      - name: {1}
-  --        src: {2}.png
-  --        title: {3}
-  --    ]],
-  -- 		{
-  -- 			i(1, "name"),
-  -- 			rep(1), -- repeat value 1 but "overjumps" it
-  -- 			i(2, "title"),
-  -- 		}
-  -- 	)
-  -- ),
-  env.s({ trig = "hugores", name = "Hugo resource entry" }, {
+  env.s({ trig = "hugores", name = "Hugo resource", desc = "Hugo Resource entry" }, {
     env.t("\t- name: "),
     env.i(1, { "name", "" }),
     env.t("\t\tsrc: "),
@@ -49,36 +42,44 @@ return {
     env.t("\t\ttitle: "),
     env.i(3, { "title" }),
   }),
-  env.s({ trig = "ltexLang", name = "Ltex language overwrite" }, {
-    env.t("<!-- LTeX: language="),
-    env.i(1, { "lang" }),
-    env.t(" -->"),
-    env.i(0),
-  }),
   env.s(
-    "link",
-    env.fmt(
-      [[
-      [{}]({}){}
-      ]],
+    { trig = "hugoalert", name = "Alert", desc = "Alert shortcode of Blowfish theme" },
+    env.fmta(
+      [===[
+      {{<< alert <opts> >>}}
+      <text>
+      {{<< /alert >>}}
+      <finish>
+      ]===],
       {
-        env.i(1, "name"),
-        env.i(2, "url"),
-        env.i(0),
+        opts = env.i(1),
+        text = env.i(2),
+        finish = env.i(0),
       }
     )
   ),
   env.s(
-    "hugohint",
-    env.fmt(
-      [===[
-      {{{{< hint {} >}}}}
-      {}
-      {{{{< /hint >}}}}
-      ]===],
+    { trig = "ltexLang", name = "Ltex language", desc = "Overwrite language for ltex LSP" },
+    env.fmta(
+      [[
+      <<!-- LTeX: language=<lang> -->><finish>
+      ]],
       {
-        env.i(1, "type"),
-        env.i(0),
+        lang = env.i(1, "lang"),
+        finish = env.i(0),
+      }
+    )
+  ),
+  env.s(
+    { trig = "link", name = "Markdown link", desc = "A default Markdown link" },
+    env.fmta(
+      [[
+      [<text>](<url>)<finish>
+      ]],
+      {
+        text = env.i(1, "text"),
+        url = env.i(2, "url"),
+        finish = env.i(0),
       }
     )
   ),

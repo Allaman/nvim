@@ -6,35 +6,29 @@ local env = snip_env
 
 return {
   env.s(
-    "ff",
-    env.fmt(
+    { trig = "fl", name = "Println", desc = "Simple Println Snippet" },
+    env.fmta(
       [[
-      fmt.Println({})
+      fmt.Println(<args>)
+      <finish>
       ]],
       {
-        env.i(1, "text"),
+        args = env.i(1, "text"),
+        finish = env.i(0),
       }
     )
   ),
   env.s(
-    "fff",
-    env.fmt(
+    { trig = "fs", name = "Sprintf", desc = "Simple Sprintf Snippet" },
+    env.fmta(
       [[
-      fmt.Printf({})
+      fmt.Sprintf("<verbs>", <args>)
+      <finish>
       ]],
       {
-        env.i(1, "text"),
-      }
-    )
-  ),
-  env.s(
-    "sf",
-    env.fmt(
-      [[
-      fmt.Sprintf({})
-      ]],
-      {
-        env.i(1, "text"),
+        verbs = env.i(1, "verbs"),
+        args = env.i(2, "args"),
+        finish = env.i(0),
       }
     )
   ),
