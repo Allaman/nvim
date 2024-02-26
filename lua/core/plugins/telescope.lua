@@ -58,11 +58,23 @@ local M = {
     -- trim the indentation at the beginning of presented line
     table.insert(vimgrep_arguments, "--trim")
 
+    local fzf_extension = {}
+    if conf.telescope.fzf_native.enable then
+      fzf_extension = {
+        fuzzy = true, -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        override_file_sorter = true, -- override the file sorter
+        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+        -- the default case_mode is "smart_case"
+      }
+    end
+
     telescope.setup({
       extensions = {
         ["ui-select"] = {
           require("telescope.themes").get_dropdown({}),
         },
+        fzf = fzf_extension,
         file_browser = {
           theme = "ivy",
           hijack_netrw = false,
