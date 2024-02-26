@@ -57,7 +57,8 @@ return {
       local hi = require("mini.hipatterns")
       return {
         highlighters = {
-          -- Highlight 'FIXME', 'HACK', 'TODO', 'NOTE'
+          -- Highlight 'BUG', 'FIXME', 'HACK', 'TODO', 'NOTE'
+          bug = { pattern = "%f[%w]()BUG()%f[%W]", group = "MiniHipatternsFixme" },
           fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
           hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
           todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
