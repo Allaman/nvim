@@ -12,18 +12,18 @@ local M = {
   keys = {
     -- Search stuff
     { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
-    { "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "Strings" },
+    { "<leader>ss", "<cmd>Telescope live_grep<cr>", desc = "Strings" },
     { "<leader>s?", "<cmd>Telescope help_tags<cr>", desc = "Help" },
     { "<leader>sh", "<cmd>Telescope heading<cr>", desc = "Headings" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
     { "<leader>sO", "<cmd>Telescope vim_options<cr>", desc = "Vim Options" },
     { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers" },
-    { "<leader>ss", "<cmd>Telescope grep_string<cr>", desc = "Word under cursor" },
+    { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Word under cursor" },
     { "<leader>sS", "<cmd>Telescope symbols<cr>", desc = "Emoji" },
     { "<leader>s:", "<cmd>Telescope search_history<cr>", desc = "Search History" },
     { "<leader>s;", "<cmd>Telescope command_history<cr>", desc = "Command history" },
     {
-      "<leader>sf",
+      "<leader>sW",
       "<cmd>lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<cr>",
       desc = "Word search",
     },
