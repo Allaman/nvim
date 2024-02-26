@@ -100,7 +100,7 @@ api.nvim_create_autocmd("FileType", {
     "qf",
     "PlenaryTestPopup",
     "startuptime",
-    "tsplayground",
+    "query",
     "spectre_panel",
   },
   callback = function(event)
