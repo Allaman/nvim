@@ -32,7 +32,7 @@ local M = {
     { "<leader>gg", "<cmd>Telescope git_status<cr>", desc = "Status" },
     { "<leader>gm", "<cmd>Telescope git_commits<cr>", desc = "Commits" },
     -- files
-    { "<leader>fb", "<cmd>Telescope file_browser grouped=true<cr>", desc = "Filebrowser" },
+    { "<leader>fb", "<cmd>" .. require("utils.functions").file_browser() .. "<cr>", desc = "Filebrowser" },
     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
     { "<leader>ff", "<cmd>" .. require("utils.functions").project_files() .. "<cr>", desc = "Open file" },
     { "<leader>fF", "<cmd>Telescope find_files<cr>", desc = "Open file (ignore git)" },
