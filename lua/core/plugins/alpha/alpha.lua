@@ -75,8 +75,8 @@ end
 local default_mru_ignore = { "gitcommit" }
 
 local mru_opts = {
-  ignore = function(path, ext)
-    return (string.find(path, "COMMIT_EDITMSG")) or (vim.tbl_contains(default_mru_ignore, ext))
+  ignore = function(p, ext)
+    return (string.find(p, "COMMIT_EDITMSG")) or (vim.tbl_contains(default_mru_ignore, ext))
   end,
 }
 
@@ -167,16 +167,14 @@ local buttons = {
   type = "group",
   val = {
     { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
-    dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
-    dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<CR>"),
-    dashboard.button("F", "  Find File (ignore git)", ":Telescope find_files <CR>"),
-    dashboard.button("b", "  File Browser", ":Telescope file_browser grouped=true <CR>"),
-    dashboard.button("t", "  Find Text", ":Telescope live_grep <CR>"),
-    dashboard.button("z", "  Search Zoxide", ":Telescope zoxide list<CR>"),
-    dashboard.button("r", "  Recent Files", ":Telescope oldfiles <CR>"),
-    dashboard.button("g", "  NeoGit", ":Neogit <CR>"),
-    dashboard.button("l", "  Lazy", ":Lazy check<CR>"),
-    dashboard.button("q", "  Quit", ":qa<CR>"),
+    dashboard.button("e", "  New File", "<cmd>ene <BAR> startinsert<cr>"),
+    dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<cr>"),
+    dashboard.button("b", "  File Browser", "<cmd>" .. require("utils.functions").file_browser() .. "<cr>"),
+    dashboard.button("t", "  Find Text", "<cmd>Telescope live_grep<cr>"),
+    dashboard.button("r", "  Recent Files", "<cmd>Telescope oldfiles<cr>"),
+    dashboard.button("g", "  NeoGit", "<cmd>Neogit<cr>"),
+    dashboard.button("l", "  Lazy", "<cmd>Lazy check<cr>"),
+    dashboard.button("q", "  Quit", "<cmd>qa<cr>"),
   },
   position = "center",
 }
