@@ -73,6 +73,14 @@ M.project_files = function()
   end
 end
 
+-- Return file browser command
+M.file_browser = function()
+  if vim.g.config.plugins.lf.enable then
+    return "Lf"
+  end
+  return "Telescope file_browser grouped=true"
+end
+
 -- toggle quickfixlist
 M.toggle_qf = function()
   local windows = fn.getwininfo()
