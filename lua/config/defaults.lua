@@ -18,7 +18,8 @@ return {
     inccommand = "nosplit", -- preview incremental substitute
     list = false, -- enable or disable listchars
     listchars = {
-      tab = "| ",
+      eol = "↲",
+      tab = "→ ",
       trail = "+",
       extends = ">",
       precedes = "<",
