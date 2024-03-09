@@ -345,12 +345,16 @@ return {
   -- Tools that should be installed by Mason
   tools = {
     -- Formatter
+    "isort",
     "prettier",
     "stylua",
     "shfmt",
+    "typstfmt",
     -- Linter
+    "hadolint",
     "eslint_d",
     "shellcheck",
+    "selene",
     "tflint",
     "yamllint",
     "ruff",
@@ -361,6 +365,7 @@ return {
     "gofumpt",
     "goimports",
     "gomodifytags",
+    "golangci-lint",
     "gotests",
     "iferr",
     "impl",
