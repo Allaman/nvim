@@ -14,7 +14,6 @@ local M = {
       wk.register({
         g = {
           name = "Git",
-          M = { "Hydra move" },
           ["<Enter>"] = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
           c = { "<cmd>G commit %<cr>", "Commit buffer" },
           P = { "<cmd>G push<cr>", "Push" },
@@ -34,10 +33,11 @@ local M = {
           b = { gs.toggle_current_line_blame, "Blame line" },
           D = { gs.diffthis, "Diff" },
           d = { gs.toggle_deleted, "Show deleted" },
-          j = { gs.next_hunk, "Next hunk" },
-          k = { gs.prev_hunk, "Previous hunk" },
         },
       }, { prefix = "<leader>", mode = "n", default_options })
+
+      map("n", "gj", gs.next_hunk, { desc = "Git next hunk" })
+      map("n", "gk", gs.prev_hunk, { desc = "Git previous hunk" })
 
       -- TODO: with german qwertz this bindings are awful
       map("n", "]c", function()
