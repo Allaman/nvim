@@ -345,7 +345,6 @@ return {
   -- Tools that should be installed by Mason
   tools = {
     -- Formatter
-    "black",
     "prettier",
     "stylua",
     "shfmt",
