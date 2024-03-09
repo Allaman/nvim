@@ -1,3 +1,4 @@
+local utils = require("utils.functions")
 local fn = vim.fn
 
 return {
@@ -85,6 +86,54 @@ return {
       enable = false,
       opts = {},
     },
+    conform = {
+      -- https://github.com/stevearc/conform.nvim
+      enable = false,
+      event = { "BufReadPre", "BufNewFile", "InsertLeave" },
+      disable_autoformat = false,
+      config_function = function(opts)
+        local conform = require("conform")
+        conform.setup(opts)
+        conform.formatters.shfmt = {
+          prepend_args = { "-i", "2" }, -- 2 spaces instead of tab
+        }
+        conform.formatters.stylua = {
+          prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" }, -- 2 spaces instead of tab
+        }
+        conform.formatters.yamlfmt = {
+          prepend_args = { "-formatter", "indent=2,include_document_start=true" },
+        }
+        vim.g.disable_autoformat = vim.g.config.plugins.conform.disable_autoformat
+        vim.api.nvim_create_user_command("ToggleAutoformat", function()
+          utils.notify("Toggling autoformat", vim.log.levels.INFO, "conform.nvim")
+          vim.g.disable_autoformat = vim.g.disable_autoformat == false and true or false
+        end, { desc = "Toggling autoformat" })
+        vim.keymap.set("n", "<leader>tF", "<cmd>ToggleAutoformat<cr>", { desc = "Toggle format on save" })
+      end,
+      opts = {
+        format_on_save = function()
+          -- Disable with a global variable
+          if vim.g.disable_autoformat then
+            return
+          end
+          return { async = false, timeout_ms = 500, lsp_fallback = false }
+        end,
+        -- log_level = vim.log.levels.TRACE,
+        formatters_by_ft = {
+          go = { "goimports", "gofmt" },
+          javascript = { "prettier" },
+          json = { "prettier" },
+          lua = { "stylua" },
+          markdown = { "prettier" },
+          python = { "isort", "ruff_format" },
+          sh = { "shfmt" },
+          terraform = { "terraform_fmt" },
+          tex = { "latexindent" },
+          typst = { "typstfmt" },
+          yaml = { "yamlfmt" },
+        },
+      },
+    },
     -- https://github.com/zbirenbaum/copilot.lua
     copilot = {
       enable = false,
@@ -96,6 +145,37 @@ return {
     },
     lsp = {
       log = "off",
+    },
+    nvim_lint = {
+      enable = false,
+      config_function = function(opts)
+        local lint = require("lint")
+        lint.linters_by_ft = opts.linters_by_ft
+        local lint_augroup = vim.api.nvim_create_augroup("linting", { clear = true })
+        vim.api.nvim_create_autocmd(opts.events, {
+          group = lint_augroup,
+          callback = function()
+            lint.try_lint()
+          end,
+        })
+        vim.api.nvim_create_user_command("DisableLinting", function()
+          utils.notify("Disable Linting", vim.log.levels.INFO, "nvim-lint")
+          local ft = vim.filetype.match({ buf = 0 })
+          require("lint").linters_by_ft[ft] = {}
+          vim.diagnostic.hide()
+        end, { desc = "Disable linting for current filetype" })
+        vim.keymap.set("n", "<leader>tL", "<cmd>DisableLinting<cr>", { desc = "Toggle Linting" })
+      end,
+      opts = {
+        events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+        linters_by_ft = {
+          dockerfile = { "hadolint" },
+          go = { "golangcilint" },
+          lua = { "selene" },
+          sh = { "shellcheck" },
+          yaml = { "yamllint" },
+        },
+      },
     },
     git = {
       -- which tool to use for handling git merge conflicts
