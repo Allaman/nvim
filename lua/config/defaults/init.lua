@@ -1,0 +1,38 @@
+local conform = require("config.defaults.conform")
+local lint = require("config.defaults.lint")
+local mason = require("config.defaults.mason")
+local options = require("config.defaults.options")
+local telescope = require("config.defaults.telescope")
+local theme = require("config.defaults.theme")
+local treesitter = require("config.defaults.treesitter")
+
+local M = {}
+
+-- Merge all default configurations
+-- M = vim.tbl_deep_extend(
+--   "force",
+--   require("config.defaults.plugins"),
+--   conform,
+--   lint,
+--   mason,
+--   options,
+--   telescope,
+--   theme,
+--   treesitter
+-- )
+
+M.load = function()
+  return vim.tbl_deep_extend(
+    "force",
+    require("config.defaults.plugins"),
+    conform,
+    lint,
+    mason,
+    options,
+    telescope,
+    theme,
+    treesitter
+  )
+end
+
+return M

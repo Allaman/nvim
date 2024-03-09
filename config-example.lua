@@ -1,5 +1,5 @@
--- see ./lua/core/config/defaults.lua for all
--- possible values and a short description
+-- see ./lua/config/defaults for all
+-- possible values
 return {
   options = {
     relativenumber = true,
