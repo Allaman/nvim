@@ -1,4 +1,34 @@
 local conf = vim.g.config.plugins
+
+---enable Telescope file_browser only if Lf is not set as file browser
+local function enable_file_browser()
+  return not vim.g.config.plugins.lf.enable
+end
+
+local function file_browser_config()
+  if enable_file_browser() then
+    local fb_actions = require("telescope").extensions.file_browser.actions
+    return {
+      theme = "ivy",
+      hijack_netrw = false,
+      hidden = true,
+      mappings = {
+        i = {
+          ["<c-n>"] = fb_actions.create,
+          ["<c-r>"] = fb_actions.rename,
+          -- ["<c-h>"] = actions.which_key,
+          ["<c-h>"] = fb_actions.toggle_hidden,
+          ["<c-x>"] = fb_actions.remove,
+          ["<c-p>"] = fb_actions.move,
+          ["<c-y>"] = fb_actions.copy,
+          ["<c-a>"] = fb_actions.select_all,
+        },
+      },
+    }
+  end
+  return {}
+end
+
 local M = {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
@@ -6,7 +36,10 @@ local M = {
     "jvgrootveld/telescope-zoxide",
     "crispgm/telescope-heading.nvim",
     "nvim-telescope/telescope-symbols.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
+    {
+      "nvim-telescope/telescope-file-browser.nvim",
+      enabled = enable_file_browser(),
+    },
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = conf.telescope.fzf_native.enable, build = "make" },
   },
   keys = {
@@ -48,7 +81,6 @@ local M = {
     local telescopeConfig = require("telescope.config")
     local actions = require("telescope.actions")
     local action_layout = require("telescope.actions.layout")
-    local fb_actions = require("telescope").extensions.file_browser.actions
     local icons = require("utils.icons")
 
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
@@ -75,23 +107,7 @@ local M = {
           require("telescope.themes").get_dropdown({}),
         },
         fzf = fzf_extension,
-        file_browser = {
-          theme = "ivy",
-          hijack_netrw = false,
-          hidden = true,
-          mappings = {
-            i = {
-              ["<c-n>"] = fb_actions.create,
-              ["<c-r>"] = fb_actions.rename,
-              -- ["<c-h>"] = actions.which_key,
-              ["<c-h>"] = fb_actions.toggle_hidden,
-              ["<c-x>"] = fb_actions.remove,
-              ["<c-p>"] = fb_actions.move,
-              ["<c-y>"] = fb_actions.copy,
-              ["<c-a>"] = fb_actions.select_all,
-            },
-          },
-        },
+        file_browser = file_browser_config(),
       },
       pickers = {
         find_files = {
