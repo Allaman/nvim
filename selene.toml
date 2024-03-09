@@ -1,0 +1,5 @@
+# https://github.com/Kampfkarren/selene/issues/284
+std="lua51+vim"
+
+[rules]
+mixed_table = "allow"
