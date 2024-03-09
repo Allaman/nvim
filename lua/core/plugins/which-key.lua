@@ -31,9 +31,7 @@ local M = {
       ["<leader>mS"] = { name = "TreeSJ" },
       ["<leader>s"] = { name = "Search" },
       ["<leader>t"] = { name = "Toggles" },
-      -- Hydra not working with "name" key
-      ["<leader>w"] = { "Windows" },
-      ["<leader>z"] = { "Spelling" },
+      ["<leader>z"] = { name = "Spelling" },
     },
   },
   config = function(_, opts)

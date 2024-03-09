@@ -4,6 +4,11 @@ local function cmd(command)
   return table.concat({ ":", command, "<cr>" })
 end
 
+local wk = require("which-key")
+wk.register({
+  w = { "Windows" },
+}, { prefix = "<leader>", mode = "n", {} })
+
 local hint = [[
  Move    Size    Splits
  -----  ------  ---------
