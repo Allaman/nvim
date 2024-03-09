@@ -1,5 +1,5 @@
 local utils = require("utils.functions")
-M = {}
+local M = {}
 
 -- TODO: refactor
 -- must be global or the initial state is not working
