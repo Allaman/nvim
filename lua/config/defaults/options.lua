@@ -53,7 +53,7 @@ return {
     undolevels = 1000,
     updatetime = 300, -- faster completion
     wildignorecase = true, -- When set case is ignored when completing file names and directories
-    wildmode = "longest:full,full", -- Command-line completion mode
+    wildmode = "full", -- Command-line completion mode
     winminwidth = 5, -- minimum window width
     wildignore = [[
 .git,.hg,.svn
