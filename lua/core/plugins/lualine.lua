@@ -9,6 +9,10 @@ return {
   },
   opts = {
     extensions = vim.g.config.plugins.lualine.extensions,
+    options = {
+      section_separators = { left = "", right = "" },
+      component_separators = { left = "", right = "" },
+    },
     sections = {
       lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = {
