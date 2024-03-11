@@ -8,19 +8,6 @@ local treesitter = require("config.defaults.treesitter")
 
 local M = {}
 
--- Merge all default configurations
--- M = vim.tbl_deep_extend(
---   "force",
---   require("config.defaults.plugins"),
---   conform,
---   lint,
---   mason,
---   options,
---   telescope,
---   theme,
---   treesitter
--- )
-
 M.load = function()
   return vim.tbl_deep_extend(
     "force",
