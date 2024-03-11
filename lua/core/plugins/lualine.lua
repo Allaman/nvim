@@ -55,6 +55,23 @@ return {
       }
     end
 
+    local function is_macro_recording()
+      local reg = vim.fn.reg_recording()
+      if reg == "" then
+        return ""
+      end
+      return "Recording to " .. reg
+    end
+
+    -- Show info when recording a macro
+    table.insert(opts.sections.lualine_x, 1, {
+      is_macro_recording,
+      color = { fg = "red", gui = "italic" },
+      cond = function()
+        return is_macro_recording() ~= ""
+      end,
+    })
+
     require("lualine").setup(opts)
   end,
 }
