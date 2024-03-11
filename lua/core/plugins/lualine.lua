@@ -81,7 +81,7 @@ return {
       lazy = true,
     },
   },
-  opts = vim.tbl_deep_extend("force", default_options, user_conf.opts),
+  opts = vim.tbl_deep_extend("force", default_options, user_conf),
   config = function(_, opts)
     (user_conf.config_function or default_config_function)(opts)
   end,
