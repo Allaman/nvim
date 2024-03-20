@@ -20,7 +20,7 @@ local default_options = {
         -- 4: Filename and parent dir, with tilde as the home directory
       },
     },
-    lualine_x = { "encoding", "fileformat", "filetype" },
+    lualine_x = { "filetype" },
     lualine_y = { "progress" },
     lualine_z = { "location" },
   },
@@ -53,20 +53,73 @@ local function default_config_function(opts)
     }
   end
 
+  -- Show info when recording a macro
   local function is_macro_recording()
     local reg = vim.fn.reg_recording()
     if reg == "" then
       return ""
     end
-    return "Recording to " .. reg
+    return "Rec to " .. reg
   end
 
-  -- Show info when recording a macro
   table.insert(opts.sections.lualine_x, 1, {
     is_macro_recording,
     color = { fg = "red", gui = "italic" },
     cond = function()
       return is_macro_recording() ~= ""
+    end,
+  })
+
+  -- Don't display if encoding is UTF-8
+  local function encoding()
+    local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
+    return ret
+  end
+
+  table.insert(opts.sections.lualine_x, 1, {
+    encoding,
+    cond = function()
+      return encoding() ~= ""
+    end,
+  })
+
+  -- Don't display if fileformat is unix
+  local function fileformat()
+    local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
+    return ret
+  end
+
+  table.insert(opts.sections.lualine_x, 1, {
+    fileformat,
+    cond = function()
+      return fileformat() ~= ""
+    end,
+  })
+
+  local function wordCount()
+    local wc = vim.fn.wordcount()
+    if wc == nil then
+      return ""
+    end
+    if wc["visual_words"] then -- text is selected in visual mode
+      return wc["visual_words"] .. " Words/" .. wc["visual_chars"] .. " Chars (Vis)"
+    else -- all of the document
+      return wc["words"] .. " Words"
+    end
+  end
+
+  table.insert(opts.sections.lualine_y, 1, {
+    wordCount,
+    cond = function()
+      local ft = vim.opt_local.filetype:get()
+      local count = {
+        latex = true,
+        tex = true,
+        text = true,
+        markdown = true,
+        vimwiki = true,
+      }
+      return count[ft] ~= nil
     end,
   })
 
