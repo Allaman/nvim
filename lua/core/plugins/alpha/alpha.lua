@@ -170,7 +170,7 @@ local buttons = {
     dashboard.button("e", "  New File", "<cmd>ene <BAR> startinsert<cr>"),
     dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<cr>"),
     dashboard.button("b", "  File Browser", "<cmd>" .. require("utils.functions").file_browser() .. "<cr>"),
-    dashboard.button("t", "  Find Text", "<cmd>Telescope live_grep<cr>"),
+    dashboard.button("s", "  Search String", "<cmd>Telescope live_grep<cr>"),
     dashboard.button("r", "  Recent Files", "<cmd>Telescope oldfiles<cr>"),
     dashboard.button("g", "  NeoGit", "<cmd>Neogit<cr>"),
     dashboard.button("l", "  Lazy", "<cmd>Lazy check<cr>"),
