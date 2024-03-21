@@ -8,6 +8,8 @@ return {
       disable_dashboard_header = false,
       -- disable quick links of the dashboard
       disable_dashboard_quick_links = false,
+      -- use mini.visits as recent files provider
+      use_mini_visits = false,
     },
     -- https://github.com/jackMort/ChatGPT.nvim
     chatgpt = {
