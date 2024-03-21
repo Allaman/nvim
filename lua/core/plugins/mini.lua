@@ -1,5 +1,3 @@
-local plugins = vim.g.config.plugins
-
 return {
 
   {
