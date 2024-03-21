@@ -7,6 +7,7 @@ local M = {
     {
       "echasnovski/mini.visits", -- oldfiles alternative
       enabled = vim.g.config.plugins.alpha.use_mini_visits,
+      config = true,
     },
   },
   config = function()
