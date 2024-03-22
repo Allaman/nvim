@@ -96,7 +96,8 @@ local function get_recent_files(start, cwd, items_number)
       end
     end
   else
-    recent_files = require("mini.visits").list_paths()
+    local sort_recent = require("mini.visits").gen_sort.default({ recency_weight = 1 })
+    recent_files = require("mini.visits").list_paths(nil, { filter = exclude, sort = sort_recent })
   end
 
   local special_shortcuts = { "a", "s", "d" }
