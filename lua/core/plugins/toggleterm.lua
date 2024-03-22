@@ -40,6 +40,14 @@ local M = {
       end,
       desc = "Mappings for navigation with a terminal",
     })
+
+    vim.api.nvim_create_user_command("Exec", function(opts)
+      require("toggleterm").exec(opts.args)
+    end, { desc = "Run TermExec with the given command", nargs = "*" })
+
+    vim.api.nvim_create_user_command("Tldr", function(opts)
+      require("toggleterm").exec("tldr " .. opts.args)
+    end, { desc = "Run tldr with the given argument", nargs = 1 })
   end,
 }
 
