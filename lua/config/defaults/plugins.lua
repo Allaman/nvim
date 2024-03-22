@@ -33,6 +33,10 @@ return {
       -- choose between "git-conflict" and "diffview" or "both"
       merge_conflict_tool = "git-conflict",
     },
+    gp = {
+      -- https://github.com/Robitx/gp.nvim
+      enabled = false,
+    },
     gopher = {
       -- https://github.com/olexsmir/gopher.nvim
       enable = false,
