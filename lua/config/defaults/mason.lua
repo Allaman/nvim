@@ -34,6 +34,7 @@ return {
     "ruff",
     -- DAP
     "debugpy",
+    "delve",
     "codelldb",
     -- Go
     "gofumpt",
