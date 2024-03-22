@@ -1,8 +1,11 @@
+local conf = vim.g.config.plugins.oil
+
 return {
   "stevearc/oil.nvim",
-  enabled = vim.g.config.plugins.oil.enable,
+  enabled = conf.enable,
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = {
-    vim.g.config.plugins.oil.key_mappings(),
-  },
+  opts = conf.opts,
+  config = function(_, opts)
+    conf.key_mappings()
+  end,
 }
