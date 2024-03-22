@@ -32,9 +32,6 @@ local M = {
       },
     },
   },
-  config = function()
-    require("core.plugins.hydra.hydra")
-  end,
 }
 
 return M
