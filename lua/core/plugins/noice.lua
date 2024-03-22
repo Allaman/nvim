@@ -31,18 +31,30 @@ local default_keys = {
 }
 
 return {
-  "folke/noice.nvim",
-  enabled = user_config.enabled,
-  event = "VeryLazy",
-  dependencies = {
-    "MunifTanjim/nui.nvim",
-    {
-      "rcarriga/nvim-notify",
-      opts = {
-        top_down = false,
+  {
+    "folke/noice.nvim",
+    enabled = user_config.enabled,
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        opts = {
+          top_down = false,
+        },
+      },
+    },
+    keys = vim.tbl_deep_extend("force", default_keys, (user_config.keys or {})),
+    opts = vim.tbl_deep_extend("force", default_options, (user_config.opts or {})),
+  },
+  -- which key integration
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      groups = {
+        ["<leader>n"] = { name = "Noice" },
       },
     },
   },
-  keys = vim.tbl_deep_extend("force", default_keys, (user_config.keys or {})),
-  opts = vim.tbl_deep_extend("force", default_options, (user_config.opts or {})),
 }
