@@ -17,6 +17,7 @@ local M = {
       open_mapping = "<C-n>",
       shading_factor = "1", -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
       direction = "vertical", -- 'vertical' | 'horizontal' | 'window' | 'float',
+      autochdir = true,
     })
 
     local opts = { noremap = true }
