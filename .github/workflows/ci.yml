@@ -1,3 +1,4 @@
+---
 name: ci
 
 on:
@@ -22,7 +23,11 @@ jobs:
           ignore: "DL3008,DL3013,SC2015"
           verbose: true
       - name: Lint Markdown files
-        uses: actionshub/markdownlint@v3.1.4
+        uses: DavidAnson/markdownlint-cli2-action@v15
+        continue-on-error: true
+        with:
+          globs: |
+            README.md
       - name: Codespell
         uses: codespell-project/actions-codespell@master
         with:

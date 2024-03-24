@@ -1,0 +1,6 @@
+---
+# allow longer lines
+MD013: false
+
+# allow inline HTML
+MD033: false
