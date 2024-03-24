@@ -6,6 +6,7 @@ return {
     "dockerls",
     "jsonls",
     "gopls",
+    "helm_ls",
     "ltex",
     "marksman",
     "pyright",
