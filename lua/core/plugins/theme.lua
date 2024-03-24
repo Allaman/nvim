@@ -34,6 +34,7 @@ local themes = {
   catppuccin = {
     "catppuccin/nvim",
     name = "catppuccin",
+    priority = 1000,
     config = function()
       require("core.plugins.themes.catppuccin")
     end,
