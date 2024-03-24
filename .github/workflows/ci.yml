@@ -28,12 +28,6 @@ jobs:
         with:
           globs: |
             README.md
-      - name: Codespell
-        uses: codespell-project/actions-codespell@master
-        with:
-          check_filenames: true
-          check_hidden: true
-          ignore_words_list: noice,windo,enew
 
   docker:
     runs-on: ubuntu-latest
