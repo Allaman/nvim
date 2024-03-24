@@ -17,7 +17,7 @@ local default_keys = {
   { "<leader>id", "<cmd>GpChatDelete<cr>", desc = "Delete current chat" },
   { "<leader>ii", "<cmd>GpImage<cr>", desc = "Create an image" },
   { "<leader>is", "<cmd>GpStop<cr>", desc = "Stop all running jobs and responses" },
-  { "<leader>it", "<cmd>GpTranslator vsplit<cr>", desc = "Translate" },
+  { "<leader>il", "<cmd>GpTranslator vsplit<cr>", desc = "Translate" },
 }
 
 return {
