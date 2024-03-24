@@ -20,7 +20,7 @@
 
 </div>
 
-![](./docs/screenshot.png)
+![screenshot](./docs/screenshot.png)
 
 💻 This configuration works on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim >= 0.10 for all features. If you are running Neovim 0.9, dropbar.nvim is disabled, which only works in Neovim >= 0.10
 
@@ -35,7 +35,7 @@ _Font_: Jetbrains Mono
 <details>
 <summary>Leader Key Clusters via which-key</summary>
 
-![](./docs/which-key.png)
+![which-key](./docs/which-key.png)
 
 See `./lua/core/config/ui/which-key.lua` for details.
 
@@ -44,21 +44,14 @@ See `./lua/core/config/ui/which-key.lua` for details.
 <details>
 <summary>Go development</summary>
 
-![](./docs/go-dev.png)
+![go-dev](./docs/go-dev.png)
 
 </details>
 
 <details>
 <summary>Debugging via DAP</summary>
 
-![](./docs/dap.png)
-
-</details>
-
-<details>
-<summary>Hydra mode for window bindings</summary>
-
-![](./docs/hydra-window.png)
+![dap](./docs/dap.png)
 
 </details>
 
@@ -81,7 +74,6 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 - Package management and plugin configuration via [lazy.nvim](https://github.com/folke/lazy.nvim)
 - Mnemonic keyboard mappings inspired by [Spacemacs](https://www.spacemacs.org/) via [which-key.nvim](https://github.com/folke/which-key.nvim); no more than three keystrokes for each keybinding
-- Submodes powered by [Hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
 - Complete transformation via [noice.nvim](https://github.com/folke/noice.nvim)
 - Fully featured status line via [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - Terminal integration via [nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua)
@@ -201,7 +193,7 @@ The following programs should be installed on your system so that the appropriat
 
 #### All other
 
-All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.std path("data") .. "mason"`). [Mason requirements](https://GitHub.com/William beman/mason.nvim#requirements) must be available on your system.
+All other dependencies are managed by [Mason](https://github.com/williamboman/mason.nvim). Tools are installed by running `:MasonToolsInstall` (in `vim.fn.std path("data") .. "mason"`). [Mason requirements](https://github.com/williamboman/mason.nvim#requirements) must be available on your system.
 
 ## Bindings
 
@@ -238,7 +230,7 @@ Some bindings can be overwritten in your user config file. See `./lua/core/confi
 | n       | \<leader\>Rf           | Search (and replace) in current file (via Spectre)                       |
 | n       | \<leader\>Rc           | Replace current selection (in Spectre)                                   |
 | n       | \<leader\>RR           | Replace all (in Spectre)                                                 |
-| n       | :LtexLang <lang>       | Set a specific language like "de-DE" for ltex-ls                         |
+| n       | :LtexLang \<lang\>     | Set a specific language like "de-DE" for ltex-ls                         |
 | n       | \<leader\>mc           | Enable GitHub Copilot (if plugin is enabled in your user config)         |
 | n       | \<leader\>tr           | Toggle Overseer (if plugin is enabled in your user config)               |
 | n       | \<leader\>r            | OverseerRun (if plugin is enabled in your user config)                   |
