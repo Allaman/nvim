@@ -1,36 +1,26 @@
-local M = {
+local user_config = (vim.g.config.plugins.neogit or {})
+
+local default_config = {
+  enabled = true,
+  keys = {
+    { "<leader>g<Enter>", "<cmd>Neogit<cr>", desc = "Neogit" },
+  },
+  opts = {},
+}
+
+local config = vim.tbl_deep_extend("force", default_config, user_config)
+
+return {
   "NeogitOrg/neogit",
   cmd = "Neogit",
+  enabled = config.enabled,
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  opts = {
-    disable_signs = false,
-    disable_context_highlighting = false,
-    disable_commit_confirmation = false,
-    -- customize displayed signs
-    signs = {
-      -- { CLOSED, OPENED }
-      section = { ">", "v" },
-      item = { ">", "v" },
-      hunk = { "", "" },
-    },
-    integrations = { diffview = true },
-    -- override/add mappings
-    mappings = {
-      -- modify status buffer mappings
-      status = {
-        -- Adds a mapping with "B" as key that does the "BranchPopup" command
-        -- ["B"] = "BranchPopup",
-        -- ["C"] = "CommitPopup",
-        -- ["P"] = "PullPopup",
-        -- ["S"] = "Stage",
-        -- ["D"] = "Discard",
-        -- Removes the default mapping of "s"
-        -- ["s"] = "",
-      },
-    },
-  },
+  keys = config.keys,
+  opts = config.opts,
+  config = function(_, opts)
+    vim.print(opts)
+    require("neogit").setup(opts)
+  end,
 }
-
-return M

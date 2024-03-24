@@ -202,6 +202,10 @@ local M = {
     if conf.emoji.enable then
       telescope.load_extension("emoji")
     end
+
+    if (conf.ts_advanced_git_search or false) and conf.ts_advanced_git_search.enabled then
+      telescope.load_extension("advanced_git_search")
+    end
   end,
 }
 
