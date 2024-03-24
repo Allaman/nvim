@@ -4,7 +4,7 @@ catppuccin.setup({
   dim_inactive = {
     enabled = true,
     shade = "dark",
-    percentage = 0.15,
+    percentage = 0.05,
   },
   transparent_background = false,
   term_colors = true,
@@ -48,7 +48,7 @@ catppuccin.setup({
     lsp_trouble = false,
     cmp = true,
     lsp_saga = false,
-    gitgutter = true,
+    gitgutter = false,
     gitsigns = true,
     telescope = true,
     nvimtree = {
