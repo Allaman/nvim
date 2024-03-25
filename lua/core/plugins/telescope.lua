@@ -1,8 +1,14 @@
-local conf = vim.g.config.plugins
+local plugins = vim.g.config.plugins
+local user_config = (vim.g.config.plugins.telescope or {})
+local icons = require("utils.icons")
+local actions = require("telescope.actions")
+local action_layout = require("telescope.actions.layout")
+local telescopeConfig = require("telescope.config")
+table.unpack = table.unpack or unpack -- 5.1 compatibility
 
 ---enable Telescope file_browser only if Lf is not set as file browser
 local function enable_file_browser()
-  return not vim.g.config.plugins.lf.enable
+  return not plugins.lf.enable
 end
 
 local function file_browser_config()
@@ -29,19 +35,10 @@ local function file_browser_config()
   return {}
 end
 
-local M = {
-  "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
-  dependencies = {
-    "jvgrootveld/telescope-zoxide",
-    "crispgm/telescope-heading.nvim",
-    "nvim-telescope/telescope-symbols.nvim",
-    {
-      "nvim-telescope/telescope-file-browser.nvim",
-      enabled = enable_file_browser(),
-    },
-    { "nvim-telescope/telescope-fzf-native.nvim", enabled = conf.telescope.fzf_native.enable, build = "make" },
-  },
+local default_config = {
+  grep_hidden = true,
+  fzf_native = false,
+  show_untracked_files = false,
   keys = {
     -- Search stuff
     { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
@@ -76,137 +73,204 @@ local M = {
     { "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Bufferlist" },
     { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
   },
-  config = function()
+  config_function = function(opts)
     local telescope = require("telescope")
-    local telescopeConfig = require("telescope.config")
-    local actions = require("telescope.actions")
-    local action_layout = require("telescope.actions.layout")
-    local icons = require("utils.icons")
-
-    local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
-    if conf.telescope.grep_hidden then
-      table.insert(vimgrep_arguments, "--hidden")
-    end
-    -- trim the indentation at the beginning of presented line
-    table.insert(vimgrep_arguments, "--trim")
-
-    local fzf_extension = {}
-    if conf.telescope.fzf_native.enable then
-      fzf_extension = {
-        fuzzy = true, -- false will only do exact matching
-        override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true, -- override the file sorter
-        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-        -- the default case_mode is "smart_case"
+    -- Make telescope look awesome with catppuccin
+    if vim.g.config.theme.name == "catppuccin" then
+      local colors = require("catppuccin.palettes").get_palette()
+      local TelescopeColor = {
+        TelescopeMatching = { fg = colors.pink },
+        TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+        TelescopePromptPrefix = { bg = colors.mantle },
+        TelescopePromptNormal = { bg = colors.mantle },
+        TelescopeResultsNormal = { bg = colors.mantle },
+        TelescopePreviewNormal = { bg = colors.mantle },
+        TelescopePromptBorder = { bg = colors.mantle, fg = colors.surface0 },
+        TelescopeResultsBorder = { bg = colors.mantle, fg = colors.surface0 },
+        TelescopePreviewBorder = { bg = colors.mantle, fg = colors.surface0 },
+        TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
+        TelescopeResultsTitle = { fg = colors.mantle },
+        TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
       }
+      for hl, col in pairs(TelescopeColor) do
+        vim.api.nvim_set_hl(0, hl, col)
+      end
     end
 
-    telescope.setup({
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({}),
-        },
-        fzf = fzf_extension,
-        file_browser = file_browser_config(),
-      },
-      pickers = {
-        find_files = {
-          hidden = false,
-        },
-        oldfiles = {
-          cwd_only = true,
-        },
-        buffers = {
-          ignore_current_buffer = true,
-          sort_lastused = true,
-        },
-        live_grep = {
-          only_sort_text = true, -- grep for content and not file name/path
-          mappings = {
-            i = { ["<c-f>"] = require("telescope.actions").to_fuzzy_refine },
-          },
-        },
-      },
-      defaults = {
-        file_ignore_patterns = conf.telescope.file_ignore_patterns,
-        vimgrep_arguments = vimgrep_arguments,
-        mappings = {
-          i = {
-            -- Close on first esc instead of going to normal mode
-            -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
-            ["<esc>"] = actions.close,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<PageUp>"] = actions.results_scrolling_up,
-            ["<PageDown>"] = actions.results_scrolling_down,
-            ["<C-u>"] = actions.preview_scrolling_up,
-            ["<C-d>"] = actions.preview_scrolling_down,
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-q>"] = actions.send_selected_to_qflist,
-            ["<C-l>"] = actions.send_to_qflist,
-            ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-            ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-            ["<cr>"] = actions.select_default,
-            ["<c-v>"] = actions.select_vertical,
-            ["<c-s>"] = actions.select_horizontal,
-            ["<c-t>"] = actions.select_tab,
-            ["<c-p>"] = action_layout.toggle_preview,
-            ["<c-o>"] = action_layout.toggle_mirror,
-            ["<c-h>"] = actions.which_key,
-            ["<c-x>"] = actions.delete_buffer,
-          },
-        },
-        prompt_prefix = table.concat({ icons.arrows.ChevronRight, " " }),
-        selection_caret = icons.arrows.CurvedArrowRight,
-        entry_prefix = "  ",
-        multi_icon = icons.arrows.Diamond,
-        initial_mode = "insert",
-        scroll_strategy = "cycle",
-        selection_strategy = "reset",
-        sorting_strategy = "descending",
-        layout_strategy = "vertical",
-        layout_config = {
-          width = 0.95,
-          height = 0.85,
-          preview_cutoff = 25,
-          prompt_position = "top",
-          horizontal = {
-            preview_width = function(_, cols, _)
-              if cols > 200 then
-                return math.floor(cols * 0.4)
-              else
-                return math.floor(cols * 0.6)
-              end
-            end,
-          },
-          vertical = { width = 0.9, height = 0.95, preview_height = 0.5 },
-          flex = { horizontal = { preview_width = 0.9 } },
-        },
-        winblend = 0,
-        border = {},
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-        color_devicons = true,
-        use_less = true,
-        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-      },
-    })
+    telescope.setup(opts)
 
     telescope.load_extension("projects")
     telescope.load_extension("zoxide")
     telescope.load_extension("heading")
-    if conf.noice.enable then
+
+    if plugins.noice.enable then
       telescope.load_extension("noice")
     end
-    if conf.telescope.fzf_native.enable then
+
+    if plugins.telescope.fzf_native then
       telescope.load_extension("fzf")
     end
-    if conf.emoji.enable then
+
+    if plugins.emoji.enable then
       telescope.load_extension("emoji")
     end
 
-    if (conf.ts_advanced_git_search or false) and conf.ts_advanced_git_search.enabled then
+    if (plugins.ts_advanced_git_search or false) and plugins.ts_advanced_git_search.enabled then
       telescope.load_extension("advanced_git_search")
     end
   end,
+  opts = {
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({}),
+      },
+      fzf = {},
+      file_browser = file_browser_config(),
+    },
+    pickers = {
+      find_files = {
+        hidden = false,
+      },
+      oldfiles = {
+        cwd_only = true,
+      },
+      buffers = {
+        ignore_current_buffer = true,
+        sort_lastused = true,
+      },
+      live_grep = {
+        only_sort_text = true, -- grep for content and not file name/path
+        mappings = {
+          i = { ["<c-f>"] = require("telescope.actions").to_fuzzy_refine },
+        },
+      },
+    },
+    defaults = {
+      file_ignore_patterns = {
+        "%.7z",
+        "%.avi",
+        "%.JPEG",
+        "%.JPG",
+        "%.V",
+        "%.RAF",
+        "%.burp",
+        "%.bz2",
+        "%.cache",
+        "%.class",
+        "%.dll",
+        "%.docx",
+        "%.dylib",
+        "%.epub",
+        "%.exe",
+        "%.flac",
+        "%.ico",
+        "%.ipynb",
+        "%.jar",
+        "%.jpeg",
+        "%.jpg",
+        "%.lock",
+        "%.mkv",
+        "%.mov",
+        "%.mp4",
+        "%.otf",
+        "%.pdb",
+        "%.pdf",
+        "%.png",
+        "%.rar",
+        "%.sqlite3",
+        "%.svg",
+        "%.tar",
+        "%.tar.gz",
+        "%.ttf",
+        "%.webp",
+        "%.zip",
+        ".git/",
+        ".gradle/",
+        ".idea/",
+        ".vale/",
+        ".vscode/",
+        "__pycache__/*",
+        "build/",
+        "env/",
+        "gradle/",
+        "node_modules/",
+        "smalljre_*/*",
+        "target/",
+        "vendor/*",
+      },
+      vimgrep_arguments = { table.unpack(telescopeConfig.values.vimgrep_arguments) },
+      mappings = {
+        i = {
+          -- Close on first esc instead of going to normal mode
+          -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
+          ["<esc>"] = actions.close,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<PageUp>"] = actions.results_scrolling_up,
+          ["<PageDown>"] = actions.results_scrolling_down,
+          ["<C-u>"] = actions.preview_scrolling_up,
+          ["<C-d>"] = actions.preview_scrolling_down,
+          ["<C-k>"] = actions.move_selection_previous,
+          ["<C-q>"] = actions.send_selected_to_qflist,
+          ["<C-l>"] = actions.send_to_qflist,
+          ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+          ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+          ["<cr>"] = actions.select_default,
+          ["<c-v>"] = actions.select_vertical,
+          ["<c-s>"] = actions.select_horizontal,
+          ["<c-t>"] = actions.select_tab,
+          ["<c-p>"] = action_layout.toggle_preview,
+          ["<c-o>"] = action_layout.toggle_mirror,
+          ["<c-h>"] = actions.which_key,
+          ["<c-x>"] = actions.delete_buffer,
+        },
+      },
+      prompt_prefix = table.concat({ icons.arrows.ChevronRight, " " }),
+      selection_caret = icons.arrows.CurvedArrowRight,
+      multi_icon = icons.arrows.Diamond,
+      layout_strategy = "flex",
+      results_title = false,
+      layout_config = {
+        prompt_position = "top",
+      },
+      winblend = 0, -- transparency
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      set_env = { ["COLORTERM"] = "truecolor" },
+    },
+  },
 }
 
-return M
+local config = vim.tbl_deep_extend("force", default_config, user_config)
+
+if config.grep_hidden then
+  table.insert(config.opts.defaults.vimgrep_arguments, "--hidden")
+end
+
+if config.fzf_native then
+  table.insert(config.opts.extensions.fzf, {
+    fuzzy = true, -- false will only do exact matching
+    override_generic_sorter = true, -- override the generic sorter
+    override_file_sorter = true, -- override the file sorter
+    case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+    -- the default case_mode is "smart_case"
+  })
+end
+
+return {
+  "nvim-telescope/telescope.nvim",
+  cmd = "Telescope",
+  dependencies = {
+    "jvgrootveld/telescope-zoxide",
+    "crispgm/telescope-heading.nvim",
+    "nvim-telescope/telescope-symbols.nvim",
+    {
+      "nvim-telescope/telescope-file-browser.nvim",
+      enabled = enable_file_browser(),
+    },
+    { "nvim-telescope/telescope-fzf-native.nvim", enabled = config.fzf_native, build = "make" },
+  },
+  keys = config.keys,
+  opts = config.opts,
+  config = function(_, opts)
+    config.config_function(opts)
+  end,
+}

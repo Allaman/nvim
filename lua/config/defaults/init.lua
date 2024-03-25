@@ -2,7 +2,6 @@ local conform = require("config.defaults.conform")
 local lint = require("config.defaults.lint")
 local mason = require("config.defaults.mason")
 local options = require("config.defaults.options")
-local telescope = require("config.defaults.telescope")
 local theme = require("config.defaults.theme")
 local treesitter = require("config.defaults.treesitter")
 
@@ -16,7 +15,6 @@ M.load = function()
     lint,
     mason,
     options,
-    telescope,
     theme,
     treesitter
   )
