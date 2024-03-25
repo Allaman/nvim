@@ -16,7 +16,6 @@ local default_config = {
 }
 
 local config = vim.tbl_deep_extend("force", default_config, user_config)
-vim.print(config)
 
 return {
   "ThePrimeagen/harpoon",
