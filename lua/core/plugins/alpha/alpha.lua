@@ -99,6 +99,7 @@ local function get_recent_files(start, cwd, items_number)
     -- TODO better approach via config table?
     local exclude = function(path_data)
       return vim.fn.matchstr(path_data.path, "gp/chats") == ""
+        and vim.fn.matchstr(path_data.path, "COMMIT_EDITMSG") == ""
     end
     local sort_recent = require("mini.visits").gen_sort.default({ recency_weight = 1 })
     recent_files = require("mini.visits").list_paths(nil, { filter = exclude, sort = sort_recent })
