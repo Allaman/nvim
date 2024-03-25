@@ -33,7 +33,7 @@ local default_keys = {
 return {
   {
     "folke/noice.nvim",
-    enabled = user_config.enabled,
+    enabled = user_config.enabled or true,
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
