@@ -98,7 +98,8 @@ local function get_recent_files(start, cwd, items_number)
   else
     -- TODO better approach via config table?
     local exclude = function(path_data)
-      return vim.fn.matchstr(path_data.path, "gp/chats") == ""
+      return vim.fn.matchstr(path_data.path, "local/share/nvim") == ""
+        and vim.fn.matchstr(path_data.path, "cache/nvim") == ""
         and vim.fn.matchstr(path_data.path, "COMMIT_EDITMSG") == ""
     end
     local sort_recent = require("mini.visits").gen_sort.default({ recency_weight = 1 })
