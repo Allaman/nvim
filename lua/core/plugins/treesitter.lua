@@ -12,6 +12,9 @@ local M = {
     local conf = vim.g.config
     require("nvim-treesitter.configs").setup({
       ensure_installed = conf.treesitter_ensure_installed,
+      highlight = {
+        enable = true,
+      },
       incremental_selection = {
         enable = true,
         keymaps = {
