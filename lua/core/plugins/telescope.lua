@@ -75,27 +75,6 @@ local default_config = {
   },
   config_function = function(opts)
     local telescope = require("telescope")
-    -- Make telescope look awesome with catppuccin
-    if vim.g.config.theme.name == "catppuccin" then
-      local colors = require("catppuccin.palettes").get_palette()
-      local TelescopeColor = {
-        TelescopeMatching = { fg = colors.pink },
-        TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
-        TelescopePromptPrefix = { bg = colors.mantle },
-        TelescopePromptNormal = { bg = colors.mantle },
-        TelescopeResultsNormal = { bg = colors.mantle },
-        TelescopePreviewNormal = { bg = colors.mantle },
-        TelescopePromptBorder = { bg = colors.mantle, fg = colors.surface0 },
-        TelescopeResultsBorder = { bg = colors.mantle, fg = colors.surface0 },
-        TelescopePreviewBorder = { bg = colors.mantle, fg = colors.surface0 },
-        TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
-        TelescopeResultsTitle = { fg = colors.mantle },
-        TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
-      }
-      for hl, col in pairs(TelescopeColor) do
-        vim.api.nvim_set_hl(0, hl, col)
-      end
-    end
 
     telescope.setup(opts)
 
