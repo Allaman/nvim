@@ -113,7 +113,7 @@ M.check = function()
     end
   end
 
-  if plugins.telescope.fzf_native.enable then
+  if plugins.telescope.fzf_native then
     if
       not (utils.isExecutableAvailable("cmake") or utils.isExecutableAvailable("make"))
       or not (utils.isExecutableAvailable("gcc") or utils.isExecutableAvailable("clang"))
