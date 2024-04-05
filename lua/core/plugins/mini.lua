@@ -1,7 +1,11 @@
+local utils = require("utils.functions")
 return {
 
   {
     "echasnovski/mini.comment",
+    -- built-in in Neovim 10
+    -- https://github.com/neovim/neovim/pull/28176
+    enabled = not utils.isNeovimVersionsatisfied(10),
     event = { "BufReadPre", "BufNewFile" },
     -- is not loaded without explicitly saying it
     config = true,
