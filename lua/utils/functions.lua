@@ -222,9 +222,6 @@ M.table_length = function(t)
   return count
 end
 
----Search for BUG|TODO|HACK|FIXME|NOTE with rg and
----populate quickfixlist with the results
-
 M.stopLSP = function(lsp_name)
   for _, client in ipairs(vim.lsp.get_active_clients()) do
     if client.name == lsp_name then
