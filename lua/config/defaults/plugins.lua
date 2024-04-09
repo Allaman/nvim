@@ -116,8 +116,7 @@ return {
       vimtex_view_method = "skim", -- Tool to view PDFs generated from LaTex
     },
     trouble = {
-      enable = false,
-      opts = {},
+      enabled = false,
     },
     -- https://github.com/folke/zen-mode.nvim
     zenmode = {
