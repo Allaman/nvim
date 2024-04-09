@@ -1,4 +1,4 @@
-local user_config = (vim.g.config.plugins.gitsigns or {})
+local user_config = vim.g.config.plugins.gitsigns or {}
 
 local default_config = {
   enabled = true,

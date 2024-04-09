@@ -1,4 +1,4 @@
-local user_config = (vim.g.config.plugins.harpoon or {})
+local user_config = vim.g.config.plugins.harpoon or {}
 
 local default_config = {
   enabled = false,

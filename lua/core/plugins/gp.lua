@@ -1,4 +1,4 @@
-local user_config = vim.g.config.plugins.gp
+local user_config = vim.g.config.plugins.gp or {}
 
 local default_config = {
   enabled = false,

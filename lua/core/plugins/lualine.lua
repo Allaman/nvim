@@ -1,4 +1,4 @@
-local user_conf = vim.g.config.plugins.lualine
+local user_conf = vim.g.config.plugins.lualine or {}
 
 local default_options = {
   extensions = vim.g.config.plugins.lualine.extensions,

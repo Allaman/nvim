@@ -1,4 +1,4 @@
-local user_config = (vim.g.config.plugins.fugitive or {})
+local user_config = vim.g.config.plugins.fugitive or {}
 
 local default_config = {
   enabled = true,
