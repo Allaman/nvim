@@ -153,14 +153,6 @@ docker build -t nvim .
 
 Replace `allaman/nvim` in the former commands with just `nvim`.
 
-## Installation
-
-I created an installation [script](install.sh) that sets up all required tools on a fresh machine to work with my Neovim config.
-
-For now, it works on Debian/Ubuntu and Arch. MacOS will be added soon.
-
-USE AT YOUR OWN RISK!!
-
 ## Requirements
 
 There are some tools that are required in order to use some features/plugins:
