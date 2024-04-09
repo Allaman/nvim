@@ -106,10 +106,3 @@ map("n", "<leader>za", "zg", { desc = "Add word" })
 map("n", "<leader>ms", "<cmd>source ~/.config/nvim/snippets/*<cr>", { desc = "Reload snippets" })
 
 -- Quickfix
-map("n", "<leader>qj", "<cmd>cnext<cr>", { desc = "Next entry" })
-map("n", "<leader>qk", "<cmd>cprevious<cr>", { desc = "Previous entry" })
-map("n", "<leader>qq", "<cmd>lua require('utils.functions').toggle_qf()<cr>", { desc = "Toggle Quickfix" })
--- Search for 'FIXME', 'HACK', 'TODO', 'NOTE'
-map("n", "<leader>qt", function()
-  utils.search_todos()
-end, { desc = "List TODOs" })
