@@ -34,10 +34,6 @@ local programs = {
     required = true,
     desc = "a highly recommended find alternative",
   },
-  fzf = {
-    required = true,
-    desc = "a highly recommended fuzzy finder (nvim-bqf dependency)",
-  },
 }
 
 local exec_not_found_template = "'%s' executable not found - %s"

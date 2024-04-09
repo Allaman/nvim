@@ -1,6 +1,7 @@
-local M = {
-  "kevinhwang91/nvim-bqf",
-  ft = "qf",
+local user_config = vim.g.config.plugins.bqf or {}
+
+local default_config = {
+  enabled = false,
   opts = {
     auto_enable = true,
     auto_resize_height = true,
@@ -26,4 +27,11 @@ local M = {
   },
 }
 
-return M
+local config = vim.tbl_deep_extend("force", default_config, user_config)
+
+return {
+  "kevinhwang91/nvim-bqf",
+  enabled = config.enabled,
+  ft = "qf",
+  opts = config.opts,
+}
