@@ -15,18 +15,11 @@ return {
       },
       {
         "<leader>Rw",
+        mode = { "v", "n" },
         function()
           require("spectre").open_visual({ select_word = true })
         end,
-        desc = "Search current word",
-      },
-      {
-        "<leader>Rw",
-        mode = "v",
-        function()
-          require("spectre").open_visual()
-        end,
-        desc = "Search current word",
+        desc = "Search word",
       },
       {
         "<leader>Rf",
