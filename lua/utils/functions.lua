@@ -236,4 +236,20 @@ M.startLSP = function(lsp_name)
   require("lspconfig")[lsp_name].setup({})
 end
 
+---check if nested config is not nil
+---@param config any
+---@param ... string
+---@return any
+M.safe_nested_config = function(config, ...)
+  local elements = { ... }
+  local node = config
+  for i = 1, #elements do
+    node = node[elements[i]]
+    if node == nil then
+      return nil
+    end
+  end
+  return node
+end
+
 return M
