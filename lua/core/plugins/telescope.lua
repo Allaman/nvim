@@ -1,14 +1,16 @@
 local plugins = vim.g.config.plugins
 local user_config = (vim.g.config.plugins.telescope or {})
+local utils = require("utils.functions")
 local icons = require("utils.icons")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
 local telescopeConfig = require("telescope.config")
+local telescope = require("telescope")
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
 ---enable Telescope file_browser only if Lf is not set as file browser
 local function enable_file_browser()
-  return not plugins.lf.enable
+  return not utils.safe_nested_config(plugins, "lf", "enable")
 end
 
 local function file_browser_config()
@@ -27,7 +29,7 @@ local function file_browser_config()
           ["<c-x>"] = fb_actions.remove,
           ["<c-p>"] = fb_actions.move,
           ["<c-y>"] = fb_actions.copy,
-          ["<c-a>"] = fb_actions.select_all,
+          ["<c-a>"] = fb_actions.toggle_all,
         },
       },
     }
@@ -44,7 +46,6 @@ local default_config = {
     { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>ss", "<cmd>Telescope live_grep<cr>", desc = "Strings" },
     { "<leader>s?", "<cmd>Telescope help_tags<cr>", desc = "Help" },
-    { "<leader>sh", "<cmd>Telescope heading<cr>", desc = "Headings" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
     { "<leader>sO", "<cmd>Telescope vim_options<cr>", desc = "Vim Options" },
     { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers" },
@@ -63,7 +64,6 @@ local default_config = {
     { "<leader>gm", "<cmd>Telescope git_commits<cr>", desc = "Commits" },
     -- files
     { "<leader>fb", "<cmd>" .. require("utils.functions").file_browser() .. "<cr>", desc = "Filebrowser" },
-    { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
     { "<leader>ff", "<cmd>" .. require("utils.functions").project_files() .. "<cr>", desc = "Open file" },
     { "<leader>fF", "<cmd>Telescope find_files<cr>", desc = "Open file (ignore git)" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },
@@ -74,13 +74,7 @@ local default_config = {
     { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
   },
   config_function = function(opts)
-    local telescope = require("telescope")
-
     telescope.setup(opts)
-
-    telescope.load_extension("projects")
-    telescope.load_extension("zoxide")
-    telescope.load_extension("heading")
 
     if plugins.noice.enable then
       telescope.load_extension("noice")
@@ -104,7 +98,6 @@ local default_config = {
         require("telescope.themes").get_dropdown({}),
       },
       fzf = {},
-      file_browser = file_browser_config(),
     },
     pickers = {
       find_files = {
@@ -235,21 +228,53 @@ if config.fzf_native then
 end
 
 return {
-  "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
-  dependencies = {
-    "jvgrootveld/telescope-zoxide",
-    "crispgm/telescope-heading.nvim",
-    "nvim-telescope/telescope-symbols.nvim",
-    {
-      "nvim-telescope/telescope-file-browser.nvim",
-      enabled = enable_file_browser(),
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", enabled = config.fzf_native, build = "make" },
     },
-    { "nvim-telescope/telescope-fzf-native.nvim", enabled = config.fzf_native, build = "make" },
+    keys = config.keys,
+    opts = config.opts,
+    config = function(_, opts)
+      config.config_function(opts)
+    end,
   },
-  keys = config.keys,
-  opts = config.opts,
-  config = function(_, opts)
-    config.config_function(opts)
-  end,
+
+  {
+    "jvgrootveld/telescope-zoxide", -- TODO: configurable
+    config = function()
+      telescope.load_extension("zoxide")
+    end,
+    keys = {
+      { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
+    },
+  },
+
+  {
+    "crispgm/telescope-heading.nvim",
+    config = function()
+      telescope.load_extension("heading")
+    end,
+    keys = {
+      { "<leader>sh", "<cmd>Telescope heading<cr>", desc = "Headings" },
+    },
+  },
+
+  {
+    "nvim-telescope/telescope-symbols.nvim",
+  },
+
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    enabled = enable_file_browser(),
+    config = function()
+      telescope.setup({
+        extensions = {
+          file_browser = file_browser_config(),
+        },
+      })
+      telescope.load_extension("file_browser")
+    end,
+  },
 }
