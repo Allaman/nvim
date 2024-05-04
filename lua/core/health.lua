@@ -109,7 +109,7 @@ M.check = function()
     end
   end
 
-  if plugins.telescope.fzf_native then
+  if utils.safe_nested_config(vim.g.config.plugins, "telescope", "fzf_native") then
     if
       not (utils.isExecutableAvailable("cmake") or utils.isExecutableAvailable("make"))
       or not (utils.isExecutableAvailable("gcc") or utils.isExecutableAvailable("clang"))
