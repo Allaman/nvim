@@ -1,4 +1,5 @@
 local config = vim.g.config.plugins.emoji
+
 return {
   "allaman/emoji.nvim",
   ft = "markdown",
@@ -7,7 +8,8 @@ return {
     enable_cmp_integration = config.enable_cmp_integration,
     plugin_path = config.plugin_path,
   },
-  config = function()
+  config = function(_, opts)
+    require("emoji").setup(opts)
     require("telescope").load_extension("emoji")
   end,
   dev = true,
