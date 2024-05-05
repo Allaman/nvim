@@ -215,6 +215,9 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    dependencies = {
+      { "telescope-fzf-native.nvim", optional = true },
+    },
     keys = config.keys,
     opts = config.opts,
     config = function(_, opts)
@@ -226,6 +229,7 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     enabled = config.fzf_native,
     build = "make",
+    lazy = "true",
     config = function()
       telescope.load_extension("fzf")
     end,
