@@ -75,22 +75,6 @@ local default_config = {
   },
   config_function = function(opts)
     telescope.setup(opts)
-
-    if plugins.noice.enable then
-      telescope.load_extension("noice")
-    end
-
-    if plugins.telescope.fzf_native then
-      telescope.load_extension("fzf")
-    end
-
-    if plugins.emoji.enable then
-      telescope.load_extension("emoji")
-    end
-
-    if (plugins.ts_advanced_git_search or false) and plugins.ts_advanced_git_search.enabled then
-      telescope.load_extension("advanced_git_search")
-    end
   end,
   opts = {
     extensions = {
@@ -231,13 +215,19 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim", enabled = config.fzf_native, build = "make" },
-    },
     keys = config.keys,
     opts = config.opts,
     config = function(_, opts)
       config.config_function(opts)
+    end,
+  },
+
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    enabled = config.fzf_native,
+    build = "make",
+    config = function()
+      telescope.load_extension("fzf")
     end,
   },
 

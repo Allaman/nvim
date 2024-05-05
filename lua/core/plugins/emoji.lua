@@ -7,5 +7,8 @@ return {
     enable_cmp_integration = config.enable_cmp_integration,
     plugin_path = config.plugin_path,
   },
+  config = function()
+    require("telescope").load_extension("emoji")
+  end,
   dev = true,
 }
