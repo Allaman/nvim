@@ -252,10 +252,6 @@ return {
   },
 
   {
-    "nvim-telescope/telescope-symbols.nvim",
-  },
-
-  {
     "nvim-telescope/telescope-file-browser.nvim",
     enabled = enable_file_browser(),
     config = function()
