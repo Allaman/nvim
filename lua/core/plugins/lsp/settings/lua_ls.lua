@@ -5,6 +5,7 @@ local opts = {
   },
   diagnostics = { globals = { "vim" } },
   telemetry = { enable = false },
+  hint = { enable = true },
 }
 
 return opts

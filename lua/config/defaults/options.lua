@@ -45,7 +45,6 @@ return {
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = true, -- enable/disable swap file creation
     tabstop = 2, -- how many columns a tab counts for
-    termguicolors = true, -- set term gui true colors (most terminals support this)
     timeoutlen = 400, -- time to wait for a mapped sequence to complete (in milliseconds)
     ttimeoutlen = 0, -- Time in milliseconds to wait for a key code sequence to complete
     undodir = fn.stdpath("data") .. "/undodir", -- set undo directory

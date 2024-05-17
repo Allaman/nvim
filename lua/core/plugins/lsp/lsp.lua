@@ -29,6 +29,17 @@ for _, lsp in ipairs(conf.lsp_servers) do
       json = lsp_settings.json,
       Lua = lsp_settings.lua,
       ltex = lsp_settings.ltex,
+      gopls = {
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
+      },
       redhat = { telemetry = { enabled = false } },
       texlab = lsp_settings.tex,
       yaml = lsp_settings.yaml,

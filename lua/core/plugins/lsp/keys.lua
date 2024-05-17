@@ -70,6 +70,13 @@ M._keys = {
   { "<leader>lwa", vim.lsp.buf.add_workspace_folder, desc = "Add Folder" },
   { "<leader>lwl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", desc = "List Folders" },
   { "<leader>lwr", vim.lsp.buf.remove_workspace_folder, desc = "Remove Folder" },
+  {
+    "<leader>lh",
+    function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    end,
+    desc = "Toggle Inlay Hints",
+  },
 }
 
 function M.on_attach(client, buffer)

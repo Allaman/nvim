@@ -223,7 +223,7 @@ M.table_length = function(t)
 end
 
 M.stopLSP = function(lsp_name)
-  for _, client in ipairs(vim.lsp.get_active_clients()) do
+  for _, client in ipairs(vim.lsp.get_clients()) do
     if client.name == lsp_name then
       vim.lsp.stop_client(client.id)
       M.notify("Stopping LSP " .. lsp_name, vim.log.levels.INFO, "Utils")
