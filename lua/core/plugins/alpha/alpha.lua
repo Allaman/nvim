@@ -174,7 +174,7 @@ local buttons = {
     { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
     dashboard.button("e", "  New File", "<cmd>ene <BAR> startinsert<cr>"),
     dashboard.button("f", "  Find File", ":" .. require("utils.functions").project_files() .. "<cr>"),
-    dashboard.button("b", "  File Browser", "<cmd>" .. require("utils.functions").file_browser() .. "<cr>"),
+    dashboard.button("b", "  File Browser", require("utils.functions").file_browser()),
     dashboard.button("s", "  Search String", "<cmd>Telescope live_grep<cr>"),
     dashboard.button("r", "  Recent Files", "<cmd>Telescope oldfiles<cr>"),
     dashboard.button("g", "  NeoGit", "<cmd>Neogit<cr>"),

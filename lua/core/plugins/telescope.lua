@@ -8,9 +8,10 @@ local telescopeConfig = require("telescope.config")
 local telescope = require("telescope")
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
----enable Telescope file_browser only if Lf is not set as file browser
+---enable Telescope file_browser only if Lf or yazi is not set as file browser
 local function enable_file_browser()
   return not utils.safe_nested_config(plugins, "lf", "enable")
+    and not utils.safe_nested_config(plugins, "yazi", "enabled")
 end
 
 local function file_browser_config()

@@ -75,10 +75,13 @@ end
 
 -- Return file browser command
 M.file_browser = function()
-  if vim.g.config.plugins.lf.enable then
-    return "Lf"
+  if vim.g.config.plugins.yazi.enabled then
+    return "<cmd>lua require('yazi').yazi(nil, vim.fn.getcwd())<cr>"
   end
-  return "Telescope file_browser grouped=true"
+  if vim.g.config.plugins.lf.enable then
+    return "<cmd>Lf<cr>"
+  end
+  return "<cmd>Telescope file_browser grouped=true<cr>"
 end
 
 -- toggle quickfixlist
