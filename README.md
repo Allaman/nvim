@@ -94,6 +94,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - File tree navigation/manipulation via [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - Alternative file handling via [oil.nvim](https://github.com/stevearc/oil.nvim) (optional)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.nvim](https://github.com/lmburns/lf.nvim) (optional)
+- [yazi](https://github.com/sxyazi/yazi) integration with [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
 - Miller columns file navigation via [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md)
 - Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 
@@ -226,7 +227,7 @@ Some bindings can be overwritten in your user config file. See `./lua/core/confi
 | n       | \<leader\>mc           | Enable GitHub Copilot (if plugin is enabled in your user config)         |
 | n       | \<leader\>tr           | Toggle Overseer (if plugin is enabled in your user config)               |
 | n       | \<leader\>r            | OverseerRun (if plugin is enabled in your user config)                   |
-| n       | \<leader\>lf           | lf.nvim (if plugin is enabled in your user config)                       |
+| n       | \<leader\>lf           | yazi.nvim or lf.nvim (if enabled in your user config)                    |
 | n       | \<leader\>tz           | Toggle distraction free mode (if plugin is enabled in your user config)  |
 | n       | \<leader\>tF           | Disable auto formatting (if conform.nvim is enabled in your user config) |
 | n       | \<leader\>tL           | Disable linting (if nvim-lint is enabled in your user config)            |
