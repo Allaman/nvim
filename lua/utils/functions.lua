@@ -75,10 +75,10 @@ end
 
 -- Return file browser command
 M.file_browser = function()
-  if vim.g.config.plugins.yazi.enabled then
+  if M.safe_nested_config(vim.g.config.plugins, "yazi", "enabled") then
     return "<cmd>lua require('yazi').yazi(nil, vim.fn.getcwd())<cr>"
   end
-  if vim.g.config.plugins.lf.enable then
+  if M.safe_nested_config(vim.g.config.plugins, "lf", "enable") then
     return "<cmd>Lf<cr>"
   end
   return "<cmd>Telescope file_browser grouped=true<cr>"
