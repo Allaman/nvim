@@ -38,7 +38,7 @@ end
 ---Force a specific language for ltex-ls
 ---@param lang string
 M.set_ltex_lang = function(lang)
-  local clients = vim.lsp.buf_get_clients(0)
+  local clients = vim.lsp.get_clients({ buffer = 0 })
 
   for _, client in ipairs(clients) do
     if client.name == "ltex" then
@@ -51,7 +51,7 @@ M.set_ltex_lang = function(lang)
 end
 
 M.get_LSP_clients = function()
-  return vim.lsp.buf_get_clients(0)
+  return vim.lsp.get_clients({ buffer = 0 })
 end
 
 return M
