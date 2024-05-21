@@ -1,8 +1,8 @@
 local M = {
   "akinsho/nvim-toggleterm.lua",
+  cmd = "ToggleTerm",
   keys = "<C-n>",
   config = function()
-    local map = vim.api.nvim_set_keymap
     local buf_map = vim.api.nvim_buf_set_keymap
 
     require("toggleterm").setup({
@@ -21,7 +21,6 @@ local M = {
     })
 
     local opts = { noremap = true }
-    map("t", "<ESC>", "<C-\\><C-n>", opts) -- back to normal mode in Terminal
 
     -- Better navigation to and from terminal
     local set_terminal_keymaps = function()
