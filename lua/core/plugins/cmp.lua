@@ -86,6 +86,7 @@ local M = {
           require("luasnip").lsp_expand(args.body)
         end,
       },
+      preselect = cmp.PreselectMode.None,
       mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-u>"] = cmp.mapping.scroll_docs(4),
