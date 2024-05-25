@@ -9,6 +9,21 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 require("utils.functions").on_attach(function(client, buffer)
   require("core.plugins.lsp.keys").on_attach(client, buffer)
+  if client.name == "gopls" then
+    -- workaround for gopls not supporting semanticTokensProvider
+    -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
+    if not client.server_capabilities.semanticTokensProvider then
+      local semantic = client.config.capabilities.textDocument.semanticTokens
+      client.server_capabilities.semanticTokensProvider = {
+        full = true,
+        legend = {
+          tokenTypes = semantic.tokenTypes,
+          tokenModifiers = semantic.tokenModifiers,
+        },
+        range = true,
+      }
+    end
+  end
 end)
 
 if conf.plugins.lsp.log == "on" then
@@ -29,17 +44,7 @@ for _, lsp in ipairs(conf.lsp_servers) do
       json = lsp_settings.json,
       Lua = lsp_settings.lua,
       ltex = lsp_settings.ltex,
-      gopls = {
-        hints = {
-          assignVariableTypes = true,
-          compositeLiteralFields = true,
-          compositeLiteralTypes = true,
-          constantValues = true,
-          functionTypeParameters = true,
-          parameterNames = true,
-          rangeVariableTypes = true,
-        },
-      },
+      gopls = lsp_settings.gopls,
       redhat = { telemetry = { enabled = false } },
       texlab = lsp_settings.tex,
       yaml = lsp_settings.yaml,
