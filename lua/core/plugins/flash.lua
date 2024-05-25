@@ -1,3 +1,4 @@
+-- NOTE: https://github.com/folke/flash.nvim/commit/2411de6fd773ab5b902cf04f2dccfe3baadff229
 return {
   "folke/flash.nvim",
   opts = {},
