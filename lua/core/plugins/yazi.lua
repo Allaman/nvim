@@ -1,4 +1,5 @@
 local user_config = vim.g.config.plugins.yazi or {}
+local utils = require("utils.functions")
 
 local default_config = {
   enabled = false,
@@ -21,7 +22,7 @@ local config = vim.tbl_deep_extend("force", default_config, user_config)
 
 return {
   "mikavilpas/yazi.nvim",
-  enabled = config.enabled,
+  enabled = utils.isNeovimVersionsatisfied(10) and config.enabled,
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
