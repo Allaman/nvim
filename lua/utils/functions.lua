@@ -255,4 +255,23 @@ M.safe_nested_config = function(config, ...)
   return node
 end
 
+---returns the value of a deeply nested table (if it exists)
+---@param tbl table
+---@param key_path string
+---@return string|nil
+M.get_nested_value = function(tbl, key_path)
+  local keys = vim.split(key_path, ".", true)
+  local value = tbl
+
+  for _, key in ipairs(keys) do
+    if value[key] then
+      value = value[key]
+    else
+      return nil -- key path is invalid
+    end
+  end
+
+  return value
+end
+
 return M

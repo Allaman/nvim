@@ -1,4 +1,5 @@
 -- adopted from https://github.com/AdamWhittingham/vim-config/blob/nvim/lua/config/startup_screen.lua
+local utils = require("utils.functions")
 local conf = vim.g.config.plugins.alpha
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
@@ -184,11 +185,21 @@ local buttons = {
   position = "center",
 }
 
+---set a specific or a random header
+local function get_header()
+  if utils.safe_nested_config(conf, "header") then
+    local headers = require("core.plugins.alpha.headers")
+    if utils.get_nested_value(headers, conf.header) then
+      return utils.get_nested_value(headers, conf.header)
+    end
+  end
+  -- From https://gist.github.com/sRavioli/d6fb0a813b6affc171976b7dd09764d3
+  return require("core.plugins.alpha.headers")["random"]
+end
+
 local header = {
   type = "text",
-  -- From https://gist.github.com/sRavioli/d6fb0a813b6affc171976b7dd09764d3
-  val = require("core.plugins.alpha.headers")["random"],
-  -- val = require("core.config.alpha.headers").banners.sharp,
+  val = get_header(),
   opts = {
     position = "center",
     hl = "AlphaHeader",
