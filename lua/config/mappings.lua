@@ -54,7 +54,7 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New file" })
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 
 -- search and replace is a pain with a German keyboard layout
-map({ "v", "n" }, "<leader>sr", ":%s/", { desc = "Buffer search and replace" })
+map({ "n" }, "<leader>sr", ":%s/", { desc = "Buffer search and replace" })
 
 -- toggles
 map("n", "<leader>tn", function()
