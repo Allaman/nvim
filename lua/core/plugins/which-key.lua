@@ -31,6 +31,7 @@ local M = {
       ["<leader>mS"] = { name = "TreeSJ" },
       ["<leader>s"] = { name = "Search" },
       ["<leader>t"] = { name = "Toggles" },
+      ["<leader>w"] = { name = "Window" },
       ["<leader>z"] = { name = "Spelling" },
     },
   },

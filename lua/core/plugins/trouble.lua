@@ -37,7 +37,6 @@ local config = vim.tbl_deep_extend("force", default_config, user_config)
 return {
   {
     "folke/trouble.nvim",
-    branch = "dev",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     enabled = config.enabled,
