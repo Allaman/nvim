@@ -1,29 +1,25 @@
 local M = {}
 
-local trouble_enabled = vim.g.config.plugins.trouble.enable
+local trouble_enabled, _ = pcall(require, "trouble")
 ---@type table<string><function|string>
 local lsp_key_mapping = {}
 
 if trouble_enabled then
-  lsp_key_mapping["workspace_diagnostics"] = function()
-    require("trouble").toggle("workspace_diagnostics")
-  end
-  lsp_key_mapping["document_diagnostics"] = function()
-    require("trouble").toggle("document_diagnostics")
-  end
-  lsp_key_mapping["lsp_references"] = function()
-    require("trouble").toggle("lsp_references")
-  end
-  lsp_key_mapping["lsp_definitions"] = function()
-    require("trouble").toggle("lsp_definitions")
-  end
-  lsp_key_mapping["lsp_type_definitions"] = function()
-    require("trouble").toggle("lsp_type_definitions")
-  end
+  lsp_key_mapping["document_diagnostics"] = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>"
+  lsp_key_mapping["lsp_implementations"] = "<cmd>Trouble lsp_implementations toggle focus=false<cr>"
+  lsp_key_mapping["lsp_document_symbols"] = "<cmd>Trouble symbols toggle<cr>"
+  lsp_key_mapping["lsp_references"] = "<cmd>Trouble lsp_references toggle focus=false win.position=right<cr>"
+  lsp_key_mapping["lsp_definitions"] = "<cmd>Trouble lsp_definitions toggle focus=false<cr>"
+  lsp_key_mapping["lsp_type_definitions"] = "<cmd>Trouble lsp_type_definitions toggle focus=false<cr>"
+  lsp_key_mapping["workspace_diagnostics"] = "<cmd>Trouble diagnostics toggle<cr>"
 else
-  lsp_key_mapping["workspace_diagnostics"] = "<cmd>Telescope diagnostics<cr>"
-  lsp_key_mapping["document_diagnostics"] = "<cr>Telescope diagnostics bufnr=0<cr>"
+  lsp_key_mapping["document_diagnostics"] = "<cmd>Telescope diagnostics bufnr=0<cr>"
+  lsp_key_mapping["lsp_implementations"] = function()
+    require("telescope.builtin").lsp_implementations({ reuse_win = true })
+  end
+  lsp_key_mapping["lsp_document_symbols"] = "<cmd>Telescope lsp_document_symbols<cr>"
   lsp_key_mapping["lsp_references"] = "<cmd>Telescope lsp_references<cr>"
+  lsp_key_mapping["workspace_diagnostics"] = "<cmd>Telescope diagnostics<cr>"
   lsp_key_mapping["lsp_definitions"] = function()
     require("telescope.builtin").lsp_definitions({ reuse_win = true })
   end
@@ -33,7 +29,6 @@ else
 end
 
 M._keys = {
-  { "<leader>lD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
   { "<leader>ll", vim.diagnostic.open_float, desc = "Line Diagnostics" },
   -- { "<leader>lR", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
   {
@@ -51,9 +46,7 @@ M._keys = {
   { "<leader>lr", lsp_key_mapping["lsp_references"], desc = "References" },
   {
     "<leader>lI",
-    function()
-      require("telescope.builtin").lsp_implementations({ reuse_win = true })
-    end,
+    lsp_key_mapping["lsp_implementations"],
     desc = "Goto Implementation",
   },
   { "<leader>lt", lsp_key_mapping["lsp_type_definitions"], desc = "Goto Type Definition" },
@@ -63,13 +56,10 @@ M._keys = {
   { "<leader>ln", vim.diagnostic.goto_next, desc = "Next Diagnostic" },
   { "<leader>lp", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-  { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
+  { "<leader>ls", lsp_key_mapping["lsp_document_symbols"], desc = "Document Symbols" },
   { "<leader>le", lsp_key_mapping["document_diagnostics"], desc = "Document Diagnostics" },
   { "<leader>lws", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
-  { "<leader>lwd", lsp_key_mapping["workspace_diagnostics"], desc = "Workspace Diagnostics" },
-  { "<leader>lwa", vim.lsp.buf.add_workspace_folder, desc = "Add Folder" },
-  { "<leader>lwl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", desc = "List Folders" },
-  { "<leader>lwr", vim.lsp.buf.remove_workspace_folder, desc = "Remove Folder" },
+  { "<leader>lE", lsp_key_mapping["workspace_diagnostics"], desc = "Workspace Diagnostics" },
   {
     "<leader>lh",
     function()

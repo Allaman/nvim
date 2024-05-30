@@ -20,26 +20,6 @@ local default_config = {
   },
   keys = {
     {
-      "<leader>xx",
-      "<cmd>Trouble preview_diagnostics toggle<cr>",
-      desc = "Diagnostics (Trouble)",
-    },
-    {
-      "<leader>xX",
-      "<cmd>Trouble preview_diagnostics toggle filter.buf=0<cr>",
-      desc = "Buffer Diagnostics (Trouble)",
-    },
-    {
-      "<leader>xd",
-      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-      desc = "LSP Definitions/References",
-    },
-    {
-      "<leader>xs",
-      "<cmd>Trouble symbols toggle focus=false<cr>",
-      desc = "Symbols (Trouble)",
-    },
-    {
       "<leader>xl",
       "<cmd>Trouble loclist toggle<cr>",
       desc = "Location List (Trouble)",
