@@ -2,7 +2,7 @@
 
 <div align="center"><p>
     <a href="https://github.com/neovim/neovim">
-      <img src="https://img.shields.io/badge/Neovim-0.9.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white" alt="Neovim"/>
+      <img src="https://img.shields.io/badge/Neovim-0.10.0-blueviolet.svg?style=flat-square&logo=Neovim&color=90E59A&logoColor=white" alt="Neovim"/>
     </a>
     <a href="https://github.com/Allaman/nvim/pulse">
       <img src="https://img.shields.io/github/last-commit/Allaman/nvim" alt="Last commit"/>
@@ -22,7 +22,7 @@
 
 ![screenshot](./docs/screenshot.png)
 
-💻 This configuration works on my [Manjaro](https://manjaro.org/) Linux as well as on my macOS and requires Neovim >= 0.10 for all features. If you are running Neovim 0.9, dropbar.nvim is disabled, which only works in Neovim >= 0.10
+💻 This configuration works on my [NixOS](https://nixos.org/) Linux as well as on my macOS. It requires and is tested with Neovim >= 0.10. It should run with Neovim 0.9.5 but I can't recommend it.
 
 Have a look at my [rice](https://github.com/Allaman/rice) how my Linux machine is configured and at my [mac-setup](https://github.com/Allaman/mac-setup) how my MBP is configured. My [dotfiles](https://github.com/Allaman/dots) are also on GitHub.
 
