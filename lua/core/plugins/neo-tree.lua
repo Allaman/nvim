@@ -4,7 +4,6 @@ local M = {
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "nvim-tree/nvim-web-devicons", lazy = true },
     { "MunifTanjim/nui.nvim", lazy = true },
     {
       "s1n7ax/nvim-window-picker",

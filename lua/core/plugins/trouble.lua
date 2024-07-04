@@ -38,7 +38,6 @@ return {
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
     enabled = config.enabled,
     opts = config.opts,
     keys = config.keys,

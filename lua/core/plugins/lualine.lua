@@ -129,12 +129,6 @@ end
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  dependencies = {
-    {
-      "nvim-tree/nvim-web-devicons",
-      lazy = true,
-    },
-  },
   opts = vim.tbl_deep_extend("force", default_options, (user_conf.opts or {})),
   config = function(_, opts)
     (user_conf.config_function or default_config_function)(opts)
