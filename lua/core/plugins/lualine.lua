@@ -3,6 +3,7 @@ local user_conf = vim.g.config.plugins.lualine or {}
 local default_options = {
   extensions = vim.g.config.plugins.lualine.extensions,
   options = {
+    disabled_filetypes = { "alpha", "dashboard" },
     section_separators = { left = "", right = "" },
     component_separators = { left = "", right = "" },
   },
