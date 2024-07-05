@@ -20,7 +20,6 @@ return {
   keys = config.keys,
   opts = config.opts,
   config = function(_, opts)
-    vim.print(opts)
     require("neogit").setup(opts)
   end,
 }
