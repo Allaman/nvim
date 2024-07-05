@@ -1,16 +1,5 @@
 return {
   plugins = {
-    alpha = {
-      -- Number of recent files shown in dashboard
-      -- 0 disables showing recent files
-      dashboard_recent_files = 5,
-      -- disable the header of the dashboard
-      disable_dashboard_header = false,
-      -- disable quick links of the dashboard
-      disable_dashboard_quick_links = false,
-      -- use mini.visits as recent files provider
-      use_mini_visits = false,
-    },
     -- https://github.com/jackMort/ChatGPT.nvim
     chatgpt = {
       enable = false,
