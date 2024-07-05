@@ -3,6 +3,7 @@ local user_config = vim.g.config.plugins.trouble or {}
 local default_config = {
   enabled = false,
   opts = {
+    auto_preview = true,
     modes = {
       preview_diagnostics = {
         mode = "diagnostics",
