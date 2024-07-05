@@ -66,7 +66,7 @@ return {
         label = "Recent Projects",
         action = "Telescope find_files cwd=",
       },
-      footer = {},
+      footer = { "Nam et ipsa scientia potestas est" },
     },
   },
   config = function(_, opts)
