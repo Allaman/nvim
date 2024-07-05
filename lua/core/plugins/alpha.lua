@@ -1,5 +1,6 @@
 return {
   "goolord/alpha-nvim",
+  init = false,
   enabled = function()
     local utils = require("utils.functions")
     local db = utils.safe_nested_config(vim.g.config, "dashboard")
