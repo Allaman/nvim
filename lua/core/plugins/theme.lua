@@ -13,7 +13,8 @@ local themes = {
   },
   tokyonight = {
     "folke/tokyonight.nvim",
-    branch = "main",
+    priority = 1000,
+    lazy = false,
     config = function()
       require("core.plugins.themes.tokyonight")
     end,
