@@ -94,6 +94,10 @@ return {
       -- https://github.com/nvim-pack/nvim-spectre
       enable = true,
     },
+    -- https://github.com/supermaven-inc/supermaven-nvim
+    supermaven = {
+      enable = false,
+    },
     symbol_usage = {
       enable = true,
       opts = {

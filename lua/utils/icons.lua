@@ -1,6 +1,7 @@
 return {
   apps = {
     Copilot = "",
+    Supermaven = "",
   },
   arrows = {
     ArrowRight = "❯",
