@@ -28,13 +28,11 @@ return {
     on_open = function(win)
       vim.opt["conceallevel"] = 3
       vim.opt["concealcursor"] = "nc"
-      utils.stopLSP("ltex")
     end,
     -- callback where you can add custom code when the Zen window closes
     on_close = function()
       vim.opt["conceallevel"] = 0
       vim.opt["concealcursor"] = ""
-      utils.startLSP("ltex")
     end,
   },
 }
