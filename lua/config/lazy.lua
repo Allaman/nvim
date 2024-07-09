@@ -32,6 +32,7 @@ require("lazy").setup("core.plugins", {
   dev = {
     path = vim.g.config.plugins.lazy.dev.path,
   },
+  lockfile = vim.g.config.plugins.lazy.lockfile or vim.fn.stdpath("config") .. "/lazy-lock.json",
   performance = {
     rtp = {
       disabled_plugins = vim.g.config.plugins.lazy.disabled_neovim_plugins,
