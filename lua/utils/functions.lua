@@ -171,13 +171,19 @@ function M.on_attach(on_attach)
   })
 end
 
----load user config file .nvim_config.lua
----@return table
-function M.load_user_config()
-  local home = os.getenv("XDG_CONFIG_HOME")
+---get the path of the user's home directory
+---@return string
+function M.get_home()
+  return os.getenv("XDG_CONFIG_HOME")
     or os.getenv("HOME")
     or os.getenv("USERPROFILE")
     or (os.getenv("HOMEDRIVE") .. os.getenv("HOMEPATH"))
+end
+
+---load user config file .nvim_config.lua
+---@return table
+function M.load_user_config()
+  local home = M.get_home()
   local config_file = home .. M.path_separator() .. ".nvim_config.lua"
   local ok, err = pcall(dofile, config_file)
   if not ok then
