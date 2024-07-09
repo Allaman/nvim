@@ -28,6 +28,7 @@ local default_options = {
 }
 
 local function default_config_function(opts)
+  -- TODO: Add supermaven
   if vim.g.config.plugins.copilot.enable then
     local lsp_utils = require("core.plugins.lsp.utils")
     local utils = require("utils.functions")
