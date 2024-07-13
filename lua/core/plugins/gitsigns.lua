@@ -2,6 +2,9 @@ local user_config = vim.g.config.plugins.gitsigns or {}
 
 local default_config = {
   enabled = true,
+  keys = {
+    { "<leader>g", "", desc = "+Git" },
+  },
   opts = {
     on_attach = function(buffer)
       local gs = package.loaded.gitsigns
@@ -35,18 +38,9 @@ return {
       "nvim-lua/plenary.nvim",
     },
     opts = config.opts,
+    keys = config.keys,
     config = function(_, opts)
       require("gitsigns").setup(opts)
     end,
-  },
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      groups = {
-        ["<leader>g"] = { name = "Git" },
-      },
-    },
   },
 }

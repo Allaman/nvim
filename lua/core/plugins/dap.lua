@@ -15,12 +15,9 @@ end
 
 -- stylua: ignore
 local default_config = {
-  groups = {
-    ["<leader>d"] = { "Debug" },
-    ["<leader>dp"] = { "Python" },
-  },
   dap = {
     keys = {
+      {"<leader>d", "", desc = "+Debug" },
       { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
       { "<leader>dc", function() require("dap").run_to_cursor() end, desc = "Continue" },
       { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
@@ -129,14 +126,6 @@ return {
         "leoluz/nvim-dap-go",
         config = true,
       },
-    },
-  },
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      groups = config.groups,
     },
   },
 }

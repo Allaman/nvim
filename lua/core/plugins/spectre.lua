@@ -6,6 +6,7 @@ return {
     },
     enabled = vim.g.config.plugins.spectre.enable,
     keys = {
+      { "<leader>R", "", desc = "Replace" },
       {
         "<leader>Rr",
         function()
@@ -27,16 +28,6 @@ return {
           require("spectre").open_file_search({ select_word = true })
         end,
         desc = "Search in current file",
-      },
-    },
-  },
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      groups = {
-        ["<leader>R"] = { name = "Replace" },
       },
     },
   },

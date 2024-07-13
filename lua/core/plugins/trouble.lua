@@ -16,10 +16,8 @@ local default_config = {
       },
     },
   },
-  groups = {
-    ["<leader>x"] = { name = "Trouble" },
-  },
   keys = {
+    { "<leader>x", "", desc = "Trouble" },
     {
       "<leader>xl",
       "<cmd>Trouble loclist toggle<cr>",
@@ -42,13 +40,5 @@ return {
     enabled = config.enabled,
     opts = config.opts,
     keys = config.keys,
-  },
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      groups = config.groups,
-    },
   },
 }

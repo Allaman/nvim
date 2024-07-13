@@ -2,6 +2,7 @@ return {
   {
     "Wansmer/treesj",
     keys = {
+      { "<leader>mS", "", desc = "TreeSJ" },
       { "<leader>mSt", "<cmd>TSJToggle<cr>", desc = "Toggle" },
       { "<leader>mSj", "<cmd>TSJJoin<cr>", desc = "Join" },
       { "<leader>mSs", "<cmd>TSJSplit<cr>", desc = "Split" },
@@ -11,15 +12,5 @@ return {
       use_default_keymaps = false,
     },
     config = true,
-  },
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      groups = {
-        ["<leader>mS"] = { name = "TreeSJ" },
-      },
-    },
   },
 }

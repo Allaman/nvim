@@ -1,6 +1,6 @@
 local utils = require("utils.functions")
-return {
 
+return {
   {
     "echasnovski/mini.comment",
     -- built-in in Neovim 10
@@ -26,17 +26,7 @@ return {
         ":normal saiW`<Esc>",
         { desc = "Surround inner word with backticks", noremap = true }
       )
-      local wk = require("which-key")
-      wk.register({
-        sa = "Add surrounding",
-        sd = "Delete surrounding",
-        sh = "Highlight surrounding",
-        sn = "Surround update n lines",
-        sr = "Replace surrounding",
-        sF = "Find left surrounding",
-        sf = "Find right surrounding",
-        st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
-      })
+      -- TODO which-key integration
       require("mini.surround").setup(opts)
     end,
   },

@@ -2,10 +2,8 @@ local user_config = vim.g.config.plugins.gp or {}
 
 local default_config = {
   enabled = false,
-  groups = {
-    ["<leader>i"] = { name = "AI" },
-  },
   keys = {
+    { "<leader>i", "", desc = "+AI" },
     { "<leader>iv", "<cmd>GpChatNew vsplit<cr>", desc = "New Chat (vsplit)" },
     { "<leader>it", "<cmd>GpChatToggle<cr>", desc = "Toggle last chat" },
     { "<leader>if", "<cmd>GpChatFinder<cr>", desc = "Find chat" },
@@ -63,13 +61,5 @@ return {
     config = function(_, opts)
       config.config_function(opts)
     end,
-  },
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      groups = config.groups,
-    },
   },
 }

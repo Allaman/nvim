@@ -24,10 +24,8 @@ local default_config = {
       --   { filter = { event = "msg_show", find = "written" }, opts = { skip = true } }, -- skip "write" message on save
     },
   },
-  groups = {
-    ["<leader>n"] = { name = "Noice" },
-  },
   keys = {
+    { "<leader>n", "", desc = "Noice" },
     { "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Dismiss all visible messages" },
     { "<leader>nn", "<cmd>Noice<cr>", desc = "Open Noice" },
     { "<leader>ne", "<cmd>Noice errors<cr>", desc = "Open Noice Errors" },
@@ -47,19 +45,11 @@ return {
       {
         "rcarriga/nvim-notify",
         opts = {
-          top_down = false,
+          top_down = true,
         },
       },
     },
     keys = config.keys,
     opts = config.opts,
-  },
-  -- which key integration
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      groups = config.groups,
-    },
   },
 }
