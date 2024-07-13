@@ -53,8 +53,20 @@ M._keys = {
   { "<leader>lk", vim.lsp.buf.hover, desc = "Hover" },
   { "<leader>lS", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
   -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-  { "<leader>ln", vim.diagnostic.jump({ count = 1 }), desc = "Next Diagnostic" },
-  { "<leader>lp", vim.diagnostic.jump({ count = -1 }), desc = "Prev Diagnostic" },
+  {
+    "<leader>ln",
+    function()
+      vim.diagnostic.jump({ count = 1 })
+    end,
+    desc = "Next Diagnostic",
+  },
+  {
+    "<leader>lp",
+    function()
+      vim.diagnostic.jump({ count = -1 })
+    end,
+    desc = "Prev Diagnostic",
+  },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
   { "<leader>ls", lsp_key_mapping["lsp_document_symbols"], desc = "Document Symbols" },
   { "<leader>le", lsp_key_mapping["document_diagnostics"], desc = "Document Diagnostics" },
