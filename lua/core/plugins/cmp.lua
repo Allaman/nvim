@@ -3,7 +3,6 @@ local M = {
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-calc",
     "lukas-reineke/cmp-rg",
@@ -15,11 +14,10 @@ local M = {
 
     local sources = {
       { name = "nvim_lsp" },
-      { name = "buffer", keyword_length = 5 },
       { name = "luasnip" },
       { name = "calc" },
       { name = "path" },
-      { name = "rg", keyword_length = 5 },
+      { name = "rg", keyword_length = 3 },
       -- { omni = true }, -- completion for vimtex - is this necessary?
     }
 
