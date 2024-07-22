@@ -113,7 +113,7 @@ local function default_config_function(opts)
   table.insert(opts.sections.lualine_y, 1, {
     wordCount,
     cond = function()
-      local ft = vim.opt_local.filetype:get()
+      local ft = vim.bo.filetype
       local count = {
         latex = true,
         tex = true,
