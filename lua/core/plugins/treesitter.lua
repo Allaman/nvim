@@ -9,6 +9,8 @@ local M = {
   },
   config = function()
     local conf = vim.g.config
+    ---@type TSConfig
+    ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup({
       ensure_installed = conf.treesitter_ensure_installed,
       highlight = {
@@ -17,10 +19,10 @@ local M = {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<CR>",
-          scope_incremental = "<CR>",
-          node_incremental = "<TAB>",
-          node_decremental = "<S-TAB>",
+          init_selection = "<cr>",
+          scope_incremental = false,
+          node_incremental = "<cr>",
+          node_decremental = "<bs>",
         },
       },
       endwise = {
