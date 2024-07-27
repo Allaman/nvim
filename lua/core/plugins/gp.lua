@@ -15,9 +15,8 @@ local default_config = {
   opts = {
     hooks = {
       Translator = function(gp, params)
-        local agent = gp.get_command_agent()
-        local chat_system_prompt = "You are a Translator, please translate between German and English."
-        gp.cmd.ChatNew(params, agent.model, chat_system_prompt)
+        local chat_system_prompt = "You are a Translator, please translate between German and Engish."
+        gp.cmd.ChatNew(params, chat_system_prompt)
       end,
     },
   },
