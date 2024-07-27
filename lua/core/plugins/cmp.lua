@@ -86,7 +86,7 @@ local M = {
 
     cmp.setup({
       formatting = {
-        format = lspkind.cmp_format({ format }),
+        format = lspkind.cmp_format(format),
       },
       snippet = {
         expand = function(args)
