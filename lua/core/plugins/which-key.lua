@@ -15,6 +15,9 @@ local default_config = {
       spacing = 10, -- spacing between columns
       align = "center", -- align columns left, center or right
     },
+    win = {
+      no_overlap = false,
+    },
     spec = {
       { "<leader>b", group = "Buffers" },
       { "<leader>f", group = "Files" },
