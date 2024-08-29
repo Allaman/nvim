@@ -114,7 +114,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
 - GitHub Copilot integration via [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (optional)
 - Taskrunner via [Overseer](https://github.com/stevearc/overseer.nvim/) (optional)
-- Check your code with [trouble.nvim](https://github.com/folke/trouble.nvim) (optional)
+- Check your code with [trouble.nvim](https://github.com/folke/trouble.nvim)
 
 ## Try out
 
@@ -277,7 +277,7 @@ Each plugin to be installed is defined in `./lua/core/plugins/` in a separate fi
 
 ## User configuration
 
-The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, SpaceVim, etc. but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further lightweight configuration options that might be useful.
+The intention of my Neovim configuration was never to be a fully customizable "distribution" like LunarVim, LazyVim, SpaceVim, etc. but from time to time I like to change my color scheme and the idea of making this configurable came to my mind. Based upon this idea I implemented some further configuration options that might be useful.
 
 The default configuration can be found in [./lua/config/defaults](./lua/config/defaults/).
 
