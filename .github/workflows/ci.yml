@@ -23,7 +23,7 @@ jobs:
           ignore: "DL3008,DL3013,SC2015"
           verbose: true
       - name: Lint Markdown files
-        uses: DavidAnson/markdownlint-cli2-action@v16
+        uses: DavidAnson/markdownlint-cli2-action@v17
         continue-on-error: true
         with:
           globs: |
