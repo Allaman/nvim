@@ -13,7 +13,7 @@ return {
     "lua_ls",
     "terraformls",
     "texlab",
-    "tsserver",
+    "ts_ls",
     "typst_lsp",
     "yamlls",
   },
