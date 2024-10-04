@@ -23,6 +23,8 @@ local function init()
   for k, v in pairs(vim.g.config.options) do
     vim.opt[k] = v
   end
+  -- HACK: for loop can not handle append
+  vim.opt.shortmess:append("I") -- disable welcome message
 
   -- autocmds
   require("config.autocmds")
