@@ -1,4 +1,5 @@
 local themes = {
+  default = {}, -- the default Neovim theme
   nightfox = {
     "EdenEast/nightfox.nvim",
     priority = 1000,

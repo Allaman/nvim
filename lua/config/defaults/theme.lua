@@ -1,6 +1,6 @@
 return {
   theme = {
-    -- catppuccin, nightfox, tokyonight, tundra, kanagawa
+    -- default, catppuccin, nightfox, tokyonight, tundra, kanagawa
     name = "catppuccin",
     catppuccin = {
       -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
