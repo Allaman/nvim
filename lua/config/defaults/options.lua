@@ -11,6 +11,7 @@ return {
     dir = fn.stdpath("data") .. "/swp", -- swap file directory
     expandtab = true, -- use spaces instead of tabs
     formatoptions = "jcroqlnt", -- tcqj
+    fillchars = "eob: ", -- hide ~ at the end of buffer
     grepprg = "rg --vimgrep --smart-case --", -- use rg instead of grep
     hidden = true, -- Enable modified buffers in background
     history = 500, -- Use the 'history' option to set the number of lines from command mode that are remembered.
