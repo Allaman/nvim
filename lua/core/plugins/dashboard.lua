@@ -9,9 +9,6 @@ return {
     return false
   end,
   event = "VimEnter",
-  dependencies = {
-    "famiu/bufdelete.nvim", -- for autocmd
-  },
   opts = {
     config = {
       header = {
