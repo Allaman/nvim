@@ -68,10 +68,6 @@ return {
         vim.keymap.set("n", "<leader>lf", "<cmd>Lf<cr>", { desc = "LF" })
       end,
     },
-    lualine = {
-      -- https://github.com/nvim-lualine/lualine.nvim#extensions
-      extensions = { "lazy" },
-    },
     ltex = {
       additional_lang = "de-DE", -- manually set a language in ltex-ls
     },
