@@ -4,10 +4,10 @@ return {
   enabled = function()
     local utils = require("utils.functions")
     local db = utils.safe_nested_config(vim.g.config, "dashboard")
-    if db == "dashboard" then
-      return false
+    if db == "alpha" then
+      return true
     end
-    return true -- alpha is the default dashboard
+    return false
   end,
   event = "VimEnter",
   dependencies = {
