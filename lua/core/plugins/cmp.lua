@@ -1,5 +1,8 @@
+local icons = require("utils.icons")
+
 local M = {
-  "hrsh7th/nvim-cmp",
+  "iguanacucumber/magazine.nvim",
+  name = "nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
@@ -13,28 +16,19 @@ local M = {
     local lspkind = require("lspkind")
 
     local sources = {
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "calc" },
-      { name = "path" },
-      { name = "rg", keyword_length = 3 },
-      -- { omni = true }, -- completion for vimtex - is this necessary?
+      { name = "nvim_lsp", priority = 500 },
+      { name = "luasnip", priority = 1000 },
+      { name = "calc", priority = 200 },
+      { name = "path", priority = 300 },
+      { name = "rg", keyword_length = 3, priority = 400 },
     }
-
-    if vim.g.config.plugins.copilot.enable then
-      table.insert(sources, { name = "copilot", group_index = 2 })
-    end
-
-    if vim.g.config.plugins.supermaven.enabled then
-      table.insert(sources, { name = "supermaven" })
-    end
 
     if vim.g.config.plugins.emoji.enable then
       table.insert(sources, { name = "emoji" })
     end
 
     local format = {
-      mode = "symbol_text",
+      mode = "symbol",
       max_width = 50,
       symbol_map = {
         Text = "󰉿",
@@ -62,18 +56,18 @@ local M = {
         Event = "",
         Operator = "󰆕",
         TypeParameter = "",
+        Supermaven = "",
       },
     }
 
     if vim.g.config.plugins.copilot.enable then
-      local icons = require("utils.icons")
+      table.insert(sources, { name = "copilot", group_index = 2 })
       table.insert(format.symbol_map, { Copilot = icons.apps.Copilot })
     end
 
     if vim.g.config.plugins.supermaven.enabled then
-      local icons = require("utils.icons")
-      table.insert(format.symbol_map, { Supermaven = icons.apps.Supermaven })
-      vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
+      table.insert(sources, { name = "supermaven" })
+      format.symbol_map.Supermave = icons.apps.Supermaven
     end
 
     local has_words_before = function()
