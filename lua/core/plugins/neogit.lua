@@ -5,7 +5,9 @@ local default_config = {
   keys = {
     { "<leader>g<Enter>", "<cmd>Neogit<cr>", desc = "Neogit" },
   },
-  opts = {},
+  opts = {
+    graph_style = "kitty",
+  },
 }
 
 local config = vim.tbl_deep_extend("force", default_config, user_config)
