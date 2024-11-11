@@ -28,7 +28,6 @@ return {
           dockerfile = { "hadolint" },
           go = { "golangcilint" },
           lua = { "selene" },
-          sh = { "shellcheck" },
           yaml = { "yamllint" },
         },
       },
