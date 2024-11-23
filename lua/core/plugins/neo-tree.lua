@@ -37,6 +37,9 @@ local M = {
   opts = {
     close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
     default_component_configs = {
+      indent = {
+        with_markers = false,
+      },
       name = {
         highlight_opened_files = true,
       },
