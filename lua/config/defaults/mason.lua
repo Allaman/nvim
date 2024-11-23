@@ -24,6 +24,7 @@ return {
     "prettier",
     "stylua",
     "shfmt",
+    "taplo",
     "typstfmt",
     -- Linter
     "hadolint",
