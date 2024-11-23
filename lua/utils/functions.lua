@@ -76,12 +76,12 @@ end
 -- Return file browser command
 M.file_browser = function()
   if M.safe_nested_config(vim.g.config.plugins, "yazi", "enabled") then
-    return "lua require('yazi').yazi(nil, vim.fn.getcwd())"
+    require("yazi").yazi(nil, vim.fn.getcwd())
+  elseif M.safe_nested_config(vim.g.config.plugins, "lf", "enable") then
+    require("lf").start()
+  else
+    require("telescope").extensions.file_browser.file_browser()
   end
-  if M.safe_nested_config(vim.g.config.plugins, "lf", "enable") then
-    return "Lf"
-  end
-  return "Telescope file_browser grouped=true"
 end
 
 -- toggle quickfixlist
@@ -278,24 +278,6 @@ M.get_nested_value = function(tbl, key_path)
   end
 
   return value
-end
-
----when there is no buffer left, show the dashboard
----requires "famiu/bufdelete.nvim" for the pattern
----@param dashboard_cmd string
-M.dashboard_autocmd = function(dashboard_cmd)
-  vim.api.nvim_create_augroup("dashboard_on_empty", { clear = true })
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "BDeletePre *",
-    group = "dashboard_on_empty",
-    callback = function()
-      local bufnr = vim.api.nvim_get_current_buf()
-      local name = vim.api.nvim_buf_get_name(bufnr)
-      if name == "" then
-        vim.cmd(dashboard_cmd)
-      end
-    end,
-  })
 end
 
 return M

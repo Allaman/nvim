@@ -142,22 +142,13 @@ api.nvim_create_autocmd(
   }
 )
 
-local db = utils.safe_nested_config(vim.g.config, "dashboard")
-if db == "none" then
-  -- Create mappings that only apply in [No Name] buffers as a poor man's dashboard
-  vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "*",
-    callback = function()
-      if vim.api.nvim_buf_get_name(0) == "" and vim.bo.modified == false and vim.bo.buftype == "" then
-        local bmap = vim.api.nvim_buf_set_keymap
-        bmap(0, "n", "r", "<cmd>Telescope oldfiles<cr>", { desc = "Recent" })
-        bmap(0, "n", "f", ":" .. require("utils.functions").project_files() .. "<cr>", { desc = "Find File" })
-        bmap(0, "n", "s", "<cmd>Telescope live_grep<cr>", { desc = "Search String" })
-        bmap(0, "n", "q", "<cmd>qa<cr>", { desc = "Quit" })
-        bmap(0, "n", "l", "<cmd>Lazy check<cr>", { desc = "Lazy" })
-        bmap(0, "n", "g", "<cmd>Neogit<cr>", { desc = "Neogit" })
-        bmap(0, "n", "b", ":" .. require("utils.functions").file_browser() .. "<cr>", { desc = "Filebrowser" })
-      end
-    end,
-  })
-end
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.api.nvim_buf_get_name(0) == "" and vim.bo.modified == false and vim.bo.buftype == "" then
+      local bmap = vim.api.nvim_buf_set_keymap
+      bmap(0, "n", "q", "<cmd>qa<cr>", { desc = "Quit" })
+    end
+  end,
+  desc = "Exit Empty Buffer with q",
+})

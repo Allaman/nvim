@@ -64,7 +64,7 @@ local default_config = {
     { "<leader>gg", "<cmd>Telescope git_status<cr>", desc = "Status" },
     { "<leader>gm", "<cmd>Telescope git_commits<cr>", desc = "Commits" },
     -- files
-    { "<leader>fb", "<cmd>" .. require("utils.functions").file_browser() .. "<cr>", desc = "Filebrowser" },
+    { "<leader>fb", "<cmd>lua require('utils.functions').file_browser()<cr>", desc = "Filebrowser" },
     { "<leader>ff", "<cmd>" .. require("utils.functions").project_files() .. "<cr>", desc = "Open file" },
     { "<leader>fF", "<cmd>Telescope find_files<cr>", desc = "Open file (ignore git)" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },

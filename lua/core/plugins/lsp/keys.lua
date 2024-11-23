@@ -72,13 +72,6 @@ M._keys = {
   { "<leader>le", lsp_key_mapping["document_diagnostics"], desc = "Document Diagnostics" },
   { "<leader>lws", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
   { "<leader>lE", lsp_key_mapping["workspace_diagnostics"], desc = "Workspace Diagnostics" },
-  {
-    "<leader>lh",
-    function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-    end,
-    desc = "Toggle Inlay Hints",
-  },
 }
 
 function M.on_attach(client, buffer)

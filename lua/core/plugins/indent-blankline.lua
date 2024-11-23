@@ -14,7 +14,6 @@ return {
     exclude = {
       filetypes = {
         "startify",
-        "dashboard",
         "dotooagenda",
         "log",
         "fugitive",

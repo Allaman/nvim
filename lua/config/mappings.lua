@@ -34,7 +34,6 @@ map("n", "<leader>wl", "<cmd>vertical resizce -3<cr>", { desc = "Right" })
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
-map("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Close buffer" })
 map("n", "<leader><tab>", "<cmd>b#<cr>", { desc = "Previously openend Buffer" })
 
 -- Cancel search highlighting with ESC
@@ -57,15 +56,11 @@ map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 map({ "n" }, "<leader>sr", ":%s/", { desc = "Buffer search and replace" })
 
 -- toggles
-map("n", "<leader>tn", function()
-  vim.o.number = vim.o.number == false and true or false
-  vim.o.relativenumber = vim.o.relativenumber == false and true or false
-end, { desc = "Toggle relative number" })
 map("n", "<leader>th", function()
   utils.notify("Toggling hidden chars", vim.log.levels.INFO, "core.mappings")
   vim.o.list = vim.o.list == false and true or false
 end, { desc = "Toggle hidden chars" })
-map("n", "<leader>tl", function()
+map("n", "<leader>tm", function()
   utils.notify("Toggling signcolumn", vim.log.levels.INFO, "core.mappings")
   vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
 end, { desc = "Toggle signcolumn" })
@@ -73,18 +68,6 @@ map("n", "<leader>tv", function()
   utils.notify("Toggling virtualedit", vim.log.levels.INFO, "core.mappings")
   vim.o.virtualedit = vim.o.virtualedit == "all" and "block" or "all"
 end, { desc = "Toggle virtualedit" })
-map("n", "<leader>ts", function()
-  utils.notify("Toggling spell", vim.log.levels.INFO, "core.mappings")
-  vim.o.spell = vim.o.spell == false and true or false
-end, { desc = "Toggle spell" })
-map("n", "<leader>tw", function()
-  utils.notify("Toggling wrap", vim.log.levels.INFO, "core.mappings")
-  vim.o.wrap = vim.o.wrap == false and true or false
-end, { desc = "Toggle wrap" })
-map("n", "<leader>tc", function()
-  utils.notify("Toggling cursorline", vim.log.levels.INFO, "core.mappings")
-  vim.o.cursorline = vim.o.cursorline == false and true or false
-end, { desc = "Toggle cursorline" })
 map("n", "<leader>tO", "<cmd>lua require('utils.functions').toggle_colorcolumn()<cr>", { desc = "Toggle colorcolumn" })
 map(
   "n",

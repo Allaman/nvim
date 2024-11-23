@@ -7,7 +7,7 @@ local trouble_enabled = utils.safe_nested_config(vim.g.config.plugins, "trouble"
 catppuccin.setup({
   default_integrations = false,
   integrations = {
-    alpha = true,
+    alpha = false,
     cmp = true,
     dap = true,
     dap_ui = true,

@@ -5,7 +5,7 @@ local default_config = {
   opts = {},
   keys = {
     {
-      "<leader>tC",
+      "<leader>mc",
       function()
         require("nvim-highlight-colors").toggle()
       end,

@@ -6,25 +6,30 @@ local default_config = {
     { "<leader>g", "", desc = "+Git" },
   },
   opts = {
-    on_attach = function(buffer)
-      local gs = package.loaded.gitsigns
-      local function map(mode, l, r, desc)
-        vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+    on_attach = function(bufnr)
+      local gs = require("gitsigns")
+      local function map(mode, l, r, opts)
+        opts = opts or {}
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
       end
-      map("n", "gj", gs.next_hunk, "Git next hunk")
-      map("n", "gk", gs.prev_hunk, "Git previous hunk")
-      map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", "Stage hunk")
-      map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-      map("n", "<leader>gS", gs.stage_buffer, "Stage buffer")
-      map("n", "<leader>gu", gs.undo_stage_hunk, "Undo stage hunk")
-      map("n", "<leader>gR", gs.reset_buffer, "Reset buffer")
-      map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
-      map("n", "<leader>gB", gs.blame, "Blame")
-      map("n", "<leader>gb", gs.toggle_current_line_blame, "Blame line")
-      map("n", "<leader>gD", gs.diffthis, "Diff")
-      map("n", "<leader>gd", gs.toggle_deleted, "Show deleted")
-      map({ "o", "x" }, "gH", "<cmd><C-U>Gitsigns select_hunk<cr>", "Select hunk")
+      -- stylua: ignore start
+      map("n", "gj", function() gs.nav_hunk("next") end, { desc = "Git Next hunk" })
+      map("n", "gk", function() gs.nav_hunk("prev") end, { desc = "Git previous hunk" })
+      map("n", "<leader>gs", gs.stage_hunk, { desc = "Stage hunk" })
+      map("n", "<leader>gr", gs.reset_hunk, { desc = "Reset Hunk" })
+      map("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = "Stage hunk" })
+      map("v", "<leader>gr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = "Reset Hunk" })
+      map("n", "<leader>gS", gs.stage_buffer, { desc = "Stage buffer" })
+      map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
+      map("n", "<leader>gR", gs.reset_buffer, { desc = "Reset buffer" })
+      map("n", "<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
+      -- -- map("n", "<leader>gB", gs.blame, "Blame")
+      map("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Toggle Blame line" })
+      map("n", "<leader>gD", gs.diffthis, {desc="Diff"})
+      map("n", "<leader>gd", gs.toggle_deleted, { desc = "Show deleted" })
     end,
+    -- stylua: ignore end
   },
 }
 
