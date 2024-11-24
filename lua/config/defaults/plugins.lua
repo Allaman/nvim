@@ -30,10 +30,6 @@ return {
       -- https://github.com/olexsmir/gopher.nvim
       enable = false,
     },
-    indent_blankline = {
-      enable = false,
-      enable_scope = true,
-    },
     -- https://github.com/Allaman/kustomize.nvim
     kustomize = {
       dev = false,
