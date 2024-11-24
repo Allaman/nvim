@@ -6,6 +6,9 @@ local default_config = {
     { "<leader>g", "", desc = "+Git" },
   },
   opts = {
+    current_line_blame_opts = {
+      delay = 0,
+    },
     on_attach = function(bufnr)
       local gs = require("gitsigns")
       local function map(mode, l, r, opts)
