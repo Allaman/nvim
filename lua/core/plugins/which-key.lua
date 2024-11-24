@@ -3,20 +3,14 @@ local icons = require("utils.icons")
 
 local default_config = {
   opts = {
-    preset = "modern",
+    preset = "helix",
+    delay = 0,
+    height = math.huge,
     icons = {
       mappings = false, -- disable icons in keymaps
       breadcrumb = icons.arrows.DoubleArrowRight, -- symbol used in the command line area that shows your active key combo
       separator = icons.arrows.SmallArrowRight, -- symbol used between a key and it's label
       group = icons.ui.Plus, -- symbol prepended to a group
-    },
-    layout = {
-      width = { min = 5, max = 50 }, -- min and max width of the columns
-      spacing = 10, -- spacing between columns
-      align = "center", -- align columns left, center or right
-    },
-    win = {
-      no_overlap = false,
     },
     spec = {
       { "<leader>b", group = "Buffers" },
