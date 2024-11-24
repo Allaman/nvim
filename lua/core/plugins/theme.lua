@@ -29,7 +29,7 @@ local themes = {
     priority = 1000,
     lazy = false,
     config = function()
-      require("lua.core.plugins.themes.kanagawa")
+      require("core.plugins.themes.kanagawa")
     end,
   },
   oxocarbon = {
