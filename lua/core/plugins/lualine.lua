@@ -39,18 +39,19 @@ local function default_config_function(opts)
     if reg == "" then
       return ""
     end
-    return "Rec to " .. reg
+    return "󰑋 " .. reg
   end
 
   table.insert(opts.sections.lualine_x, 1, {
     is_macro_recording,
-    color = { fg = "red", gui = "italic" },
+    color = { fg = "#333333", bg = "#ff6666" },
+    separator = { left = "", right = "" },
     cond = function()
       return is_macro_recording() ~= ""
     end,
   })
 
-  -- Don't display if encoding is UTF-8
+  -- Don't display encoding if encoding is UTF-8
   local function encoding()
     local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
     return ret
@@ -63,7 +64,7 @@ local function default_config_function(opts)
     end,
   })
 
-  -- Don't display if fileformat is unix
+  -- Don't display fileformat if fileformat is unix
   local function fileformat()
     local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
     return ret
