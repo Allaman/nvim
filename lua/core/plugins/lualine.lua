@@ -33,31 +33,6 @@ local default_options = {
 }
 
 local function default_config_function(opts)
-  -- TODO: Add supermaven
-  local lsp_utils = require("core.plugins.lsp.utils")
-  local utils = require("utils.functions")
-  local function list_LSP_clients()
-    local clients = lsp_utils.get_LSP_clients()
-    local list = {}
-    for _, client in ipairs(clients) do
-      table.insert(list, client.name)
-      -- TODO only indicate a running copilot?
-      -- if client.name == "copilot" then
-      --   local icons = require("utils.icons")
-      --   return icons.apps.Copilot
-      -- end
-    end
-    return table.concat(list, "|")
-  end
-  opts.sections.lualine_a = {
-    {
-      list_LSP_clients,
-      cond = function()
-        return utils.table_length(lsp_utils.get_LSP_clients()) > 0
-      end,
-    },
-  }
-
   -- Show info when recording a macro
   local function is_macro_recording()
     local reg = vim.fn.reg_recording()
