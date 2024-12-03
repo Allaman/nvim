@@ -4,6 +4,7 @@ local default_config = {
   enabled = false,
   opts = {},
   keys = {},
+  cmd = "GrugFar",
 }
 
 local config = vim.tbl_deep_extend("force", default_config, user_config)
@@ -11,9 +12,7 @@ local config = vim.tbl_deep_extend("force", default_config, user_config)
 return {
   enabled = config.enabled,
   "MagicDuck/grug-far.nvim",
+  cmd = config.cmd,
   opts = config.opts,
   keys = config.keys,
-  config = function(_, opts)
-    require("grug-far").setup(opts)
-  end,
 }
