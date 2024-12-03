@@ -35,8 +35,4 @@ return {
   event = "VeryLazy",
   opts_extend = { "spec" },
   opts = config.opts,
-  config = function(_, opts)
-    local wk = require("which-key")
-    wk.setup(opts)
-  end,
 }

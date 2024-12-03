@@ -21,7 +21,4 @@ return {
   },
   keys = config.keys,
   opts = config.opts,
-  config = function(_, opts)
-    require("neogit").setup(opts)
-  end,
 }

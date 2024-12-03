@@ -34,9 +34,7 @@ return {
   {
     "echasnovski/mini.align",
     event = { "BufReadPre", "BufNewFile" },
-    config = function(_, opts)
-      require("mini.align").setup()
-    end,
+    opts = {},
   },
 
   {
