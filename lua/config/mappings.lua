@@ -51,6 +51,8 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New file" })
 -- save file
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
+-- open path under cursor
+map("n", "<leader>fo", "gf", { desc = "Open path under cursor" })
 
 -- search and replace is a pain with a German keyboard layout
 map({ "n" }, "<leader>sr", ":%s/", { desc = "Buffer search and replace" })
