@@ -16,15 +16,6 @@ local M = {
       highlight = {
         enable = true,
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<cr>",
-          scope_incremental = false,
-          node_incremental = "<cr>",
-          node_decremental = "<bs>",
-        },
-      },
       endwise = {
         enable = true,
       },

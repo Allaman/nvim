@@ -25,7 +25,7 @@ return {
       desc = "Flash",
     },
     {
-      "S",
+      "<cr>", -- TODO: better mapping
       mode = { "n", "o", "x" },
       function()
         require("flash").treesitter()
