@@ -10,8 +10,13 @@ return {
     cursorline = true, -- highlight the current line
     dir = fn.stdpath("data") .. "/swp", -- swap file directory
     expandtab = true, -- use spaces instead of tabs
+    foldenable = true,
+    foldexpr = "v:lua.vim.lsp.foldexpr()",
+    foldlevel = 99,
+    foldlevelstart = 99,
+    foldmethod = "expr",
     formatoptions = "jcroqlnt", -- tcqj
-    fillchars = "eob: ", -- hide ~ at the end of buffer
+    fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:", -- hide ~ at the end of buffer and set fold symbols
     grepprg = "rg --vimgrep --smart-case --", -- use rg instead of grep
     hidden = true, -- Enable modified buffers in background
     history = 500, -- Use the 'history' option to set the number of lines from command mode that are remembered.
