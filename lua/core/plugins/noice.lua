@@ -26,7 +26,6 @@ local default_config = {
   },
   keys = {
     { "<leader>n", "", desc = "Noice" },
-    { "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Dismiss all visible messages" },
     { "<leader>nn", "<cmd>Noice<cr>", desc = "Open Noice" },
     { "<leader>ne", "<cmd>Noice errors<cr>", desc = "Open Noice Errors" },
     { "<leader>nt", "<cmd>Noice telescope<cr>", desc = "Open Noice with telescope" },
