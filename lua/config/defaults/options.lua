@@ -37,7 +37,7 @@ return {
     pumblend = 10, -- Popup blend
     pumheight = 10, -- Maximum number of entries in a popup
     relativenumber = true, -- set relative numbered lines
-    scrolloff = 3, -- Minimal number of screen lines to keep above and below the cursor
+    scrolloff = 5, -- Minimal number of screen lines to keep above and below the cursor
     sessionoptions = { "buffers", "curdir", "tabpages", "winsize" },
     shiftround = true, -- Round indent
     shiftwidth = 2, -- the number of spaces inserted for each indentation
