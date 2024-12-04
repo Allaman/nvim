@@ -94,10 +94,10 @@ api.nvim_create_autocmd("FileType", {
   pattern = {
     "dap-float",
     "fugitive",
+    "grug-far",
     "help",
     "man",
     "notify",
-    "null-ls-info",
     "qf",
     "PlenaryTestPopup",
     "startuptime",
