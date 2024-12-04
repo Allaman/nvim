@@ -3,7 +3,15 @@ local user_config = vim.g.config.plugins.grug_far or {}
 local default_config = {
   enabled = false,
   opts = {},
-  keys = {},
+  keys = {
+    -- stylua: ignore start
+    { "<leader>R", "", desc = "Search & Replace" },
+    { "<leader>RG", "<cmd>GrugFar<cr>", desc = "Open" },
+    { "<leader>Rg", "<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<cr>", desc = "Open (Limit to current file)"},
+    { "<leader>Rw", "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<cr>", desc = "Search word under cursor", },
+    { "<leader>Rs", mode = "v", "<cmd>lua require('grug-far').with_visual_selection({ prefills = { paths = vim.fn.expand('%') } })<cr>", desc = "Search selection", },
+    -- stylua: ignore end
+  },
   cmd = "GrugFar",
 }
 
