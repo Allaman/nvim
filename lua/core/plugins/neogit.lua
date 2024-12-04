@@ -6,6 +6,7 @@ local default_config = {
     { "<leader>g<Enter>", "<cmd>Neogit<cr>", desc = "Neogit" },
   },
   opts = {
+    process_spinner = false,
     graph_style = "kitty",
   },
 }
