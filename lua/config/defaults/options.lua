@@ -21,7 +21,7 @@ return {
     hidden = true, -- Enable modified buffers in background
     history = 500, -- Use the 'history' option to set the number of lines from command mode that are remembered.
     ignorecase = true, -- ignore case in search patterns
-    inccommand = "nosplit", -- preview incremental substitute
+    inccommand = "split",
     list = false, -- enable or disable listchars
     listchars = {
       eol = "↲",
