@@ -83,7 +83,7 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Multiple preconfigured themes like [catppuccin](https://github.com/catppuccin/nvim), [tokyonight](https://github.com/folke/tokyonight.nvim), [nightfox](https://github.com/EdenEast/nightfox.nvim), and more
 - AI assistance with [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim), [gp.nvim](https://github.com/Robitx/gp.nvim), [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (optionally), and [supermave-nvim](https://github.com/supermaven-inc/supermaven-nvim) (optionally)
 - Health check via `checkhealth core`
-- Lazy loading plugins (19 of 95 in my case)
+- Lazy loading plugins (6 of 87 in my case)
 - Startup <= 40 ms 🚀
 
 ### Navigation 🧭
@@ -94,24 +94,22 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 - Alternative file handling via [oil.nvim](https://github.com/stevearc/oil.nvim) (optional)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.nvim](https://github.com/lmburns/lf.nvim) (optional)
 - [yazi](https://github.com/sxyazi/yazi) integration with [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
-- Miller columns file navigation via [mini.files](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md)
 - Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 
 ### Coding 🖥️
 
-- Auto-completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- Auto-completion powered by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) or [blink.nvim](https://github.com/Saghen/blink.cmp)
 - Built-in LSP configured via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig), [mason](https://github.com/williamboman/mason.nvim), and [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
 - Debugging for Go and Python via [nvim-dap](https://github.com/mfussenegger/nvim-dap) and friends
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) and [Tresitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) for your syntax needs
 - Auto formatting via [conform.nvim](https://github.com/stevearc/conform.nvim)
 - Linting via [nvim-lint](https://github.com/mfussenegger/nvim-lint)
 - Excellent Go support via LSP including sensible keybindings
-- Always know where you are in your code via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- Always know where you are in your code via [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim)
 - Git integration via [Neogit](https://github.com/TimUntersberger/neogit) and [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 - Outlining symbols with [outline.nvim](https://github.com/hedyhli/outline.nvim)
 - Snippets provided by [Luasnip](https://github.com/L3MON4D3/LuaSnip) and [friendly snippets](https://github.com/rafamadriz/friendly-snippets) with autocompletion
 - Schema integration via LSPs for Kubernetes, package.json, GitHub workflows, gitlab-ci.yml, kustomization.yaml, and more
-- GitHub Copilot integration via [copilot.lua](https://github.com/zbirenbaum/copilot.lua) (optional)
 - Taskrunner via [Overseer](https://github.com/stevearc/overseer.nvim/) (optional)
 - Check your code with [trouble.nvim](https://github.com/folke/trouble.nvim)
 
