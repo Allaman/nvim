@@ -19,4 +19,15 @@ return {
     dev = true,
   },
 
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    dependencies = { "allaman/emoji.nvim", "saghen/blink.compat" },
+    opts = {
+      sources = {
+        compat = { "emoji" },
+        providers = { emoji = { kind = "text" } },
+      },
+    },
+  },
 }

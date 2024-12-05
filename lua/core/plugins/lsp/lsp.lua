@@ -3,9 +3,16 @@ local nvim_lsp = require("lspconfig")
 local utils = require("core.plugins.lsp.utils")
 local lsp_settings = require("core.plugins.lsp.settings")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- enable autocompletion via nvim-cmp
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+-- blink or cmp
+local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local has_blink, blink = pcall(require, "blink.cmp")
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  {},
+  vim.lsp.protocol.make_client_capabilities(),
+  has_cmp and cmp_nvim_lsp.default_capabilities() or {},
+  has_blink and blink.get_lsp_capabilities() or {}
+)
 
 require("utils.functions").on_attach(function(client, buffer)
   require("core.plugins.lsp.keys").on_attach(client, buffer)

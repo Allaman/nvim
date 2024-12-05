@@ -1,8 +1,15 @@
-local icons = require("utils.icons")
+local user_config = vim.g.config.plugins.cmp or {}
 
-local M = {
+local default_config = {
+  enabled = false,
+}
+
+local config = vim.tbl_deep_extend("force", default_config, user_config)
+
+return {
   "iguanacucumber/magazine.nvim",
   name = "nvim-cmp",
+  enabled = config.enabled,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
@@ -60,6 +67,8 @@ local M = {
       },
     }
 
+    local icons = require("utils.icons")
+
     if vim.g.config.plugins.copilot.enable then
       table.insert(sources, { name = "copilot", group_index = 2 })
       table.insert(format.symbol_map, { Copilot = icons.apps.Copilot })
@@ -67,7 +76,7 @@ local M = {
 
     if vim.g.config.plugins.supermaven.enabled then
       table.insert(sources, { name = "supermaven" })
-      format.symbol_map.Supermave = icons.apps.Supermaven
+      format.symbol_map.Supermaven = icons.apps.Supermaven
     end
 
     local has_words_before = function()
@@ -97,7 +106,6 @@ local M = {
           behavior = cmp.ConfirmBehavior.Replace,
           select = false,
         }),
-        -- TODO only when copilot is enabled
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() and has_words_before() then
             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
@@ -115,5 +123,3 @@ local M = {
     })
   end,
 }
-
-return M
