@@ -47,6 +47,7 @@ return {
     signcolumn = "yes", -- Always show the signcolumn, otherwise it would shift the text each time
     smartcase = true, -- Don't ignore case with capitals
     smartindent = true, -- Insert indents automatically
+    spell = false,
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = true, -- enable/disable swap file creation
