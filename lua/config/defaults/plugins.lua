@@ -10,10 +10,6 @@ return {
       enable = false,
       disable_autostart = false,
     },
-    emoji = {
-      enable = false,
-      enable_cmp_integration = false,
-    },
     lsp = {
       log = "off",
     },
