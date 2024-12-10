@@ -83,40 +83,4 @@ return {
       end
     end,
   },
-
-  {
-    "echasnovski/mini.indentscope",
-    event = { "BufReadPost", "BufNewFile" },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        desc = "Disable indentscope for certain filetypes",
-        pattern = {
-          "help",
-          "Trouble",
-          "trouble",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "Outline",
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-          vim.schedule(function()
-            if MiniIndentscope then
-              MiniIndentscope.undraw()
-            end
-          end)
-        end,
-      })
-    end,
-    config = function()
-      require("mini.indentscope").setup({
-        symbol = "╎",
-        draw = {
-          animation = require("mini.indentscope").gen_animation.none(),
-        },
-      })
-    end,
-  },
 }

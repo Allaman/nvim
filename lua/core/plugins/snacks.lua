@@ -1,5 +1,6 @@
 local user_config = vim.g.config.plugins.snacks or {}
 
+-- TODO: profiler
 local default_config = {
   enabled = true,
   ---@type snacks.Config
@@ -30,13 +31,17 @@ local default_config = {
         { section = "startup" },
       },
     },
+    dim = { enabled = true },
+    indent = { enabled = true }, -- animation is on by default
     notifier = {
       enabled = true,
       timeout = 2000,
     },
     quickfile = { enabled = true },
+    scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    zen = { enabled = true },
     styles = {
       notification = {
         wo = { wrap = true }, -- Wrap notifications
@@ -45,6 +50,8 @@ local default_config = {
   },
   keys = {
     -- stylua: ignore start
+    { "<leader>mZ",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+    { "<leader>mz",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<leader>gL", function() Snacks.lazygit() end, desc = "Lazygit" },
@@ -53,8 +60,8 @@ local default_config = {
     { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
     { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
-    { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
+    { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
+    { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
     -- stylua: ignore end
   },
 }
@@ -83,6 +90,7 @@ return {
         Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>tc")
         Snacks.toggle.treesitter():map("<leader>mT")
         Snacks.toggle.inlay_hints():map("<leader>lh")
+        Snacks.toggle.dim():map("<leader>tD")
         -- stylua: ignore end
       end,
     })
