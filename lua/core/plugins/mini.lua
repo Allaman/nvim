@@ -39,7 +39,8 @@ return {
 
   {
     "echasnovski/mini.test",
-    event = { "BufReadPre", "BufNewFile" },
+    ft = "lua",
+    opts = {},
   },
 
   {
