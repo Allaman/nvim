@@ -5,31 +5,6 @@ local M = {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "MunifTanjim/nui.nvim", lazy = true },
-    {
-      "s1n7ax/nvim-window-picker",
-      lazy = true,
-      opts = {
-        filter_rules = {
-          -- filter using buffer options
-          bo = {
-            -- if the file type is one of following, the window will be ignored
-            filetype = {
-              "neo-tree",
-              "neo-tree-popup",
-              "notify",
-              "packer",
-              "qf",
-              "diff",
-              "fugitive",
-              "fugitiveblame",
-            },
-
-            -- if the buffer type is one of following, the window will be ignored
-            buftype = { "nofile", "help", "terminal" },
-          },
-        },
-      },
-    },
   },
   keys = {
     { "<leader>fp", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Filetree" },
@@ -82,12 +57,10 @@ local M = {
             "toggle_node",
             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
           },
-          ["<2-LeftMouse>"] = "open_with_window_picker",
-          ["<cr>"] = "open_with_window_picker",
-          -- ["S"] = "open_split",
-          ["S"] = "split_with_window_picker",
-          -- ["s"] = "open_vsplit",
-          ["s"] = "vsplit_with_window_picker",
+          ["<2-LeftMouse>"] = "open",
+          ["<cr>"] = "open",
+          ["s"] = "open_split",
+          ["v"] = "open_vsplit",
           ["t"] = "open_tabnew",
           --["P"] = "toggle_preview",
           ["C"] = "close_node",
