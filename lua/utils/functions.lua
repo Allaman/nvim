@@ -59,7 +59,7 @@ end
 
 --- Check if path exists
 M.path_exists = function(path)
-  return vim.loop.fs_stat(path)
+  return vim.uv.fs_stat(path)
 end
 
 -- toggle quickfixlist

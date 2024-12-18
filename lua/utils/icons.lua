@@ -1,3 +1,4 @@
+-- TODO: replace with mini.icons
 return {
   apps = {
     Copilot = "",
