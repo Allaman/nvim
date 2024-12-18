@@ -13,19 +13,13 @@ if trouble_enabled then
   lsp_key_mapping["lsp_type_definitions"] = "<cmd>Trouble lsp_type_definitions toggle focus=false<cr>"
   lsp_key_mapping["workspace_diagnostics"] = "<cmd>Trouble diagnostics toggle<cr>"
 else
-  lsp_key_mapping["document_diagnostics"] = "<cmd>Telescope diagnostics bufnr=0<cr>"
-  lsp_key_mapping["lsp_implementations"] = function()
-    require("telescope.builtin").lsp_implementations({ reuse_win = true })
-  end
-  lsp_key_mapping["lsp_document_symbols"] = "<cmd>Telescope lsp_document_symbols<cr>"
-  lsp_key_mapping["lsp_references"] = "<cmd>Telescope lsp_references<cr>"
-  lsp_key_mapping["workspace_diagnostics"] = "<cmd>Telescope diagnostics<cr>"
-  lsp_key_mapping["lsp_definitions"] = function()
-    require("telescope.builtin").lsp_definitions({ reuse_win = true })
-  end
-  lsp_key_mapping["lsp_type_definitions"] = function()
-    require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-  end
+  lsp_key_mapping["document_diagnostics"] = "<cmd>FzfLua diagnostics_document<cr>"
+  lsp_key_mapping["lsp_implementations"] = "<cmd>FzfLua lsp_implementations<cr>"
+  lsp_key_mapping["lsp_document_symbols"] = "<cmd>FzfLua lsp_document_symbols<cr>"
+  lsp_key_mapping["lsp_references"] = "<cmd>Fzflua lsp_references<cr>"
+  lsp_key_mapping["lsp_definitions"] = "<cmd>FzfLua lsp_definitions<cr>"
+  lsp_key_mapping["lsp_type_definitions"] = "<cmd>FzfLua lsp_typedefs<cr>"
+  lsp_key_mapping["workspace_diagnostics"] = "<cmd>FzfLua diagnostics_workspace<cr>"
 end
 
 M._keys = {
@@ -70,7 +64,7 @@ M._keys = {
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
   { "<leader>ls", lsp_key_mapping["lsp_document_symbols"], desc = "Document Symbols" },
   { "<leader>le", lsp_key_mapping["document_diagnostics"], desc = "Document Diagnostics" },
-  { "<leader>lws", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
+  { "<leader>lws", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", desc = "Workspace Symbols" },
   { "<leader>lE", lsp_key_mapping["workspace_diagnostics"], desc = "Workspace Diagnostics" },
 }
 

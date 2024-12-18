@@ -28,7 +28,7 @@ local default_config = {
     { "<leader>n", "", desc = "Noice" },
     { "<leader>nn", "<cmd>Noice<cr>", desc = "Open Noice" },
     { "<leader>ne", "<cmd>Noice errors<cr>", desc = "Open Noice Errors" },
-    { "<leader>nt", "<cmd>Noice telescope<cr>", desc = "Open Noice with telescope" },
+    { "<leader>sn", "<cmd>Noice fzf<cr>", desc = "Open Noice with fzf-lua" },
   },
 }
 

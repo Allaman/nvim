@@ -80,7 +80,7 @@ map(
 map("n", "<leader>tS", "<cmd>windo set scb!<cr>", { desc = "Toggle Scrollbind" })
 
 -- Spelling
-map("n", "<leader>zl", "<cmd>Telescope spell_suggest<cr>", { desc = "List corrections" })
+map("n", "<leader>zl", "<cmd>FzfLua spell_suggest<cr>", { desc = "List corrections" })
 map("n", "<leader>zf", "1z=", { desc = "Use first correction" })
 map("n", "<leader>zj", "]s", { desc = "Next error" })
 map("n", "<leader>zk", "[s", { desc = "Previous error" })

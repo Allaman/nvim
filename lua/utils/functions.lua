@@ -62,28 +62,6 @@ M.path_exists = function(path)
   return vim.loop.fs_stat(path)
 end
 
--- Return telescope files command
-M.project_files = function()
-  local path = vim.loop.cwd() .. "/.git"
-  if M.path_exists(path) then
-    local show_untracked = M.safe_nested_config(vim.g.config.plugins, "telescope", "show_untracked_files")
-    return "lua require('telescope.builtin').git_files({ show_untracked = " .. tostring(show_untracked) .. " })"
-  else
-    return "Telescope find_files"
-  end
-end
-
--- Return file browser command
-M.file_browser = function()
-  if M.safe_nested_config(vim.g.config.plugins, "yazi", "enabled") then
-    require("yazi").yazi(nil, vim.fn.getcwd())
-  elseif M.safe_nested_config(vim.g.config.plugins, "lf", "enable") then
-    require("lf").start()
-  else
-    require("telescope").extensions.file_browser.file_browser()
-  end
-end
-
 -- toggle quickfixlist
 M.toggle_qf = function()
   local windows = fn.getwininfo()

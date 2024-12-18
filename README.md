@@ -88,12 +88,11 @@ I decided to move to my own fresh Lua based Neovim from my good old vimrc trying
 
 ### Navigation 🧭
 
-- [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for all your search needs
-- Project management with [Project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [fzf-lua.nvim](https://github.com/ibhagwan/fzf-lua) for all your search needs
 - File tree navigation/manipulation via [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - Alternative file handling via [oil.nvim](https://github.com/stevearc/oil.nvim) (optional)
 - [LF](https://github.com/gokcehan/lf) integration via [lf.nvim](https://github.com/lmburns/lf.nvim) (optional)
-- [yazi](https://github.com/sxyazi/yazi) integration with [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
+- [yazi](https://github.com/sxyazi/yazi) integration with [yazi.nvim](https://github.com/mikavilpas/yazi.nvim) (optional)
 - Better Tmux navigation with your home row via [Navigator.nvim](https://github.com/numToStr/Navigator.nvim)
 
 ### Coding 🖥️
