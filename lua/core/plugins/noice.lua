@@ -13,20 +13,28 @@ local default_config = {
     },
     -- you can enable a preset for easier configuration
     presets = {
-      bottom_search = false, -- use a classic bottom cmdline for search
+      bottom_search = true, -- use a classic bottom cmdline for search
       command_palette = true, -- position the cmdline and popupmenu together
       long_message_to_split = true, -- long messages will be sent to a split
-      inc_rename = true, -- enables an input dialog for inc-rename.nvim
-      lsp_doc_border = false, -- add a border to hover docs and signature help
+      -- inc_rename = true, -- enables an input dialog for inc-rename.nvim
+      -- lsp_doc_border = false, -- add a border to hover docs and signature help
     },
-    routes = {
-      { view = "notify", filter = { event = "msg_showmode" } }, -- show "recording macro"
-      --   { filter = { event = "msg_show", find = "written" }, opts = { skip = true } }, -- skip "write" message on save
-    },
+    -- routes = {
+    --   {
+    --     filter = {
+    --       event = "msg_show",
+    --       any = {
+    --         { find = "%d+L, %d+B" },
+    --         { find = "; after #%d+" },
+    --         { find = "; before #%d+" },
+    --       },
+    --     },
+    --   },
+    -- },
   },
   keys = {
     { "<leader>n", "", desc = "Noice" },
-    { "<leader>nn", "<cmd>Noice<cr>", desc = "Open Noice" },
+    { "<leader>nn", "<cmd>Noice all<cr>", desc = "Open Noice" },
     { "<leader>ne", "<cmd>Noice errors<cr>", desc = "Open Noice Errors" },
     { "<leader>sn", "<cmd>Noice fzf<cr>", desc = "Open Noice with fzf-lua" },
   },
