@@ -18,6 +18,7 @@ local default_config = {
   },
   keys = {
     { "<leader>ss", "<cmd>FzfLua live_grep<cr>", desc = "Strings" },
+    { "<leader>sh", "<cmd>FzfLua helptags<cr>", desc = "Help" },
     { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Open" },
     { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
     { "<leader>bb", "<cmd>FzfLua buffers<cr>", desc = "List" },
