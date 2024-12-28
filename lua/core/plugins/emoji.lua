@@ -15,14 +15,28 @@ return {
     dev = true,
   },
 
+  -- blink.cmp integration
   {
     "saghen/blink.cmp",
     optional = true,
     dependencies = { "allaman/emoji.nvim", "saghen/blink.compat" },
     opts = {
       sources = {
-        compat = { "emoji" },
-        providers = { emoji = { kind = "text" } },
+        default = { "emoji" },
+        providers = {
+          emoji = {
+            name = "emoji",
+            module = "blink.compat.source",
+            -- overwrite kind of suggestion
+            transform_items = function(ctx, items)
+              local kind = require("blink.cmp.types").CompletionItemKind.Text
+              for i = 1, #items do
+                items[i].kind = kind
+              end
+              return items
+            end,
+          },
+        },
       },
     },
   },

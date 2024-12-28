@@ -45,12 +45,19 @@ return {
     },
     opts = {
       sources = {
-        compat = { "supermaven" },
+        default = { "supermaven" },
         providers = {
           supermaven = {
-            kind = "Supermaven",
-            score_offset = 100,
-            async = true,
+            name = "supermaven",
+            module = "blink.compat.source",
+            transform_items = function(ctx, items)
+              -- overwrite kind of suggestion
+              local kind = require("blink.cmp.types").CompletionItemKind.Event
+              for i = 1, #items do
+                items[i].kind = kind
+              end
+              return items
+            end,
           },
         },
       },

@@ -25,15 +25,19 @@ local default_config = {
     },
 
     sources = {
-      compat = {},
-      completion = {
-        enabled_providers = { "lsp", "path", "luasnip", "buffer" },
-      },
+      default = { "lsp", "path", "luasnip", "buffer" },
     },
     completion = {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 250,
+      },
+      list = {
+        selection = "auto_insert",
+      },
+      trigger = {
+        show_on_insert_on_trigger_character = false,
+        show_on_accept_on_trigger_character = false,
       },
       menu = {
         draw = {
@@ -69,12 +73,12 @@ return {
     version = "v0.*",
     opts = config.opts,
     opts_extend = {
-      "sources.completion.enabled_providers",
+      "sources.default",
       "sources.compat",
     },
     config = function(_, opts)
       -- setup compat sources and provider
-      local enabled = opts.sources.completion.enabled_providers
+      local enabled = opts.sources.default
       for _, source in ipairs(opts.sources.compat or {}) do
         opts.sources.providers[source] = vim.tbl_deep_extend(
           "force",
@@ -114,14 +118,11 @@ return {
     "saghen/blink.cmp",
     opts = {
       sources = {
-        completion = {
-          -- add lazydev to your completion providers
-          enabled_providers = { "lazydev" },
-        },
+        default = { "lazydev" },
         providers = {
           lsp = {
             -- dont show LuaLS require statements when lazydev has items
-            fallback_for = { "lazydev" },
+            fallbacks = { "buffer" },
           },
           lazydev = {
             name = "LazyDev",
@@ -135,12 +136,7 @@ return {
   {
     "saghen/blink.cmp",
     optional = true,
-    dependencies = {
-      { "saghen/blink.compat" },
-      { "saadparwaiz1/cmp_luasnip" },
-    },
     opts = {
-      sources = { compat = { "luasnip" } },
       snippets = {
         expand = function(snippet)
           require("luasnip").lsp_expand(snippet)
