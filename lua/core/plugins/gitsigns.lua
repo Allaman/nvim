@@ -9,6 +9,21 @@ local default_config = {
     current_line_blame_opts = {
       delay = 0,
     },
+    signs = {
+      add = { text = "▎" },
+      change = { text = "▎" },
+      delete = { text = "" },
+      topdelete = { text = "" },
+      changedelete = { text = "▎" },
+      untracked = { text = "▎" },
+    },
+    signs_staged = {
+      add = { text = "▎" },
+      change = { text = "▎" },
+      delete = { text = "" },
+      topdelete = { text = "" },
+      changedelete = { text = "▎" },
+    },
     on_attach = function(bufnr)
       local gs = require("gitsigns")
       local function map(mode, l, r, opts)
