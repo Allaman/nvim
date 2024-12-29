@@ -9,7 +9,7 @@ return {
     enabled = not utils.isNeovimVersionsatisfied(10),
     event = { "BufReadPre", "BufNewFile" },
     -- is not loaded without explicitly saying it
-    config = true,
+    opts = {},
   },
 
   {
