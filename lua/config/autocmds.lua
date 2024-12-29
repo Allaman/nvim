@@ -110,7 +110,6 @@ api.nvim_create_autocmd("FileType", {
   end,
   desc = "close certain windows with q",
 })
-api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
 
 api.nvim_create_autocmd(
   "FileType",
