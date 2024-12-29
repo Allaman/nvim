@@ -6,9 +6,16 @@ local default_config = {
   opts = {},
   keys = {
     {
-      "<leader>qt",
+      "<leader>qT",
       "<cmd>TodoTrouble<cr>",
       desc = "TODO",
+    },
+    {
+      "<leader>qt",
+      function()
+        require("todo-comments.fzf").todo()
+      end,
+      desc = "TODO FZF",
     },
   },
 }
