@@ -50,7 +50,6 @@ local config = vim.tbl_deep_extend("force", default_config, user_config)
 return {
   {
     "folke/trouble.nvim",
-    event = "VeryLazy",
     enabled = config.enabled,
     opts = config.opts,
     keys = config.keys,
