@@ -12,25 +12,53 @@ local default_config = {
       ["<C-e>"] = { "hide", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
 
-      ["<Tab>"] = { "snippet_forward", "fallback" },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      ["<Tab>"] = {
+        function(cmp)
+          return cmp.select_next()
+        end,
+        "snippet_forward",
+        "fallback",
+      },
+      ["<S-Tab>"] = {
+        function(cmp)
+          return cmp.select_prev()
+        end,
+        "snippet_backward",
+        "fallback",
+      },
 
-      ["<S-Tab>"] = { "select_prev", "fallback" },
-      ["<Tab>"] = { "select_next", "fallback" },
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
 
-      ["<C-b>"] = { "scroll_documentation_up", "fallback" },
-      ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+      ["<C-up>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-down>"] = { "scroll_documentation_down", "fallback" },
     },
 
     sources = {
       default = { "lsp", "path", "luasnip", "buffer" },
+      providers = {
+        lsp = {
+          min_keyword_length = 2, -- Number of characters to trigger porvider
+          score_offset = 0, -- Boost/penalize the score of the items
+        },
+        path = {
+          min_keyword_length = 0,
+        },
+        luasnip = {
+          min_keyword_length = 2,
+        },
+        buffer = {
+          min_keyword_length = 5,
+          max_items = 5,
+        },
+      },
     },
     completion = {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 250,
+        treesitter_highlighting = true,
+        window = { border = "rounded" },
       },
       list = {
         selection = "auto_insert",
@@ -40,6 +68,7 @@ local default_config = {
         show_on_accept_on_trigger_character = false,
       },
       menu = {
+        border = "rounded",
         draw = {
           -- nvim-cmp look
           -- columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
