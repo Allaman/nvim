@@ -2,7 +2,12 @@ local M = {
   "L3MON4D3/LuaSnip",
   event = "InsertEnter",
   dependencies = {
-    "rafamadriz/friendly-snippets",
+    {
+      "rafamadriz/friendly-snippets",
+      config = function(_, opts)
+        require("luasnip").filetype_extend("all", { "loremipsum" })
+      end,
+    },
   },
   build = "make install_jsregexp",
   config = function()
