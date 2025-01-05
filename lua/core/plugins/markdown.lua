@@ -1,7 +1,7 @@
 local user_config = vim.g.config.plugins.markdown or {}
 
 local default_config = {
-  enabled = true,
+  enabled = false,
   opts = {},
 }
 
