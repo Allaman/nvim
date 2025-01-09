@@ -1,0 +1,1 @@
+vim.print("Hello")

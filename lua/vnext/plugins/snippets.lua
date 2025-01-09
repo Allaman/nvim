@@ -1,0 +1,83 @@
+return {
+  {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    dependencies = {
+      {
+        "rafamadriz/friendly-snippets",
+        config = function(_, opts)
+          require("luasnip").filetype_extend("all", { "loremipsum" })
+        end,
+      },
+    },
+    build = "make install_jsregexp",
+    config = function()
+      local ls = require("luasnip")
+      local vsc = require("luasnip.loaders.from_vscode")
+      local lua = require("luasnip.loaders.from_lua")
+
+      snip_env = {
+        s = require("luasnip.nodes.snippet").S,
+        sn = require("luasnip.nodes.snippet").SN,
+        t = require("luasnip.nodes.textNode").T,
+        f = require("luasnip.nodes.functionNode").F,
+        i = require("luasnip.nodes.insertNode").I,
+        c = require("luasnip.nodes.choiceNode").C,
+        d = require("luasnip.nodes.dynamicNode").D,
+        r = require("luasnip.nodes.restoreNode").R,
+        l = require("luasnip.extras").lambda,
+        rep = require("luasnip.extras").rep,
+        p = require("luasnip.extras").partial,
+        m = require("luasnip.extras").match,
+        n = require("luasnip.extras").nonempty,
+        dl = require("luasnip.extras").dynamic_lambda,
+        fmt = require("luasnip.extras.fmt").fmt,
+        fmta = require("luasnip.extras.fmt").fmta,
+        conds = require("luasnip.extras.expand_conditions"),
+        types = require("luasnip.util.types"),
+        events = require("luasnip.util.events"),
+        parse = require("luasnip.util.parser").parse_snippet,
+        ai = require("luasnip.nodes.absolute_indexer"),
+      }
+
+      ls.config.set_config({ history = true, updateevents = "TextChanged,TextChangedI" })
+
+      -- load lua snippets
+      lua.load({ paths = os.getenv("HOME") .. "/.config/nvim/snippets/" })
+      -- load friendly-snippets
+      -- this must be loaded after custom snippets or they get overwritte!
+      -- https://github.com/L3MON4D3/LuaSnip/blob/b5a72f1fbde545be101fcd10b70bcd51ea4367de/Examples/snippets.lua#L497
+      vsc.lazy_load()
+
+      -- selecting within a list of options.
+      vim.keymap.set("i", "<c-h>", function()
+        if ls.choice_active() then
+          ls.change_choice(1)
+        end
+      end)
+    end,
+  },
+
+  -- luasnip integration
+  {
+    "saghen/blink.cmp",
+    optional = true,
+    opts = {
+      snippets = {
+        preset = "luasnip",
+        expand = function(snippet)
+          require("luasnip").lsp_expand(snippet)
+        end,
+        active = function(filter)
+          if filter and filter.direction then
+            return require("luasnip").jumpable(filter.direction)
+          end
+          return require("luasnip").in_snippet()
+        end,
+        jump = function(direction)
+          require("luasnip").jump(direction)
+        end,
+      },
+    },
+  },
+}
