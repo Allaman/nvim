@@ -65,9 +65,9 @@ return {
           treesitter_highlighting = true,
           window = { border = "rounded" },
         },
-        -- list = {
-        --   selection = { preselect = true, auto_insert = true },
-        -- },
+        list = {
+          selection = { preselect = false, auto_insert = true },
+        },
         trigger = {
           show_on_insert_on_trigger_character = false,
           show_on_accept_on_trigger_character = false,
