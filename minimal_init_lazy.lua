@@ -30,5 +30,6 @@ require("lazy").setup(plugins, {
   root = root .. "/plugins",
 })
 
-vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("catppuccin")
 -- add anything else here

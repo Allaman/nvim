@@ -5,10 +5,8 @@ require("luasnip.loaders.from_lua").lazy_load()
 local env = snip_env
 
 return {
-  env.parse("gmail", "michaeljohannpeter@gmail.com", {}),
-  env.parse("rootknecht", "allaman@rootknecht.net", {}),
-  env.parse("mfg", "Mit freundlichen Grüßen\nMichael Peter", {}),
-  env.parse("sehrg", "Sehr geehrte Damen und Herren, \n\n", {}),
+  env.parse("gmail", "radu.codescu27@gmail.com", {}),
+  env.parse("arista", "rcodescu@arista.com", {}),
   env.parse("modeline", "vim: set foldmethod=marker foldmarker={{{,}}} :", {}),
   env.s("date", env.p(os.date, "%Y-%m-%d")),
   env.s("time", env.p(os.date, "%H:%M")),
