@@ -1,4 +1,4 @@
-return {
+:return {
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile", "InsertLeave" },
@@ -147,7 +147,7 @@ return {
     ft = "markdown",
     opts = {
       enable_cmp_integration = true,
-      plugin_path = "/Users/michael/workspace/github.com/allaman/",
+      plugin_path = "/Users/" .. os.getenv("USER") .. "/workspace/github.com/allaman/",
     },
   },
 
