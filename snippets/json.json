@@ -1,0 +1,23 @@
+{
+  "Tasks Configuration": {
+    "prefix": "tasks",
+    "body": [
+      "{",
+      "  \"version\": \"2.0.0\",",
+      "  \"tasks\": [",
+      "    {",
+      "      \"label\": \"Test Overseer\",",
+      "      \"type\": \"shell\",",
+      "      \"command\": \"ping -c 4 google.com\",",
+      "      \"group\": \"test\",",
+      "      \"presentation\": {",
+      "        \"reveal\": \"always\",",
+      "        \"panel\": \"new\"",
+      "      }",
+      "    }",
+      "  ]",
+      "}"
+    ],
+    "description": "Insert a tasks configuration template"
+  }
+}

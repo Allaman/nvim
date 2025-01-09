@@ -1,0 +1,32 @@
+{
+  "Taskfile Configuration": {
+    "prefix": "taskfile",
+    "body": [
+      "version: \"3\"",
+      "",
+      "tasks:",
+      "  default:",
+      "    silent: true",
+      "    cmds:",
+      "      - task -l",
+      "",
+      "  build:",
+      "    desc: Build",
+      "    cmds:",
+      "      - |",
+      "        echo building",
+      "        echo finished",
+      "",
+      "  test:",
+      "    desc: Test",
+      "    deps:",
+      "      - build",
+      "    cmds:",
+      "      - defer: rm -r .build/",
+      "      - echo testing",
+      "",
+      "${0}"
+    ],
+    "description": "Insert a Taskfile configuration template"
+  }
+}

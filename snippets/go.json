@@ -1,0 +1,12 @@
+{
+  "Println": {
+    "prefix": "fl",
+    "body": ["fmt.Println(${1:text})", "${0}"],
+    "description": "Simple Println Snippet"
+  },
+  "Sprintf": {
+    "prefix": "fs",
+    "body": ["fmt.Sprintf(\"${1:verbs}\", ${2:args})", "${0}"],
+    "description": "Simple Sprintf Snippet"
+  }
+}

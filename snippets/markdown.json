@@ -1,0 +1,76 @@
+{
+  "GitLab Warning Emoji": {
+    "prefix": "gitlab_warn",
+    "body": [":warning: ${1:warning}${0}"],
+    "description": "Warning emoji for GitLab markdown"
+  },
+  "Hugo Image Shortcut": {
+    "prefix": "hugoimg",
+    "body": ["{{< img name=\"${1:name}\" lazy=\"${2:true}\" >}}"],
+    "description": "Insert a Hugo image shortcut"
+  },
+  "Hugo TOC": {
+    "prefix": "hugotoc",
+    "body": ["{{< toc >}}"],
+    "description": "Hugo Table of Contents"
+  },
+  "Hugo Separator": {
+    "prefix": "hugosep",
+    "body": ["<!-- more -->"],
+    "description": "Insert a separator in Hugo"
+  },
+  "Hugo Resource Entry": {
+    "prefix": "hugores",
+    "body": ["- name: ${1:name}", "  src: ${2:${1}}", "  title: ${3:title}"],
+    "description": "Insert a Hugo resource entry"
+  },
+  "Hugo Alert": {
+    "prefix": "hugoalert",
+    "body": [
+      "{{<< alert ${1:opts} >>}}",
+      "${2:text}",
+      "{{<< /alert >>}}",
+      "${0}"
+    ],
+    "description": "Alert shortcode of Blowfish theme"
+  },
+  "LTeX Language": {
+    "prefix": "ltexLang",
+    "body": ["<!-- LTeX: language=${1:lang} -->${0}"],
+    "description": "Overwrite language for LTeX LSP"
+  },
+  "Markdown Link": {
+    "prefix": "link",
+    "body": ["[${1:text}](${2:url})${0}"],
+    "description": "Insert a default Markdown link"
+  },
+  "Changelog Template": {
+    "prefix": "chlog",
+    "body": [
+      "# Changelog",
+      "",
+      "All notable changes to this project will be documented in this file.",
+      "",
+      "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),",
+      "and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).",
+      "",
+      "## [Unreleased]",
+      "",
+      "## [1.1.1] - 2023-03-05",
+      "",
+      "### Added",
+      "",
+      "### Fixed",
+      "",
+      "### Changed",
+      "",
+      "### Removed",
+      "",
+      "[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.1.1...HEAD",
+      "[0.0.3]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.2...v0.0.3",
+      "[0.0.2]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.1...v0.0.2",
+      "[0.0.1]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/v0.0.1"
+    ],
+    "description": "Keep a changelog template"
+  }
+}

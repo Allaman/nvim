@@ -1,0 +1,7 @@
+{
+  "Pretty Print": {
+    "prefix": "pp",
+    "body": ["vim.print(${1:args})"],
+    "description": "Pretty Print"
+  }
+}

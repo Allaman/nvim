@@ -1,0 +1,42 @@
+{
+  "Gmail": {
+    "prefix": "gmail",
+    "body": "michaeljohannpeter@gmail.com",
+    "description": "Insert your Gmail address"
+  },
+  "Rootknecht": {
+    "prefix": "rootknecht",
+    "body": "allaman@rootknecht.net",
+    "description": "Insert the Rootknecht email address"
+  },
+  "MFG": {
+    "prefix": "mfg",
+    "body": ["Mit freundlichen Grüßen", "Michael Peter"],
+    "description": "Insert a friendly closing statement"
+  },
+  "Sehr Geehrte": {
+    "prefix": "sehrg",
+    "body": ["Sehr geehrte Damen und Herren,", "", ""],
+    "description": "Insert a formal greeting"
+  },
+  "Modeline": {
+    "prefix": "modeline",
+    "body": "vim: set foldmethod=marker foldmarker={{{,}}} :",
+    "description": "Insert a Vim modeline for fold settings"
+  },
+  "Current Date": {
+    "prefix": "date",
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+    "description": "Insert the current date in YYYY-MM-DD format"
+  },
+  "Current Time": {
+    "prefix": "time",
+    "body": "${CURRENT_HOUR}:${CURRENT_MINUTE}",
+    "description": "Insert the current time in HH:MM format"
+  },
+  "ISO Date-Time": {
+    "prefix": "htime",
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}+10:00",
+    "description": "Insert the current date and time in ISO 8601 format"
+  }
+}
