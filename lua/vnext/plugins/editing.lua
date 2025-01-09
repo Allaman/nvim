@@ -1,4 +1,4 @@
-:return {
+return {
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile", "InsertLeave" },
