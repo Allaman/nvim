@@ -29,7 +29,7 @@ map("n", "<leader>w=", "<cmd>wincmd =<cr>", { desc = "Equalize size" })
 map("n", "<leader>wk", "<cmd>resize +5<cr>", { desc = "Up" })
 map("n", "<leader>wj", "<cmd>resize -5<cr>", { desc = "Down" })
 map("n", "<leader>wh", "<cmd>vertical resize +3<cr>", { desc = "Left" })
-map("n", "<leader>wl", "<cmd>vertical resizce -3<cr>", { desc = "Right" })
+map("n", "<leader>wl", "<cmd>vertical resize -3<cr>", { desc = "Right" })
 
 -- buffers
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
