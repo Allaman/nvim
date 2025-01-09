@@ -22,4 +22,4 @@
 
 **WIP**
 
-Check out my [blog post](https://rootknecht.net/blog/debloating-neovim-config/) to learn more about the reasons behind this big change. You can find the previous version in the [v1](https://rootknecht.net/blog/debloating-neovim-config/) branch.
+Check out my [blog post](https://rootknecht.net/blog/debloating-neovim-config/) to learn more about the reasons behind this big change. You can find the previous version in the [v1](https://github.com/Allaman/nvim/tree/v1) branch.
