@@ -162,7 +162,7 @@ return {
           end
 
           map("<leader>ld", "<cmd>FzfLua lsp_definitions<cr>", "Definition")
-          map("<leader>lr", "<cmd>Fzflua lsp_references<cr>", "References")
+          map("<leader>lr", "<cmd>FzfLua lsp_references<cr>", "References")
           map("<leader>lI", "<cmd>FzfLua lsp_implementations<cr>", "Implementation")
           map("<leader>lk", vim.lsp.buf.hover, "Hover")
           map("<leader>lt", "<cmd>FzfLua lsp_typedefs<cr>", "Type Definition")
