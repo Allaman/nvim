@@ -67,6 +67,9 @@ return {
   {
     "catgoose/nvim-colorizer.lua",
     cmd = "ColorizerToggle",
+    keys = {
+      { "<leader>ux", "<cmd>ColorizerToggle<cr>", desc = "Colorizer" },
+    },
     opts = {},
   },
   -- {
