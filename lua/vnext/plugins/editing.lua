@@ -147,7 +147,7 @@ return {
     ft = "markdown",
     opts = {
       enable_cmp_integration = true,
-      plugin_path = "/Users/michael/workspace/github.com/allaman/",
+      plugin_path = vim.fn.expand("~/workspace/github.com/allaman"),
     },
   },
 
