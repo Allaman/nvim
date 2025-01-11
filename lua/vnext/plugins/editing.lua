@@ -100,16 +100,6 @@ return {
       -- Number of lines within which surrounding is searched
       n_lines = 50,
     },
-    config = function(_, opts)
-      vim.keymap.set(
-        "n",
-        "<leader><leader>s",
-        ":normal saiW`<Esc>",
-        { desc = "Surround inner word with backticks", noremap = true }
-      )
-      -- TODO: which-key integration
-      require("mini.surround").setup(opts)
-    end,
   },
 
   {
