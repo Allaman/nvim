@@ -94,7 +94,7 @@ local servers = {
           url = "https://www.schemastore.org/api/json/catalog.json",
         },
         format = { enabled = false },
-        -- anabling this conflicts between Kubernetes resources, kustomization.yaml, and Helmreleases
+        -- enabling this conflicts between Kubernetes resources, kustomization.yaml, and Helmreleases
         validate = false,
         schemas = {
           kubernetes = "*.yaml",
