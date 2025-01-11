@@ -1,6 +1,6 @@
 local o = vim.opt
 
-vim.g.autoformat = true
+vim.g.autoformat = true -- global var for toggling autoformat
 
 o.clipboard = "unnamedplus" -- keep in sync with the system clipboard
 o.cursorline = true -- highlight the current line
