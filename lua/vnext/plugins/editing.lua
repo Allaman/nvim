@@ -154,7 +154,6 @@ return {
   -- emoji blink.cmp integration
   {
     "saghen/blink.cmp",
-    optional = true,
     dependencies = { "allaman/emoji.nvim", "saghen/blink.compat" },
     opts = {
       sources = {
