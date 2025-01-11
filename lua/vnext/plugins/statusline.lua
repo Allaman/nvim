@@ -2,8 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "BufReadPost",
   opts = {
-    -- extensions = { "fugitive", "lazy", "neo-tree", "nvim-dap-ui", "quickfix", "symbols-outline", "toggleterm" },
-    extensions = { "fzf", "lazy", "neo-tree" },
+    extensions = { "fzf", "lazy", "mason", "quickfix", "neo-tree" },
     options = {
       disabled_filetypes = { "neo-tree", "snacks_dashboard" },
       section_separators = { left = "", right = "" },
