@@ -184,8 +184,8 @@ return {
   {
     "echasnovski/mini.align",
     keys = {
-      { "ga", mode = { "n", "v" } },
-      { "gA", mode = { "n", "v" } },
+      { "ga", mode = { "v" }, desc = "Align" },
+      { "gA", mode = { "v" }, desc = "Align with Preview" },
     },
     opts = {},
   },
