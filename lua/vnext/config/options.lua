@@ -23,5 +23,5 @@ o.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in millise
 -- o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
 o.undodir = vim.fn.stdpath("data") .. "/undodir" -- set undo directory
 o.undofile = true -- enable/disable undo file creation
-o.undolevels = 1000
+o.undolevels = 1000 -- number of changes that can be undone
 o.updatetime = 250 -- faster completion
