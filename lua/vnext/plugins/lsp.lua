@@ -149,8 +149,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" }, -- BUG: Prevents new tools from being installed!
-    -- dependencies = {
-    -- },
     config = function()
       -- function will be executed to configure the current buffer
       vim.api.nvim_create_autocmd("LspAttach", {
