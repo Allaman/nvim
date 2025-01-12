@@ -13,7 +13,7 @@ return {
       lualine_b = {
         "branch",
         "diff",
-        { "diagnostics", sources = { "nvim_lsp" } },
+        "diagnostics",
       },
       lualine_c = {
         {
