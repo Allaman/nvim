@@ -145,7 +145,7 @@ return {
   { "williamboman/mason.nvim", config = true, lazy = true }, -- NOTE: Must be loaded before dependants
   { "williamboman/mason-lspconfig.nvim", lazy = true },
   { "WhoIsSethDaniel/mason-tool-installer.nvim", lazy = true },
-  { "j-hui/fidget.nvim", opts = {}, lazy = true },
+
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" }, -- BUG: Prevents new tools from being installed!
