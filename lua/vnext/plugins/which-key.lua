@@ -16,7 +16,6 @@ return {
       { "<leader>g", group = "Git" },
       { "<leader>l", group = "Code" },
       { "<leader>m", group = "Misc" },
-      { "<leader>R", group = "Replace" },
       { "<leader>s", group = "Search" },
       { "<leader>t", group = "Toggles" },
       { "<leader>u", group = "UI" },
