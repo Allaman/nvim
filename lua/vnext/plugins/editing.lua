@@ -16,7 +16,7 @@ return {
         javascript = { "prettier" },
         json = { "prettier" },
         lua = { "stylua" },
-        markdown = { "prettier" },
+        markdown = { "prettier", "markdownlint-cli2" },
         python = { "isort", "ruff_format" },
         sh = { "shfmt" },
         terraform = { "terraform_fmt" },

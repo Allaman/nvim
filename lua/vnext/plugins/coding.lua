@@ -7,6 +7,7 @@ return {
         dockerfile = { "hadolint" },
         go = { "golangcilint" },
         lua = { "selene" },
+        markdown = { "markdownlint-cli2" },
         yaml = { "yamllint" },
       },
     },
