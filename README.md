@@ -20,6 +20,10 @@
 
 </div>
 
-**WIP**
+![SXOsN.png](https://s7.gifyu.com/images/SXOsN.png)
+
+![SXOsw.png](https://s7.gifyu.com/images/SXOsw.png)
+
+**README WIP**
 
 Check out my [blog post](https://rootknecht.net/blog/debloating-neovim-config/) to learn more about the reasons behind this big change. You can find the previous version in the [v1](https://github.com/Allaman/nvim/tree/v1) branch.
