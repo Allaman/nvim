@@ -120,13 +120,9 @@ return {
       dependencies = { "nvim-lua/plenary.nvim" },
       opts = {},
       keys = {
-        {
-          "<leader>sT",
-          function()
-            require("todo-comments.fzf").todo()
-          end,
-          desc = "TODOs",
-        },
+        -- stylua: ignore start
+        { "<leader>sT", function() Snacks.picker.todo_comments() end, desc = "Todo", },
+        -- stylua: ignore end
       },
     },
   },

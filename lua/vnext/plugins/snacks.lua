@@ -1,5 +1,7 @@
 -- TODO: profiler
 
+---@module 'snacks'
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -16,7 +18,7 @@ return {
           { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
           { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.picker.recent({filter = {cwd = true} })" },
           { icon = " ", key = "b", desc = "File browser", action = function()  require("yazi").yazi(nil, vim.fn.getcwd()) end,
           },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy check", enabled = package.loaded.lazy },
@@ -37,6 +39,18 @@ return {
       enabled = true,
       timeout = 2000,
     },
+    picker = {
+      win = {
+        -- input window
+        input = {
+          keys = {
+            -- ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<C-i>"] = { "toggle_ignored", mode = { "i", "n" } }, -- TODO: does this work
+            ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+          },
+        },
+      },
+    },
     quickfile = { enabled = true },
     scroll = { enabled = false },
     statuscolumn = { enabled = true },
@@ -54,14 +68,29 @@ return {
     { "<leader>uz",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     -- { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
-    { "<leader>gL", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<leader>gB", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
     { "<leader>gx", function() Snacks.gitbrowse() end, desc = "Git Browse" },
-    { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
-    { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
     { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
     { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
+    { "<leader>ss", function() Snacks.picker.grep():set_layout("ivy") end, desc = "Strings" },
+    { "<leader>sh", function() Snacks.picker.help():set_layout("ivy") end, desc = "Help" },
+    { "<leader>ff", function() Snacks.picker.files():set_layout("ivy") end, desc = "Files" },
+    { "<leader>sl", function() Snacks.picker.lines():set_layout("ivy") end, desc = "Buffer Lines" },
+    { "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "Documents Symbols" },
+    { "<leader>sz", function() Snacks.picker.zoxide():set_layout("ivy") end, desc = "Zoxide" },
+    { "<leader>sw", function() Snacks.picker.grep_word():set_layout("ivy") end, desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<leader>gl", function() Snacks.picker.git_log():set_layout("ivy") end, desc = "Git Log" },
+    { "<leader>gf", function() Snacks.picker.git_log_file():set_layout("ivy") end, desc = "Git Log File" },
+    { "<leader>gL", function() Snacks.picker.git_log_line():set_layout("ivy") end, desc = "Git Log Line" },
+    { "<leader>fr", function() Snacks.picker.recent({filter = {cwd = true} }):set_layout("ivy") end, desc = "Recent" },
+    { "<leader>bb", function() Snacks.picker.buffers():set_layout("ivy") end, desc = "Buffers" },
+    { "<leader>sd", function() Snacks.picker.diagnostics():set_layout("ivy") end, desc = "Diagnostics" },
+    { "<leader>sk", function() Snacks.picker.keymaps():set_layout("ivy") end, desc = "Keymaps" },
+    { "<leader>ld", function() Snacks.picker.lsp_definitions():set_layout("ivy") end, desc = "Definition" },
+    { "<leader>lr", function() Snacks.picker.lsp_references():set_layout("ivy") end, nowait = true, desc = "References" },
+    { "<leader>lI", function() Snacks.picker.lsp_implementations():set_layout("ivy") end, desc = "Implementation" },
+    { "<leader>lt", function() Snacks.picker.lsp_type_definitions():set_layout("ivy") end, desc = "Type Definition" },
   },
   -- stylua: ignore end
   init = function()
