@@ -81,16 +81,14 @@ return {
     },
     opts = {},
   },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   priority = 1000,
-  --   lazy = false,
-  --   opts = {
-  --     style = "moon",
-  --   },
-  --   config = function(_, opts)
-  --     require("tokyonight").setup({ opts })
-  --     vim.cmd("colorscheme tokyonight")
-  --   end,
-  -- },
+
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("tokyonight").setup()
+      vim.cmd("colorscheme tokyonight-moon")
+    end,
+  },
 }

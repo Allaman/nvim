@@ -23,7 +23,6 @@ return {
     },
   },
   config = function(_, opts)
-    vim.api.nvim_set_hl(0, "WhichKeyTitle", { bg = "#000000" }) -- HACK: only works if border is black
     require("which-key").setup(opts)
   end,
 }
