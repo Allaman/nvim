@@ -40,9 +40,9 @@ return {
     },
     picker = {
       win = {
-        -- input window
         input = {
           keys = {
+            -- TODO: not sure if I want this as before
             -- ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
           },
