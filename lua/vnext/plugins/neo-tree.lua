@@ -108,6 +108,9 @@ return {
     },
   },
   config = function(_, opts)
+    -- no background for Neotree
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE" })
     require("neo-tree").setup(opts)
     vim.api.nvim_create_autocmd("TermClose", {
       pattern = "*lazygit",
