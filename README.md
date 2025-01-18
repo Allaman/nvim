@@ -24,11 +24,13 @@
 
 ![Sewj4.png](https://s13.gifyu.com/images/Sewj4.png)
 
-**Terminal**: [ghostty](https://s7.gifyu.com/images/SXOsw.png)
-**Font**: [Comic Code Ligatures](https://tosche.net/fonts/comic-code)
-**Neovim Theme**: [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
-
 **README WIP**
+
+**Terminal**: [ghostty](https://s7.gifyu.com/images/SXOsw.png)
+
+**Font**: [Comic Code Ligatures](https://tosche.net/fonts/comic-code)
+
+**Neovim Theme**: [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 
 ## Customization
 
