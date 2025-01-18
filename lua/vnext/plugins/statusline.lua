@@ -5,8 +5,6 @@ return {
     extensions = { "fzf", "lazy", "mason", "quickfix", "neo-tree" },
     options = {
       disabled_filetypes = { "neo-tree", "snacks_dashboard", "Outline" },
-      section_separators = { left = "", right = "" },
-      component_separators = { left = "", right = "" },
     },
     sections = {
       lualine_a = {}, -- hide mode
