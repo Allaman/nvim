@@ -9,7 +9,6 @@ on:
       - "Dockerfile"
       - "**.lua"
       - .github/workflows/ci.yml
-      - "README.md"
 
 jobs:
   checks:
