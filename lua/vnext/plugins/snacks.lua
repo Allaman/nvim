@@ -33,7 +33,12 @@ return {
       },
     },
     dim = { enabled = true },
-    indent = { enabled = true, animate = { enabled = false } }, -- animation is on by default
+    indent = {
+      enabled = true,
+      indent = { only_scope = true }, -- only show indent where cursor is
+      chunk = { enabled = true }, -- indents are rendered as chunks
+      animate = { enabled = false }, -- do not animate -- feels slow for me
+    },
     notifier = {
       enabled = true,
       timeout = 2000,
