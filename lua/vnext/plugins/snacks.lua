@@ -44,7 +44,6 @@ return {
         input = {
           keys = {
             -- ["<Esc>"] = { "close", mode = { "n", "i" } },
-            ["<C-i>"] = { "toggle_ignored", mode = { "i", "n" } }, -- TODO: does this work
             ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
           },
         },
