@@ -20,13 +20,13 @@
 
 </div>
 
-![SXOsN.png](https://s7.gifyu.com/images/SXOsN.png)
+![Sewjp.png](https://s13.gifyu.com/images/Sewjp.png)
 
-![SXOsw.png](https://s7.gifyu.com/images/SXOsw.png)
+![Sewj4.png](https://s13.gifyu.com/images/Sewj4.png)
 
 **Terminal**: [ghostty](https://s7.gifyu.com/images/SXOsw.png)
 **Font**: [Comic Code Ligatures](https://tosche.net/fonts/comic-code)
-**Neovim Theme**: default
+**Neovim Theme**: [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 
 **README WIP**
 
@@ -34,7 +34,7 @@
 
 ⚠️ This is primarly my personal config
 
-If you want to use my config there is the `./lua/vnext/extra/` folder that is loaded by lazy.nvim. The LazySpecs in this folder are merged with the "defaul" LazySpecs in the `./lua/vnext/plugins/` folder. Some examples you can do:
+If you want to use my config there is the `./lua/vnext/extra/` folder that is loaded by lazy.nvim. The LazySpecs in this folder are merged with the "default" LazySpecs in the `./lua/vnext/plugins/` folder. Some examples you can do:
 
 Disable a plugin:
 
