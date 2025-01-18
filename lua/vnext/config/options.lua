@@ -9,6 +9,15 @@ o.dir            = vim.fn.stdpath("data") .. "/swp"                -- swap file 
 o.expandtab      = true                                            -- use spaces instead of tabs
 o.fillchars      = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:" -- hide ~ at the end of buffer and set fold symbols
 o.ignorecase     = true                                            -- ignore case in search patterns
+o.listchars = {                                                    -- define invisible chars
+  eol = "↲",
+  tab = "→ ",
+  trail = "+",
+  extends = ">",
+  precedes = "<",
+  space = "·",
+  nbsp = "␣",
+}
 o.mouse          = "nv"                                            -- enable mouse see :h mouse
 o.relativenumber = true                                            -- set relative numbered lines
 o.scrolloff      = 10                                              -- Minimal number of screen lines to keep above and below the cursor
