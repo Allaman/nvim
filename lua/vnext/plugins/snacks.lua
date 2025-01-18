@@ -15,10 +15,9 @@ return {
         ---@type snacks.dashboard.Item[]
         -- stylua: ignore start
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.smart({filter = {cwd = true}})" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
           { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.picker.recent({filter = {cwd = true} })" },
           { icon = " ", key = "b", desc = "File browser", action = function()  require("yazi").yazi(nil, vim.fn.getcwd()) end,
           },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy check", enabled = package.loaded.lazy },
@@ -75,7 +74,7 @@ return {
     { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
     { "<leader>ss", function() Snacks.picker.grep():set_layout("ivy") end, desc = "Strings" },
     { "<leader>sh", function() Snacks.picker.help():set_layout("ivy") end, desc = "Help" },
-    { "<leader>ff", function() Snacks.picker.files():set_layout("ivy") end, desc = "Files" },
+    { "<leader>ff", function() Snacks.picker.smart({filter = {cwd = true}}):set_layout("ivy") end, desc = "Smart find" },
     { "<leader>sl", function() Snacks.picker.lines():set_layout("ivy") end, desc = "Buffer Lines" },
     { "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "Documents Symbols" },
     { "<leader>sz", function() Snacks.picker.zoxide():set_layout("ivy") end, desc = "Zoxide" },
@@ -83,8 +82,6 @@ return {
     { "<leader>gl", function() Snacks.picker.git_log():set_layout("ivy") end, desc = "Git Log" },
     { "<leader>gf", function() Snacks.picker.git_log_file():set_layout("ivy") end, desc = "Git Log File" },
     { "<leader>gL", function() Snacks.picker.git_log_line():set_layout("ivy") end, desc = "Git Log Line" },
-    { "<leader>fr", function() Snacks.picker.recent({filter = {cwd = true} }):set_layout("ivy") end, desc = "Recent" },
-    { "<leader>bb", function() Snacks.picker.buffers():set_layout("ivy") end, desc = "Buffers" },
     { "<leader>sd", function() Snacks.picker.diagnostics():set_layout("ivy") end, desc = "Diagnostics" },
     { "<leader>sk", function() Snacks.picker.keymaps():set_layout("ivy") end, desc = "Keymaps" },
     { "<leader>ld", function() Snacks.picker.lsp_definitions():set_layout("ivy") end, desc = "Definition" },
