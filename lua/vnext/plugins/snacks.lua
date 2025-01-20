@@ -74,6 +74,7 @@ return {
     { "<leader>gB", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
     { "<leader>gx", function() Snacks.gitbrowse() end, desc = "Git Browse" },
     { "<leader>sb", function() Snacks.picker.git_branches() end, desc = "Branches" },
+    { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo Tree" },
     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
     { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
     { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
