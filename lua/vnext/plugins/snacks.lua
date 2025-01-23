@@ -82,6 +82,8 @@ return {
     { "<leader>sh", function() Snacks.picker.help():set_layout("ivy") end, desc = "Help" },
     { "<leader>ff", function() Snacks.picker.smart({filter = {cwd = true}}):set_layout("ivy") end, desc = "Smart find" },
     { "<leader>sl", function() Snacks.picker.lines():set_layout("ivy") end, desc = "Buffer Lines" },
+    { "<leader>si", function() Snacks.picker.icons():set_layout("ivy") end, desc = "Icons" },
+    { "<leader>sL", function() Snacks.picker.lazy():set_layout("ivy") end, desc = "LazySpec" },
     { "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "Documents Symbols" },
     { "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
     { "<leader>sz", function() Snacks.picker.zoxide():set_layout("ivy") end, desc = "Zoxide" },
