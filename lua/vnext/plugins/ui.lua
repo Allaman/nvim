@@ -32,9 +32,7 @@ return {
       -- NOTE: my mapping <leader>lf is soo good but in the LSP cluster
       {
         "<leader>lf",
-        function()
-          require("yazi").yazi(nil, vim.fn.getcwd())
-        end,
+        "<cmd>Yazi<cr>",
         desc = "Open Yazi (file manager)",
       },
     },
