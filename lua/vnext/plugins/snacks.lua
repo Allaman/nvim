@@ -15,9 +15,9 @@ return {
         ---@type snacks.dashboard.Item[]
         -- stylua: ignore start
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.smart({filter = {cwd = true}})" },
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.smart({filter = {cwd = true}, layout = 'default'})" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.picker.grep({layout = 'default'})" },
           { icon = " ", key = "b", desc = "File browser", action = function()  require("yazi").yazi(nil, vim.fn.getcwd()) end,
           },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy check", enabled = package.loaded.lazy },
@@ -44,6 +44,7 @@ return {
       timeout = 2000,
     },
     picker = {
+      layout = "ivy",
       win = {
         input = {
           keys = {
@@ -78,25 +79,25 @@ return {
     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
     { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
     { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
-    { "<leader>ss", function() Snacks.picker.grep():set_layout("ivy") end, desc = "Strings" },
-    { "<leader>sh", function() Snacks.picker.help():set_layout("ivy") end, desc = "Help" },
-    { "<leader>ff", function() Snacks.picker.smart({filter = {cwd = true}}):set_layout("ivy") end, desc = "Smart find" },
-    { "<leader>sl", function() Snacks.picker.lines():set_layout("ivy") end, desc = "Buffer Lines" },
-    { "<leader>si", function() Snacks.picker.icons():set_layout("ivy") end, desc = "Icons" },
-    { "<leader>sL", function() Snacks.picker.lazy():set_layout("ivy") end, desc = "LazySpec" },
+    { "<leader>ss", function() Snacks.picker.grep() end, desc = "Strings" },
+    { "<leader>sh", function() Snacks.picker.help() end, desc = "Help" },
+    { "<leader>ff", function() Snacks.picker.smart({filter = {cwd = true}}) end, desc = "Smart find" },
+    { "<leader>sl", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+    { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
+    { "<leader>sL", function() Snacks.picker.lazy() end, desc = "LazySpec" },
     { "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "Documents Symbols" },
     { "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
-    { "<leader>sz", function() Snacks.picker.zoxide():set_layout("ivy") end, desc = "Zoxide" },
-    { "<leader>sw", function() Snacks.picker.grep_word():set_layout("ivy") end, desc = "Visual selection or word", mode = { "n", "x" } },
-    { "<leader>gl", function() Snacks.picker.git_log():set_layout("ivy") end, desc = "Git Log" },
-    { "<leader>gf", function() Snacks.picker.git_log_file():set_layout("ivy") end, desc = "Git Log File" },
-    { "<leader>gL", function() Snacks.picker.git_log_line():set_layout("ivy") end, desc = "Git Log Line" },
-    { "<leader>sd", function() Snacks.picker.diagnostics():set_layout("ivy") end, desc = "Diagnostics" },
-    { "<leader>sk", function() Snacks.picker.keymaps():set_layout("ivy") end, desc = "Keymaps" },
-    { "<leader>ld", function() Snacks.picker.lsp_definitions():set_layout("ivy") end, desc = "Definition" },
-    { "<leader>lr", function() Snacks.picker.lsp_references():set_layout("ivy") end, nowait = true, desc = "References" },
-    { "<leader>lI", function() Snacks.picker.lsp_implementations():set_layout("ivy") end, desc = "Implementation" },
-    { "<leader>lt", function() Snacks.picker.lsp_type_definitions():set_layout("ivy") end, desc = "Type Definition" },
+    { "<leader>sz", function() Snacks.picker.zoxide() end, desc = "Zoxide" },
+    { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+    { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
+    { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+    { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
+    { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+    { "<leader>ld", function() Snacks.picker.lsp_definitions() end, desc = "Definition" },
+    { "<leader>lr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+    { "<leader>lI", function() Snacks.picker.lsp_implementations() end, desc = "Implementation" },
+    { "<leader>lt", function() Snacks.picker.lsp_type_definitions() end, desc = "Type Definition" },
   },
   -- stylua: ignore end
   init = function()
