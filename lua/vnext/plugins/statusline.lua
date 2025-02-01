@@ -25,7 +25,7 @@ return {
           -- 4: Filename and parent dir, with tilde as the home directory
         },
       },
-      lualine_x = { "filetype" },
+      lualine_x = { "searchcount", "filetype" },
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },
