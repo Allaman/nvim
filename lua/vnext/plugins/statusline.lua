@@ -4,7 +4,7 @@ return {
   opts = {
     extensions = { "lazy", "quickfix", "neo-tree" },
     options = {
-      disabled_filetypes = { statusline = { "neo-tree", "Outline" } },
+      disabled_filetypes = { statusline = { "neo-tree", "Outline", "snacks_picker_list" } },
     },
     sections = {
       lualine_a = {}, -- hide mode
@@ -12,6 +12,7 @@ return {
         "branch",
         "diff",
         "diagnostics",
+        "lsp_status",
       },
       lualine_c = {
         {
