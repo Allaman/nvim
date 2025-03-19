@@ -43,14 +43,6 @@ map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 -- open path under cursor
 map("n", "<leader>fo", "gf", { desc = "Open path under cursor" })
 
--- diagnostics
--- stylua: ignore start
-map("n", "<leader>dj", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "Next Diagnostic" })
-map("n", "<leader>dk", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Prev Diagnostic" })
-map("n", "<leader>dc", function() vim.diagnostic.open_float() end, { desc = "Toggle current diagnostic" })
-map("n", "<leader>dd", function() vim.diagnostic.setqflist() end, { desc = "Open quickfix" })
--- stylua: ignore end
-
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
