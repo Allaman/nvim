@@ -83,6 +83,7 @@ return {
         pyright = {},
         terraformls = {},
         tinymist = {},
+        ts_ls = {},
         yamlls = {
           capabilities = {
             textDocument = {
