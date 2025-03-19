@@ -88,4 +88,9 @@ return {
       require("kustomize").setup(opts)
     end,
   },
+  {
+    "fredrikaverpil/godoc.nvim",
+    cmd = { "GoDoc" },
+    opts = {},
+  },
 }
