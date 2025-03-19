@@ -28,17 +28,19 @@ return {
       sections = {
         { section = "header" },
         { section = "keys", gap = 1 },
-        { title = "Recent Files", section = "recent_files", indent = 2, padding = { 2, 2 } },
+        { title = "Recent Files", section = "recent_files", cwd = true, indent = 2, padding = { 2, 2 } },
         { section = "startup" },
       },
     },
     dim = { enabled = true },
+    image = {},
     indent = {
       enabled = true,
       indent = { only_scope = true }, -- only show indent where cursor is
       chunk = { enabled = true }, -- indents are rendered as chunks
       animate = { enabled = false }, -- do not animate -- feels slow for me
     },
+    input = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 2000,
@@ -56,7 +58,6 @@ return {
       },
     },
     quickfile = { enabled = true },
-    scroll = { enabled = false },
     statuscolumn = { enabled = true },
     words = { enabled = true },
     zen = { enabled = true },
