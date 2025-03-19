@@ -86,3 +86,20 @@ vim.api.nvim_del_keymap("n", "]D") -- vim.lsp.buf...
 
 vim.api.nvim_del_keymap("n", "gx") -- open filepath under cursor
 vim.api.nvim_del_keymap("x", "gx") -- open filepath under cursor
+
+vim.keymap.set("n", "<CR>", function()
+  if vim.bo.buftype == "quickfix" then
+    -- Execute the default Enter behavior in quickfix list
+    return vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+  end
+  -- Get the current line number
+  local line = vim.fn.line(".")
+  -- Get the fold level of the current line
+  local foldlevel = vim.fn.foldlevel(line)
+  if foldlevel == 0 then
+    vim.notify("No fold found", vim.log.levels.INFO)
+  else
+    vim.cmd("normal! za")
+    vim.cmd("normal! zz") -- center the cursor line on screen
+  end
+end, { desc = "Toggle fold" })
