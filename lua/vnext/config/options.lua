@@ -23,6 +23,7 @@ o.clipboard      = "unnamedplus"                                   -- keep in sy
 o.cursorline     = true                                            -- highlight the current line
 o.dir            = vim.fn.stdpath("data") .. "/swp"                -- swap file directory
 o.expandtab      = true                                            -- use spaces instead of tabs
+o.diffopt        = "internal,filler,closeoff,linematch:60"         -- improve diff visualization
 o.fillchars      = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:" -- hide ~ at the end of buffer and set fold symbols
 o.foldenable = true                                                -- enable folding
 o.foldexpr = "v:lua.vnext.foldexpr()"                              -- custom foldexpression
