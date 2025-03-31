@@ -30,7 +30,7 @@ return {
     },
   },
   dependencies = {
-    -- "RRethy/nvim-treesitter-endwise",
+    "RRethy/nvim-treesitter-endwise", -- mainly for lua 'closing end' insertion
     -- "mfussenegger/nvim-ts-hint-textobject",
     -- "windwp/nvim-ts-autotag",
   },
@@ -42,9 +42,9 @@ return {
       highlight = {
         enable = true,
       },
-      -- endwise = {
-      --   enable = true,
-      -- },
+      endwise = {
+        enable = true,
+      },
       indent = { enable = true },
       autopairs = { enable = true },
     })
