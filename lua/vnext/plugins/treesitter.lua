@@ -24,6 +24,7 @@ return {
       "python",
       "regex",
       "terraform",
+      "templ",
       "toml",
       "vim",
       "yaml",

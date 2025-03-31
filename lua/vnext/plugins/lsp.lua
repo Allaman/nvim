@@ -81,6 +81,7 @@ return {
         },
         marksman = {},
         pyright = {},
+        templ = {},
         terraformls = {},
         tinymist = {},
         ts_ls = {},
