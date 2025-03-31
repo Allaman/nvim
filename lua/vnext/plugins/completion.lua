@@ -9,7 +9,7 @@ return {
         opts = {},
       },
     },
-    version = "v0.*",
+    version = "v1.*",
     opts = {
       keymap = {
         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
