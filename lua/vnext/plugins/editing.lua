@@ -181,6 +181,7 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown", "norg", "org" },
     opts = {
+      completions = { blink = { enabled = true } },
       render_modes = { "n" },
       code = {
         sign = false,
