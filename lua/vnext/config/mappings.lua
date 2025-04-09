@@ -95,3 +95,8 @@ vim.keymap.set("n", "<CR>", function()
     vim.cmd("normal! zz") -- center the cursor line on screen
   end
 end, { desc = "Toggle fold" })
+
+map("n", "<leader>uI", function()
+  vim.treesitter.inspect_tree()
+  vim.api.nvim_input("I")
+end, { desc = "Inspect Tree" })
