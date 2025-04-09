@@ -51,6 +51,9 @@ return {
           },
           snippets = {
             min_keyword_length = 2,
+            should_show_items = function(ctx)
+              return ctx.trigger.initial_kind ~= "trigger_character" and not require("blink.cmp").snippet_active()
+            end,
           },
           buffer = {
             min_keyword_length = 5,
