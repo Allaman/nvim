@@ -82,7 +82,9 @@ return {
         marksman = {},
         pyright = {},
         templ = {},
-        terraformls = {},
+        terraformls = {
+          filetypes = { "terraform", "terraform-vars", "tf" },
+        },
         tinymist = {},
         ts_ls = {},
         yamlls = {
