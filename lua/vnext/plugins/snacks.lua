@@ -18,8 +18,8 @@ return {
           { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.smart({filter = {cwd = true}, layout = 'default'})" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
           { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.picker.grep({layout = 'default'})" },
-          { icon = " ", key = "b", desc = "File browser", action = function()  require("yazi").yazi(nil, vim.fn.getcwd()) end,
-          },
+          { icon = " ", key = "b", desc = "File browser", action = function()  require("yazi").yazi(nil, vim.fn.getcwd()) end},
+          {icon = " ", key = "g", desc = "Lazygit", action = ":lua Snacks.lazygit.open()" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy check", enabled = package.loaded.lazy },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           -- stylua: ignore end
@@ -99,6 +99,8 @@ return {
     { "<leader>lr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
     { "<leader>lI", function() Snacks.picker.lsp_implementations() end, desc = "Implementation" },
     { "<leader>lt", function() Snacks.picker.lsp_type_definitions() end, desc = "Type Definition" },
+    { "<leader>gg", function() Snacks.lazygit.open() end, desc = "Lazygit"}
+,
   },
   -- stylua: ignore end
   init = function()
