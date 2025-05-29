@@ -99,7 +99,8 @@ return {
     { "<leader>lr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
     { "<leader>lI", function() Snacks.picker.lsp_implementations() end, desc = "Implementation" },
     { "<leader>lt", function() Snacks.picker.lsp_type_definitions() end, desc = "Type Definition" },
-    { "<leader>gg", function() Snacks.lazygit.open() end, desc = "Lazygit"}
+    { "<leader>gg", function() Snacks.lazygit.open() end, desc = "Lazygit"},
+    { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" }
 ,
   },
   -- stylua: ignore end
