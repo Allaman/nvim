@@ -28,7 +28,7 @@ return {
       sections = {
         { section = "header" },
         { section = "keys", gap = 1 },
-        { title = "Recent Files", section = "recent_files", cwd = true, indent = 2, padding = { 2, 2 } },
+        { title = "Recent Files", section = "recent_files", cwd = true },
         { section = "startup" },
       },
     },
