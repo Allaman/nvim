@@ -29,7 +29,6 @@ api.nvim_create_autocmd("FileType", {
   pattern = {
     "grug-far",
     "help",
-    "man",
     "qf",
     "query",
   },
@@ -38,6 +37,17 @@ api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
   desc = "close certain windows with q",
+})
+
+api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "man",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "ZQ", { buffer = event.buf, silent = true })
+  end,
+  desc = "quit man page Neovim",
 })
 
 local chezmoi_path = vim.fn.resolve(vim.fn.expand("~/.local/share/chezmoi"))
