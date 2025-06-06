@@ -1,5 +1,18 @@
 return {
   {
+    "tpope/vim-fugitive",
+    cmd = "G",
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "fugitiveblame", "fugitive" },
+        callback = function()
+          vim.api.nvim_buf_set_keymap(0, "n", "q", "gq", {})
+        end,
+        desc = "Close fugitive with q instead of gq",
+      })
+    end,
+  },
+  {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
