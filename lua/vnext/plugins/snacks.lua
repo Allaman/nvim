@@ -15,7 +15,7 @@ return {
         ---@type snacks.dashboard.Item[]
         -- stylua: ignore start
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.smart({filter = {cwd = true}, layout = 'default'})" },
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.files({filter = {cwd = true}, layout = 'default'})" },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
           { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.picker.grep({layout = 'default'})" },
           { icon = " ", key = "b", desc = "File browser", action = function()  require("yazi").yazi(nil, vim.fn.getcwd()) end},
@@ -82,7 +82,9 @@ return {
     { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
     { "<leader>ss", function() Snacks.picker.grep() end, desc = "Strings" },
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Help" },
-    { "<leader>ff", function() Snacks.picker.smart({filter = {cwd = true}}) end, desc = "Smart find" },
+    { "<leader>ff", function() Snacks.picker.files({filter = {cwd = true}}) end, desc = "Find" },
+    { "<leader>fr", function() Snacks.picker.recent({filter = {cwd = true} }) end, desc = "Recent" },
+    { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>sl", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
     { "<leader>sL", function() Snacks.picker.lazy() end, desc = "LazySpec" },
