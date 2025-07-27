@@ -33,7 +33,6 @@ return {
       },
     },
     dim = { enabled = true },
-    image = {},
     indent = {
       enabled = true,
       indent = { only_scope = true }, -- only show indent where cursor is
