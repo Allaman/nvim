@@ -177,47 +177,47 @@ return {
     },
     opts = {},
   },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "norg", "org" },
-    opts = {
-      completions = { blink = { enabled = true } },
-      render_modes = { "n" },
-      code = {
-        sign = false,
-        width = "block",
-        right_pad = 1,
-      },
-    },
-    config = function(_, opts)
-      require("render-markdown").setup(opts)
-      vim.api.nvim_set_keymap("n", "<leader>um", "<cmd>RenderMarkdown toggle<cr>", { desc = "Toggle Markdown" })
-    end,
-  },
-
-  -- render-markdown blink.cmp integration
-  {
-    "saghen/blink.cmp",
-    dependencies = { "MeanderingProgrammer/render-markdown.nvim", "saghen/blink.compat" },
-    opts = {
-      sources = {
-        default = { "markdown" },
-        providers = {
-          markdown = {
-            name = "RenderMarkdown",
-            module = "blink.compat.source",
-            fallbacks = { "lsp" },
-            -- overwrite kind of suggestion
-            transform_items = function(ctx, items)
-              local kind = require("blink.cmp.types").CompletionItemKind.Text
-              for i = 1, #items do
-                items[i].kind = kind
-              end
-              return items
-            end,
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   ft = { "markdown", "norg", "org" },
+  --   opts = {
+  --     completions = { blink = { enabled = true } },
+  --     render_modes = { "n" },
+  --     code = {
+  --       sign = false,
+  --       width = "block",
+  --       right_pad = 1,
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     require("render-markdown").setup(opts)
+  --     vim.api.nvim_set_keymap("n", "<leader>um", "<cmd>RenderMarkdown toggle<cr>", { desc = "Toggle Markdown" })
+  --   end,
+  -- },
+  --
+  -- -- render-markdown blink.cmp integration
+  -- {
+  --   "saghen/blink.cmp",
+  --   dependencies = { "MeanderingProgrammer/render-markdown.nvim", "saghen/blink.compat" },
+  --   opts = {
+  --     sources = {
+  --       default = { "markdown" },
+  --       providers = {
+  --         markdown = {
+  --           name = "RenderMarkdown",
+  --           module = "blink.compat.source",
+  --           fallbacks = { "lsp" },
+  --           -- overwrite kind of suggestion
+  --           transform_items = function(ctx, items)
+  --             local kind = require("blink.cmp.types").CompletionItemKind.Text
+  --             for i = 1, #items do
+  --               items[i].kind = kind
+  --             end
+  --             return items
+  --           end,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }
