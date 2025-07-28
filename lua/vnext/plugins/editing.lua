@@ -108,7 +108,7 @@ return {
       dependencies = { "nvim-lua/plenary.nvim" },
       opts = {
         highlight = {
-          multiline = false, -- I usually only wnat one line to be highlighted
+          multiline = false, -- I usually only want one line to be highlighted
         },
       },
       keys = {
