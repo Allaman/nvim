@@ -43,6 +43,9 @@ map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 -- open path under cursor
 map("n", "<leader>fo", "gf", { desc = "Open path under cursor" })
 
+-- terminal mappings
+map("t", "<C-n>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
