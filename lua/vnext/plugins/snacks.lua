@@ -39,6 +39,13 @@ return {
       chunk = { enabled = true }, -- indents are rendered as chunks
       animate = { enabled = false }, -- do not animate -- feels slow for me
     },
+    image = {
+      enabled = true,
+      doc = {
+        -- don't render images in e.g. markdown
+        enabled = false,
+      },
+    },
     input = { enabled = true },
     notifier = {
       enabled = true,
@@ -73,12 +80,13 @@ return {
     -- { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<leader>gB", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
-    { "<leader>gx", function() Snacks.gitbrowse() end, desc = "Git Browse" },
+    { "<leader>go", mode = {"n", "v"}, function() Snacks.gitbrowse() end, desc = "Open git link" },
+    { "<leader>gc", mode = {"n", "v"}, function() Snacks.gitbrowse({ open = function(url) vim.fn.setreg("+", url) end, notify = false })end, desc = "Copy git link" },
     { "<leader>sb", function() Snacks.picker.git_branches() end, desc = "Branches" },
     { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo Tree" },
     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
-    { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
+    { "*",          function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
+    { "#",          function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
     { "<leader>ss", function() Snacks.picker.grep() end, desc = "Strings" },
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Help" },
     { "<leader>ff", function() Snacks.picker.files({filter = {cwd = true}}) end, desc = "Find" },
@@ -101,8 +109,8 @@ return {
     { "<leader>lI", function() Snacks.picker.lsp_implementations() end, desc = "Implementation" },
     { "<leader>lt", function() Snacks.picker.lsp_type_definitions() end, desc = "Type Definition" },
     { "<leader>gg", function() Snacks.lazygit.open() end, desc = "Lazygit"},
-    { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" }
-,
+    { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
+    { "<c-n>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
   },
   -- stylua: ignore end
   init = function()
