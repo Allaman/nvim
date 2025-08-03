@@ -83,22 +83,22 @@ return {
     opts = {},
   },
 
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     require("tokyonight").setup()
-  --     vim.cmd("colorscheme tokyonight-moon")
-  --   end,
-  -- },
   {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    lazy = false,
+    "folke/tokyonight.nvim",
     priority = 1000,
+    lazy = false,
     config = function()
-      vim.cmd([[colorscheme moonfly]])
+      require("tokyonight").setup()
+      vim.cmd("colorscheme tokyonight-moon")
     end,
   },
+  -- {
+  --   "bluz71/vim-moonfly-colors",
+  --   name = "moonfly",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd([[colorscheme moonfly]])
+  --   end,
+  -- },
 }
