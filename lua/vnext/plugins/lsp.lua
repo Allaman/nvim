@@ -141,12 +141,18 @@ return {
           map("<leader>la", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
           map("<leader>lD", vim.lsp.buf.declaration, "Declaration")
 
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+          -- TODO: Only works if LSP is available and feature is supported.
+          -- However, some do not support it and I want to see the color or I have no LSP installed.
+          -- if client and client:supports_method("textDocument/documentColor") then
+          --   vim.lsp.document_color.enable(true, event.buf)
+          -- end
+
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
-          --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
