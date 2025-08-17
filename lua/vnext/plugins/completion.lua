@@ -11,6 +11,7 @@ return {
     },
     version = "v1.*",
     opts = {
+      fuzzy = { implementation = "prefer_rust_with_warning" },
       keymap = {
         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
         ["<C-e>"] = { "hide", "fallback" },
