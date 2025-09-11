@@ -1,10 +1,78 @@
+-- Lualine configuration with helper functions
+
+-- Configuration constants
+local DEFAULT_ENCODING = "utf-8"
+local DEFAULT_FILEFORMAT = "unix"
+local WORDCOUNT_FILETYPES = {
+  latex = true,
+  tex = true,
+  text = true,
+  markdown = true,
+  vimwiki = true,
+  rst = true,
+  asciidoc = true,
+  org = true,
+}
+
+-- Helper functions with better error handling and robustness
+local function is_not_unix_fileformat()
+  local format = vim.bo.fileformat
+  return format and format ~= DEFAULT_FILEFORMAT
+end
+
+local function is_not_utf8_coding()
+  local encoding = vim.bo.fileencoding
+  -- Handle empty encoding (which defaults to utf-8 in nvim)
+  return encoding and encoding ~= "" and encoding ~= DEFAULT_ENCODING
+end
+
+local function is_macro_recording()
+  local rec = vim.fn.reg_recording()
+  return rec and rec ~= ""
+end
+
+local function get_macro_recording()
+  local reg = vim.fn.reg_recording()
+  if not reg or reg == "" then
+    return ""
+  end
+  return "󰑋 " .. reg
+end
+
+local function get_word_count()
+  -- Protected call to handle potential errors
+  local ok, wc = pcall(vim.fn.wordcount)
+  if not ok or not wc then
+    return ""
+  end
+
+  -- Handle visual mode selection
+  if wc.visual_words and wc.visual_chars then
+    return string.format("%d Words/%d Chars (Vis)", wc.visual_words, wc.visual_chars)
+  end
+
+  -- Handle regular document word count
+  if wc.words then
+    return string.format("%d Words", wc.words)
+  end
+  return ""
+end
+
+local function is_document_filetype()
+  local filetype = vim.bo.filetype
+  return filetype and WORDCOUNT_FILETYPES[filetype] or false
+end
+
+-- Main configuration
 return {
   "nvim-lualine/lualine.nvim",
   event = "BufReadPost",
   opts = {
     extensions = { "lazy", "quickfix", "neo-tree" },
     options = {
-      disabled_filetypes = { statusline = { "neo-tree", "Outline", "snacks_picker_list" } },
+      disabled_filetypes = {
+        statusline = { "neo-tree", "Outline", "snacks_picker_list" },
+      },
     },
     sections = {
       lualine_a = {}, -- hide mode
@@ -17,92 +85,52 @@ return {
       lualine_c = {
         {
           "filename",
-          file_status = true, -- Displays file status (readonly status, modified status)
-          newfile_status = true, -- Display new file status (new file means no write after created)
-          path = 3, -- 0: Just the filename
-          -- 1: Relative path
-          -- 2: Absolute path
-          -- 3: Absolute path, with tilde as the home directory
-          -- 4: Filename and parent dir, with tilde as the home directory
+          file_status = true,
+          newfile_status = true,
+          --- path 0: filename 1: rel path 2: abs path 3: abs path with ~ 4: fn with parent dir
+          path = 3,
         },
       },
-      lualine_x = { "searchcount", "filetype" },
-      lualine_y = { "progress" },
+      lualine_x = {
+        {
+          "encoding",
+          cond = is_not_utf8_coding,
+          show_bomb = true,
+        },
+        {
+          "fileformat",
+          cond = is_not_unix_fileformat,
+        },
+        "searchcount",
+        "filetype",
+        {
+          get_macro_recording,
+          cond = is_macro_recording,
+          color = { fg = "#333333", bg = "#ff6666" },
+          separator = { left = "", right = "" },
+        },
+      },
+      lualine_y = {
+        {
+          get_word_count,
+          cond = is_document_filetype,
+          icon = "󰈭",
+        },
+        "progress",
+      },
       lualine_z = { "location" },
+    },
+    -- inactive sections to match
+    inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = { "filename" },
+      lualine_x = { "location" },
+      lualine_y = {},
+      lualine_z = {},
     },
   },
   config = function(_, opts)
-    -- Show info when recording a macro
-    local function is_macro_recording()
-      local reg = vim.fn.reg_recording()
-      if reg == "" then
-        return ""
-      end
-      return "󰑋 " .. reg
-    end
-
-    table.insert(opts.sections.lualine_x, 1, {
-      is_macro_recording,
-      color = { fg = "#333333", bg = "#ff6666" },
-      separator = { left = "", right = "" },
-      cond = function()
-        return is_macro_recording() ~= ""
-      end,
-    })
-
-    -- Don't display encoding if encoding is UTF-8
-    local function encoding()
-      local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
-      return ret
-    end
-
-    table.insert(opts.sections.lualine_x, 1, {
-      encoding,
-      cond = function()
-        return encoding() ~= ""
-      end,
-    })
-
-    -- Don't display fileformat if fileformat is unix
-    local function fileformat()
-      local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
-      return ret
-    end
-
-    table.insert(opts.sections.lualine_x, 1, {
-      fileformat,
-      cond = function()
-        return fileformat() ~= ""
-      end,
-    })
-
-    local function wordCount()
-      local wc = vim.fn.wordcount()
-      if wc == nil then
-        return ""
-      end
-      if wc["visual_words"] then -- text is selected in visual mode
-        return wc["visual_words"] .. " Words/" .. wc["visual_chars"] .. " Chars (Vis)"
-      else -- all of the document
-        return wc["words"] .. " Words"
-      end
-    end
-
-    table.insert(opts.sections.lualine_y, 1, {
-      wordCount,
-      cond = function()
-        local ft = vim.bo.filetype
-        local count = {
-          latex = true,
-          tex = true,
-          text = true,
-          markdown = true,
-          vimwiki = true,
-        }
-        return count[ft] ~= nil
-      end,
-    })
-
     require("lualine").setup(opts)
   end,
 }
