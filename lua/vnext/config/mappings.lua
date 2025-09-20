@@ -46,6 +46,10 @@ map("n", "<leader>fo", "gf", { desc = "Open path under cursor" })
 -- terminal mappings
 map("t", "<C-n>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
+-- quickfix mappings
+map("n", "<leader>j", "<cmd>cnext<cr>", { desc = "Qickfix next" })
+map("n", "<leader>k", "<cmd>cprevious<cr>", { desc = "Qickfix prev" })
+
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
