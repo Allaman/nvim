@@ -12,6 +12,7 @@ return {
       end,
       -- log_level = vim.log.levels.TRACE,
       formatters_by_ft = {
+        dockerfile = { "dockerfmt" },
         go = { "goimports", "gofmt" },
         javascript = { "prettier" },
         json = { "prettier" },
