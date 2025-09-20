@@ -1,14 +1,23 @@
 return {
   {
-    "stevearc/oil.nvim",
+    "A7Lavinraj/fyler.nvim",
+    dependencies = { "nvim-mini/mini.icons" },
+    branch = "stable",
     keys = {
-      { "-", "<cmd>Oil<cr>", desc = "Open Oil" },
+      { "-", "<cmd>Fyler<cr>", desc = "Open Fyler" },
     },
-    opts = {
-      delete_to_trash = true,
-      skip_confirm_for_simple_edits = true,
-    },
+    opts = {},
   },
+  -- {
+  --   "stevearc/oil.nvim",
+  --   keys = {
+  --     { "-", "<cmd>Oil<cr>", desc = "Open Oil" },
+  --   },
+  --   opts = {
+  --     delete_to_trash = true,
+  --     skip_confirm_for_simple_edits = true,
+  --   },
+  -- },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
