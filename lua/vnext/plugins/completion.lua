@@ -63,7 +63,13 @@ return {
         },
       },
       cmdline = {
-        completion = { menu = { auto_show = true } },
+        keymap = {
+          preset = "cmdline",
+        },
+        completion = {
+          list = { selection = { preselect = false } },
+          menu = { auto_show = true },
+        },
       },
       completion = {
         documentation = {
@@ -149,15 +155,15 @@ return {
     "saghen/blink.cmp",
     opts = {
       sources = {
+        per_filetype = {
+          lua = { inherit_defaults = true, "lazydev" },
+        },
         default = { "lazydev" },
         providers = {
-          lsp = {
-            -- dont show LuaLS require statements when lazydev has items
-            fallbacks = { "buffer" },
-          },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
+            score_offset = 100, -- show at a higher priority than lsp
           },
         },
       },
