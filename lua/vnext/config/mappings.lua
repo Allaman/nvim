@@ -50,6 +50,18 @@ map("t", "<C-n>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("n", "<leader>j", "<cmd>cnext<cr>", { desc = "Qickfix next" })
 map("n", "<leader>k", "<cmd>cprevious<cr>", { desc = "Qickfix prev" })
 
+-- diffmode mappings
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+  callback = function(args)
+    if vim.wo.diff then
+      vim.keymap.set("n", "<leader>j", "]c", { buffer = args.buf, desc = "Next change" })
+      vim.keymap.set("n", "<leader>k", "[c", { buffer = args.buf, desc = "Prev change" })
+      vim.keymap.set("n", "<leader>co", "do", { buffer = args.buf, desc = "Change from other (obtain)" })
+      vim.keymap.set("n", "<leader>cp", "dp", { buffer = args.buf, desc = "Change to other (put)" })
+    end
+  end,
+})
+
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
