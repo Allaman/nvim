@@ -4,7 +4,7 @@ return {
   { "MunifTanjim/nui.nvim", lazy = true },
 
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     lazy = true,
     opts = {},
     init = function()

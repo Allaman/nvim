@@ -82,7 +82,7 @@ return {
   },
 
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       -- Number of lines within which surrounding is searched
@@ -170,7 +170,7 @@ return {
   },
 
   {
-    "echasnovski/mini.align",
+    "nvim-mini/mini.align",
     keys = {
       { "ga", mode = { "v" }, desc = "Align" },
       { "gA", mode = { "v" }, desc = "Align with Preview" },
