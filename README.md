@@ -34,7 +34,7 @@
 
 ## Customization
 
-⚠️ This is primarly my personal config
+⚠️ This is primarily my personal config
 
 If you want to use my config there is the `./lua/vnext/extra/` folder that is loaded by lazy.nvim. The LazySpecs in this folder are merged with the "default" LazySpecs in the `./lua/vnext/plugins/` folder. Some examples you can do:
 
@@ -54,7 +54,7 @@ Add new options to a plugin:
 ```lua
 return {
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       search_method = 'nearest',
     },
