@@ -17,7 +17,7 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC
 -- window
 map("n", "<leader>ws", "<cmd>split<cr>", { desc = "Horizontal split" })
 map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Vertical split" })
-map("n", "<leader>wc", "<cmd>close<cr>", { desc = "Close" })
+map("n", "<leader>q", "<cmd>close<cr>", { desc = "Close" })
 map("n", "<leader>wT", "<cmd>wincmd T<cr>", { desc = "Move window to new tab" })
 map("n", "<leader>wr", "<cmd>wincmd r<cr>", { desc = "rotate down/right" })
 map("n", "<leader>wR", "<cmd>wincmd R<cr>", { desc = "rotate up/left" })
