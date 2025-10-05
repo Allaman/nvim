@@ -38,9 +38,8 @@ return {
     end,
     keys = {
       { "<leader>gg", "<cmd>G<cr>", desc = "G" },
-      { "<leader>gl", "<cmd>GcLog<cr>", desc = "Difflog" },
-      { "<leader>gD", "<cmd>Gvdiffsplit<cr>", desc = "Diffsplit" },
-      { "<leader>gf", "<cmd>0GcLog<cr>", desc = "Difflog file" },
+      { "<leader>gfl", "<cmd>GcLog<cr>", desc = "Difflog" },
+      { "<leader>gff", "<cmd>0GcLog<cr>", desc = "Difflog file" },
     },
   },
   {
@@ -84,7 +83,6 @@ return {
       map("n", "<leader>gR", gs.reset_buffer, { desc = "Reset buffer" })
       map("n", "<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
       map("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Toggle Blame line" })
-      -- map("n", "<leader>gD", gs.diffthis, {desc="Diff"})
       map("n", "<leader>gd", gs.preview_hunk_inline, { desc = "Show deleted" })
       end,
       -- stylua: ignore end
@@ -95,5 +93,15 @@ return {
     config = function(_, opts)
       require("gitsigns").setup(opts)
     end,
+  },
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewFileHistory", "DiffviewOpen" },
+    keys = {
+      { "<leader>gF", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
+      { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "History" },
+      { mode = "v", "<leader>gH", ":DiffviewFileHistory<cr>", desc = "History (range)" },
+      { "<leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Gitdiff" },
+    },
   },
 }
