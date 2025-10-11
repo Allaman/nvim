@@ -9,9 +9,30 @@ return {
         group = fugitive,
         pattern = { "fugitiveblame", "fugitive" },
         callback = function()
-          vim.api.nvim_buf_set_keymap(0, "n", "q", "gq", {})
+          vim.cmd("resize 30") -- For horizontal split, 20 lines tall
+          vim.keymap.set("n", "q", function()
+            -- Check if there's a snacks dashboard buffer in any window
+            local dashboard_buf = nil
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+              if vim.bo[buf].filetype == "snacks_dashboard" then
+                dashboard_buf = buf
+                break
+              end
+            end
+
+            vim.cmd("close") -- Close fugitive
+
+            -- If we ended up on an empty/new buffer and snacks dashboard exists, go back to it
+            if not dashboard_buf then
+              return
+            end
+
+            if vim.bo.buftype == "nofile" or vim.api.nvim_buf_get_name(0) == "" then
+              vim.api.nvim_win_set_buf(0, dashboard_buf)
+            end
+          end, { buffer = true })
         end,
-        desc = "Close fugitive with q instead of gq",
+        desc = "Close fugitive with q and return to dashboard if opened from there",
       })
 
       vim.api.nvim_create_autocmd("FileType", {
