@@ -38,7 +38,14 @@ return {
         prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" }, -- 2 spaces instead of tab
       }
       conform.formatters.yamlfmt = {
-        prepend_args = { "-formatter", "indent=2,include_document_start=true,retain_line_breaks_single=true" },
+        prepend_args = {
+          "-formatter",
+          "indent=2",
+          "-formatter",
+          "include_document_start=true",
+          "-formatter",
+          "retain_line_breaks_single=true",
+        },
       }
       vim.g.autoformat = vim.g.autoformat
       vim.api.nvim_create_user_command("ToggleAutoformat", function()
