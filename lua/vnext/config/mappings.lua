@@ -50,6 +50,15 @@ map("t", "<C-n>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("n", "<leader>j", "<cmd>cnext<cr>", { desc = "Qickfix next" })
 map("n", "<leader>k", "<cmd>cprevious<cr>", { desc = "Qickfix prev" })
 
+-- lua mappings
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  callback = function(args)
+    map("n", "<leader>x", ":.lua<cr>", { desc = "Source current line", buffer = args.buf })
+    map("v", "<leader>x", ":lua<cr>", { desc = "Source current range", buffer = args.buf })
+  end,
+})
+
 -- diffmode mappings
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
   callback = function(args)
