@@ -168,11 +168,11 @@ return {
     opts = {},
     keys = {
       -- stylua: ignore start
-      { "<leader>R", "", desc = "Search & Replace" },
-      { "<leader>RG", "<cmd>GrugFar<cr>", desc = "Open" },
-      { "<leader>Rg", "<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<cr>", desc = "Open (Limit to current file)"},
-      { "<leader>Rw", "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<cr>", desc = "Search word under cursor", },
-      { "<leader>Rs", mode = "v", "<cmd>lua require('grug-far').open({ visualSelectionUsage = 'operate-within-range' })<cr>", desc = "Search selection", },
+      { "<leader>r", "", desc = "Search & Replace" },
+      { "<leader>rr", "<cmd>GrugFar<cr>", desc = "Open" },
+      { "<leader>rR", "<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<cr>", desc = "Open (Limit to current file)"},
+      { "<leader>rw", "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<cr>", desc = "Search word under cursor", },
+      { "<leader>rs", mode = "v", "<cmd>lua require('grug-far').open({ visualSelectionUsage = 'operate-within-range' })<cr>", desc = "Search selection", },
       -- stylua: ignore end
     },
   },
