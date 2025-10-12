@@ -48,7 +48,7 @@ return {
       vim.api.nvim_create_user_command("Gcn", function(opts)
         local branch_name = opts.args
         if branch_name == "" then
-          vim.api.nvim_err_writeln("Error: Branch name is required")
+          vim.notify("Error: Branch name is required", vim.log.levels.ERROR)
           return
         end
         vim.cmd("Git checkout -b " .. branch_name)
