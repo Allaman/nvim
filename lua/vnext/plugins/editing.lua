@@ -61,7 +61,7 @@ return {
     opts = {},
     keys = {
       {
-        "ss",
+        "SS",
         mode = { "n", "x", "o" },
         -- Jump to any word
         function()
@@ -102,8 +102,8 @@ return {
     "gbprod/substitute.nvim",
     keys = {
     -- stylua: ignore start
-    { "s", function() require("substitute").operator() end, desc = "Substitute", },
-    { "s", mode = "x", function() require("substitute").visual() end, desc = "Substitute", },
+    { "ss", function() require("substitute").operator() end, desc = "Substitute", noremap = true },
+    { "s", mode = "x", function() require("substitute").visual() end, desc = "Substitute", noremap = true },
       -- stylua: ignore end
     },
     opts = {},
