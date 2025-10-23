@@ -15,7 +15,11 @@ return {
         callback = function()
           if package.loaded["fyler"] then
             return
-          else
+          end
+          local args = vim.fn.argv()
+          local arg1 = args[1]
+          -- Open fyler if one argument and that's a directory
+          if #args == 1 and arg1 then
             local stats = vim.uv.fs_stat(vim.fn.argv(0) --[[@as string]])
             if stats and stats.type == "directory" then
               require("fyler").open()
