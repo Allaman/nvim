@@ -47,7 +47,7 @@ return {
       enabled = true,
       indent = { only_scope = true }, -- only show indent where cursor is
       chunk = { enabled = true }, -- indents are rendered as chunks
-      animate = { enabled = false }, -- do not animate -- feels slow for me
+      animate = { enabled = false }, -- do not animate - feels slow for me
     },
     image = {
       enabled = true,
