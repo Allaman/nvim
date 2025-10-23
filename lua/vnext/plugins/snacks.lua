@@ -88,6 +88,7 @@ return {
     { "<leader>uZ",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
     { "<leader>uz",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     -- { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+    -- { "<leader>nN", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<leader>bD", function() Snacks.bufdelete.other() end,  desc = "Close all but the current buffer" },
     { "<leader>gB", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
