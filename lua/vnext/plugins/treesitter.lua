@@ -34,8 +34,8 @@ return {
     },
   },
   dependencies = {
-    "RRethy/nvim-treesitter-endwise", -- mainly for lua 'closing end' insertion
-    -- "mfussenegger/nvim-ts-hint-textobject",
+    "RRethy/nvim-treesitter-endwise", -- mainly for Lua 'closing end' insertion
+    { "nvim-mini/mini.ai", event = { "BufReadPre", "BufNewFile" }, opts = {} },
     -- "windwp/nvim-ts-autotag",
   },
   config = function(_, opts)
