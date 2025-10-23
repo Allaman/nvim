@@ -25,8 +25,20 @@ return {
       },
       sections = {
         { section = "header" },
-        { section = "keys", gap = 1 },
-        { title = "Recent Files", section = "recent_files", cwd = true },
+        { section = "keys", icon = " ", padding = 1 },
+        { section = "recent_files", cwd = true, icon = " ", title = "Recent Files", padding = 1 },
+        {
+          icon = " ",
+          title = "Git Status",
+          section = "terminal",
+          enabled = function()
+            return Snacks.git.get_root() ~= nil
+          end,
+          cmd = "git status --short --branch --renames",
+          height = 5,
+          padding = 1,
+          ttl = 5 * 60,
+        },
         { section = "startup" },
       },
     },
