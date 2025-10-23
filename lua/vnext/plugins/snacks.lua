@@ -103,6 +103,7 @@ return {
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Help" },
     { "<leader>ff", function() Snacks.picker.files({filter = {cwd = true}}) end, desc = "Find" },
     { "<leader>fr", function() Snacks.picker.recent({filter = {cwd = true} }) end, desc = "Recent" },
+    { "<leader>fg", function() Snacks.picker.git_status() end, desc = "Git" },
     { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>sl", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
     { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
