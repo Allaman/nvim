@@ -38,7 +38,6 @@ map("n", "<leader>wl", "<cmd>vertical resize -3<cr>", { desc = "Right" })
 -- buffers
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-map("n", "<leader>bD", "<cmd>%bd|e#|bd#<cr>", { desc = "Close all but the current buffer" })
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New file" })
