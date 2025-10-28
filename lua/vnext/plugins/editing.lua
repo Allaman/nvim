@@ -49,7 +49,7 @@ return {
       }
       vim.g.autoformat = vim.g.autoformat
       vim.api.nvim_create_user_command("ToggleAutoformat", function()
-        vim.api.nvim_notify("Toggling autoformat", vim.log.levels.INFO, { title = "conform.nvim", timeout = 2000 })
+        vim.notify("Toggling autoformat", vim.log.levels.INFO, { title = "conform.nvim", timeout = 2000 })
         vim.g.autoformat = vim.g.autoformat == false and true or false
       end, { desc = "Toggling autoformat" })
       vim.keymap.set("n", "<leader>tF", "<cmd>ToggleAutoformat<cr>", { desc = "Toggle format on save" })
