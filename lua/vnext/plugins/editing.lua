@@ -174,4 +174,10 @@ return {
     },
     opts = {},
   },
+
+  {
+    "yousefhadder/markdown-plus.nvim",
+    ft = "markdown",
+    opts = {},
+  },
 }
