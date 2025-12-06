@@ -24,7 +24,7 @@ return {
         },
       },
       sections = {
-        { section = "header" },
+        -- { section = "header" },
         { section = "keys", icon = " ", padding = 1 },
         { section = "recent_files", cwd = true, icon = " ", title = "Recent Files", padding = 1 },
         {
@@ -43,6 +43,8 @@ return {
       },
     },
     dim = { enabled = true },
+    -- explorer = { enabled = true },
+    -- gh ={}, just to keep in mind that this exists :)
     indent = {
       enabled = true,
       indent = { only_scope = true }, -- only show indent where cursor is
@@ -66,8 +68,8 @@ return {
       win = {
         input = {
           keys = {
-            -- TODO: not sure if I want this as before
-            -- ["<Esc>"] = { "close", mode = { "n", "i" } },
+            -- TODO: not sure if how I want this
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
           },
         },
