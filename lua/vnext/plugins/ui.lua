@@ -50,6 +50,7 @@ return {
     keys = {
       { "<leader>n", "", desc = "Noice" },
       { "<leader>nn", "<cmd>Noice all<cr>", desc = "Open Noice" },
+      { "<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Dismiss Notification" },
     },
     opts = {
       cmdline = {
