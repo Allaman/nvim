@@ -13,7 +13,6 @@ map("v", ">", ">gv")
 
 -- Unmap history of commands
 map("n", "Q", "q", { noremap = true })
-map("n", "q:", "<Nop>", { noremap = true })
 
 -- Cancel search highlighting with ESC
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC" })
