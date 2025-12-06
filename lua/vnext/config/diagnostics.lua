@@ -21,3 +21,5 @@ map("n", "<leader>dk", function() vim.diagnostic.jump({ count = -1 }) end, { des
 map("n", "<leader>dc", function() vim.diagnostic.open_float() end, { desc = "Toggle current diagnostic" })
 map("n", "<leader>dd", function() vim.diagnostic.setqflist() end, { desc = "Open quickfix" })
 -- stylua: ignore end
+
+vim.lsp.log.set_level("off")
