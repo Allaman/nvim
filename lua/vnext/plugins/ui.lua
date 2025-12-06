@@ -85,6 +85,22 @@ return {
   },
 
   {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    opts = {
+      preset = "minimal",
+      options = {
+        show_source = {
+          enabled = true,
+        },
+        multilines = {
+          enabled = true,
+        },
+      },
+    },
+  },
+
     "folke/tokyonight.nvim",
     priority = 1000,
     lazy = false,
