@@ -60,31 +60,20 @@ return {
     "folke/flash.nvim",
     opts = {},
     keys = {
-      {
-        "SS",
-        mode = { "n", "x", "o" },
-        -- Jump to any word
-        function()
-          ---@diagnostic disable: missing-fields
-          require("flash").jump({
-            pattern = ".", -- initialize pattern with any char
-            search = {
-              mode = function(pattern)
-                -- remove leading dot
-                if pattern:sub(1, 1) == "." then
-                  pattern = pattern:sub(2)
-                end
-                -- return word pattern and proper skip pattern
-                return ([[\<%s\w*\>]]):format(pattern), ([[\<%s]]):format(pattern)
-              end,
-            },
-          })
-        end,
-        desc = "Flash",
-      },
       -- stylua: ignore start
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter", },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash", },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash", },
+      { "SS", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter", },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      -- Simulate nvim-treesitter incremental selection
+      { "<c-space>", mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter({
+            actions = {
+              ["<c-space>"] = "next",
+              ["<BS>"] = "prev"
+            }
+          })
+        end, desc = "Treesitter Incremental Selection" },
       -- stylua: ignore end
     },
   },
@@ -102,8 +91,8 @@ return {
     "gbprod/substitute.nvim",
     keys = {
     -- stylua: ignore start
-    { "ss", function() require("substitute").operator() end, desc = "Substitute", noremap = true },
-    { "s", mode = "x", function() require("substitute").visual() end, desc = "Substitute", noremap = true },
+    { "s", function() require("substitute").operator() end, desc = "Substitute", noremap = true },
+    { "ss", mode = "x", function() require("substitute").visual() end, desc = "Substitute", noremap = true },
       -- stylua: ignore end
     },
     opts = {},
