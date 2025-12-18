@@ -180,4 +180,9 @@ return {
     ft = "markdown",
     opts = {},
   },
+  {
+    "stevearc/quicker.nvim",
+    ft = "qf",
+    opts = {},
+  },
 }
