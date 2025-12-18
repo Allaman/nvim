@@ -90,8 +90,6 @@ return {
     end,
   },
   {
-    "fredrikaverpil/godoc.nvim",
-    cmd = { "GoDoc" },
     opts = {},
   },
 }
