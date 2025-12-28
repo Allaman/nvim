@@ -90,6 +90,9 @@ return {
     end,
   },
   {
+    "allaman/tf.nvim",
+    dev = true,
+    ft = "terraform",
     opts = {},
   },
 }
