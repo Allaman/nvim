@@ -1,10 +1,14 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  -- TODO: master is deprecated but treesitter-endwise does not work with main branch
-  branch = "master",
+  branch = "main",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
+  cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
   opts = {
+    indent = { enable = true },
+    highlight = { enable = true },
+    folds = { enable = true },
+    endwise = { enable = true },
     ensure_installed = {
       "bash",
       "bicep",
@@ -35,23 +39,19 @@ return {
   },
   dependencies = {
     "RRethy/nvim-treesitter-endwise", -- mainly for Lua 'closing end' insertion
-    { "nvim-mini/mini.ai", event = { "BufReadPre", "BufNewFile" }, opts = {} },
-    -- "windwp/nvim-ts-autotag",
+    { "nvim-mini/mini.ai", event = { "BufReadPre", "BufNewFile" }, opts = {} }, -- for q (quotes), b (brackets), t (tags)
   },
   config = function(_, opts)
-    ---@diagnostic disable-next-line: missing-fields
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = opts.ensure_installed,
-      highlight = {
-        enable = true,
-      },
-      endwise = {
-        enable = true,
-      },
-      indent = { enable = true },
-      autopairs = { enable = true },
-    })
+    local ts = require("nvim-treesitter")
 
-    -- require("nvim-ts-autotag").setup()
+    for _, parser in ipairs(opts.ensure_installed) do
+      pcall(ts.install, parser)
+    end
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
   end,
 }
