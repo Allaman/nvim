@@ -81,6 +81,10 @@ return {
         pyright = {},
         templ = {},
         terraformls = {
+          cmd = {
+            "/Users/michael/.vscode/extensions/hashicorp.terraform-2.37.6-darwin-arm64/bin/terraform-ls",
+            "serve",
+          },
           filetypes = { "terraform", "terraform-vars", "tf" },
         },
         tinymist = {},
