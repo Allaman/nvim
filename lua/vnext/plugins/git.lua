@@ -125,4 +125,24 @@ return {
       { "<leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Gitdiff" },
     },
   },
+  -- TODO: Replace diffview when Filehistory is available?
+  -- {
+  --   "esmuellert/vscode-diff.nvim",
+  --   cmd = "CodeDiff",
+  -- },
+  -- {
+  --   "NeogitOrg/neogit",
+  --   dependencies = {
+  --     {
+  --       "sindrets/diffview.nvim",
+  --       cmd = { "DiffviewFileHistory", "DiffviewOpen" },
+  --       keys = {
+  --         { "<leader>gF", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
+  --         { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "History" },
+  --         { mode = "v", "<leader>gH", ":DiffviewFileHistory<cr>", desc = "History (range)" },
+  --         { "<leader>gD", "<cmd>DiffviewOpen<cr>", desc = "Gitdiff" },
+  --       },
+  --     },
+  --   },
+  -- },
 }
