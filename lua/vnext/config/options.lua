@@ -2,22 +2,6 @@ local o = vim.opt
 
 vim.g.autoformat = true -- global var for toggling autoformat
 
-local function foldexpr()
-  local buf = vim.api.nvim_get_current_buf()
-  if vim.b[buf].ts_folds == nil then
-    if vim.bo[buf].filetype == "" then
-      return "0"
-    end
-    if vim.bo[buf].filetype:find("dashboard") then
-      vim.b[buf].ts_folds = false
-    else
-      vim.b[buf].ts_folds = pcall(vim.treesitter.get_parser, buf)
-    end
-  end
-  return vim.b[buf].ts_folds and vim.treesitter.foldexpr() or "0"
-end
-_G.vnext.foldexpr = foldexpr
-
 -- stylua: ignore start
 o.clipboard      = "unnamedplus"                                   -- keep in sync with the system clipboard
 o.cursorline     = false                                           -- highlight the current line
@@ -26,7 +10,7 @@ o.expandtab      = true                                            -- use spaces
 o.diffopt        = "internal,filler,closeoff,linematch:60"         -- improve diff visualization
 o.fillchars      = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:" -- hide ~ at the end of buffer and set fold symbols
 o.foldenable = true                                                -- enable folding
-o.foldexpr = "v:lua.vnext.foldexpr()"                              -- custom foldexpression
+o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldlevel = 99
 o.foldlevelstart = -1                                               -- top level folds only are closed by default
 o.foldmethod = "expr"
