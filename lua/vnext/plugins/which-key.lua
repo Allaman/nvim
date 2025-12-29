@@ -26,7 +26,6 @@ return {
       { "ze", hidden = true },
       { "zb", hidden = true },
       { "zs", hidden = true },
-      { "zt", hidden = true },
       { "zH", hidden = true },
       { "zL", hidden = true },
       { "zD", hidden = true },
