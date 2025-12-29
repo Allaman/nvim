@@ -77,6 +77,7 @@ return {
             },
           },
         },
+        kulala_ls = {},
         marksman = {},
         pyright = {},
         templ = {},
