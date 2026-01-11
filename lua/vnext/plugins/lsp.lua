@@ -42,7 +42,16 @@ return {
             semanticTokens = true,
           },
         },
-        harper_ls = {},
+        harper_ls = {
+          settings = {
+            ["harper-ls"] = {
+              linters = {
+                SentenceCapitalization = false,
+                SpellCheck = false,
+              },
+            },
+          },
+        },
         lua_ls = {
           settings = {
             format = {
