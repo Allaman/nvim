@@ -14,7 +14,7 @@ return {
       formatters_by_ft = {
         dockerfile = { "dockerfmt" },
         http = { "kulala-fmt" },
-        go = { "goimports", "gofmt" },
+        go = { "goimports", "gofumpt" },
         javascript = { "prettier" },
         json = { "prettier" },
         lua = { "stylua" },
