@@ -57,12 +57,16 @@ return {
             format = {
               enable = false, -- let conform handle the formatting
             },
-            diagnostics = { globals = { "vim" } },
             telemetry = { enable = false },
             hint = { enable = true },
             Lua = {
               workspace = {
                 checkThirdParty = false,
+                library = {
+                  vim.env.VIMRUNTIME,
+                  "${3rd}/luv/library",
+                  "${3rd}/busted/library",
+                },
               },
               codeLens = {
                 enable = true,
