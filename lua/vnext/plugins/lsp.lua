@@ -58,7 +58,6 @@ return {
               enable = false, -- let conform handle the formatting
             },
             telemetry = { enable = false },
-            hint = { enable = true },
             Lua = {
               workspace = {
                 checkThirdParty = false,
