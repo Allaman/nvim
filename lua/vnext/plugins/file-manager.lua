@@ -29,6 +29,9 @@ return {
       })
     end,
     opts = {
+      integrations = {
+        winpick = "snacks",
+      },
       views = {
         finder = {
           close_on_select = false,
@@ -40,6 +43,16 @@ return {
           mappings = {
             ["C-v"] = "SelectVSplit",
             ["C-s"] = "SelectSplit",
+          },
+          win = {
+            kinds = {
+              split_left_most = {
+                width = "15%",
+                win_opts = {
+                  winfixwidth = true,
+                },
+              },
+            },
           },
         },
       },
