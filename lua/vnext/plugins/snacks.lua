@@ -71,6 +71,8 @@ return {
             -- TODO: not sure if how I want this
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<C-j>"] = { "toggle_ignored", mode = { "i", "n" } },
+            ["<C-r>"] = { "toggle_regex", mode = { "i", "n" } },
           },
         },
       },
