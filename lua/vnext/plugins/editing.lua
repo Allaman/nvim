@@ -162,7 +162,7 @@ return {
       { "<leader>rr", "<cmd>GrugFar<cr>", desc = "Open" },
       { "<leader>rR", "<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<cr>", desc = "Open (Limit to current file)"},
       { "<leader>rw", "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<cr>", desc = "Search word under cursor", },
-      { "<leader>rs", mode = "v", "<cmd>lua require('grug-far').open({ visualSelectionUsage = 'operate-within-range' })<cr>", desc = "Search selection", },
+      { "<leader>rs", mode = "v", ":<C-u>lua require('grug-far').with_visual_selection({ prefills = { paths = vim.fn.expand('%') } })<cr>", desc = "Search selection", },
       -- stylua: ignore end
     },
   },
