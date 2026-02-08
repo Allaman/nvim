@@ -117,21 +117,102 @@ return {
   },
 
   {
+    "j-morano/buffer_manager.nvim", -- just for good buffer cycling 🙈
+    opts = {},
+    keys = {
+      { "<tab>", ":lua require('buffer_manager.ui').nav_next()<cr>", desc = "Next buffer" },
+      { "<S-tab>", ":lua require('buffer_manager.ui').nav_prev()<cr>", desc = "Prev buffer" },
+    },
+  },
+
+  {
+    "hat0uma/csvview.nvim",
+    ---@module "csvview"
+    ---@type CsvView.Options
+    opts = {
+      parser = { comments = { "#", "//" } },
+      keymaps = {
+        -- Text objects for selecting fields
+        textobject_field_inner = { "if", mode = { "o", "x" } },
+        textobject_field_outer = { "af", mode = { "o", "x" } },
+        -- Excel-like navigation:
+        -- Use <Tab> and <S-Tab> to move horizontally between fields.
+        -- Use <Enter> and <S-Enter> to move vertically between rows and place the cursor at the end of the field.
+        -- Note: In terminals, you may need to enable CSI-u mode to use <S-Tab> and <S-Enter>.
+        -- jump_next_field_end = { "<Tab>", mode = { "n", "v" } },
+        -- jump_prev_field_end = { "<S-Tab>", mode = { "n", "v" } },
+        -- jump_next_row = { "<Enter>", mode = { "n", "v" } },
+        -- jump_prev_row = { "<S-Enter>", mode = { "n", "v" } },
+      },
+    },
+    cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+  },
+
+  {
+    "ramilito/kubectl.nvim",
+    version = "2.*",
+    opt = {
+      log_level = vim.log.levels.DEBUG,
+      headers = {
+        heartbeat = false,
+        skew = {
+          enabled = false,
+        },
+      },
+    },
+    dependencies = "saghen/blink.download",
+    keys = {
+      { "<leader>9", ":lua require('kubectl').toggle({ tab = true })<cr>", desc = "Kubectl" },
+    },
+    config = function(_, opts)
+      require("kubectl").setup(opts)
+    end,
+  },
+  {
     "folke/tokyonight.nvim",
     priority = 1000,
+    enabled = false,
     lazy = false,
     config = function()
       require("tokyonight").setup()
       vim.cmd("colorscheme tokyonight-moon")
     end,
   },
-  -- {
-  --   "bluz71/vim-moonfly-colors",
-  --   name = "moonfly",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd([[colorscheme moonfly]])
-  --   end,
-  -- },
+  {
+    "oskarnurm/koda.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      colors = {
+        bg = "#101010",
+        fg = "#b0b0b0",
+        dim = "#000000",
+        line = "#777777",
+        keyword = "#777777",
+        comment = "#bcbcbc",
+        border = "#ffffff",
+        emphasis = "#ffffff",
+        func = "#ffffff",
+        string = "#ffffff",
+        const = "#d9ba73",
+        highlight = "#458ee6",
+        info = "#8ebeec",
+        success = "#86cd82",
+        warning = "#d9ba73",
+        danger = "#ff7676",
+        green = "#14ba19",
+        orange = "#f54d27",
+        red = "#701516",
+        pink = "#f2a4db",
+        cyan = "#5abfb5",
+      },
+      on_highlights = function(hl, c)
+        hl.LspReferenceText = { fg = c.highlight } -- change vim.lsp.buf.document_highlight()
+      end,
+    },
+    config = function(_, opts)
+      require("koda").setup(opts)
+      vim.cmd("colorscheme koda")
+    end,
+  },
 }
