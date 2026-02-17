@@ -41,8 +41,8 @@ return {
             enabled = false,
           },
           mappings = {
-            ["C-v"] = "SelectVSplit",
-            ["C-s"] = "SelectSplit",
+            ["<C-v>"] = "SelectVSplit",
+            ["<C-s>"] = "SelectSplit",
           },
           win = {
             kinds = {
