@@ -184,6 +184,6 @@ return {
   {
     "stevearc/quicker.nvim",
     ft = "qf",
-    opts = {},
+    opts = { constrain_cursor = false },
   },
 }
