@@ -169,6 +169,14 @@ return {
     end,
   },
   {
+    "savq/melange-nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      vim.cmd("colorscheme melange")
+    end,
+  },
+  {
     "folke/tokyonight.nvim",
     priority = 1000,
     enabled = false,
@@ -181,6 +189,7 @@ return {
   {
     "oskarnurm/koda.nvim",
     lazy = false,
+    enabled = false,
     priority = 1000,
     opts = {
       colors = {
