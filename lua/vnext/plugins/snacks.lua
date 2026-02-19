@@ -17,7 +17,7 @@ return {
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
           { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.picker.grep({layout = 'default'})" },
           { icon = " ", key = "b", desc = "File browser", action = function()  require("yazi").yazi(nil, vim.fn.getcwd()) end},
-          { icon = " ", key = "g", desc = "Git", action = ":Neogit" },
+          { icon = " ", key = "g", desc = "Git", action = ":G" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy check", enabled = package.loaded.lazy },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           -- stylua: ignore end
