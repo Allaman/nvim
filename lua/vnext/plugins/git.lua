@@ -59,9 +59,9 @@ return {
       })
     end,
     keys = {
-      { "<leader>gg", "<cmd>G<cr>", desc = "G" },
-      { "<leader>gfl", "<cmd>GcLog<cr>", desc = "Difflog" },
-      { "<leader>gff", "<cmd>0GcLog<cr>", desc = "Difflog file" },
+      { "<leader>gfl", "<cmd>GcLog!<cr>", desc = "Difflog" },
+      { "<leader>gff", "<cmd>GcLog!<cr>", desc = "Difflog file" },
+      { "<leader>gg", "<cmd>G<cr>", desc = "Fugitive" },
     },
   },
   {
