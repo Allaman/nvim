@@ -3,7 +3,8 @@ return {
     "tpope/vim-fugitive",
     cmd = "G",
     config = function()
-      vim.g.fugitive_summary_format = "%<(16,trunc)%an || %s"
+      -- see man git-log
+      vim.g.fugitive_summary_format = "%<(16,trunc)%an || %<(16,trunc)%ah || %s"
       local fugitive = vim.api.nvim_create_augroup("Fugitive", { clear = true })
       vim.api.nvim_create_autocmd("FileType", {
         group = fugitive,
