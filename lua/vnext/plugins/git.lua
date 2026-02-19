@@ -116,9 +116,26 @@ return {
       require("gitsigns").setup(opts)
     end,
   },
+  {
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
+    opts = {
+      explorer = {
+        indent_markers = false,
+        view_mode = "tree",
+      },
+    },
+    keys = {
+      { "<leader>gF", "<cmd>CodeDiff history %s<cr>", desc = "File history" },
+      { "<leader>gH", "<cmd>CodeDiff<cr>", desc = "History" },
+      { mode = "v", "<leader>gH", ":CodeDiff history<cr>", desc = "History (range)" },
+      { "<leader>gD", "<cmd>CodeDiff<cr>", desc = "Gitdiff" },
+    },
+  },
+
   -- {
-  --   "sindrets/diffview.nvim",
-  --   cmd = { "DiffviewFileHistory", "DiffviewOpen" },
+  --   "NeogitOrg/neogit",
+  --   cmd = { "Neogit" },
   --   keys = {
   --     { "<leader>gF", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
   --     { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "History" },

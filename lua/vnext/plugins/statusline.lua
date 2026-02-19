@@ -71,7 +71,7 @@ return {
     extensions = { "lazy", "quickfix", "neo-tree" },
     options = {
       disabled_filetypes = {
-        statusline = { "neo-tree", "Outline", "snacks_picker_list", "fyler", "terraform-state" },
+        statusline = { "neo-tree", "Outline", "snacks_picker_list", "fyler", "terraform-state", "codediff-explorer" },
       },
     },
     sections = {
