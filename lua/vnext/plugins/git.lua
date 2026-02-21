@@ -59,8 +59,6 @@ return {
       })
     end,
     keys = {
-      { "<leader>gfl", "<cmd>GcLog!<cr>", desc = "Difflog" },
-      { "<leader>gff", "<cmd>GcLog!<cr>", desc = "Difflog file" },
       { "<leader>gg", "<cmd>G<cr>", desc = "Fugitive" },
     },
   },
@@ -127,9 +125,8 @@ return {
     },
     keys = {
       { "<leader>gF", "<cmd>CodeDiff history %s<cr>", desc = "File history" },
-      { "<leader>gH", "<cmd>CodeDiff<cr>", desc = "History" },
       { mode = "v", "<leader>gH", ":CodeDiff history<cr>", desc = "History (range)" },
-      { "<leader>gD", "<cmd>CodeDiff<cr>", desc = "Gitdiff" },
+      { "<leader>gD", "<cmd>CodeDiff<cr>", desc = "Diff" },
     },
   },
 }
