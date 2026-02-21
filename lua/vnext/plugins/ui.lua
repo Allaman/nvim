@@ -152,7 +152,7 @@ return {
     "ramilito/kubectl.nvim",
     version = "2.*",
     opt = {
-      log_level = vim.log.levels.DEBUG,
+      -- log_level = vim.log.levels.DEBUG,
       headers = {
         heartbeat = false,
         skew = {
