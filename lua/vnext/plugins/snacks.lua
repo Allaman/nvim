@@ -29,7 +29,17 @@ return {
       sections = {
         -- { section = "header" },
         { section = "keys", icon = " ", padding = 1 },
-        { section = "recent_files", cwd = true, icon = " ", title = "Recent Files", padding = 1 },
+        {
+          section = "recent_files",
+          cwd = true,
+          filter = function(file)
+            -- Filter out paths I don't want in recent files
+            return vim.fn.isdirectory(file) == 0 and not (file:match("^/tmp/") or file:match("%.git/"))
+          end,
+          icon = " ",
+          title = "Recent Files",
+          padding = 1,
+        },
         {
           icon = " ",
           title = "Git Status",
