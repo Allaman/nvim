@@ -18,7 +18,7 @@ return {
 
   {
     "A7Lavinraj/fyler.nvim",
-    dev = true,
+    -- dev = true,
     keys = {
       { "-", "<cmd>lua require('fyler').toggle({kind = 'float'})<cr>", desc = "Fyler" },
       { "<leader>fp", "<cmd>lua require('fyler').toggle({kind = 'split_left_most'})<cr>", desc = "Toggle Filetree" },
