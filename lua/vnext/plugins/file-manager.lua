@@ -1,5 +1,22 @@
 return {
   {
+    "mikavilpas/yazi.nvim",
+    lazy = true,
+    keys = {
+      {
+        "<leader>lf",
+        "<cmd>Yazi<cr>",
+        desc = "Open Yazi (file manager)",
+      },
+    },
+    opts = {
+      keymaps = {
+        show_help = "g?",
+      },
+    },
+  },
+
+  {
     "A7Lavinraj/fyler.nvim",
     dev = true,
     keys = {

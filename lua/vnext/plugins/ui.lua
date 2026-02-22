@@ -26,22 +26,6 @@ return {
   },
 
   {
-    "mikavilpas/yazi.nvim",
-    lazy = true, -- use `event = "VeryLazy"` for netrw replacement
-    keys = {
-      -- NOTE: my mapping <leader>lf is soo good but in the LSP cluster
-      {
-        "<leader>lf",
-        "<cmd>Yazi<cr>",
-        desc = "Open Yazi (file manager)",
-      },
-    },
-    opts = {
-      open_for_directories = true,
-    },
-  },
-
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     -- dependencies = {
