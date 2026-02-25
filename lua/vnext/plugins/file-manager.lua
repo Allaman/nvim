@@ -61,10 +61,11 @@ return {
             ["<C-v>"] = "SelectVSplit",
             ["<C-s>"] = "SelectSplit",
           },
+          columns_order = { "git", "diagnostic" }, -- only show relevant columns
           win = {
             kinds = {
               split_left_most = {
-                width = "15%",
+                width = "20%",
                 win_opts = {
                   winfixwidth = true,
                 },
