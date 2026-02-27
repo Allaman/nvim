@@ -1,5 +1,15 @@
 return {
   {
+    "junegunn/gv.vim",
+    cmd = "GV",
+    dependencies = "tpope/vim-fugitive",
+    keys = {
+      { "<leader>gH", "<cmd>GV<cr>", desc = "History" },
+      { "<leader>gF", "<cmd>GV!<cr>", desc = "File history" },
+      { "<leader>gL", "<cmd>GV?<cr>", desc = "File history (loclist)" },
+    },
+  },
+  {
     "tpope/vim-fugitive",
     cmd = "G",
     config = function()
@@ -60,6 +70,7 @@ return {
     end,
     keys = {
       { "<leader>gg", "<cmd>G<cr>", desc = "Fugitive" },
+      { "<leader>gh", ":h fugitive-maps<cr>", desc = "Fugitive Maps" },
     },
   },
   {
@@ -124,8 +135,9 @@ return {
       },
     },
     keys = {
-      { "<leader>gF", "<cmd>CodeDiff history %s<cr>", desc = "File history" },
-      { mode = "v", "<leader>gH", ":CodeDiff history<cr>", desc = "History (range)" },
+      -- { "<leader>gF", "<cmd>CodeDiff history %s<cr>", desc = "File history" },
+      -- { "<leader>gH", "<cmd>CodeDiff history<cr>", desc = "History" },
+      -- { mode = "v", "<leader>gH", ":CodeDiff history<cr>", desc = "History (range)" },
       { "<leader>gD", "<cmd>CodeDiff<cr>", desc = "Diff" },
     },
   },
