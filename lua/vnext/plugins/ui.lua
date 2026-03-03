@@ -153,8 +153,17 @@ return {
     end,
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      vim.cmd("colorscheme gruvbox")
+    end,
+  },
+  {
     "savq/melange-nvim",
     priority = 1000,
+    enabled = false,
     lazy = false,
     config = function()
       vim.cmd("colorscheme melange")
