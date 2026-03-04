@@ -20,7 +20,6 @@ return {
         group = fugitive,
         pattern = { "fugitiveblame", "fugitive" },
         callback = function()
-          vim.cmd("resize 30") -- For horizontal split, 20 lines tall
           vim.keymap.set("n", "q", function()
             -- Check if there's a snacks dashboard buffer in any window
             local dashboard_buf = nil
