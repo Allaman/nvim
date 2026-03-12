@@ -133,26 +133,6 @@ return {
   },
 
   {
-    "ramilito/kubectl.nvim",
-    version = "2.*",
-    opt = {
-      -- log_level = vim.log.levels.DEBUG,
-      headers = {
-        heartbeat = false,
-        skew = {
-          enabled = false,
-        },
-      },
-    },
-    dependencies = "saghen/blink.download",
-    keys = {
-      { "<leader>9", ":lua require('kubectl').toggle({ tab = true })<cr>", desc = "Kubectl" },
-    },
-    config = function(_, opts)
-      require("kubectl").setup(opts)
-    end,
-  },
-  {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     lazy = false,
