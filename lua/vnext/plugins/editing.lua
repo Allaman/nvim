@@ -121,6 +121,8 @@ return {
     "allaman/emoji.nvim",
     dev = true,
     ft = "markdown",
+    ---@module "emoji"
+    ---@type EmojiConfig
     opts = {
       enable_cmp_integration = true,
       plugin_path = vim.fn.expand("~/workspace/github.com/allaman"),
