@@ -60,6 +60,7 @@ return {
     "allaman/kustomize.nvim",
     dev = true,
     ft = "yaml",
+    ---@type KustomizeConfig
     opts = {
       enable_lua_snip = true,
       kinds = {
