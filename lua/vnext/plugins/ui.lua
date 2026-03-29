@@ -119,11 +119,21 @@ return {
   },
 
   {
-    "j-morano/buffer_manager.nvim", -- just for good buffer cycling 🙈
-    opts = {},
+    "akinsho/bufferline.nvim",
+    event = "BufAdd",
+    opts = {
+      options = {
+        offsets = {
+          {
+            filetype = "fyler",
+            text = "File Explorer",
+          },
+        },
+      },
+    },
     keys = {
-      { "<tab>", ":lua require('buffer_manager.ui').nav_next()<cr>", desc = "Next buffer" },
-      { "<S-tab>", ":lua require('buffer_manager.ui').nav_prev()<cr>", desc = "Prev buffer" },
+      { "<TAB>", ":BufferLineCycleNext<cr>", mode = "n", desc = "Next buffer" },
+      { "<S-TAB>", ":BufferLineCyclePrev<cr>", mode = "n", desc = "Previous buffer" },
     },
   },
 
