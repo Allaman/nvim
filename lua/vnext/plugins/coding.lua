@@ -94,6 +94,8 @@ return {
     "allaman/tf.nvim",
     dev = true,
     ft = "terraform",
+    ---@module "tf"
+    ---@type tf.ConfigPartial
     opts = {},
   },
 }
