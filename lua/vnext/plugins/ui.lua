@@ -21,6 +21,24 @@ return {
     "Bekaboo/dropbar.nvim",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
+      require("dropbar").setup({
+        bar = {
+          enable = function(buf, win, _)
+            local filetype = vim.bo[buf].filetype
+            local disabled_filetypes = { fyler = true }
+
+            if disabled_filetypes[filetype] then
+              return false
+            end
+
+            -- Reproduce the default enable conditions
+            return vim.api.nvim_buf_is_valid(buf)
+              and vim.api.nvim_win_is_valid(win)
+              and vim.bo[buf].buftype == ""
+              and not vim.api.nvim_win_get_config(win).zindex
+          end,
+        },
+      })
       vim.api.nvim_set_hl(0, "WinBar", { bg = "NONE" }) -- no background for dropbar
     end,
   },
