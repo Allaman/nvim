@@ -72,6 +72,7 @@ return {
     options = {
       disabled_filetypes = {
         statusline = {
+          "codediff-explorer",
           "neo-tree",
           "Outline",
           "snacks_picker_list",
