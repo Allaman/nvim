@@ -25,7 +25,11 @@ return {
         bar = {
           enable = function(buf, win, _)
             local filetype = vim.bo[buf].filetype
-            local disabled_filetypes = { fyler = true }
+            local disabled_filetypes = { fyler = true, ["nvim-undotree"] = true }
+
+            if filetype == "" then
+              return false
+            end
 
             if disabled_filetypes[filetype] then
               return false
