@@ -8,7 +8,7 @@ return {
         if not vim.g.autoformat then
           return
         end
-        return { async = false, timeout_ms = 500, lsp_fallback = false }
+        return { timeout_ms = 500, lsp_fallback = false }
       end,
       -- log_level = vim.log.levels.TRACE,
       formatters_by_ft = {
