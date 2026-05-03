@@ -86,6 +86,7 @@ return {
             ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
             ["<C-l>"] = { "toggle_ignored", mode = { "i", "n" } },
             ["<C-r>"] = { "toggle_regex", mode = { "i", "n" } },
+            ["<C-p>"] = { "toggle_preview", mode = { "i", "n" } },
           },
         },
       },
