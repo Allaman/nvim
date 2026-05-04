@@ -79,7 +79,6 @@ return {
           "fyler",
           "terraform-state",
           "fugitiveblame",
-          "codediff-explorer",
         },
       },
     },
