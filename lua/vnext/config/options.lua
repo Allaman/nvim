@@ -35,7 +35,6 @@ o.smartcase      = true                                            -- Don't igno
 o.smartindent    = true                                            -- Insert indents automatically
 o.splitbelow     = true                                            -- force all horizontal splits to go below current window
 o.splitright     = true                                            -- force all vertical splits to go to the right of current window
-o.tabstop        = 2                                               -- Number of spaces tabs count for
 o.tabstop        = 2                                               -- how many columns a tab counts for
 o.timeoutlen     = 300                                             -- time to wait for a mapped sequence to complete (in milliseconds)
 o.ttimeoutlen    = 0                                               -- Time in milliseconds to wait for a key code sequence to complete
