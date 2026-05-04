@@ -45,7 +45,7 @@ map("n", "<leader>fo", "gf", { desc = "Open path under cursor" })
 map("t", "<C-n>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
 -- quickfix mappings
-map("n", "<leader>j", "<cmd>cnext<cr>", { desc = "Qickfix next" })
+map("n", "<leader>j", "<cmd>cnext<cr>", { desc = "Quickfix next" })
 map("n", "<leader>k", "<cmd>cprevious<cr>", { desc = "Qickfix prev" })
 
 -- lua mappings
