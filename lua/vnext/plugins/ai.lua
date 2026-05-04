@@ -20,7 +20,7 @@ return {
       },
       panel = { enabled = false },
       keymap = {
-        accept = "C-p",
+        accept = "<C-p>",
         accept_word = false,
         accept_line = false,
         next = "<M-]>",
