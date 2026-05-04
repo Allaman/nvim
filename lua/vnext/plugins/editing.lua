@@ -120,7 +120,7 @@ return {
   {
     "allaman/emoji.nvim",
     dev = true,
-    ft = "markdown",
+    event = "BufReadPre",
     ---@module "emoji"
     ---@type EmojiConfig
     opts = {
