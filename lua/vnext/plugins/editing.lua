@@ -26,6 +26,7 @@ return {
         tex = { "latexindent" },
         toml = { "taplo" },
         typst = { "typstfmt" },
+        xml = { "xmllint" },
         yaml = { "yamlfmt" },
       },
     },
