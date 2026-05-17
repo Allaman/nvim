@@ -180,6 +180,12 @@ return {
   },
 
   {
+    "nvim-mini/mini.comment",
+    event = { "BufWritePost", "BufReadPost", "InsertLeave" },
+    opts = {},
+  },
+
+  {
     "yousefhadder/markdown-plus.nvim",
     ft = "markdown",
     opts = {},
