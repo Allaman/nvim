@@ -56,7 +56,10 @@ return {
       },
     },
     dim = { enabled = true },
-    -- explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+      replace_netrw = true,
+    },
     -- gh ={}, just to keep in mind that this exists :)
     indent = {
       enabled = true,
@@ -139,6 +142,26 @@ return {
     { "<leader>lt", function() Snacks.picker.lsp_type_definitions() end, desc = "Type Definition" },
     { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
     { "<c-n>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+    { "<leader>fp", function()
+      -- Find explorer: a non-floating snacks_picker_list window
+      local exp_win
+      for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        if vim.bo[buf].filetype == "snacks_picker_list" and vim.api.nvim_win_get_config(win).relative == "" then
+          exp_win = win
+          break
+        end
+      end
+      if exp_win then
+        if vim.api.nvim_get_current_win() == exp_win then
+          vim.api.nvim_win_close(exp_win, false)
+        else
+          vim.api.nvim_set_current_win(exp_win)
+        end
+      else
+        Snacks.explorer()
+      end
+    end, desc = "Toggle Explorer" },
   },
   -- stylua: ignore end
   init = function()

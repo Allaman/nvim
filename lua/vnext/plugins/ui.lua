@@ -25,7 +25,7 @@ return {
         bar = {
           enable = function(buf, win, _)
             local filetype = vim.bo[buf].filetype
-            local disabled_filetypes = { fyler = true, ["nvim-undotree"] = true }
+            local disabled_filetypes = { ["nvim-undotree"] = true }
 
             if filetype == "" then
               return false
@@ -127,12 +127,6 @@ return {
     event = "BufAdd",
     opts = {
       options = {
-        offsets = {
-          {
-            filetype = "fyler",
-            text = "File Explorer",
-          },
-        },
         show_buffer_close_icons = false,
         always_show_bufferline = false,
       },
@@ -190,7 +184,11 @@ return {
     enabled = true,
     lazy = false,
     config = function()
-      require("tokyonight").setup()
+      require("tokyonight").setup({
+        on_highlights = function(hl, c)
+          hl.SnacksPickerList = { bg = c.bg }
+        end,
+      })
       vim.cmd("colorscheme tokyonight-night")
     end,
   },
