@@ -32,6 +32,7 @@ return {
       "terraform",
       "templ",
       "toml",
+      "typst",
       "vim",
       "yaml",
     },
