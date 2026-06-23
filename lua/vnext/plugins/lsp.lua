@@ -94,7 +94,11 @@ return {
           },
           filetypes = { "terraform", "terraform-vars", "tf" },
         },
-        tinymist = {},
+        tinymist = {
+          settings = {
+            formatterMode = "typstyle",
+          },
+        },
         taplo = {
           settings = {
             taplo = {

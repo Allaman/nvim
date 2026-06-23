@@ -3,12 +3,12 @@ return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile", "InsertLeave" },
     opts = {
-      format_on_save = function()
-        -- Disable with a global variable
+      format_on_save = function(bufnr)
         if not vim.g.autoformat then
           return
         end
-        return { timeout_ms = 500, lsp_fallback = false }
+        local lsp_fallback = vim.bo[bufnr].filetype == "typst" and true or false
+        return { timeout_ms = 500, lsp_fallback = lsp_fallback }
       end,
       -- log_level = vim.log.levels.TRACE,
       formatters_by_ft = {
@@ -25,7 +25,6 @@ return {
         ["terraform-vars"] = { "terraform_fmt" },
         tex = { "latexindent" },
         toml = { "taplo" },
-        typst = { "typstfmt" },
         xml = { "xmllint" },
         yaml = { "yamlfmt" },
       },
