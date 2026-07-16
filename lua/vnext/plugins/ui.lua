@@ -193,6 +193,9 @@ return {
       require("tokyonight").setup({
         on_highlights = function(hl, c)
           hl.SnacksPickerList = { bg = c.bg }
+          -- purple scope/chunk line so it can't be confused with gitsigns bars
+          hl.SnacksIndentScope = { fg = c.purple }
+          hl.SnacksIndentChunk = { fg = c.purple }
         end,
       })
       vim.cmd("colorscheme tokyonight-night")
