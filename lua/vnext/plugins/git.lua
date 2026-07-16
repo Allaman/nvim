@@ -134,6 +134,9 @@ return {
         indent_markers = false,
         view_mode = "tree",
       },
+      diff = {
+        original_position = "right", -- Position of original (old) content: "left" or "right"
+      },
     },
     keys = {
       -- { "<leader>gF", "<cmd>CodeDiff history %s<cr>", desc = "File history" },
