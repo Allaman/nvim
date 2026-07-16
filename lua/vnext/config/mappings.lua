@@ -118,7 +118,14 @@ vim.keymap.set("n", "<CR>", function()
   if foldlevel == 0 then
     vim.notify("No fold found", vim.log.levels.INFO)
   else
-    vim.cmd("normal! za")
+    -- In codediff panes, go through the mapped `za` (no "!") so its buffer-local
+    -- fold-sync wrapper mirrors the fold to the other pane. Elsewhere use the
+    -- built-in `za` directly.
+    if vim.w.codediff_restore then
+      vim.cmd("normal za")
+    else
+      vim.cmd("normal! za")
+    end
     vim.cmd("normal! zz") -- center the cursor line on screen
   end
 end, { desc = "Toggle fold" })
