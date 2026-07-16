@@ -35,6 +35,12 @@ return {
               return false
             end
 
+            -- Disable in codediff.nvim diff panes: only one side is a real
+            -- file buffer, so a one-sided winbar offsets the diff by a line.
+            if vim.w[win].codediff_restore then
+              return false
+            end
+
             -- Reproduce the default enable conditions
             return vim.api.nvim_buf_is_valid(buf)
               and vim.api.nvim_win_is_valid(win)
