@@ -130,6 +130,21 @@ vim.keymap.set("n", "<CR>", function()
   end
 end, { desc = "Toggle fold" })
 
+-- Cycle foldlevel: 0 (all closed) -> 1 -> ... -> deepest (all open) -> wrap to 0
+map("n", "<leader>z", function()
+  local max = 0
+  for lnum = 1, vim.fn.line("$") do
+    max = math.max(max, vim.fn.foldlevel(lnum))
+  end
+  if max == 0 then
+    vim.notify("No folds", vim.log.levels.INFO)
+    return
+  end
+  local level = vim.wo.foldlevel >= max and 0 or vim.wo.foldlevel + 1
+  vim.wo.foldlevel = level
+  vim.notify("foldlevel: " .. level .. "/" .. max, vim.log.levels.INFO)
+end, { desc = "Cycle fold levels" })
+
 map("n", "<leader>uI", function()
   vim.treesitter.inspect_tree()
   vim.api.nvim_input("I")
