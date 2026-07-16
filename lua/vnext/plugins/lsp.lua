@@ -44,6 +44,7 @@ return {
             },
           },
         },
+        -- harper_ls = {},
         lua_ls = {
           settings = {
             Lua = {
