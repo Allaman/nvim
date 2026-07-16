@@ -6,6 +6,7 @@ return {
       linters_by_ft = {
         dockerfile = { "hadolint" },
         go = { "golangcilint" },
+        javascript = { "oxlint" },
         lua = { "selene" },
         markdown = { "markdownlint-cli2" },
         yaml = { "yamllint" },
