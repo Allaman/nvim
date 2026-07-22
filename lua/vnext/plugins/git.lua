@@ -135,6 +135,7 @@ return {
         view_mode = "tree",
       },
       diff = {
+        compact = true,
         original_position = "right", -- Position of original (old) content: "left" or "right"
       },
     },
