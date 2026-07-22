@@ -9,6 +9,7 @@ return {
         javascript = { "oxlint" },
         lua = { "selene" },
         markdown = { "markdownlint-cli2" },
+        terraform = { "tflint" },
         yaml = { "yamllint" },
       },
     },
