@@ -150,3 +150,17 @@ vim.api.nvim_create_user_command("YamlCopyPath", function()
     vim.notify("Could not determine YAML path", vim.log.levels.WARN)
   end
 end, {})
+
+-- Change working directory to git root
+vim.api.nvim_create_user_command("GR", function()
+  local result = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null")
+
+  if vim.v.shell_error ~= 0 then
+    vim.notify("Not in a git repository", vim.log.levels.WARN)
+    return
+  end
+
+  local git_root = vim.trim(result)
+  vim.cmd("cd " .. git_root)
+  vim.notify("Changed directory to git root: " .. git_root, vim.log.levels.INFO)
+end, {})
