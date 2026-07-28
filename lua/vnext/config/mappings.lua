@@ -44,9 +44,6 @@ map("n", "<leader>fo", "gf", { desc = "Open path under cursor" })
 -- terminal mappings
 map("t", "<C-n>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
--- quickfix mappings
-map("n", "<leader>j", "<cmd>cnext<cr>", { desc = "Quickfix next" })
-map("n", "<leader>k", "<cmd>cprevious<cr>", { desc = "Qickfix prev" })
 
 -- lua mappings
 vim.api.nvim_create_autocmd("FileType", {
