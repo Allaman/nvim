@@ -44,6 +44,17 @@ map("n", "<leader>fo", "gf", { desc = "Open path under cursor" })
 -- terminal mappings
 map("t", "<C-n>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
+map("n", "<leader>uq", function()
+  local is_open = false
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    -- win.quickfix is 1 for location lists too; use `and win.loclist == 0` to ignore them
+    if win.quickfix == 1 then
+      is_open = true
+      break
+    end
+  end
+  vim.cmd(is_open and "cclose" or "copen")
+end, { desc = "Toggle Quickfix" })
 
 -- lua mappings
 vim.api.nvim_create_autocmd("FileType", {
