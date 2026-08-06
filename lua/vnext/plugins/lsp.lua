@@ -111,7 +111,9 @@ return {
             },
           },
         },
-        ts_ls = {},
+        tsgo = {
+          cmd = { "tsc", "--lsp", "-stdio" },
+        },
         yamlls = {
           capabilities = {
             textDocument = {
