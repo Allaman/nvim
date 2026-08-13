@@ -44,7 +44,33 @@ return {
             },
           },
         },
-        -- harper_ls = {},
+        harper_ls = {
+          settings = {
+            ["harper-ls"] = {
+              userDictPath = "~/.config/harper-ls/dictionary.txt",
+              -- Grammar suggestions as hints, not red errors — keeps code buffers calm
+              diagnosticSeverity = "hint",
+              dialect = "American",
+              linters = {
+                -- Noisy in code comments (fragments, not full sentences):
+                SentenceCapitalization = false,
+                SpelledNumbers = false,
+                -- Genuinely useful everywhere:
+                SpellCheck = true,
+                RepeatedWords = true,
+                LongSentences = true,
+                UnclosedQuotes = true,
+                Spaces = true,
+                BoringWords = false,
+                LinkingVerbs = false,
+              },
+              markdown = {
+                IgnoreLinkTitle = true,
+              },
+              isolateEnglish = false,
+            },
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
