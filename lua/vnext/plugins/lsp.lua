@@ -137,9 +137,7 @@ return {
             },
           },
         },
-        tsgo = {
-          cmd = { "tsc", "--lsp", "-stdio" },
-        },
+        tsc = {},
         yamlls = {
           capabilities = {
             textDocument = {
