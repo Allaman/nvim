@@ -77,7 +77,6 @@ return {
           "Outline",
           "snacks_picker_list",
           "terraform-state",
-          "sidekick_terminal",
           "fugitiveblame",
         },
       },
