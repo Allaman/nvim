@@ -3,6 +3,7 @@ local o = vim.opt
 vim.g.autoformat = true -- global var for toggling autoformat
 
 -- stylua: ignore start
+o.autoread       = true                                            -- auto reload a file modified outside of Neovim
 o.clipboard      = "unnamedplus"                                   -- keep in sync with the system clipboard
 o.cursorline     = false                                           -- highlight the current line
 o.dir            = vim.fn.stdpath("data") .. "/swp"                -- swap file directory
