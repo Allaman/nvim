@@ -11,7 +11,9 @@ o.diffopt        = "internal,filler,closeoff,linematch:60"         -- improve di
 o.fillchars      = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:" -- hide ~ at the end of buffer and set fold symbols
 o.foldenable = true                                                -- enable folding
 o.foldmethod = "expr"
-o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+o.foldexpr = function ()
+  return vim.treesitter.foldexpr()
+end
 o.foldlevel = 99
 o.foldlevelstart = -1                                               -- top level folds only are closed by default
 o.foldnestmax = 4                                                  -- max level of folds
