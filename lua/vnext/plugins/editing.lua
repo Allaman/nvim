@@ -103,7 +103,6 @@ return {
     {
       "folke/todo-comments.nvim",
       event = "BufReadPre", -- needed to highlight keywords
-      dependencies = { "nvim-lua/plenary.nvim" },
       opts = {
         highlight = {
           multiline = false, -- I usually only want one line to be highlighted
