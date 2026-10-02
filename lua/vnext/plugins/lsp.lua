@@ -108,7 +108,6 @@ return {
             },
           },
         },
-        kulala_ls = {},
         -- https://www.reddit.com/r/neovim/comments/1mdtr4g/emmylua_ls_is_supersnappy/
         -- emmylua_ls = {},
         marksman = {},
