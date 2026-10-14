@@ -1,0 +1,58 @@
+return {
+  cmd = { "harper-ls", "--stdio" },
+  filetypes = {
+    "asciidoc",
+    "c",
+    "cpp",
+    "cs",
+    "gitcommit",
+    "go",
+    "html",
+    "java",
+    "javascript",
+    "lua",
+    "markdown",
+    "nix",
+    "python",
+    "ruby",
+    "rust",
+    "swift",
+    "tex",
+    "toml",
+    "typescript",
+    "typescriptreact",
+    "haskell",
+    "cmake",
+    "typst",
+    "php",
+    "dart",
+    "clojure",
+    "sh",
+  },
+  root_markers = { ".harper-dictionary.txt", ".git" },
+  settings = {
+    ["harper-ls"] = {
+      userDictPath = "~/.config/harper-ls/dictionary.txt",
+      -- Grammar suggestions as hints, not red errors — keeps code buffers calm
+      diagnosticSeverity = "hint",
+      dialect = "American",
+      linters = {
+        -- Noisy in code comments (fragments, not full sentences):
+        SentenceCapitalization = false,
+        SpelledNumbers = false,
+        -- Genuinely useful everywhere:
+        SpellCheck = true,
+        RepeatedWords = true,
+        LongSentences = true,
+        UnclosedQuotes = true,
+        Spaces = true,
+        BoringWords = false,
+        LinkingVerbs = false,
+      },
+      markdown = {
+        IgnoreLinkTitle = true,
+      },
+      isolateEnglish = false,
+    },
+  },
+}
