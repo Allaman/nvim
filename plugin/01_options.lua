@@ -1,6 +1,7 @@
 local o = vim.opt
 
 vim.g.autoformat = true -- global var for toggling autoformat
+o.packlockfile = "~/.nvim-pack-lock.json"
 
 -- stylua: ignore start
 o.autoread       = true                                            -- auto reload a file modified outside of Neovim
