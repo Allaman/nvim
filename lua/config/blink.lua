@@ -60,6 +60,18 @@ M.opts = {
         should_show_items = function(ctx)
           return ctx.trigger.initial_kind ~= "trigger_character" and not require("blink.cmp").snippet_active()
         end,
+        -- friendly-snippets maps global.json to both "markdown" and "all", so it loads twice
+        transform_items = function(_, items)
+          local seen = {}
+          return vim.tbl_filter(function(item)
+            local key = item.label .. (item.insertText or "")
+            if seen[key] then
+              return false
+            end
+            seen[key] = true
+            return true
+          end, items)
+        end,
       },
 
       buffer = {
