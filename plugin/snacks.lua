@@ -46,19 +46,6 @@ Snacks.setup({
         title = "Recent Files",
         padding = 1,
       },
-
-      {
-        icon = " ",
-        title = "Git Status",
-        section = "terminal",
-        enabled = function()
-          return Snacks.git.get_root() ~= nil
-        end,
-        cmd = "git status --short --branch --renames",
-        height = 5,
-        padding = 1,
-        ttl = 5 * 60,
-      },
     },
   },
 
@@ -313,7 +300,7 @@ Snacks.toggle.line_number():map("<leader>ul")
 Snacks.toggle.option("conceallevel", {
   off = 0,
   on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2,
-}):map("<leader>uc")
+}):map("<leader>uC")
 Snacks.toggle.inlay_hints():map("<leader>uh")
 Snacks.toggle.dim():map("<leader>uD")
 -- stylua: ignore end
