@@ -66,15 +66,6 @@ map("n", "<leader>uq", function()
   vim.cmd(is_open and "cclose" or "copen")
 end, { desc = "Toggle Quickfix" })
 
--- lua mappings
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lua",
-  callback = function(args)
-    map("n", "<leader>x", ":.lua<cr>", { desc = "Source current line", buffer = args.buf })
-    map("v", "<leader>x", ":lua<cr>", { desc = "Source current range", buffer = args.buf })
-  end,
-})
-
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   local closers = { ")", "]", "}", ">", "'", '"', "`", "," }
@@ -97,7 +88,7 @@ map("i", "<C-l>", function()
   end
 end, { desc = "move over a closing element" })
 
--- Disable default mappings to declutter which-key
+-- Disable default mappings to declutter clue
 pcall(vim.api.nvim_del_keymap, "n", "gra") -- vim.lsp.buf...
 pcall(vim.api.nvim_del_keymap, "x", "gra") -- vim.lsp.buf...
 pcall(vim.api.nvim_del_keymap, "n", "gri") -- vim.lsp.buf...
@@ -105,9 +96,6 @@ pcall(vim.api.nvim_del_keymap, "n", "grn") -- vim.lsp.buf...
 pcall(vim.api.nvim_del_keymap, "n", "grr") -- vim.lsp.buf...
 pcall(vim.api.nvim_del_keymap, "n", "grt") -- vim.lsp.buf...
 pcall(vim.api.nvim_del_keymap, "n", "gO") -- vim.lsp.buf...
-
-pcall(vim.api.nvim_del_keymap, "n", "]d") -- vim.lsp.buf...
-pcall(vim.api.nvim_del_keymap, "n", "]D") -- vim.lsp.buf...
 
 pcall(vim.api.nvim_del_keymap, "n", "gx") -- open filepath under cursor
 pcall(vim.api.nvim_del_keymap, "x", "gx") -- open filepath under cursor
