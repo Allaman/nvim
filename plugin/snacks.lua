@@ -18,9 +18,11 @@ Snacks.setup({
       keys = {
         { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.files({ filter = { cwd = true }, layout = 'default' })" },
         { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+        { icon = " ", key = "G", desc = "Git Files", action = ":lua Snacks.picker.git_status()" },
         { icon = " ", key = "s", desc = "Find Text", action = ":lua Snacks.picker.grep({ layout = 'default' })" },
+        { icon = " ", key = "r", desc = "Search&Replace", action = ":GrugFar" },
         { icon = " ", key = "b", desc = "File browser", action = function() require("yazi").yazi(nil, vim.fn.getcwd()) end },
-        { icon = " ", key = "g", desc = "Git", action = ":G" },
+        { icon = " ", key = "g", desc = "Git", action = ":LazyGit" },
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         -- stylua: ignore end
       },
@@ -300,7 +302,7 @@ Snacks.toggle.line_number():map("<leader>ul")
 Snacks.toggle.option("conceallevel", {
   off = 0,
   on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2,
-}):map("<leader>uC")
+}):map("<leader>uc")
 Snacks.toggle.inlay_hints():map("<leader>uh")
 Snacks.toggle.dim():map("<leader>uD")
 -- stylua: ignore end
