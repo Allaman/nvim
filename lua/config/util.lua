@@ -33,38 +33,36 @@ function M.pack(repo, opts)
     error("Could not determine plugin name from repository: " .. repo)
   end
 
-  -- Local development checkout
+  -- Local development checkout; fall back to Git when it's absent, e.g. in
+  -- Docker builds where no dev workspaces exist
   if opts.dev then
     local path = vim.fs.joinpath(DEV_ROOT, name)
 
-    if not vim.uv.fs_stat(path) then
-      error("Dev plugin does not exist: " .. path)
+    if vim.uv.fs_stat(path) then
+      -- Make Lua modules, autoload files, queries, ftplugins, etc. available.
+      vim.opt.runtimepath:prepend(path)
+
+      -- `after/` belongs at the end of runtimepath.
+      local after = vim.fs.joinpath(path, "after")
+      if vim.uv.fs_stat(after) then
+        vim.opt.runtimepath:append(after)
+      end
+
+      -- Since this helper is called from files under `plugin/`, Neovim may
+      -- already be in the plugin-loading phase. Merely modifying runtimepath
+      -- doesn't guarantee this plugin's startup scripts are sourced.
+      --
+      -- Explicitly source them so commands, autocmds, etc. are registered.
+      source_runtime_files(path, "plugin/**/*.{vim,lua}")
+
+      -- Filetype detection scripts have the same issue when a plugin is added
+      -- to runtimepath after filetype detection has already been initialized.
+      source_runtime_files(path, "ftdetect/*.{vim,lua}")
+
+      return path
     end
-
-    -- Make Lua modules, autoload files, queries, ftplugins, etc. available.
-    vim.opt.runtimepath:prepend(path)
-
-    -- `after/` belongs at the end of runtimepath.
-    local after = vim.fs.joinpath(path, "after")
-    if vim.uv.fs_stat(after) then
-      vim.opt.runtimepath:append(after)
-    end
-
-    -- Since this helper is called from files under `plugin/`, Neovim may
-    -- already be in the plugin-loading phase. Merely modifying runtimepath
-    -- doesn't guarantee this plugin's startup scripts are sourced.
-    --
-    -- Explicitly source them so commands, autocmds, etc. are registered.
-    source_runtime_files(path, "plugin/**/*.{vim,lua}")
-
-    -- Filetype detection scripts have the same issue when a plugin is added
-    -- to runtimepath after filetype detection has already been initialized.
-    source_runtime_files(path, "ftdetect/*.{vim,lua}")
-
-    return path
   end
 
-  -- Normal vim.pack-managed plugin
   vim.pack.add({
     {
       src = M.gh(repo),
