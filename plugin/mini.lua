@@ -59,15 +59,6 @@ miniclue.setup({
   },
 })
 
--- Snacks dashboard is an unlisted special buffer, so MiniClue does not
--- automatically install its trigger mappings there.
-vim.api.nvim_create_autocmd("User", {
-  pattern = "SnacksDashboardOpened",
-  callback = function()
-    miniclue.ensure_buf_triggers()
-  end,
-})
-
 vim.pack.add({ gh("nvim-mini/mini.surround") })
 require("mini.surround").setup({
   -- Number of lines within which surrounding is searched
