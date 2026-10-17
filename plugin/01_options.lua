@@ -6,7 +6,7 @@ o.packlockfile = "~/.nvim-pack-lock.json"
 -- stylua: ignore start
 o.autoread       = true                                            -- auto reload a file modified outside of Neovim
 o.clipboard      = "unnamedplus"                                   -- keep in sync with the system clipboard
-o.cursorline     = false                                           -- highlight the current line
+o.cursorline     = true                                           -- highlight the current line
 o.dir            = vim.fn.stdpath("data") .. "/swp"                -- swap file directory
 o.expandtab      = true                                            -- use spaces instead of tabs
 o.diffopt        = "internal,filler,closeoff,linematch:60"         -- improve diff visualization
