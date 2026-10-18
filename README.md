@@ -1,4 +1,4 @@
-<h1 align="center">My Neovim Configuration</h1
+<h1 align="center">My Neovim Configuration</h1>
 
 <div align="center"><p>
     <a href="https://github.com/neovim/neovim">
