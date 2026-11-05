@@ -1,15 +1,12 @@
-local gh = require("config.util").gh
+local util = require("config.util")
 
-vim.pack.add({ gh("Allaman/emoji.nvim") })
-
-local emoji_pack = vim.pack.get({ "emoji.nvim" }, {
-  info = false,
-})[1]
+local emoji_path = util.pack("allaman/emoji.nvim", { dev = true })
+  or vim.pack.get({ "emoji.nvim" }, { info = false })[1].path
 
 require("emoji").setup({
   enable_cmp_integration = true,
 
-  plugin_path = emoji_pack and vim.fs.dirname(emoji_pack.path) or nil,
+  plugin_path = vim.fs.dirname(emoji_path),
 })
 
 local blink = require("config.blink")
